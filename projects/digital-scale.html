@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom Digital Scale — Chase Quijano</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="grid-bg"></div>
+  <div class="content">
+    <nav id="nav">
+      <a href="../" class="nav-name">Chase Quijano</a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="../projects/" class="active">Projects</a>
+        <a href="../#skills">Skills</a>
+        <a href="../#about">About</a>
+        <a href="../#contact">Contact</a>
+        <a href="../resume.html" class="nav-resume">Resume</a>
+      </div>
+    </nav>
+
+    <div class="project-hero">
+      <a href="../projects/" class="project-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12,19 5,12 12,5"/></svg>All Projects</a>
+      <div class="project-hero-number">003 · Manufacturing</div>
+      <h1 class="project-hero-title">Custom Digital Scale</h1>
+      <div class="project-hero-subtitle">Manufacturing & Measurement Techniques · Rowan University · 2024</div>
+      <p class="project-hero-desc">Designed and manufactured a fully functional digital scale from scratch — CNC-machined a custom load cell from aluminum billet, validated with FEA simulation, 3D printed enclosures, and wrote embedded firmware for multi-unit measurement with tare calibration. A full-stack manufacturing project from raw material to working instrument.</p>
+      <div class="project-hero-tags">
+        <span class="tag">Fusion 360</span><span class="tag">SolidWorks</span><span class="tag">FEA</span><span class="tag">CNC Milling</span><span class="tag">Manual Lathe</span><span class="tag">Arduino</span><span class="tag">HX711</span><span class="tag">3D Printing</span><span class="tag">GD&T</span>
+      </div>
+      <div class="project-hero-metrics">
+        <div><div class="phm-value">±1%</div><div class="phm-label">Measurement Accuracy</div></div>
+        <div><div class="phm-value">0–3 kg</div><div class="phm-label">Operating Range</div></div>
+        <div><div class="phm-value">IP31</div><div class="phm-label">Enclosure Rating</div></div>
+        <div><div class="phm-value">6010 Al</div><div class="phm-label">Load Cell Material</div></div>
+      </div>
+    </div>
+
+    <div class="project-section">
+      <div class="ps-label">Challenge</div>
+      <h2 class="ps-title">Precision Measurement from Raw Material</h2>
+      <div class="ps-content">
+        <div class="ps-text">
+          <p>The project brief was to design and manufacture a functional digital scale entirely from scratch — no off-the-shelf load cells allowed. This meant designing a custom strain-gauge-based load cell, machining it from billet aluminum, building the signal conditioning electronics, creating enclosures, and writing firmware to turn raw analog signals into calibrated weight readings.</p>
+          <h4>Key Requirements</h4>
+          <ul>
+            <li>Custom-machined load cell with predictable deflection characteristics</li>
+            <li>FEA validation before committing to CNC machining</li>
+            <li>Multi-unit display (grams, ounces, pounds)</li>
+            <li>Tare function for container compensation</li>
+            <li>IP31 enclosure to protect electronics from light dust and dripping</li>
+            <li>All manufacturing done in-house using university shop equipment</li>
+          </ul>
+        </div>
+        <div class="ps-visual">
+          <svg viewBox="0 0 300 220" fill="none" style="width:85%;max-width:280px;">
+            <path d="M50 150 L50 100 Q50 85 65 80 L235 80 Q250 85 250 100 L250 150 Q250 165 235 170 L65 170 Q50 165 50 150Z" stroke="#D07242" stroke-width="1.2" fill="none"/>
+            <rect x="70" y="45" width="160" height="18" rx="3" stroke="#D07242" stroke-width="1" opacity="0.5"/>
+            <line x1="90" y1="63" x2="90" y2="80" stroke="#D07242" stroke-width="0.5" stroke-dasharray="2 2" opacity="0.3"/>
+            <line x1="210" y1="63" x2="210" y2="80" stroke="#D07242" stroke-width="0.5" stroke-dasharray="2 2" opacity="0.3"/>
+            <rect x="95" y="95" width="80" height="30" rx="3" stroke="#D07242" stroke-width="1" fill="#D07242" fill-opacity="0.04"/>
+            <text x="135" y="114" text-anchor="middle" font-family="monospace" font-size="10" fill="#D07242" font-weight="bold" opacity="0.5">1024.7g</text>
+            <rect x="110" y="135" width="80" height="10" rx="2" stroke="#D07242" stroke-width="0.5" stroke-dasharray="2 2" opacity="0.25"/>
+            <text x="150" y="143" text-anchor="middle" font-family="monospace" font-size="4" fill="#D07242" opacity="0.3">LOAD CELL (6010 AL)</text>
+            <text x="150" y="205" text-anchor="middle" font-family="monospace" font-size="6" fill="#D07242" opacity="0.3">CUSTOM DIGITAL SCALE</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-section">
+      <div class="ps-label">Design & Simulation</div>
+      <h2 class="ps-title">FEA-Validated Load Cell Design</h2>
+      <div class="ps-content">
+        <div class="ps-text">
+          <p>The load cell was designed in Fusion 360 as a cantilever beam geometry machined from 6010 aluminum alloy. The beam cross-section was optimized to produce measurable deflection under the target load range (0–3 kg) while staying well within the elastic region of the material.</p>
+          <p>Before machining, the design was validated using SolidWorks Simulation (static stress analysis). The FEA confirmed that peak Von Mises stress under maximum load remained below the yield strength with an adequate safety factor, and that the predicted deflection at the strain gauge mounting location would produce sufficient signal amplitude for the HX711 ADC to resolve.</p>
+          <h4>Manufacturing Process</h4>
+          <ul>
+            <li>CNC milled the load cell beam from 6010 aluminum billet on a 3-axis Haas</li>
+            <li>Manual lathe operations for precision cylindrical features</li>
+            <li>Surface finishing to ensure clean strain gauge bonding</li>
+            <li>Strain gauges bonded and wired in a Wheatstone bridge configuration</li>
+            <li>ABS enclosure 3D printed in a clamshell design with heat-set threaded inserts</li>
+          </ul>
+        </div>
+        <div class="ps-visual">
+          <svg viewBox="0 0 300 240" fill="none" style="width:90%;max-width:300px;">
+            <!-- FEA mesh visualization -->
+            <text x="150" y="20" text-anchor="middle" font-family="monospace" font-size="6" fill="#D07242" opacity="0.5">FEA STRESS ANALYSIS</text>
+            <!-- Beam -->
+            <rect x="40" y="80" width="220" height="30" rx="2" stroke="#D07242" stroke-width="1" fill="none"/>
+            <!-- Mesh lines -->
+            <line x1="70" y1="80" x2="70" y2="110" stroke="#D07242" stroke-width="0.3" opacity="0.2"/>
+            <line x1="100" y1="80" x2="100" y2="110" stroke="#D07242" stroke-width="0.3" opacity="0.2"/>
+            <line x1="130" y1="80" x2="130" y2="110" stroke="#D07242" stroke-width="0.3" opacity="0.2"/>
+            <line x1="160" y1="80" x2="160" y2="110" stroke="#D07242" stroke-width="0.3" opacity="0.2"/>
+            <line x1="190" y1="80" x2="190" y2="110" stroke="#D07242" stroke-width="0.3" opacity="0.2"/>
+            <line x1="220" y1="80" x2="220" y2="110" stroke="#D07242" stroke-width="0.3" opacity="0.2"/>
+            <line x1="40" y1="95" x2="260" y2="95" stroke="#D07242" stroke-width="0.3" opacity="0.2"/>
+            <!-- Stress gradient -->
+            <rect x="40" y="80" width="30" height="30" fill="#D07242" fill-opacity="0.15"/>
+            <rect x="70" y="80" width="30" height="30" fill="#D07242" fill-opacity="0.12"/>
+            <rect x="100" y="80" width="30" height="30" fill="#D07242" fill-opacity="0.08"/>
+            <rect x="130" y="80" width="30" height="30" fill="#D07242" fill-opacity="0.05"/>
+            <rect x="160" y="80" width="30" height="30" fill="#D07242" fill-opacity="0.03"/>
+            <!-- Fixed support -->
+            <line x1="40" y1="70" x2="40" y2="120" stroke="#D07242" stroke-width="1.5" opacity="0.4"/>
+            <line x1="35" y1="75" x2="40" y2="70" stroke="#D07242" stroke-width="0.6" opacity="0.3"/>
+            <line x1="35" y1="85" x2="40" y2="80" stroke="#D07242" stroke-width="0.6" opacity="0.3"/>
+            <line x1="35" y1="95" x2="40" y2="90" stroke="#D07242" stroke-width="0.6" opacity="0.3"/>
+            <line x1="35" y1="105" x2="40" y2="100" stroke="#D07242" stroke-width="0.6" opacity="0.3"/>
+            <line x1="35" y1="115" x2="40" y2="110" stroke="#D07242" stroke-width="0.6" opacity="0.3"/>
+            <!-- Force arrow -->
+            <line x1="260" y1="60" x2="260" y2="78" stroke="#D07242" stroke-width="1" opacity="0.5"/>
+            <polyline points="255,73 260,80 265,73" stroke="#D07242" stroke-width="0.8" fill="none" opacity="0.5"/>
+            <text x="260" y="55" text-anchor="middle" font-family="monospace" font-size="5" fill="#D07242" opacity="0.4">F = 29.4N</text>
+            <!-- Strain gauge location -->
+            <rect x="55" y="88" width="20" height="4" rx="1" stroke="#D07242" stroke-width="0.8" fill="#D07242" fill-opacity="0.2"/>
+            <text x="65" y="84" text-anchor="middle" font-family="monospace" font-size="4" fill="#D07242" opacity="0.4">GAUGE</text>
+            <!-- Legend -->
+            <text x="50" y="150" font-family="monospace" font-size="5" fill="#D07242" opacity="0.4">MAX STRESS</text>
+            <rect x="100" y="145" width="30" height="6" rx="1" fill="#D07242" fill-opacity="0.15"/>
+            <text x="145" y="150" font-family="monospace" font-size="5" fill="#D07242" opacity="0.4">→</text>
+            <text x="165" y="150" font-family="monospace" font-size="5" fill="#D07242" opacity="0.4">MIN STRESS</text>
+            <rect x="210" y="145" width="30" height="6" rx="1" fill="#D07242" fill-opacity="0.03"/>
+            <text x="150" y="220" text-anchor="middle" font-family="monospace" font-size="6" fill="#D07242" opacity="0.3">CANTILEVER BEAM · 6010 ALUMINUM</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-section">
+      <div class="ps-label">Electronics & Firmware</div>
+      <h2 class="ps-title">Signal Conditioning & Calibration</h2>
+      <div class="ps-content ps-full">
+        <div class="ps-text">
+          <p>The electronics stack uses an HX711 24-bit ADC to read the Wheatstone bridge output from the strain gauges, connected to an Arduino microcontroller. The firmware implements a multi-point calibration routine that maps raw ADC counts to calibrated weight values, with temperature compensation for thermal drift.</p>
+          <p>User-facing features include real-time LCD weight display, unit switching between grams/ounces/pounds, a tare function for zeroing out container weight, and an auto-power-off timer for battery conservation. The clamshell ABS enclosure was designed with recessed button wells and a display window, achieving an IP31 ingress protection rating to guard against light dust and vertical dripping.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-nav">
+      <a href="exoskeleton.html">← Previous<span class="project-nav-title">Exoskeleton Control System</span></a>
+      <a href="soft-robotics.html" class="next">Next Project →<span class="project-nav-title">Soft Robotics Flex PCB</span></a>
+    </div>
+
+    <footer><div class="footer-text">© 2026 Chase Quijano</div><div class="footer-text">Rowan University · Engineering Entrepreneurship</div></footer>
+  </div>
+  <script>window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 50));</script>
+</body>
+</html>

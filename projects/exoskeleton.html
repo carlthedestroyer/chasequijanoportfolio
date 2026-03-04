@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exoskeleton Control System — Chase Quijano</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="grid-bg"></div>
+  <div class="content">
+    <nav id="nav">
+      <a href="../" class="nav-name">Chase Quijano</a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="../projects/" class="active">Projects</a>
+        <a href="../#skills">Skills</a>
+        <a href="../#about">About</a>
+        <a href="../#contact">Contact</a>
+        <a href="../resume.html" class="nav-resume">Resume</a>
+      </div>
+    </nav>
+
+    <div class="project-hero">
+      <a href="../projects/" class="project-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12,19 5,12 12,5"/></svg>All Projects</a>
+      <div class="project-hero-number">002 · Research</div>
+      <h1 class="project-hero-title">Exoskeleton PCB & Control System</h1>
+      <div class="project-hero-subtitle">Undergraduate Research · Rowan University · 2024</div>
+      <p class="project-hero-desc">Designed a large-scale integrated PCB and complete control system for an upper-body exoskeleton. The project involved driving multiple brushless DC motors, integrating solar charging, real-time PID control via Raspberry Pi, and fabricating custom 3D-printed enclosures for a functional research prototype.</p>
+      <div class="project-hero-tags">
+        <span class="tag">KiCad</span><span class="tag">BLDC Motors</span><span class="tag">Raspberry Pi</span><span class="tag">PID Control</span><span class="tag">Solar Charging</span><span class="tag">Python</span><span class="tag">3D Printing</span><span class="tag">OLED</span><span class="tag">BNO085</span><span class="tag">Teensy 4.1</span>
+      </div>
+      <div class="project-hero-metrics">
+        <div><div class="phm-value">6-DOF</div><div class="phm-label">Motor Control</div></div>
+        <div><div class="phm-value">8</div><div class="phm-label">IMU Sensors</div></div>
+        <div><div class="phm-value">Custom</div><div class="phm-label">PCB + Enclosure</div></div>
+        <div><div class="phm-value">Solar</div><div class="phm-label">Powered System</div></div>
+      </div>
+    </div>
+
+    <div class="project-section">
+      <div class="ps-label">Problem</div>
+      <h2 class="ps-title">Control Electronics for Assistive Exoskeletons</h2>
+      <div class="ps-content">
+        <div class="ps-text">
+          <p>Upper-body exoskeletons require precise, coordinated motor control across multiple joints — shoulders, elbows, and wrists — with real-time feedback from inertial measurement units. The control electronics must be compact enough to mount on the exoskeleton frame while handling the power demands of multiple brushless DC motors.</p>
+          <p>This research project required designing integrated electronics that could drive multiple BLDC motors simultaneously, process IMU data for real-time position feedback, and operate from a solar-charged battery system for extended autonomous use. The system also needed a debug/status display and wireless data logging capability.</p>
+        </div>
+        <div class="ps-visual">
+          <svg viewBox="0 0 300 200" fill="none" style="width:85%;max-width:280px;">
+            <!-- Stick figure with exo -->
+            <line x1="150" y1="40" x2="150" y2="100" stroke="#6B8EAE" stroke-width="1.2" opacity="0.5"/>
+            <circle cx="150" cy="32" r="10" stroke="#6B8EAE" stroke-width="1" opacity="0.5"/>
+            <!-- Arms -->
+            <line x1="150" y1="55" x2="120" y2="80" stroke="#6B8EAE" stroke-width="1" opacity="0.5"/>
+            <line x1="120" y1="80" x2="100" y2="110" stroke="#6B8EAE" stroke-width="1" opacity="0.5"/>
+            <line x1="150" y1="55" x2="180" y2="80" stroke="#6B8EAE" stroke-width="1" opacity="0.5"/>
+            <line x1="180" y1="80" x2="200" y2="110" stroke="#6B8EAE" stroke-width="1" opacity="0.5"/>
+            <!-- Exo overlay -->
+            <line x1="150" y1="55" x2="116" y2="82" stroke="#6B8EAE" stroke-width="2.5" opacity="0.3"/>
+            <line x1="116" y1="82" x2="96" y2="112" stroke="#6B8EAE" stroke-width="2.5" opacity="0.3"/>
+            <line x1="150" y1="55" x2="184" y2="82" stroke="#6B8EAE" stroke-width="2.5" opacity="0.3"/>
+            <line x1="184" y1="82" x2="204" y2="112" stroke="#6B8EAE" stroke-width="2.5" opacity="0.3"/>
+            <!-- Motor nodes -->
+            <circle cx="120" cy="80" r="5" stroke="#6B8EAE" stroke-width="1" fill="#6B8EAE" fill-opacity="0.08"/>
+            <circle cx="180" cy="80" r="5" stroke="#6B8EAE" stroke-width="1" fill="#6B8EAE" fill-opacity="0.08"/>
+            <circle cx="100" cy="110" r="5" stroke="#6B8EAE" stroke-width="1" fill="#6B8EAE" fill-opacity="0.08"/>
+            <circle cx="200" cy="110" r="5" stroke="#6B8EAE" stroke-width="1" fill="#6B8EAE" fill-opacity="0.08"/>
+            <text x="110" y="72" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.5">M1</text>
+            <text x="190" y="72" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.5">M2</text>
+            <text x="88" y="106" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.5">M3</text>
+            <text x="212" y="106" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.5">M4</text>
+            <!-- IMU labels -->
+            <rect x="105" y="130" width="24" height="10" rx="2" stroke="#6B8EAE" stroke-width="0.6" opacity="0.35"/>
+            <text x="117" y="137" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.35">IMU</text>
+            <rect x="170" y="130" width="24" height="10" rx="2" stroke="#6B8EAE" stroke-width="0.6" opacity="0.35"/>
+            <text x="182" y="137" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.35">IMU</text>
+            <text x="150" y="180" text-anchor="middle" font-family="monospace" font-size="6" fill="#6B8EAE" opacity="0.3">UPPER-BODY EXOSKELETON</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-section">
+      <div class="ps-label">Hardware</div>
+      <h2 class="ps-title">Integrated Control Board & Sensor Network</h2>
+      <div class="ps-content">
+        <div class="ps-text">
+          <h4>Main Control PCB</h4>
+          <p>Designed a large-format custom PCB in KiCad that serves as the central control hub for the exoskeleton. The board integrates multiple BLDC motor driver stages, a Raspberry Pi compute module interface with GPIO header, an OLED display for real-time status feedback, and a complete power management subsystem with solar charging input.</p>
+
+          <h4>8-IMU Sensor Array</h4>
+          <p>Built a multi-sensor data acquisition system using 8 BNO085 IMU sensors connected to a Teensy 4.1 via custom UART drivers. Implemented SLIP protocol framing for reliable communication over RS485 transceivers, enabling distributed sensor placement across the exoskeleton frame with robust noise rejection.</p>
+
+          <h4>Power System</h4>
+          <p>The power subsystem supports both direct solar panel input and rechargeable battery operation, with appropriate voltage regulation for the logic-level components (3.3V/5V) and motor drivers (higher voltage rails). Solar charging enables extended outdoor testing sessions without manual recharging.</p>
+
+          <h4>Enclosure & Mounting</h4>
+          <p>Designed and 3D-printed custom ABS enclosures to protect the electronics and mount them securely to the exoskeleton frame. The enclosure design accounts for heat dissipation from the motor drivers and provides access to debug ports and the OLED display window.</p>
+        </div>
+        <div class="ps-visual">
+          <svg viewBox="0 0 300 240" fill="none" style="width:90%;max-width:300px;">
+            <rect x="30" y="30" width="240" height="140" rx="6" stroke="#6B8EAE" stroke-width="1.2"/>
+            <circle cx="45" cy="45" r="5" stroke="#6B8EAE" stroke-width="0.5" opacity="0.35"/>
+            <circle cx="255" cy="45" r="5" stroke="#6B8EAE" stroke-width="0.5" opacity="0.35"/>
+            <circle cx="45" cy="155" r="5" stroke="#6B8EAE" stroke-width="0.5" opacity="0.35"/>
+            <circle cx="255" cy="155" r="5" stroke="#6B8EAE" stroke-width="0.5" opacity="0.35"/>
+            <rect x="55" y="60" width="35" height="28" rx="2" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.05"/>
+            <rect x="100" y="60" width="35" height="28" rx="2" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.05"/>
+            <rect x="145" y="60" width="35" height="28" rx="2" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.05"/>
+            <text x="72" y="77" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">M1</text>
+            <text x="117" y="77" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">M2</text>
+            <text x="162" y="77" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">M3</text>
+            <rect x="195" y="55" width="55" height="40" rx="2" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.03"/>
+            <text x="222" y="78" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">RPi</text>
+            <rect x="55" y="110" width="80" height="40" rx="2" stroke="#6B8EAE" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.35"/>
+            <text x="95" y="133" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.35">SOLAR + PWR</text>
+            <rect x="155" y="115" width="40" height="30" rx="3" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.03"/>
+            <text x="175" y="133" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.45">OLED</text>
+            <text x="150" y="220" text-anchor="middle" font-family="monospace" font-size="6" fill="#6B8EAE" opacity="0.3">EXOSKELETON CONTROL BOARD</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-section">
+      <div class="ps-label">Software</div>
+      <h2 class="ps-title">Real-Time Motor Control & Data Acquisition</h2>
+      <div class="ps-content ps-full">
+        <div class="ps-text">
+          <p>The control software runs on the Raspberry Pi in Python, implementing PID control loops for each motor joint. IMU data from the 8-sensor array feeds into the control loop to provide real-time position and orientation feedback, enabling smooth joint tracking and trajectory following.</p>
+          <p>The Teensy 4.1 handles the low-level sensor communication — custom UART drivers for the BNO085 IMUs with SLIP protocol framing ensure reliable data delivery over the RS485 physical layer. Sensor fusion algorithms combine accelerometer, gyroscope, and magnetometer data to produce stable quaternion orientation estimates for each limb segment.</p>
+          <p>The OLED display provides real-time feedback on motor states, battery voltage, solar charging status, and sensor health — critical for field testing and debugging without a laptop connected.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-nav">
+      <a href="berta-medical.html">← Previous<span class="project-nav-title">Berta Medical</span></a>
+      <a href="digital-scale.html" class="next">Next Project →<span class="project-nav-title">Custom Digital Scale</span></a>
+    </div>
+
+    <footer><div class="footer-text">© 2026 Chase Quijano</div><div class="footer-text">Rowan University · Engineering Entrepreneurship</div></footer>
+  </div>
+  <script>window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 50));</script>
+</body>
+</html>

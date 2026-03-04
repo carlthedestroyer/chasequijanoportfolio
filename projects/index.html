@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Projects — Chase Quijano</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="grid-bg"></div>
+  <div class="content">
+    <nav id="nav">
+      <a href="../" class="nav-name">Chase Quijano</a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="./" class="active">Projects</a>
+        <a href="../#skills">Skills</a>
+        <a href="../#about">About</a>
+        <a href="../#contact">Contact</a>
+        <a href="../resume.html" class="nav-resume">Resume</a>
+      </div>
+    </nav>
+
+    <div class="archive-hero">
+      <div class="section-label">Projects</div>
+      <h1 class="archive-hero-title">All Work</h1>
+      <p class="archive-hero-desc">Every project I've designed and built — from wearable medical devices to autonomous drones and custom game consoles. Filter by category to explore.</p>
+    </div>
+
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="medical">Medical</button>
+      <button class="filter-btn" data-filter="pcb">PCB Design</button>
+      <button class="filter-btn" data-filter="robotics">Robotics</button>
+      <button class="filter-btn" data-filter="controls">Controls</button>
+      <button class="filter-btn" data-filter="uav">UAV</button>
+      <button class="filter-btn" data-filter="iot">IoT</button>
+      <button class="filter-btn" data-filter="manufacturing">Manufacturing</button>
+    </div>
+
+    <div class="archive-grid" id="archiveGrid">
+
+      <!-- FEATURED -->
+      <a href="berta-medical.html" class="archive-card" data-category="medical pcb">
+        <div class="ac-visual">
+          <svg viewBox="0 0 300 200" fill="none"><rect x="60" y="40" width="180" height="80" rx="10" stroke="#C9983A" stroke-width="1.2"/><polyline points="40,150 70,150 80,130 90,170 100,120 110,180 120,145 130,150 200,150 210,130 220,170 230,120 240,180 250,145 260,150" stroke="#C9983A" stroke-width="1" fill="none" opacity="0.5"/></svg>
+        </div>
+        <div class="ac-content">
+          <div class="ac-type">Medical Startup · Featured</div>
+          <h3 class="ac-title">Berta Medical — Wearable ECG Platform</h3>
+          <p class="ac-desc">Custom ECG hardware, ESP32 firmware, AWS IoT cloud, and doctor/patient web portals. 3 PCB iterations.</p>
+          <div class="ac-tags"><span class="tag">KiCad</span><span class="tag">ESP32</span><span class="tag">MQTT</span><span class="tag">AWS</span></div>
+        </div>
+      </a>
+
+      <a href="exoskeleton.html" class="archive-card" data-category="robotics pcb controls">
+        <div class="ac-visual">
+          <svg viewBox="0 0 300 200" fill="none"><rect x="30" y="30" width="240" height="120" rx="6" stroke="#6B8EAE" stroke-width="1.2"/><rect x="50" y="50" width="35" height="25" rx="2" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.05"/><rect x="95" y="50" width="35" height="25" rx="2" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.05"/><rect x="140" y="50" width="35" height="25" rx="2" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.05"/></svg>
+        </div>
+        <div class="ac-content">
+          <div class="ac-type">Research · Featured</div>
+          <h3 class="ac-title">Exoskeleton PCB & Control System</h3>
+          <p class="ac-desc">Multi-motor BLDC control board with solar charging, Raspberry Pi, and 8-IMU sensor array.</p>
+          <div class="ac-tags"><span class="tag">KiCad</span><span class="tag">BLDC</span><span class="tag">PID</span><span class="tag">RPi</span></div>
+        </div>
+      </a>
+
+      <a href="digital-scale.html" class="archive-card" data-category="manufacturing">
+        <div class="ac-visual">
+          <svg viewBox="0 0 300 200" fill="none"><path d="M50 140 L50 90 Q50 75 65 70 L235 70 Q250 75 250 90 L250 140 Q250 155 235 160 L65 160 Q50 155 50 140Z" stroke="#D07242" stroke-width="1.2" fill="none"/><rect x="90" y="85" width="80" height="30" rx="3" stroke="#D07242" stroke-width="0.8" fill="#D07242" fill-opacity="0.04"/><text x="130" y="104" text-anchor="middle" font-family="monospace" font-size="9" fill="#D07242" opacity="0.4">1024.7g</text></svg>
+        </div>
+        <div class="ac-content">
+          <div class="ac-type">Manufacturing · Featured</div>
+          <h3 class="ac-title">Custom Digital Scale</h3>
+          <p class="ac-desc">CNC-machined load cell, FEA validation, 3D printed enclosure, Arduino firmware. Full-stack manufacturing.</p>
+          <div class="ac-tags"><span class="tag">CNC</span><span class="tag">FEA</span><span class="tag">Arduino</span><span class="tag">CAD</span></div>
+        </div>
+      </a>
+
+      <a href="soft-robotics.html" class="archive-card" data-category="robotics pcb">
+        <div class="ac-visual">
+          <svg viewBox="0 0 300 200" fill="none"><path d="M40 60 Q40 45 55 45 L245 45 Q260 45 260 60 L260 130 Q260 145 245 145 L55 145 Q40 145 40 130Z" stroke="#5AB882" stroke-width="1.2" fill="none"/><rect x="110" y="70" width="80" height="45" rx="4" stroke="#5AB882" stroke-width="0.8" fill="#5AB882" fill-opacity="0.04"/><text x="150" y="96" text-anchor="middle" font-family="monospace" font-size="6" fill="#5AB882" opacity="0.4">ESP32-C3</text></svg>
+        </div>
+        <div class="ac-content">
+          <div class="ac-type">Research · Featured</div>
+          <h3 class="ac-title">Modular Flex PCB for Soft Robotics</h3>
+          <p class="ac-desc">Flex PCB enabling self-reconfiguring robotic modules with I2C communication and motor drivers.</p>
+          <div class="ac-tags"><span class="tag">Flex PCB</span><span class="tag">ESP32</span><span class="tag">I2C</span><span class="tag">KiCad</span></div>
+        </div>
+      </a>
+
+      <!-- NON-FEATURED -->
+      <div class="archive-card" data-category="robotics">
+        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><rect x="60" y="50" width="180" height="100" rx="8" stroke="#C9983A" stroke-width="1" opacity="0.5"/><circle cx="150" cy="100" r="25" stroke="#C9983A" stroke-width="0.8" opacity="0.4"/></svg></div>
+        <div class="ac-content"><div class="ac-type">Autonomous</div><h3 class="ac-title">ROS Robot</h3><p class="ac-desc">Autonomous mobile robot with ROS navigation stack, LIDAR, and custom chassis.</p><div class="ac-tags"><span class="tag">ROS</span><span class="tag">Python</span><span class="tag">LIDAR</span></div></div>
+      </div>
+
+      <div class="archive-card" data-category="uav">
+        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><circle cx="150" cy="100" r="50" stroke="#C9983A" stroke-width="1" opacity="0.4"/><path d="M110 100 L190 100 M150 60 L150 140 M120 70 L180 130 M180 70 L120 130" stroke="#C9983A" stroke-width="0.8" opacity="0.3"/></svg></div>
+        <div class="ac-content"><div class="ac-type">UAV</div><h3 class="ac-title">Autonomous Drone</h3><p class="ac-desc">Custom-built autonomous drone with GPS waypoint navigation and flight controller.</p><div class="ac-tags"><span class="tag">CAD</span><span class="tag">Flight Control</span><span class="tag">GPS</span></div></div>
+      </div>
+
+      <div class="archive-card" data-category="controls robotics">
+        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><rect x="110" y="30" width="80" height="140" rx="8" stroke="#C9983A" stroke-width="1" opacity="0.4"/><circle cx="150" cy="140" r="15" stroke="#C9983A" stroke-width="0.8" opacity="0.3"/></svg></div>
+        <div class="ac-content"><div class="ac-type">Controls</div><h3 class="ac-title">Balancing Robot Mk2</h3><p class="ac-desc">Two-wheeled self-balancing robot with PID control and IMU feedback.</p><div class="ac-tags"><span class="tag">PID</span><span class="tag">IMU</span><span class="tag">Arduino</span></div></div>
+      </div>
+
+      <div class="archive-card" data-category="medical">
+        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><ellipse cx="150" cy="100" rx="60" ry="40" stroke="#C9983A" stroke-width="1" opacity="0.4"/><circle cx="150" cy="100" r="12" stroke="#C9983A" stroke-width="0.8" opacity="0.3"/></svg></div>
+        <div class="ac-content"><div class="ac-type">Medical</div><h3 class="ac-title">Wearable ECG Mk2</h3><p class="ac-desc">Second-generation wearable ECG form factor with improved electrode contact.</p><div class="ac-tags"><span class="tag">ECG</span><span class="tag">Wearable</span><span class="tag">3D Print</span></div></div>
+      </div>
+
+      <div class="archive-card" data-category="iot">
+        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><rect x="80" y="50" width="140" height="100" rx="8" stroke="#C9983A" stroke-width="1" opacity="0.4"/><circle cx="150" cy="100" r="25" stroke="#C9983A" stroke-width="0.8" opacity="0.3"/></svg></div>
+        <div class="ac-content"><div class="ac-type">IoT</div><h3 class="ac-title">Farm Camera System</h3><p class="ac-desc">Remote monitoring camera system with weatherproof enclosure and wireless data link.</p><div class="ac-tags"><span class="tag">ESP32</span><span class="tag">Camera</span><span class="tag">IoT</span></div></div>
+      </div>
+
+      <div class="archive-card" data-category="controls robotics">
+        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><rect x="110" y="30" width="80" height="140" rx="8" stroke="#C9983A" stroke-width="1" opacity="0.4"/><circle cx="150" cy="140" r="15" stroke="#C9983A" stroke-width="0.8" opacity="0.3"/></svg></div>
+        <div class="ac-content"><div class="ac-type">Controls</div><h3 class="ac-title">Balancing Robot V1</h3><p class="ac-desc">First-generation self-balancing robot. Foundation for control theory exploration.</p><div class="ac-tags"><span class="tag">Arduino</span><span class="tag">PID</span><span class="tag">CAD</span></div></div>
+      </div>
+
+      <div class="archive-card" data-category="pcb medical">
+        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><rect x="60" y="60" width="180" height="80" rx="4" stroke="#C9983A" stroke-width="1" opacity="0.4"/><rect x="75" y="75" width="60" height="35" rx="2" stroke="#C9983A" stroke-width="0.6" fill="#C9983A" fill-opacity="0.03"/></svg></div>
+        <div class="ac-content"><div class="ac-type">PCB Design</div><h3 class="ac-title">ECG Dev Kit PCB</h3><p class="ac-desc">Development board with OLED, microSD, and modular headers for ECG firmware iteration.</p><div class="ac-tags"><span class="tag">KiCad</span><span class="tag">ESP32</span><span class="tag">OLED</span></div></div>
+      </div>
+
+      <div class="archive-card" data-category="medical pcb">
+        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><ellipse cx="150" cy="90" rx="45" ry="35" stroke="#C9983A" stroke-width="1" opacity="0.4"/><line x1="150" y1="125" x2="150" y2="155" stroke="#C9983A" stroke-width="0.8" opacity="0.3"/><line x1="130" y1="155" x2="170" y2="155" stroke="#C9983A" stroke-width="1" opacity="0.4"/></svg></div>
+        <div class="ac-content"><div class="ac-type">Wearable</div><h3 class="ac-title">ECG Puck</h3><p class="ac-desc">Compact puck-form-factor wearable ECG device with minimal footprint.</p><div class="ac-tags"><span class="tag">ECG</span><span class="tag">Compact</span><span class="tag">PCB</span></div></div>
+      </div>
+
+      <div class="archive-card" data-category="pcb">
+        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><rect x="70" y="60" width="160" height="80" rx="6" stroke="#C9983A" stroke-width="1" opacity="0.4"/><rect x="85" y="75" width="30" height="22" rx="2" stroke="#C9983A" stroke-width="0.6" opacity="0.3"/><rect x="125" y="75" width="30" height="22" rx="2" stroke="#C9983A" stroke-width="0.6" opacity="0.3"/><rect x="165" y="75" width="30" height="22" rx="2" stroke="#C9983A" stroke-width="0.6" opacity="0.3"/><rect x="85" y="105" width="30" height="22" rx="2" stroke="#C9983A" stroke-width="0.6" opacity="0.3"/></svg></div>
+        <div class="ac-content"><div class="ac-type">Input Device</div><h3 class="ac-title">Macropad</h3><p class="ac-desc">Custom mechanical macropad with programmable keys and custom PCB.</p><div class="ac-tags"><span class="tag">PCB</span><span class="tag">Firmware</span><span class="tag">CAD</span></div></div>
+      </div>
+
+      <div class="archive-card" data-category="iot">
+        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><circle cx="150" cy="85" r="40" stroke="#C9983A" stroke-width="1" opacity="0.4"/><line x1="150" y1="125" x2="150" y2="155" stroke="#C9983A" stroke-width="0.8" opacity="0.3"/><circle cx="150" cy="85" r="12" stroke="#C9983A" stroke-width="0.6" fill="#C9983A" fill-opacity="0.04"/></svg></div>
+        <div class="ac-content"><div class="ac-type">Environmental</div><h3 class="ac-title">Particulate Sensor</h3><p class="ac-desc">Air quality measurement device with particulate matter sensing and data logging.</p><div class="ac-tags"><span class="tag">Sensor</span><span class="tag">Arduino</span><span class="tag">CAD</span></div></div>
+      </div>
+
+      <div class="archive-card" data-category="uav">
+        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><path d="M100 70 L200 70 L200 130 L100 130 Z" stroke="#C9983A" stroke-width="1" opacity="0.4"/><path d="M90 60 L190 60 L200 70" stroke="#C9983A" stroke-width="0.7" opacity="0.3"/><line x1="90" y1="60" x2="90" y2="120" stroke="#C9983A" stroke-width="0.7" opacity="0.3"/></svg></div>
+        <div class="ac-content"><div class="ac-type">UAV</div><h3 class="ac-title">Deployable Drone</h3><p class="ac-desc">Folding-arm drone design for rapid deployment from a compact enclosure.</p><div class="ac-tags"><span class="tag">CAD</span><span class="tag">Mechanical</span><span class="tag">UAV</span></div></div>
+      </div>
+
+      <div class="archive-card" data-category="controls">
+        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><circle cx="150" cy="100" r="45" stroke="#C9983A" stroke-width="1" opacity="0.4"/><circle cx="150" cy="100" r="18" stroke="#C9983A" stroke-width="0.8" opacity="0.3"/><line x1="150" y1="55" x2="150" y2="82" stroke="#C9983A" stroke-width="0.6" opacity="0.3"/></svg></div>
+        <div class="ac-content"><div class="ac-type">Motor Control</div><h3 class="ac-title">FOC Test Rig</h3><p class="ac-desc">Field-oriented control test rig for BLDC motor characterization and tuning.</p><div class="ac-tags"><span class="tag">FOC</span><span class="tag">BLDC</span><span class="tag">Controls</span></div></div>
+      </div>
+
+      <div class="archive-card" data-category="pcb">
+        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><rect x="60" y="55" width="180" height="90" rx="16" stroke="#C9983A" stroke-width="1" opacity="0.4"/><rect x="80" y="70" width="70" height="45" rx="4" stroke="#C9983A" stroke-width="0.6" opacity="0.3"/><circle cx="200" cy="85" r="8" stroke="#C9983A" stroke-width="0.5" opacity="0.3"/><circle cx="200" cy="110" r="8" stroke="#C9983A" stroke-width="0.5" opacity="0.3"/></svg></div>
+        <div class="ac-content"><div class="ac-type">Game Dev</div><h3 class="ac-title">Handheld Console</h3><p class="ac-desc">Custom handheld gaming console with screen, buttons, and game firmware.</p><div class="ac-tags"><span class="tag">PCB</span><span class="tag">Firmware</span><span class="tag">CAD</span></div></div>
+      </div>
+
+      <div class="archive-card" data-category="medical">
+        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><circle cx="150" cy="100" r="35" stroke="#C9983A" stroke-width="1" opacity="0.4"/><circle cx="150" cy="100" r="14" stroke="#C9983A" stroke-width="0.6" opacity="0.3"/><rect x="135" y="50" width="30" height="16" rx="3" stroke="#C9983A" stroke-width="0.7" opacity="0.3"/></svg></div>
+        <div class="ac-content"><div class="ac-type">Wearable</div><h3 class="ac-title">Flex Sensor Ring</h3><p class="ac-desc">Wearable flex sensor ring for gesture detection and hand tracking.</p><div class="ac-tags"><span class="tag">Flex Sensor</span><span class="tag">Wearable</span><span class="tag">Arduino</span></div></div>
+      </div>
+
+      <div class="archive-card" data-category="medical pcb">
+        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><ellipse cx="150" cy="85" rx="55" ry="30" stroke="#C9983A" stroke-width="1" opacity="0.4"/><line x1="150" y1="115" x2="150" y2="150" stroke="#C9983A" stroke-width="1" opacity="0.3"/><polyline points="135,142 150,155 165,142" stroke="#C9983A" stroke-width="0.8" fill="none" opacity="0.3"/></svg></div>
+        <div class="ac-content"><div class="ac-type">Medical</div><h3 class="ac-title">ECG Device Mk3</h3><p class="ac-desc">Third-generation ECG wearable with refined form factor and improved signal quality.</p><div class="ac-tags"><span class="tag">ECG</span><span class="tag">PCB</span><span class="tag">CAD</span></div></div>
+      </div>
+    </div>
+
+    <footer><div class="footer-text">© 2026 Chase Quijano</div><div class="footer-text">Rowan University · Engineering Entrepreneurship</div></footer>
+  </div>
+
+  <script>
+    window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 50));
+
+    // Filter logic
+    const btns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.archive-card');
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        cards.forEach(card => {
+          if (f === 'all' || (card.dataset.category && card.dataset.category.includes(f))) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

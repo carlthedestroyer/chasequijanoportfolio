@@ -5,374 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chase Quijano — Engineering Portfolio</title>
   <meta name="description" content="Engineering Entrepreneurship student at Rowan University. PCB design, embedded systems, robotics, and medical devices." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --bg: #0A0A0C;
-      --bg-elevated: #111114;
-      --bg-card: #161619;
-      --bg-surface: #1C1C20;
-      --border: #222228;
-      --border-hover: #333340;
-      --text: #EFEDE8;
-      --text-secondary: #A8A59E;
-      --text-muted: #605D56;
-      --gold: #C9983A;
-      --gold-bright: #DBA94A;
-      --gold-dim: rgba(201, 152, 58, 0.12);
-      --gold-glow: rgba(201, 152, 58, 0.06);
-      --blue: #6B8EAE;
-      --warm: #D07242;
-      --green: #5AB882;
-      --rose: #C47A7A;
-      --heading: 'Outfit', -apple-system, sans-serif;
-      --mono: 'Source Code Pro', 'SF Mono', monospace;
-      --display: 'Playfair Display', Georgia, serif;
-      --ease: cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--heading);
-      font-weight: 400;
-      line-height: 1.6;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    ::selection { background: var(--gold); color: var(--bg); }
-
-    /* Noise */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.018'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 9999;
-    }
-
-    /* Grid */
-    .grid-bg {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.015;
-      background-image:
-        linear-gradient(rgba(201,152,58,0.4) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(201,152,58,0.4) 1px, transparent 1px);
-      background-size: 80px 80px;
-    }
-
-    .content { position: relative; z-index: 1; }
-
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-
-    /* ═══════════ NAV ═══════════ */
-    nav {
-      position: fixed; top: 0; width: 100%; z-index: 100;
-      padding: 1.1rem 2.5rem;
-      display: flex; justify-content: space-between; align-items: center;
-      background: rgba(10,10,12,0.8);
-      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-      border-bottom: 1px solid transparent;
-      transition: all 0.3s ease;
-    }
-    nav.scrolled { border-bottom-color: var(--border); }
-    .nav-name { font-family: var(--heading); font-weight: 700; font-size: 1rem; color: var(--text); text-decoration: none; letter-spacing: 0.02em; }
-    .nav-links { display: flex; gap: 2rem; align-items: center; }
-    .nav-links a { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.25s ease; }
-    .nav-links a:hover { color: var(--text); }
-    .nav-resume { padding: 0.45rem 1.1rem !important; border: 1px solid var(--border) !important; color: var(--text) !important; border-radius: 4px; transition: all 0.25s ease !important; }
-    .nav-resume:hover { border-color: var(--gold) !important; color: var(--gold) !important; }
-    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
-    .nav-toggle span { display: block; width: 18px; height: 1.5px; background: var(--text); margin: 4px 0; }
-
-    /* ═══════════ GLITCH ═══════════ */
-    .glitch-wrapper { position: relative; display: inline-block; }
-
-    .glitch {
-      font-family: var(--heading);
-      font-size: clamp(3.5rem, 8vw, 7rem);
-      font-weight: 800;
-      line-height: 0.95;
-      letter-spacing: -0.04em;
-      color: var(--text);
-      position: relative;
-      display: inline-block;
-    }
-
-    .glitch::before,
-    .glitch::after {
-      content: attr(data-text);
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      overflow: hidden;
-    }
-
-    .glitch::before {
-      color: var(--gold-bright);
-      z-index: -1;
-      animation: glitch-1 5s infinite linear alternate-reverse;
-      clip-path: inset(0 0 60% 0);
-    }
-
-    .glitch::after {
-      color: var(--rose);
-      z-index: -2;
-      animation: glitch-2 5s infinite linear alternate-reverse;
-      clip-path: inset(60% 0 0 0);
-    }
-
-    @keyframes glitch-1 {
-      0%, 86% { transform: translate(0); }
-      87% { transform: translate(-2px, 1px); }
-      88% { transform: translate(3px, -1px); }
-      89% { transform: translate(-1px, 0px); }
-      90%, 100% { transform: translate(0); }
-    }
-
-    @keyframes glitch-2 {
-      0%, 91% { transform: translate(0); }
-      92% { transform: translate(2px, 1px); }
-      93% { transform: translate(-3px, -1px); }
-      94% { transform: translate(1px, 0px); }
-      95%, 100% { transform: translate(0); }
-    }
-
-    .glitch-wrapper::after {
-      content: '';
-      position: absolute;
-      top: 0; left: -5%;
-      width: 110%; height: 2px;
-      background: var(--gold);
-      opacity: 0;
-      mix-blend-mode: screen;
-      pointer-events: none;
-      animation: scanline 7s ease-in-out infinite;
-    }
-
-    @keyframes scanline {
-      0%, 84% { opacity: 0; top: 0; }
-      85% { opacity: 0.5; top: 0; }
-      94% { opacity: 0.5; top: 100%; }
-      95%, 100% { opacity: 0; top: 100%; }
-    }
-
-    /* ═══════════ HERO ═══════════ */
-    .hero { min-height: 100vh; display: flex; align-items: center; padding: 8rem 2.5rem 4rem; max-width: 1200px; margin: 0 auto; }
-    .hero-content { max-width: 820px; }
-
-    .hero-tag {
-      font-family: var(--mono); font-size: 0.68rem; font-weight: 500;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 2rem;
-      display: flex; align-items: center; gap: 0.75rem;
-      opacity: 0; animation: fadeUp 0.6s var(--ease) 0.1s forwards;
-    }
-    .hero-tag::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
-
-    .hero-name-block { margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s var(--ease) 0.2s forwards; }
-
-    .hero-subtitle {
-      font-family: var(--heading); font-size: clamp(1.1rem, 2.5vw, 1.45rem);
-      font-weight: 400; color: var(--text-secondary);
-      margin-bottom: 1.5rem; max-width: 600px; line-height: 1.55;
-      opacity: 0; animation: fadeUp 0.8s var(--ease) 0.4s forwards;
-    }
-
-    .hero-desc {
-      font-size: 0.92rem; line-height: 1.7; color: var(--text-muted);
-      max-width: 540px; margin-bottom: 2.5rem;
-      opacity: 0; animation: fadeUp 0.8s var(--ease) 0.5s forwards;
-    }
-
-    .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s var(--ease) 0.6s forwards; }
-    .hero-btn {
-      font-family: var(--mono); font-size: 0.68rem; font-weight: 600;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      padding: 0.75rem 1.8rem; text-decoration: none; border-radius: 4px;
-      transition: all 0.25s ease;
-    }
-    .hero-btn.primary { background: var(--gold); color: var(--bg); }
-    .hero-btn.primary:hover { background: var(--gold-bright); }
-    .hero-btn.secondary { border: 1px solid var(--border); color: var(--text-secondary); }
-    .hero-btn.secondary:hover { border-color: var(--text); color: var(--text); }
-
-    .hero-stats {
-      display: flex; gap: 3.5rem; margin-top: 4rem;
-      padding-top: 2.5rem; border-top: 1px solid var(--border);
-      opacity: 0; animation: fadeUp 0.8s var(--ease) 0.75s forwards;
-    }
-    .hero-stat-num { font-family: var(--heading); font-size: 2rem; font-weight: 700; color: var(--text); line-height: 1; }
-    .hero-stat-label { font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.4rem; }
-
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-
-    /* ═══════════ SECTIONS ═══════════ */
-    section { padding: 7rem 2.5rem; }
-    .section-inner { max-width: 1200px; margin: 0 auto; }
-    .section-label { font-family: var(--mono); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
-    .section-title { font-family: var(--heading); font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
-    .section-desc { font-size: 0.92rem; color: var(--text-muted); max-width: 540px; margin-bottom: 3.5rem; line-height: 1.6; }
-
-    /* ═══════════ FEATURED PROJECTS ═══════════ */
-    .featured-project {
-      display: grid; grid-template-columns: 1fr 1fr;
-      border: 1px solid var(--border); border-radius: 10px;
-      overflow: hidden; background: var(--bg-elevated);
-      margin-bottom: 1.5rem; transition: all 0.4s var(--ease);
-    }
-    .featured-project:hover { border-color: var(--border-hover); box-shadow: 0 0 80px rgba(201,152,58,0.02); }
-
-    .fp-visual {
-      background: var(--bg); padding: 3rem;
-      display: flex; align-items: center; justify-content: center;
-      min-height: 380px; border-right: 1px solid var(--border);
-    }
-    .featured-project:nth-child(even) .fp-visual { border-right: none; border-left: 1px solid var(--border); order: 2; }
-
-    .wireframe-svg { width: 85%; max-width: 300px; opacity: 0.8; transition: opacity 0.4s ease; }
-    .featured-project:hover .wireframe-svg { opacity: 1; }
-
-    .fp-content { padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; }
-    .fp-number { font-family: var(--mono); font-size: 0.56rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
-    .fp-title { font-family: var(--heading); font-size: 1.4rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.4rem; line-height: 1.2; }
-    .fp-subtitle { font-family: var(--mono); font-size: 0.66rem; color: var(--text-muted); letter-spacing: 0.03em; margin-bottom: 1.2rem; }
-    .fp-desc { font-size: 0.86rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1.5rem; }
-
-    .fp-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.5rem; }
-    .fp-tag {
-      font-family: var(--mono); font-size: 0.56rem; font-weight: 500;
-      padding: 0.22rem 0.55rem; background: var(--gold-dim);
-      color: var(--gold); border-radius: 3px;
-      text-transform: uppercase; letter-spacing: 0.03em;
-    }
-
-    .fp-highlights { display: flex; gap: 2rem; padding-top: 1.2rem; border-top: 1px solid var(--border); }
-    .fp-hl-value { font-family: var(--heading); font-size: 1.05rem; font-weight: 700; color: var(--text); }
-    .fp-hl-label { font-family: var(--mono); font-size: 0.5rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.15rem; }
-
-    /* ═══════════ PROJECT GRID ═══════════ */
-    .grid-section { background: var(--bg-elevated); }
-    .project-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-      gap: 1px; background: var(--border);
-      border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
-    }
-    .pg-card {
-      background: var(--bg-card);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      padding: 1.8rem 1rem; text-decoration: none; color: var(--text);
-      transition: all 0.3s var(--ease); cursor: pointer;
-    }
-    .pg-card:hover { background: var(--bg-surface); }
-    .pg-icon { width: 44px; height: 44px; margin-bottom: 0.75rem; opacity: 0.35; transition: opacity 0.3s ease; }
-    .pg-card:hover .pg-icon { opacity: 0.85; }
-    .pg-name { font-family: var(--heading); font-size: 0.76rem; font-weight: 600; text-align: center; line-height: 1.3; }
-    .pg-type { font-family: var(--mono); font-size: 0.5rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.3rem; }
-
-    /* ═══════════ SKILLS ═══════════ */
-    .skills-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1px; background: var(--border);
-      border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
-    }
-    .skill-cell { background: var(--bg-elevated); padding: 2rem; transition: background 0.3s ease; }
-    .skill-cell:hover { background: var(--bg-card); }
-    .skill-icon { font-size: 1.1rem; margin-bottom: 1rem; display: block; color: var(--gold); }
-    .skill-name { font-family: var(--heading); font-size: 0.92rem; font-weight: 600; margin-bottom: 0.5rem; }
-    .skill-items { font-family: var(--mono); font-size: 0.66rem; line-height: 1.9; color: var(--text-muted); }
-
-    /* ═══════════ ABOUT ═══════════ */
-    .about-grid { display: grid; grid-template-columns: 5fr 3fr; gap: 4rem; align-items: start; }
-    .about-text { font-size: 0.95rem; line-height: 1.75; color: var(--text-secondary); }
-    .about-text p + p { margin-top: 1.25rem; }
-    .about-detail { padding: 1.1rem 0; border-bottom: 1px solid var(--border); }
-    .about-detail:first-child { border-top: 1px solid var(--border); }
-    .about-detail-label { font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.3rem; }
-    .about-detail-value { font-family: var(--heading); font-size: 0.9rem; font-weight: 600; }
-
-    /* ═══════════ CONTACT ═══════════ */
-    .contact-section { text-align: center; padding: 8rem 2.5rem; border-top: 1px solid var(--border); }
-    .contact-title { font-family: var(--heading); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
-    .contact-title em { color: var(--gold); font-family: var(--display); font-style: italic; }
-    .contact-desc { font-size: 0.92rem; color: var(--text-muted); max-width: 440px; margin: 0 auto 2.5rem; }
-    .contact-links { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
-    .contact-link {
-      font-family: var(--mono); font-size: 0.66rem; font-weight: 600;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      padding: 0.7rem 1.8rem; text-decoration: none; border-radius: 4px;
-      transition: all 0.25s ease;
-    }
-    .contact-link.email { background: var(--gold); color: var(--bg); }
-    .contact-link.email:hover { background: var(--gold-bright); }
-    .contact-link.linkedin { border: 1px solid var(--border); color: var(--text-secondary); }
-    .contact-link.linkedin:hover { border-color: #0077B5; color: #0077B5; }
-    .contact-link.github { border: 1px solid var(--border); color: var(--text-secondary); }
-    .contact-link.github:hover { border-color: var(--text); color: var(--text); }
-
-    /* Footer */
-    footer { padding: 2rem 2.5rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
-    .footer-text { font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.06em; color: var(--text-muted); text-transform: uppercase; }
-
-    /* Reveals */
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    /* ═══════════ RESPONSIVE ═══════════ */
-    @media (max-width: 900px) {
-      .featured-project { grid-template-columns: 1fr; }
-      .fp-visual { min-height: 250px; border-right: none !important; border-left: none !important; border-bottom: 1px solid var(--border); }
-      .featured-project:nth-child(even) .fp-visual { order: 0; }
-      .skills-grid { grid-template-columns: 1fr 1fr; }
-      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .hero-stats { gap: 2rem; flex-wrap: wrap; }
-    }
-    @media (max-width: 640px) {
-      nav { padding: 0.75rem 1.25rem; }
-      .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(10,10,12,0.96); backdrop-filter: blur(24px); flex-direction: column; padding: 1.5rem; gap: 1rem; border-bottom: 1px solid var(--border); }
-      .nav-links.open { display: flex; }
-      .nav-toggle { display: block; }
-      section { padding: 4.5rem 1.25rem; }
-      .hero { padding: 6rem 1.25rem 3rem; }
-      .hero-stats { flex-direction: column; gap: 1.5rem; }
-      .fp-content { padding: 1.75rem; }
-      .fp-visual { padding: 2rem; min-height: 200px; }
-      .skills-grid { grid-template-columns: 1fr; }
-      .project-grid { grid-template-columns: repeat(2, 1fr); }
-      .contact-links { flex-direction: column; align-items: center; }
-      footer { flex-direction: column; gap: 0.75rem; }
-      .glitch { font-size: clamp(2.8rem, 12vw, 4rem); }
-    }
-  </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="grid-bg"></div>
   <div class="content">
 
     <nav id="nav">
-      <a href="#" class="nav-name">Chase Quijano</a>
-      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+      <a href="./" class="nav-name">Chase Quijano</a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
       <div class="nav-links">
-        <a href="#projects">Projects</a>
+        <a href="./projects/">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
-        <a href="#" class="nav-resume">Resume</a>
+        <a href="./resume.html" class="nav-resume">Resume</a>
       </div>
     </nav>
 
@@ -404,173 +51,85 @@
       <div class="section-inner">
         <div class="section-label reveal">01 — Featured Work</div>
         <h2 class="section-title reveal">Selected Projects</h2>
-        <p class="section-desc reveal">Deep dives into my most impactful engineering work — from wearable medical devices to research-grade PCBs and precision manufacturing.</p>
+        <p class="section-desc reveal">Deep dives into my most impactful engineering work — click any project for the full technical breakdown.</p>
 
-        <!-- Berta Medical -->
-        <div class="featured-project reveal">
+        <a href="./projects/berta-medical.html" class="featured-project reveal">
           <div class="fp-visual">
-            <svg class="wireframe-svg" viewBox="0 0 300 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="60" y="40" width="180" height="100" rx="16" stroke="#C9983A" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.2"/>
-              <rect x="80" y="55" width="140" height="70" rx="8" stroke="#C9983A" stroke-width="1.2"/>
-              <rect x="95" y="68" width="40" height="30" rx="3" stroke="#C9983A" stroke-width="0.8" fill="#C9983A" fill-opacity="0.05"/>
-              <text x="115" y="86" text-anchor="middle" font-family="monospace" font-size="6" fill="#C9983A" opacity="0.6">ESP32</text>
-              <rect x="150" y="68" width="55" height="30" rx="3" stroke="#C9983A" stroke-width="0.8" fill="#C9983A" fill-opacity="0.05"/>
-              <text x="177" y="86" text-anchor="middle" font-family="monospace" font-size="6" fill="#C9983A" opacity="0.6">AD8232</text>
-              <polyline points="40,180 70,180 80,180 85,160 90,200 95,150 100,210 105,175 110,180 140,180 150,180 155,160 160,200 165,150 170,210 175,175 180,180 210,180 220,180 225,160 230,200 235,150 240,210 245,175 250,180 270,180" stroke="#C9983A" stroke-width="1.2" fill="none" opacity="0.6"/>
-              <line x1="100" y1="140" x2="80" y2="175" stroke="#C9983A" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.25"/>
-              <line x1="200" y1="140" x2="220" y2="175" stroke="#C9983A" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.25"/>
-              <text x="150" y="228" text-anchor="middle" font-family="monospace" font-size="7" fill="#C9983A" opacity="0.3">BERTA MEDICAL · ECG WEARABLE</text>
-              <rect x="90" y="108" width="20" height="10" rx="2" stroke="#C9983A" stroke-width="0.5" opacity="0.35"/>
-              <circle cx="230" cy="80" r="4" stroke="#C9983A" stroke-width="0.5" fill="none" opacity="0.35"/>
-              <circle cx="230" cy="95" r="4" stroke="#C9983A" stroke-width="0.5" fill="none" opacity="0.35"/>
-              <circle cx="230" cy="80" r="1.5" fill="#C9983A" opacity="0.25"/>
-              <circle cx="230" cy="95" r="1.5" fill="#C9983A" opacity="0.25"/>
-            </svg>
+            <svg class="wireframe-svg" viewBox="0 0 300 240" fill="none"><rect x="60" y="40" width="180" height="100" rx="16" stroke="#C9983A" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.2"/><rect x="80" y="55" width="140" height="70" rx="8" stroke="#C9983A" stroke-width="1.2"/><rect x="95" y="68" width="40" height="30" rx="3" stroke="#C9983A" stroke-width="0.8" fill="#C9983A" fill-opacity="0.05"/><text x="115" y="86" text-anchor="middle" font-family="monospace" font-size="6" fill="#C9983A" opacity="0.6">ESP32</text><rect x="150" y="68" width="55" height="30" rx="3" stroke="#C9983A" stroke-width="0.8" fill="#C9983A" fill-opacity="0.05"/><text x="177" y="86" text-anchor="middle" font-family="monospace" font-size="6" fill="#C9983A" opacity="0.6">AD8232</text><polyline points="40,180 70,180 85,160 90,200 95,150 100,210 105,175 110,180 140,180 155,160 160,200 165,150 170,210 175,175 180,180 210,180 225,160 230,200 235,150 240,210 245,175 250,180 270,180" stroke="#C9983A" stroke-width="1.2" fill="none" opacity="0.6"/><text x="150" y="228" text-anchor="middle" font-family="monospace" font-size="7" fill="#C9983A" opacity="0.3">BERTA MEDICAL · ECG WEARABLE</text></svg>
           </div>
           <div class="fp-content">
             <div class="fp-number">001 · Medical Startup</div>
             <h3 class="fp-title">Berta Medical — Wearable ECG Platform</h3>
             <div class="fp-subtitle">Co-Founder & Hardware Lead · Rowan New Venture Competition</div>
-            <p class="fp-desc">Co-founded a medical startup to make remote health monitoring accessible. Designed custom ECG hardware through 3 iterations — from prototype to dev kit PCB to final wearable — with ESP32 firmware, encrypted MQTT to AWS IoT Core, and doctor/patient web portals.</p>
-            <div class="fp-tags"><span class="fp-tag">KiCad</span><span class="fp-tag">ESP32</span><span class="fp-tag">AD8232</span><span class="fp-tag">MQTT</span><span class="fp-tag">AWS IoT</span><span class="fp-tag">C++</span><span class="fp-tag">SMD</span></div>
-            <div class="fp-highlights">
-              <div><div class="fp-hl-value">3 PCBs</div><div class="fp-hl-label">Designed & Built</div></div>
-              <div><div class="fp-hl-value">TLS</div><div class="fp-hl-label">Encrypted Pipeline</div></div>
-              <div><div class="fp-hl-value">Pitched</div><div class="fp-hl-label">Venture Comp</div></div>
-            </div>
+            <p class="fp-desc">Co-founded a medical startup to make remote health monitoring accessible. Designed custom ECG hardware through 3 iterations with ESP32 firmware, encrypted MQTT to AWS IoT Core, and doctor/patient web portals.</p>
+            <div class="fp-tags"><span class="tag">KiCad</span><span class="tag">ESP32</span><span class="tag">AD8232</span><span class="tag">MQTT</span><span class="tag">AWS IoT</span><span class="tag">C++</span><span class="tag">SMD</span></div>
+            <div class="fp-highlights"><div><div class="fp-hl-value">3 PCBs</div><div class="fp-hl-label">Designed & Built</div></div><div><div class="fp-hl-value">TLS</div><div class="fp-hl-label">Encrypted Pipeline</div></div><div><div class="fp-hl-value">Pitched</div><div class="fp-hl-label">Venture Comp</div></div></div>
           </div>
-        </div>
+        </a>
 
-        <!-- Exoskeleton -->
-        <div class="featured-project reveal">
+        <a href="./projects/exoskeleton.html" class="featured-project reveal">
           <div class="fp-visual">
-            <svg class="wireframe-svg" viewBox="0 0 300 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="30" y="30" width="240" height="140" rx="6" stroke="#6B8EAE" stroke-width="1.2"/>
-              <circle cx="45" cy="45" r="5" stroke="#6B8EAE" stroke-width="0.5" opacity="0.35"/><circle cx="255" cy="45" r="5" stroke="#6B8EAE" stroke-width="0.5" opacity="0.35"/>
-              <circle cx="45" cy="155" r="5" stroke="#6B8EAE" stroke-width="0.5" opacity="0.35"/><circle cx="255" cy="155" r="5" stroke="#6B8EAE" stroke-width="0.5" opacity="0.35"/>
-              <rect x="55" y="60" width="35" height="28" rx="2" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.05"/>
-              <rect x="100" y="60" width="35" height="28" rx="2" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.05"/>
-              <rect x="145" y="60" width="35" height="28" rx="2" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.05"/>
-              <text x="72" y="77" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">M1</text>
-              <text x="117" y="77" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">M2</text>
-              <text x="162" y="77" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">M3</text>
-              <rect x="195" y="55" width="55" height="40" rx="2" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.03"/>
-              <text x="222" y="78" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">RPi</text>
-              <rect x="55" y="110" width="80" height="40" rx="2" stroke="#6B8EAE" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.35"/>
-              <text x="95" y="133" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.35">POWER MGMT</text>
-              <rect x="155" y="115" width="40" height="30" rx="3" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.03"/>
-              <text x="175" y="133" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.45">OLED</text>
-              <text x="150" y="220" text-anchor="middle" font-family="monospace" font-size="7" fill="#6B8EAE" opacity="0.3">EXOSKELETON CONTROL BOARD</text>
-            </svg>
+            <svg class="wireframe-svg" viewBox="0 0 300 240" fill="none"><rect x="30" y="30" width="240" height="140" rx="6" stroke="#6B8EAE" stroke-width="1.2"/><rect x="55" y="60" width="35" height="28" rx="2" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.05"/><rect x="100" y="60" width="35" height="28" rx="2" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.05"/><rect x="145" y="60" width="35" height="28" rx="2" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.05"/><text x="72" y="77" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">M1</text><text x="117" y="77" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">M2</text><text x="162" y="77" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">M3</text><rect x="195" y="55" width="55" height="40" rx="2" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.03"/><text x="222" y="78" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">RPi</text><rect x="55" y="110" width="80" height="40" rx="2" stroke="#6B8EAE" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.35"/><text x="95" y="133" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.35">SOLAR + PWR</text><rect x="155" y="115" width="40" height="30" rx="3" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.03"/><text x="175" y="133" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.45">OLED</text><text x="150" y="220" text-anchor="middle" font-family="monospace" font-size="7" fill="#6B8EAE" opacity="0.3">EXOSKELETON CONTROL BOARD</text></svg>
           </div>
           <div class="fp-content">
             <div class="fp-number">002 · Research</div>
             <h3 class="fp-title">Exoskeleton PCB & Control System</h3>
             <div class="fp-subtitle">Undergraduate Research · Rowan University</div>
-            <p class="fp-desc">Designed a large-scale integrated PCB driving multiple brushless DC motors for an upper-body exoskeleton. Built a complete control system with solar charging, Raspberry Pi integration, OLED display, and real-time motor control with custom 3D-printed enclosures.</p>
-            <div class="fp-tags"><span class="fp-tag">KiCad</span><span class="fp-tag">BLDC Motors</span><span class="fp-tag">Raspberry Pi</span><span class="fp-tag">PID Control</span><span class="fp-tag">Solar</span><span class="fp-tag">Python</span></div>
-            <div class="fp-highlights">
-              <div><div class="fp-hl-value">6-DOF</div><div class="fp-hl-label">Motor Control</div></div>
-              <div><div class="fp-hl-value">Custom</div><div class="fp-hl-label">PCB + Enclosure</div></div>
-              <div><div class="fp-hl-value">Solar</div><div class="fp-hl-label">Powered System</div></div>
-            </div>
+            <p class="fp-desc">Designed a large-scale integrated PCB driving multiple brushless DC motors for an upper-body exoskeleton with solar charging, Raspberry Pi integration, and 8-IMU sensor array.</p>
+            <div class="fp-tags"><span class="tag">KiCad</span><span class="tag">BLDC Motors</span><span class="tag">Raspberry Pi</span><span class="tag">PID Control</span><span class="tag">Solar</span><span class="tag">Python</span></div>
+            <div class="fp-highlights"><div><div class="fp-hl-value">6-DOF</div><div class="fp-hl-label">Motor Control</div></div><div><div class="fp-hl-value">8 IMUs</div><div class="fp-hl-label">Sensor Array</div></div><div><div class="fp-hl-value">Solar</div><div class="fp-hl-label">Powered System</div></div></div>
           </div>
-        </div>
+        </a>
 
-        <!-- Digital Scale -->
-        <div class="featured-project reveal">
+        <a href="./projects/digital-scale.html" class="featured-project reveal">
           <div class="fp-visual">
-            <svg class="wireframe-svg" viewBox="0 0 300 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M50 180 L50 120 Q50 100 70 90 L230 90 Q250 100 250 120 L250 180 Q250 200 230 200 L70 200 Q50 200 50 180Z" stroke="#D07242" stroke-width="1.2" fill="none"/>
-              <rect x="65" y="50" width="170" height="20" rx="4" stroke="#D07242" stroke-width="1.2" opacity="0.5"/>
-              <line x1="80" y1="70" x2="80" y2="90" stroke="#D07242" stroke-width="0.5" stroke-dasharray="3 2" opacity="0.3"/>
-              <line x1="220" y1="70" x2="220" y2="90" stroke="#D07242" stroke-width="0.5" stroke-dasharray="3 2" opacity="0.3"/>
-              <rect x="90" y="105" width="90" height="35" rx="4" stroke="#D07242" stroke-width="1" fill="#D07242" fill-opacity="0.04"/>
-              <text x="135" y="126" text-anchor="middle" font-family="monospace" font-size="11" fill="#D07242" font-weight="bold" opacity="0.55">1024.7g</text>
-              <circle cx="200" cy="118" r="6" stroke="#D07242" stroke-width="0.5" opacity="0.35"/>
-              <circle cx="200" cy="135" r="6" stroke="#D07242" stroke-width="0.5" opacity="0.35"/>
-              <text x="200" y="120" text-anchor="middle" font-family="monospace" font-size="4" fill="#D07242" opacity="0.35">TARE</text>
-              <text x="200" y="137" text-anchor="middle" font-family="monospace" font-size="4" fill="#D07242" opacity="0.35">UNIT</text>
-              <rect x="110" y="155" width="80" height="12" rx="2" stroke="#D07242" stroke-width="0.5" stroke-dasharray="3 2" opacity="0.25"/>
-              <text x="150" y="164" text-anchor="middle" font-family="monospace" font-size="5" fill="#D07242" opacity="0.25">LOAD CELL</text>
-              <text x="150" y="250" text-anchor="middle" font-family="monospace" font-size="7" fill="#D07242" opacity="0.3">CUSTOM DIGITAL SCALE · 0-3KG</text>
-            </svg>
+            <svg class="wireframe-svg" viewBox="0 0 300 260" fill="none"><path d="M50 180 L50 120 Q50 100 70 90 L230 90 Q250 100 250 120 L250 180 Q250 200 230 200 L70 200 Q50 200 50 180Z" stroke="#D07242" stroke-width="1.2" fill="none"/><rect x="65" y="50" width="170" height="20" rx="4" stroke="#D07242" stroke-width="1.2" opacity="0.5"/><rect x="90" y="105" width="90" height="35" rx="4" stroke="#D07242" stroke-width="1" fill="#D07242" fill-opacity="0.04"/><text x="135" y="126" text-anchor="middle" font-family="monospace" font-size="11" fill="#D07242" font-weight="bold" opacity="0.5">1024.7g</text><text x="150" y="250" text-anchor="middle" font-family="monospace" font-size="7" fill="#D07242" opacity="0.3">CUSTOM DIGITAL SCALE · 0-3KG</text></svg>
           </div>
           <div class="fp-content">
             <div class="fp-number">003 · Manufacturing</div>
             <h3 class="fp-title">Custom Digital Scale</h3>
             <div class="fp-subtitle">Manufacturing & Measurement Techniques · Rowan University</div>
-            <p class="fp-desc">Designed and manufactured a functional digital scale from scratch — CNC-machined a custom load cell from 6010 aluminum (validated with SolidWorks FEA), 3D printed ABS enclosures with clamshell design, and wrote Arduino firmware for multi-unit measurement with tare and calibration.</p>
-            <div class="fp-tags"><span class="fp-tag">Fusion 360</span><span class="fp-tag">SolidWorks FEA</span><span class="fp-tag">CNC Milling</span><span class="fp-tag">Lathe</span><span class="fp-tag">Arduino</span><span class="fp-tag">3D Printing</span></div>
-            <div class="fp-highlights">
-              <div><div class="fp-hl-value">±1%</div><div class="fp-hl-label">Accuracy</div></div>
-              <div><div class="fp-hl-value">0–3 kg</div><div class="fp-hl-label">Range</div></div>
-              <div><div class="fp-hl-value">IP31</div><div class="fp-hl-label">Enclosure Rating</div></div>
-            </div>
+            <p class="fp-desc">Designed and manufactured a functional digital scale from scratch — CNC-machined custom load cell from 6010 aluminum (FEA validated), 3D printed ABS enclosures, and Arduino firmware for calibrated measurement.</p>
+            <div class="fp-tags"><span class="tag">Fusion 360</span><span class="tag">SolidWorks FEA</span><span class="tag">CNC Milling</span><span class="tag">Lathe</span><span class="tag">Arduino</span><span class="tag">3D Printing</span></div>
+            <div class="fp-highlights"><div><div class="fp-hl-value">±1%</div><div class="fp-hl-label">Accuracy</div></div><div><div class="fp-hl-value">0–3 kg</div><div class="fp-hl-label">Range</div></div><div><div class="fp-hl-value">IP31</div><div class="fp-hl-label">Enclosure Rating</div></div></div>
           </div>
-        </div>
+        </a>
 
-        <!-- Soft Robotics -->
-        <div class="featured-project reveal">
+        <a href="./projects/soft-robotics.html" class="featured-project reveal">
           <div class="fp-visual">
-            <svg class="wireframe-svg" viewBox="0 0 300 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M40 80 Q40 60 60 60 L240 60 Q260 60 260 80 L260 160 Q260 180 240 180 L60 180 Q40 180 40 160Z" stroke="#5AB882" stroke-width="1.2" fill="none"/>
-              <path d="M40 100 Q30 120 40 140" stroke="#5AB882" stroke-width="0.6" stroke-dasharray="3 2" opacity="0.3"/>
-              <path d="M260 100 Q270 120 260 140" stroke="#5AB882" stroke-width="0.6" stroke-dasharray="3 2" opacity="0.3"/>
-              <rect x="55" y="70" width="25" height="15" rx="2" stroke="#5AB882" stroke-width="0.8" fill="#5AB882" fill-opacity="0.05"/>
-              <rect x="220" y="70" width="25" height="15" rx="2" stroke="#5AB882" stroke-width="0.8" fill="#5AB882" fill-opacity="0.05"/>
-              <rect x="115" y="95" width="70" height="50" rx="4" stroke="#5AB882" stroke-width="1" fill="#5AB882" fill-opacity="0.04"/>
-              <text x="150" y="117" text-anchor="middle" font-family="monospace" font-size="6" fill="#5AB882" opacity="0.5">ESP32</text>
-              <text x="150" y="127" text-anchor="middle" font-family="monospace" font-size="5" fill="#5AB882" opacity="0.3">+ MOTOR DRV</text>
-              <line x1="80" y1="120" x2="115" y2="120" stroke="#5AB882" stroke-width="0.6" opacity="0.35"/>
-              <line x1="185" y1="120" x2="220" y2="120" stroke="#5AB882" stroke-width="0.6" opacity="0.35"/>
-              <text x="95" y="115" text-anchor="middle" font-family="monospace" font-size="4" fill="#5AB882" opacity="0.3">I2C</text>
-              <text x="205" y="115" text-anchor="middle" font-family="monospace" font-size="4" fill="#5AB882" opacity="0.3">I2C</text>
-              <rect x="60" y="155" width="30" height="30" rx="6" stroke="#5AB882" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.3"/>
-              <rect x="100" y="155" width="30" height="30" rx="6" stroke="#5AB882" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.3"/>
-              <rect x="140" y="155" width="30" height="30" rx="6" stroke="#5AB882" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.3"/>
-              <rect x="180" y="155" width="30" height="30" rx="6" stroke="#5AB882" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.3"/>
-              <text x="150" y="220" text-anchor="middle" font-family="monospace" font-size="7" fill="#5AB882" opacity="0.3">MODULAR FLEX PCB · SOFT ROBOTICS</text>
-            </svg>
+            <svg class="wireframe-svg" viewBox="0 0 300 240" fill="none"><path d="M40 80 Q40 60 60 60 L240 60 Q260 60 260 80 L260 160 Q260 180 240 180 L60 180 Q40 180 40 160Z" stroke="#5AB882" stroke-width="1.2" fill="none"/><rect x="115" y="95" width="70" height="50" rx="4" stroke="#5AB882" stroke-width="1" fill="#5AB882" fill-opacity="0.04"/><text x="150" y="117" text-anchor="middle" font-family="monospace" font-size="6" fill="#5AB882" opacity="0.5">ESP32-C3</text><text x="150" y="127" text-anchor="middle" font-family="monospace" font-size="5" fill="#5AB882" opacity="0.3">+ DRV8837</text><rect x="60" y="155" width="30" height="30" rx="6" stroke="#5AB882" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.3"/><rect x="100" y="155" width="30" height="30" rx="6" stroke="#5AB882" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.3"/><rect x="140" y="155" width="30" height="30" rx="6" stroke="#5AB882" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.3"/><rect x="180" y="155" width="30" height="30" rx="6" stroke="#5AB882" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.3"/><text x="150" y="220" text-anchor="middle" font-family="monospace" font-size="7" fill="#5AB882" opacity="0.3">MODULAR FLEX PCB · SOFT ROBOTICS</text></svg>
           </div>
           <div class="fp-content">
             <div class="fp-number">004 · Research</div>
             <h3 class="fp-title">Modular Flexible PCB for Soft Robotics</h3>
             <div class="fp-subtitle">Research Lab · Rowan University</div>
-            <p class="fp-desc">Designed a modular flexible PCB enabling self-reconfiguring soft robotic modules to communicate and share power. Integrated motor drivers, power regulation, and I2C communication onto a compact flex PCB with multiple design iterations.</p>
-            <div class="fp-tags"><span class="fp-tag">Flex PCB</span><span class="fp-tag">KiCad</span><span class="fp-tag">ESP32</span><span class="fp-tag">I2C</span><span class="fp-tag">Motor Drivers</span><span class="fp-tag">ENIG</span></div>
-            <div class="fp-highlights">
-              <div><div class="fp-hl-value">2 Revs</div><div class="fp-hl-label">PCB Iterations</div></div>
-              <div><div class="fp-hl-value">Modular</div><div class="fp-hl-label">Self-Reconfig</div></div>
-              <div><div class="fp-hl-value">Flex</div><div class="fp-hl-label">PCB Substrate</div></div>
-            </div>
+            <p class="fp-desc">Designed modular flexible PCBs enabling self-reconfiguring soft robotic modules to communicate and share power with motor drivers and I2C bus on a compact flex substrate.</p>
+            <div class="fp-tags"><span class="tag">Flex PCB</span><span class="tag">KiCad</span><span class="tag">ESP32</span><span class="tag">I2C</span><span class="tag">Motor Drivers</span><span class="tag">ENIG</span></div>
+            <div class="fp-highlights"><div><div class="fp-hl-value">2 Revs</div><div class="fp-hl-label">PCB Iterations</div></div><div><div class="fp-hl-value">Modular</div><div class="fp-hl-label">Self-Reconfig</div></div><div><div class="fp-hl-value">Flex</div><div class="fp-hl-label">PCB Substrate</div></div></div>
           </div>
-        </div>
+        </a>
+
+        <a href="./projects/" class="view-all-link">View all 20+ projects →</a>
       </div>
     </section>
 
-    <!-- ALL PROJECTS -->
+    <!-- ALL PROJECTS GRID -->
     <section class="grid-section">
       <div class="section-inner">
         <div class="section-label reveal">02 — All Work</div>
-        <h2 class="section-title reveal">The Full Portfolio</h2>
-        <p class="section-desc reveal">Every project I've built — from autonomous drones to custom game consoles.</p>
+        <h2 class="section-title reveal">More Projects</h2>
+        <p class="section-desc reveal">A quick glance at everything else. <a href="./projects/" style="color:var(--gold)">Browse the full archive →</a></p>
         <div class="project-grid reveal">
           <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><rect x="12" y="20" width="40" height="30" rx="4" stroke="#C9983A" stroke-width="1.5"/><circle cx="32" cy="35" r="8" stroke="#C9983A" stroke-width="1"/></svg><div class="pg-name">ROS Robot</div><div class="pg-type">Autonomous</div></div>
-          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><path d="M22 32 L42 32 M32 14 L32 50 M18 22 L46 42 M46 22 L18 42" stroke="#C9983A" stroke-width="1.2"/><circle cx="32" cy="32" r="18" stroke="#C9983A" stroke-width="1.5"/></svg><div class="pg-name">Autonomous Drone</div><div class="pg-type">UAV</div></div>
-          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><rect x="22" y="8" width="20" height="48" rx="3" stroke="#C9983A" stroke-width="1.5"/><circle cx="32" cy="44" r="5" stroke="#C9983A" stroke-width="1"/><line x1="22" y1="16" x2="42" y2="16" stroke="#C9983A" stroke-width="0.75"/></svg><div class="pg-name">Balancing Robot Mk2</div><div class="pg-type">Controls</div></div>
-          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="32" rx="20" ry="14" stroke="#C9983A" stroke-width="1.5"/><circle cx="32" cy="32" r="4" stroke="#C9983A" stroke-width="1"/></svg><div class="pg-name">Wearable ECG Mk2</div><div class="pg-type">Medical</div></div>
+          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="18" stroke="#C9983A" stroke-width="1.5"/><path d="M22 32 L42 32 M32 14 L32 50" stroke="#C9983A" stroke-width="1.2"/></svg><div class="pg-name">Autonomous Drone</div><div class="pg-type">UAV</div></div>
+          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><rect x="22" y="8" width="20" height="48" rx="3" stroke="#C9983A" stroke-width="1.5"/><circle cx="32" cy="44" r="5" stroke="#C9983A" stroke-width="1"/></svg><div class="pg-name">Balancing Robot</div><div class="pg-type">Controls</div></div>
+          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="32" rx="20" ry="14" stroke="#C9983A" stroke-width="1.5"/><circle cx="32" cy="32" r="4" stroke="#C9983A" stroke-width="1"/></svg><div class="pg-name">ECG Mk2</div><div class="pg-type">Medical</div></div>
           <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><rect x="14" y="14" width="36" height="36" rx="4" stroke="#C9983A" stroke-width="1.5"/><circle cx="32" cy="32" r="10" stroke="#C9983A" stroke-width="1"/></svg><div class="pg-name">Farm Camera</div><div class="pg-type">IoT</div></div>
-          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><rect x="22" y="8" width="20" height="48" rx="3" stroke="#C9983A" stroke-width="1.5"/><circle cx="32" cy="44" r="5" stroke="#C9983A" stroke-width="1"/></svg><div class="pg-name">Balancing Robot V1</div><div class="pg-type">Controls</div></div>
-          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><rect x="10" y="20" width="44" height="28" rx="3" stroke="#C9983A" stroke-width="1.5"/><rect x="16" y="26" width="20" height="12" rx="1" stroke="#C9983A" stroke-width="1" fill="#C9983A" fill-opacity="0.05"/></svg><div class="pg-name">ECG Dev Kit PCB</div><div class="pg-type">PCB Design</div></div>
-          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="30" rx="16" ry="12" stroke="#C9983A" stroke-width="1.5"/><line x1="32" y1="42" x2="32" y2="52" stroke="#C9983A" stroke-width="1"/><line x1="24" y1="52" x2="40" y2="52" stroke="#C9983A" stroke-width="1.5"/></svg><div class="pg-name">ECG Puck</div><div class="pg-type">Wearable</div></div>
-          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><rect x="14" y="20" width="36" height="24" rx="3" stroke="#C9983A" stroke-width="1.5"/><rect x="18" y="24" width="10" height="8" rx="1" stroke="#C9983A" stroke-width="1"/><rect x="30" y="24" width="10" height="8" rx="1" stroke="#C9983A" stroke-width="1"/><rect x="18" y="34" width="10" height="8" rx="1" stroke="#C9983A" stroke-width="1"/><rect x="30" y="34" width="10" height="8" rx="1" stroke="#C9983A" stroke-width="1"/></svg><div class="pg-name">Macropad</div><div class="pg-type">Input Device</div></div>
-          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="28" r="14" stroke="#C9983A" stroke-width="1.5"/><line x1="32" y1="42" x2="32" y2="54" stroke="#C9983A" stroke-width="1"/><circle cx="32" cy="28" r="4" stroke="#C9983A" stroke-width="1" fill="#C9983A" fill-opacity="0.06"/></svg><div class="pg-name">Particulate Sensor</div><div class="pg-type">Environmental</div></div>
-          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><path d="M20 20 L44 20 L44 44 L20 44 Z" stroke="#C9983A" stroke-width="1.5"/><path d="M16 16 L40 16 L44 20" stroke="#C9983A" stroke-width="1" opacity="0.5"/><line x1="16" y1="16" x2="16" y2="40" stroke="#C9983A" stroke-width="1" opacity="0.5"/></svg><div class="pg-name">Deployable Drone</div><div class="pg-type">UAV</div></div>
-          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="16" stroke="#C9983A" stroke-width="1.5"/><circle cx="32" cy="32" r="6" stroke="#C9983A" stroke-width="1"/><line x1="32" y1="16" x2="32" y2="26" stroke="#C9983A" stroke-width="0.75"/></svg><div class="pg-name">FOC Test Rig</div><div class="pg-type">Motor Control</div></div>
-          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><rect x="10" y="18" width="44" height="28" rx="6" stroke="#C9983A" stroke-width="1.5"/><rect x="16" y="24" width="20" height="14" rx="2" stroke="#C9983A" stroke-width="1"/><circle cx="44" cy="28" r="3" stroke="#C9983A" stroke-width="0.75"/><circle cx="44" cy="36" r="3" stroke="#C9983A" stroke-width="0.75"/></svg><div class="pg-name">Handheld Console</div><div class="pg-type">Game Dev</div></div>
-          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="12" stroke="#C9983A" stroke-width="1.5"/><circle cx="32" cy="32" r="5" stroke="#C9983A" stroke-width="0.75"/><rect x="28" y="14" width="8" height="6" rx="1" stroke="#C9983A" stroke-width="1"/></svg><div class="pg-name">Flex Sensor Ring</div><div class="pg-type">Wearable</div></div>
-          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="28" rx="18" ry="10" stroke="#C9983A" stroke-width="1.5"/><line x1="32" y1="38" x2="32" y2="50" stroke="#C9983A" stroke-width="1.5"/><polyline points="24,46 32,54 40,46" stroke="#C9983A" stroke-width="1" fill="none"/></svg><div class="pg-name">ECG Device Mk3</div><div class="pg-type">Medical</div></div>
+          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><rect x="10" y="20" width="44" height="28" rx="3" stroke="#C9983A" stroke-width="1.5"/><rect x="16" y="26" width="20" height="12" rx="1" stroke="#C9983A" stroke-width="1" fill="#C9983A" fill-opacity="0.05"/></svg><div class="pg-name">ECG Dev Kit</div><div class="pg-type">PCB Design</div></div>
+          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><rect x="14" y="20" width="36" height="24" rx="3" stroke="#C9983A" stroke-width="1.5"/><rect x="18" y="24" width="10" height="8" rx="1" stroke="#C9983A" stroke-width="1"/><rect x="30" y="24" width="10" height="8" rx="1" stroke="#C9983A" stroke-width="1"/></svg><div class="pg-name">Macropad</div><div class="pg-type">Input Device</div></div>
+          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="16" stroke="#C9983A" stroke-width="1.5"/><circle cx="32" cy="32" r="6" stroke="#C9983A" stroke-width="1"/></svg><div class="pg-name">FOC Test Rig</div><div class="pg-type">Motor Control</div></div>
+          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><rect x="10" y="18" width="44" height="28" rx="6" stroke="#C9983A" stroke-width="1.5"/><rect x="16" y="24" width="20" height="14" rx="2" stroke="#C9983A" stroke-width="1"/></svg><div class="pg-name">Handheld Console</div><div class="pg-type">Game Dev</div></div>
+          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="12" stroke="#C9983A" stroke-width="1.5"/><circle cx="32" cy="32" r="5" stroke="#C9983A" stroke-width="0.75"/></svg><div class="pg-name">Flex Sensor Ring</div><div class="pg-type">Wearable</div></div>
         </div>
       </div>
     </section>
@@ -580,7 +139,7 @@
       <div class="section-inner">
         <div class="section-label reveal">03 — Capabilities</div>
         <h2 class="section-title reveal">Technical Skills</h2>
-        <p class="section-desc reveal">Hands-on skills spanning the full product development cycle — from schematic capture to CNC machining.</p>
+        <p class="section-desc reveal">Hands-on skills spanning the full product development cycle.</p>
         <div class="skills-grid reveal">
           <div class="skill-cell"><span class="skill-icon">⬡</span><div class="skill-name">PCB & Electronics</div><div class="skill-items">KiCad · Schematic Capture · PCB Layout<br>SMD Soldering · Flex PCBs · ENIG<br>Signal Integrity · DFM</div></div>
           <div class="skill-cell"><span class="skill-icon">◎</span><div class="skill-name">CAD & Mechanical</div><div class="skill-items">Fusion 360 · SolidWorks · FEA<br>GD&T · Technical Drawing<br>DFM · Tolerance Analysis</div></div>
@@ -627,10 +186,7 @@
       </div>
     </section>
 
-    <footer>
-      <div class="footer-text">© 2026 Chase Quijano</div>
-      <div class="footer-text">Rowan University · Engineering Entrepreneurship</div>
-    </footer>
+    <footer><div class="footer-text">© 2026 Chase Quijano</div><div class="footer-text">Rowan University · Engineering Entrepreneurship</div></footer>
   </div>
 
   <script>
