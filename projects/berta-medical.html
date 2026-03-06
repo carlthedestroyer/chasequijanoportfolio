@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Berta Medical — Chase Quijano</title>
@@ -94,6 +95,18 @@
           </ul>
           <p>All boards were designed in KiCad with careful attention to footprint selection, DFM guidelines, and in-house assembly. Test points were strategically placed for post-assembly validation.</p>
         </div>
+        <!-- Add this in your <head> -->
+
+<!-- Then wherever you want the model -->
+<model-viewer
+  src="3dmodels/ufo.glb"
+  alt="Berta Medical PCB"
+  camera-controls
+  auto-rotate
+  shadow-intensity="1"
+  style="width: 100%; height: 400px;"
+></model-viewer>
+
         <div class="ps-visual">
           <svg viewBox="0 0 300 280" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:90%;max-width:300px;">
             <!-- Phase arrows -->
