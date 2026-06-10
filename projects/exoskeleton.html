@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Exoskeleton Control System — Chase Quijano</title>
@@ -59,32 +60,8 @@
           <p>Upper-body exoskeletons require precise, coordinated motor control across multiple joints — shoulders, elbows, and wrists — with real-time feedback from inertial measurement units distributed along each limb segment. The control electronics must be compact enough to mount on the exoskeleton frame while handling the power demands of multiple brushless DC motors simultaneously.</p>
           <p>This research project required designing integrated electronics that could drive multiple BLDC motors, process IMU data for real-time position feedback, and operate from a solar-charged battery system for extended autonomous use in field conditions. The system also required a debug/status display and graceful degradation behavior so motor faults don't cascade across the full joint network.</p>
         </div>
-        <div class="ps-visual">
-          <svg viewBox="0 0 300 200" fill="none" style="width:85%;max-width:280px;">
-            <line x1="150" y1="40" x2="150" y2="100" stroke="#6B8EAE" stroke-width="1.2" opacity="0.5"/>
-            <circle cx="150" cy="32" r="10" stroke="#6B8EAE" stroke-width="1" opacity="0.5"/>
-            <line x1="150" y1="55" x2="120" y2="80" stroke="#6B8EAE" stroke-width="1" opacity="0.5"/>
-            <line x1="120" y1="80" x2="100" y2="110" stroke="#6B8EAE" stroke-width="1" opacity="0.5"/>
-            <line x1="150" y1="55" x2="180" y2="80" stroke="#6B8EAE" stroke-width="1" opacity="0.5"/>
-            <line x1="180" y1="80" x2="200" y2="110" stroke="#6B8EAE" stroke-width="1" opacity="0.5"/>
-            <line x1="150" y1="55" x2="116" y2="82" stroke="#6B8EAE" stroke-width="2.5" opacity="0.3"/>
-            <line x1="116" y1="82" x2="96" y2="112" stroke="#6B8EAE" stroke-width="2.5" opacity="0.3"/>
-            <line x1="150" y1="55" x2="184" y2="82" stroke="#6B8EAE" stroke-width="2.5" opacity="0.3"/>
-            <line x1="184" y1="82" x2="204" y2="112" stroke="#6B8EAE" stroke-width="2.5" opacity="0.3"/>
-            <circle cx="120" cy="80" r="5" stroke="#6B8EAE" stroke-width="1" fill="#6B8EAE" fill-opacity="0.08"/>
-            <circle cx="180" cy="80" r="5" stroke="#6B8EAE" stroke-width="1" fill="#6B8EAE" fill-opacity="0.08"/>
-            <circle cx="100" cy="110" r="5" stroke="#6B8EAE" stroke-width="1" fill="#6B8EAE" fill-opacity="0.08"/>
-            <circle cx="200" cy="110" r="5" stroke="#6B8EAE" stroke-width="1" fill="#6B8EAE" fill-opacity="0.08"/>
-            <text x="110" y="72" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.5">M1</text>
-            <text x="190" y="72" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.5">M2</text>
-            <text x="88" y="106" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.5">M3</text>
-            <text x="212" y="106" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.5">M4</text>
-            <rect x="105" y="130" width="24" height="10" rx="2" stroke="#6B8EAE" stroke-width="0.6" opacity="0.35"/>
-            <text x="117" y="137" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.35">IMU</text>
-            <rect x="170" y="130" width="24" height="10" rx="2" stroke="#6B8EAE" stroke-width="0.6" opacity="0.35"/>
-            <text x="182" y="137" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.35">IMU</text>
-            <text x="150" y="180" text-anchor="middle" font-family="monospace" font-size="6" fill="#6B8EAE" opacity="0.3">UPPER-BODY EXOSKELETON</text>
-          </svg>
+        <div class="ps-visual" style="padding: 0; overflow: hidden;">
+          <img src="images/render2.png" alt="Exoskeleton Control Board" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
       </div>
     </div>
@@ -114,46 +91,8 @@
             <li>Modular design allowing convenient repair and component replacement per joint</li>
           </ul>
         </div>
-        <div class="ps-visual">
-          <svg viewBox="0 0 280 220" fill="none" style="width:90%;max-width:300px;">
-            <!-- Control board box -->
-            <rect x="70" y="10" width="140" height="80" rx="4" stroke="#6B8EAE" stroke-width="1.2" fill="#6B8EAE" fill-opacity="0.03"/>
-            <text x="140" y="28" text-anchor="middle" font-family="monospace" font-size="6" fill="#6B8EAE" opacity="0.7">CONTROL BOARD</text>
-            <text x="140" y="42" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#6B8EAE" opacity="0.4">Raspberry Pi · Motor Drivers</text>
-            <text x="140" y="54" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#6B8EAE" opacity="0.4">Solar Charging · OLED</text>
-            <text x="140" y="66" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#6B8EAE" opacity="0.4">Power Distribution</text>
-            <text x="140" y="78" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#6B8EAE" opacity="0.4">WiFi (Computer Agnostic)</text>
-
-            <!-- I2C bus line -->
-            <line x1="140" y1="90" x2="140" y2="115" stroke="#6B8EAE" stroke-width="1" stroke-dasharray="4 2" opacity="0.4"/>
-            <text x="150" y="106" font-family="monospace" font-size="4.5" fill="#6B8EAE" opacity="0.4">I2C BUS</text>
-
-            <!-- I/O boards -->
-            <rect x="10" y="120" width="70" height="60" rx="4" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.02"/>
-            <text x="45" y="138" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">I/O BOARD</text>
-            <text x="45" y="150" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.4">Joint 1–2</text>
-            <text x="45" y="162" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.4">BLDC Driver</text>
-            <text x="45" y="174" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.4">V/I Monitor</text>
-
-            <rect x="105" y="120" width="70" height="60" rx="4" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.02"/>
-            <text x="140" y="138" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">I/O BOARD</text>
-            <text x="140" y="150" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.4">Joint 3–4</text>
-            <text x="140" y="162" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.4">BLDC Driver</text>
-            <text x="140" y="174" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.4">V/I Monitor</text>
-
-            <rect x="200" y="120" width="70" height="60" rx="4" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.02"/>
-            <text x="235" y="138" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">I/O BOARD</text>
-            <text x="235" y="150" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.4">Joint 5–6</text>
-            <text x="235" y="162" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.4">BLDC Driver</text>
-            <text x="235" y="174" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.4">V/I Monitor</text>
-
-            <!-- connecting lines from control board to I/O boards -->
-            <line x1="110" y1="90" x2="45" y2="120" stroke="#6B8EAE" stroke-width="0.6" stroke-dasharray="3 2" opacity="0.3"/>
-            <line x1="140" y1="115" x2="140" y2="120" stroke="#6B8EAE" stroke-width="0.6" opacity="0.3"/>
-            <line x1="170" y1="90" x2="235" y2="120" stroke="#6B8EAE" stroke-width="0.6" stroke-dasharray="3 2" opacity="0.3"/>
-
-            <text x="140" y="210" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#6B8EAE" opacity="0.3">DISTRIBUTED CONTROL ARCHITECTURE</text>
-          </svg>
+        <div class="ps-visual" style="padding: 0; overflow: hidden;">
+          <img src="images/BodyPositiondeviceDevBoard-BodyPositiondeviceDevBoard%20v2.png" alt="I/O Board PCB" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
       </div>
     </div>
@@ -174,52 +113,34 @@
             <li>Power distribution rails for motor drivers and logic-level components</li>
             <li>ENIG surface finish for reliability and consistent solderability</li>
           </ul>
-          <p>Board layout prioritized clean power return paths under motor driver sections and kept the Raspberry Pi GPIO header accessible for fieldwork.</p>
 
           <h4>Distributed I/O Boards</h4>
-          <p>Rather than running all motor wiring back to a central board, the architecture uses compact per-joint I/O modules. Each I/O board:</p>
-          <ul>
-            <li>Drives up to two BLDC motors — bidirectional with current and voltage monitoring</li>
-            <li>Communicates with the control board over an I2C bus daisy-chained across joints</li>
-            <li>Compact form factor designed to mount directly at each joint location on the frame</li>
-            <li>Modular design allows individual joint boards to be swapped without disturbing adjacent joints</li>
-          </ul>
+          <p>Rather than running all motor wiring back to a central board, the architecture uses compact per-joint I/O modules. Each I/O board drives up to two BLDC motors bidirectionally with voltage and current monitoring, communicates over an I2C bus daisy-chained across joints, and is designed to mount directly at each joint location for short wire runs and easy field replacement.</p>
 
           <h4>8-IMU Sensor Array</h4>
-          <p>Built a multi-sensor data acquisition system using 8 BNO085 IMUs connected to a Teensy 4.1 via custom UART drivers. Implemented SLIP protocol framing for reliable communication over RS485 transceivers, enabling distributed sensor placement across the exoskeleton frame with robust noise rejection. Sensor fusion produces stable quaternion orientation estimates for each limb segment.</p>
+          <p>Built a multi-sensor data acquisition system using 8 BNO085 IMUs connected to a Teensy 4.1 via custom UART drivers with SLIP protocol framing over RS485 transceivers. Sensor fusion produces stable quaternion orientation estimates per limb segment for PID feedback.</p>
+        </div>
+        <div class="ps-visual" style="padding: 0; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); min-height: auto; align-items: stretch;">
+          <img src="images/BodyPositiondeviceDevBoard-BodyPositiondeviceDevBoard%20v2.png" alt="I/O Board Front" style="width:100%; height:220px; object-fit:cover; display:block;" />
+          <img src="images/BodyPositiondeviceDevBoard-BodyPositiondeviceDevBoard%20v2%202.png" alt="I/O Board Back" style="width:100%; height:220px; object-fit:cover; display:block;" />
+          <img src="images/render2.png" alt="Control Board" style="width:100%; height:220px; object-fit:cover; display:block; grid-column: span 2;" />
+        </div>
+      </div>
+    </div>
 
-          <h4>Power System</h4>
-          <p>The power subsystem supports solar panel input and rechargeable battery operation with appropriate voltage regulation: 24V to 5V conversion at ≥3A for logic-level power, and higher voltage rails for motor drivers. Thermal pads manage heat dissipation from the motor driver ICs under load. Solar charging enables extended outdoor testing sessions without manual recharging.</p>
-        </div>
-        <div class="ps-visual">
-          <svg viewBox="0 0 300 240" fill="none" style="width:90%;max-width:300px;">
-            <rect x="30" y="30" width="240" height="140" rx="6" stroke="#6B8EAE" stroke-width="1.2"/>
-            <circle cx="45" cy="45" r="5" stroke="#6B8EAE" stroke-width="0.5" opacity="0.35"/>
-            <circle cx="255" cy="45" r="5" stroke="#6B8EAE" stroke-width="0.5" opacity="0.35"/>
-            <circle cx="45" cy="155" r="5" stroke="#6B8EAE" stroke-width="0.5" opacity="0.35"/>
-            <circle cx="255" cy="155" r="5" stroke="#6B8EAE" stroke-width="0.5" opacity="0.35"/>
-            <!-- motor drivers -->
-            <rect x="55" y="60" width="35" height="28" rx="2" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.05"/>
-            <rect x="100" y="60" width="35" height="28" rx="2" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.05"/>
-            <rect x="145" y="60" width="35" height="28" rx="2" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.05"/>
-            <text x="72" y="77" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">M1</text>
-            <text x="117" y="77" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">M2</text>
-            <text x="162" y="77" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">M3</text>
-            <!-- RPi -->
-            <rect x="195" y="55" width="55" height="40" rx="2" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.03"/>
-            <text x="222" y="78" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">RPi 4</text>
-            <!-- power -->
-            <rect x="55" y="110" width="80" height="40" rx="2" stroke="#6B8EAE" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.35"/>
-            <text x="95" y="133" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.35">SOLAR + PWR</text>
-            <!-- OLED -->
-            <rect x="155" y="115" width="40" height="30" rx="3" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.03"/>
-            <text x="175" y="133" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.45">OLED</text>
-            <!-- I2C bus label -->
-            <line x1="55" y1="170" x2="245" y2="170" stroke="#6B8EAE" stroke-width="0.8" stroke-dasharray="4 2" opacity="0.3"/>
-            <text x="150" y="183" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#6B8EAE" opacity="0.3">I2C BUS → I/O BOARDS</text>
-            <text x="150" y="220" text-anchor="middle" font-family="monospace" font-size="6" fill="#6B8EAE" opacity="0.3">EXOSKELETON CONTROL BOARD</text>
-          </svg>
-        </div>
+    <!-- 3D MODEL -->
+    <div class="project-section">
+      <div class="ps-label">3D Model</div>
+      <h2 class="ps-title">Interactive PCB Model</h2>
+      <div style="border: 1px solid var(--border); border-radius: 8px; overflow: hidden;">
+        <model-viewer
+          src="3dmodels/ufo.glb"
+          alt="Exoskeleton Control Board 3D Model"
+          camera-controls
+          auto-rotate
+          shadow-intensity="1.5"
+          style="width: 100%; height: 480px; background-color: #111114;"
+        ></model-viewer>
       </div>
     </div>
 
@@ -240,19 +161,14 @@
         </div>
         <div class="ps-visual">
           <svg viewBox="0 0 260 180" fill="none" style="width:90%;max-width:280px;">
-            <!-- Enclosure outline -->
             <rect x="40" y="20" width="180" height="120" rx="8" stroke="#6B8EAE" stroke-width="1.2" fill="#6B8EAE" fill-opacity="0.02"/>
-            <!-- PCB inside -->
             <rect x="60" y="35" width="140" height="80" rx="4" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.04"/>
-            <!-- OLED window -->
             <rect x="160" y="45" width="30" height="18" rx="2" stroke="#6B8EAE" stroke-width="0.6" fill="#6B8EAE" fill-opacity="0.06"/>
             <text x="175" y="56" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.45">OLED</text>
-            <!-- mounting holes -->
             <circle cx="55" cy="30" r="4" stroke="#6B8EAE" stroke-width="0.5" opacity="0.3"/>
             <circle cx="205" cy="30" r="4" stroke="#6B8EAE" stroke-width="0.5" opacity="0.3"/>
             <circle cx="55" cy="130" r="4" stroke="#6B8EAE" stroke-width="0.5" opacity="0.3"/>
             <circle cx="205" cy="130" r="4" stroke="#6B8EAE" stroke-width="0.5" opacity="0.3"/>
-            <!-- wire ports -->
             <rect x="36" y="60" width="8" height="40" rx="2" fill="#6B8EAE" fill-opacity="0.15" stroke="#6B8EAE" stroke-width="0.5" opacity="0.3"/>
             <rect x="216" y="60" width="8" height="40" rx="2" fill="#6B8EAE" fill-opacity="0.15" stroke="#6B8EAE" stroke-width="0.5" opacity="0.3"/>
             <text x="130" y="165" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#6B8EAE" opacity="0.3">3D PRINTED ABS ENCLOSURE</text>
@@ -321,18 +237,14 @@
         </div>
         <div class="ps-visual">
           <svg viewBox="0 0 260 200" fill="none" style="width:90%;max-width:280px;">
-            <!-- Scope trace box -->
             <rect x="20" y="15" width="220" height="80" rx="4" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.02"/>
             <text x="130" y="30" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.4">POSITION TRACKING</text>
-            <!-- commanded trajectory -->
             <polyline points="30,70 60,70 65,55 80,55 85,70 110,70 115,50 130,50 135,70 160,70 165,48 180,48 185,70 220,70"
               stroke="#6B8EAE" stroke-width="1" fill="none" opacity="0.5" stroke-dasharray="3 2"/>
-            <!-- actual response -->
             <polyline points="30,70 60,70 66,57 82,54 86,71 110,70 116,52 132,49 136,71 160,70 166,50 182,47 186,71 220,70"
               stroke="#6B8EAE" stroke-width="1" fill="none" opacity="0.7"/>
             <text x="35" y="90" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.35">--- commanded</text>
             <text x="35" y="100" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.55">— actual</text>
-            <!-- results -->
             <circle cx="35" cy="130" r="4" fill="#6B8EAE" fill-opacity="0.5"/>
             <text x="47" y="134" font-family="monospace" font-size="4.5" fill="#6B8EAE" opacity="0.5">Power rails stable under load</text>
             <circle cx="35" cy="148" r="4" fill="#6B8EAE" fill-opacity="0.5"/>

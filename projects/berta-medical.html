@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Berta Medical — Chase Quijano</title>
@@ -65,22 +66,8 @@
           <p>Berta Medical was co-founded with Billy Zhang to address barriers in accessing affordable healthcare and remote patient monitoring. Existing wearable ECG solutions were either prohibitively expensive or locked into proprietary ecosystems without meaningful data access for patients or providers.</p>
           <p>My contribution focused on the full hardware stack — designing custom wearable ECG hardware through three phases, writing firmware for secure data transmission, and building the integration layer with an AWS-based backend. Billy developed the AWS backend and front-end user interfaces that both doctors and patients utilize.</p>
         </div>
-        <div class="ps-visual">
-          <svg viewBox="0 0 240 180" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:90%;max-width:280px;">
-            <!-- ECG waveform -->
-            <polyline points="10,100 40,100 45,88 48,112 51,78 54,124 57,100 90,100 95,88 98,112 101,78 104,124 107,100 140,100 145,88 148,112 151,78 154,124 157,100 230,100"
-              stroke="#C9983A" stroke-width="1.2" fill="none" opacity="0.6"/>
-            <!-- Device outline -->
-            <rect x="80" y="20" width="80" height="55" rx="10" stroke="#C9983A" stroke-width="1" opacity="0.4"/>
-            <text x="120" y="50" text-anchor="middle" font-family="monospace" font-size="6" fill="#C9983A" opacity="0.4">BERTA</text>
-            <text x="120" y="60" text-anchor="middle" font-family="monospace" font-size="5" fill="#C9983A" opacity="0.3">WEARABLE ECG</text>
-            <!-- Electrode leads -->
-            <line x1="80" y1="55" x2="40" y2="80" stroke="#C9983A" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.3"/>
-            <line x1="160" y1="55" x2="200" y2="80" stroke="#C9983A" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.3"/>
-            <circle cx="40" cy="82" r="4" stroke="#C9983A" stroke-width="0.8" opacity="0.35"/>
-            <circle cx="200" cy="82" r="4" stroke="#C9983A" stroke-width="0.8" opacity="0.35"/>
-            <text x="120" y="165" text-anchor="middle" font-family="monospace" font-size="6" fill="#C9983A" opacity="0.3">ECG ACQUISITION</text>
-          </svg>
+        <div class="ps-visual" style="padding: 1.5rem; background: #0A0A0C;">
+          <img src="images/bertamedical.png" alt="Berta Medical Logo" style="width: 90%; max-width: 300px; object-fit: contain;" />
         </div>
       </div>
     </div>
@@ -116,37 +103,8 @@
           <h4>Startup Context</h4>
           <p>Turn hardware prototypes into a viable medical product concept and pitch to interdisciplinary judges — physicists, engineers, and business leaders — at the Rowan New Venture Competition.</p>
         </div>
-        <div class="ps-visual">
-          <svg viewBox="0 0 260 220" fill="none" style="width:90%;max-width:280px;">
-            <!-- Constraint boxes -->
-            <rect x="10" y="10" width="110" height="90" rx="4" stroke="#C9983A" stroke-width="0.8" fill="#C9983A" fill-opacity="0.03"/>
-            <text x="65" y="28" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#C9983A" opacity="0.6">WEARABLE</text>
-            <text x="65" y="42" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">AD8232 ECG</text>
-            <text x="65" y="54" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">ESP32 / WiFi</text>
-            <text x="65" y="66" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">Li-Ion Charging</text>
-            <text x="65" y="78" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">Compact / Light</text>
-
-            <rect x="140" y="10" width="110" height="90" rx="4" stroke="#C9983A" stroke-width="0.8" fill="#C9983A" fill-opacity="0.03"/>
-            <text x="195" y="28" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#C9983A" opacity="0.6">CUSTOM PCBs</text>
-            <text x="195" y="42" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">Dev Kit (OLED/uSD)</text>
-            <text x="195" y="54" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">Final Wearable</text>
-            <text x="195" y="66" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">MAX1704x / TP4056</text>
-            <text x="195" y="78" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">SMD + Test Points</text>
-
-            <rect x="10" y="120" width="110" height="90" rx="4" stroke="#C9983A" stroke-width="0.8" fill="#C9983A" fill-opacity="0.03"/>
-            <text x="65" y="138" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#C9983A" opacity="0.6">CLOUD ARCH</text>
-            <text x="65" y="152" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">MQTT / TLS</text>
-            <text x="65" y="164" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">AWS IoT Core</text>
-            <text x="65" y="176" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">Doctor Portal</text>
-            <text x="65" y="188" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">Patient Portal</text>
-
-            <rect x="140" y="120" width="110" height="90" rx="4" stroke="#C9983A" stroke-width="0.8" fill="#C9983A" fill-opacity="0.03"/>
-            <text x="195" y="138" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#C9983A" opacity="0.6">STARTUP</text>
-            <text x="195" y="152" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">Revenue Model</text>
-            <text x="195" y="164" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">Venture Pitch</text>
-            <text x="195" y="176" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">3 Market Segments</text>
-            <text x="195" y="188" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">Full Prototype</text>
-          </svg>
+        <div class="ps-visual" style="padding: 0; overflow: hidden;">
+          <img src="images/ECG-Compact-Render-2.png" alt="ECG Wearable PCB Render" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
       </div>
     </div>
@@ -182,51 +140,29 @@
             <li>Strategic test points placed for post-assembly validation</li>
             <li>Full SMD assembly; no through-hole components in signal path</li>
           </ul>
-          <p>All boards designed in KiCad with careful attention to footprint selection, DFM guidelines, and in-house assembly workflow.</p>
         </div>
-        <div class="ps-visual">
-          <svg viewBox="0 0 300 280" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:90%;max-width:300px;">
-            <!-- Phase labels -->
-            <text x="50" y="20" font-family="monospace" font-size="6" fill="#C9983A" opacity="0.5">PHASE 1</text>
-            <text x="130" y="20" font-family="monospace" font-size="6" fill="#C9983A" opacity="0.5">PHASE 2</text>
-            <text x="215" y="20" font-family="monospace" font-size="6" fill="#C9983A" opacity="0.5">PHASE 3</text>
-            <line x1="85" y1="17" x2="125" y2="17" stroke="#C9983A" stroke-width="0.5" opacity="0.3"/>
-            <line x1="170" y1="17" x2="210" y2="17" stroke="#C9983A" stroke-width="0.5" opacity="0.3"/>
-
-            <!-- Prototype -->
-            <rect x="20" y="35" width="70" height="90" rx="12" stroke="#C9983A" stroke-width="1" opacity="0.4"/>
-            <text x="55" y="75" text-anchor="middle" font-family="monospace" font-size="5" fill="#C9983A" opacity="0.35">CHEST</text>
-            <text x="55" y="87" text-anchor="middle" font-family="monospace" font-size="5" fill="#C9983A" opacity="0.35">MOUNT</text>
-
-            <!-- Dev Kit -->
-            <rect x="110" y="35" width="70" height="90" rx="4" stroke="#C9983A" stroke-width="1.2"/>
-            <rect x="118" y="45" width="22" height="14" rx="2" stroke="#C9983A" stroke-width="0.6" fill="#C9983A" fill-opacity="0.05"/>
-            <text x="129" y="54" text-anchor="middle" font-family="monospace" font-size="4" fill="#C9983A" opacity="0.5">OLED</text>
-            <rect x="148" y="45" width="22" height="14" rx="2" stroke="#C9983A" stroke-width="0.6" fill="#C9983A" fill-opacity="0.05"/>
-            <text x="159" y="54" text-anchor="middle" font-family="monospace" font-size="4" fill="#C9983A" opacity="0.5">uSD</text>
-            <rect x="120" y="70" width="50" height="20" rx="2" stroke="#C9983A" stroke-width="0.8" fill="#C9983A" fill-opacity="0.04"/>
-            <text x="145" y="83" text-anchor="middle" font-family="monospace" font-size="5" fill="#C9983A" opacity="0.5">ESP32</text>
-            <rect x="118" y="100" width="54" height="16" rx="2" stroke="#C9983A" stroke-width="0.6" opacity="0.4"/>
-            <text x="145" y="111" text-anchor="middle" font-family="monospace" font-size="4" fill="#C9983A" opacity="0.35">18650</text>
-
-            <!-- Final Wearable -->
-            <rect x="200" y="35" width="80" height="90" rx="6" stroke="#C9983A" stroke-width="1.2"/>
-            <rect x="210" y="45" width="26" height="16" rx="2" stroke="#C9983A" stroke-width="0.8" fill="#C9983A" fill-opacity="0.06"/>
-            <text x="223" y="55" text-anchor="middle" font-family="monospace" font-size="4" fill="#C9983A" opacity="0.5">ESP32</text>
-            <rect x="244" y="45" width="26" height="16" rx="2" stroke="#C9983A" stroke-width="0.8" fill="#C9983A" fill-opacity="0.06"/>
-            <text x="257" y="55" text-anchor="middle" font-family="monospace" font-size="4" fill="#C9983A" opacity="0.5">AD8232</text>
-            <rect x="210" y="68" width="60" height="12" rx="2" stroke="#C9983A" stroke-width="0.6" fill="#C9983A" fill-opacity="0.04"/>
-            <text x="240" y="77" text-anchor="middle" font-family="monospace" font-size="4" fill="#C9983A" opacity="0.4">MAX1704x+TP4056</text>
-            <circle cx="220" cy="100" r="3" stroke="#C9983A" stroke-width="0.6" opacity="0.4"/>
-            <circle cx="240" cy="100" r="3" stroke="#C9983A" stroke-width="0.6" opacity="0.4"/>
-            <circle cx="260" cy="100" r="3" stroke="#C9983A" stroke-width="0.6" opacity="0.4"/>
-            <text x="240" y="118" text-anchor="middle" font-family="monospace" font-size="4" fill="#C9983A" opacity="0.3">ELECTRODES</text>
-
-            <!-- ECG waveform at bottom -->
-            <polyline points="20,220 50,220 55,210 58,230 61,200 64,240 67,215 70,220 120,220 125,210 128,230 131,200 134,240 137,215 140,220 190,220 195,210 198,230 201,200 204,240 207,215 210,220 280,220" stroke="#C9983A" stroke-width="1" fill="none" opacity="0.4"/>
-            <text x="150" y="260" text-anchor="middle" font-family="monospace" font-size="6" fill="#C9983A" opacity="0.3">DEVELOPMENT TIMELINE</text>
-          </svg>
+        <div class="ps-visual" style="padding: 0; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); min-height: auto; align-items: stretch;">
+          <img src="images/ECG_DevBoard-ECG%20DevBoardPcb_eb3a%20v11.png" alt="Dev Kit PCB" style="width:100%; height:220px; object-fit:cover; display:block;" />
+          <img src="images/ECG_DevBoard-ECG%20DevBoardPcb_eb3a%20v11%202.png" alt="Dev Kit PCB Back" style="width:100%; height:220px; object-fit:cover; display:block;" />
+          <img src="images/ECG-Compact-Render.png" alt="Wearable PCB Render Front" style="width:100%; height:220px; object-fit:cover; display:block;" />
+          <img src="images/ECG-Compact-Render-1.png" alt="Wearable PCB Render Angle" style="width:100%; height:220px; object-fit:cover; display:block;" />
         </div>
+      </div>
+    </div>
+
+    <!-- 3D MODEL -->
+    <div class="project-section">
+      <div class="ps-label">3D Model</div>
+      <h2 class="ps-title">Interactive PCB Model</h2>
+      <div style="border: 1px solid var(--border); border-radius: 8px; overflow: hidden;">
+        <model-viewer
+          src="3dmodels/ufo.glb"
+          alt="Berta Medical Wearable PCB 3D Model"
+          camera-controls
+          auto-rotate
+          shadow-intensity="1.5"
+          style="width: 100%; height: 480px; background-color: #111114;"
+        ></model-viewer>
       </div>
     </div>
 
@@ -247,7 +183,7 @@
           </ul>
           <p>Both portals were developed by co-founder Billy Zhang; I owned the hardware-to-cloud integration layer, MQTT message formatting, and device authentication.</p>
         </div>
-        <div class="ps-visual" style="flex-direction: column; gap: 1rem; justify-content: center;">
+        <div class="ps-visual" style="flex-direction: column; gap: 1.5rem; justify-content: center;">
           <div class="architecture-flow">
             <div class="arch-node">
               <div class="arch-node-title">Wearable</div>
@@ -264,6 +200,7 @@
               <div class="arch-node-sub">Doctor + Patient</div>
             </div>
           </div>
+          <img src="images/ECG-Compact-Render-3.png" alt="ECG Wearable Assembled" style="width:100%; border-radius:4px; border:1px solid var(--border); object-fit:cover; max-height:180px;" />
         </div>
       </div>
     </div>
@@ -290,24 +227,11 @@
           </ul>
 
           <h4>Competition Demonstration</h4>
-          <p>The complete prototype system — hardware, cloud infrastructure, and both web portals — was live-demonstrated at the Rowan New Venture Competition to an interdisciplinary panel of judges including physicists, engineers, and business leaders. The demo showed real-time ECG acquisition streaming to both portals simultaneously.</p>
+          <p>The complete prototype system — hardware, cloud infrastructure, and both web portals — was live-demonstrated at the Rowan New Venture Competition to an interdisciplinary panel of judges including physicists, engineers, and business leaders.</p>
         </div>
-        <div class="ps-visual">
-          <svg viewBox="0 0 260 200" fill="none" style="width:90%;max-width:280px;">
-            <!-- ECG waveform display box -->
-            <rect x="20" y="20" width="220" height="100" rx="4" stroke="#C9983A" stroke-width="0.8" fill="#C9983A" fill-opacity="0.02"/>
-            <text x="130" y="36" text-anchor="middle" font-family="monospace" font-size="5" fill="#C9983A" opacity="0.4">ECG CAPTURE</text>
-            <!-- realistic ECG -->
-            <polyline points="30,80 55,80 58,72 60,88 62,60 64,96 66,78 70,80 95,80 98,72 100,88 102,60 104,96 106,78 110,80 135,80 138,72 140,88 142,60 144,96 146,78 150,80 220,80"
-              stroke="#C9983A" stroke-width="1" fill="none" opacity="0.65"/>
-            <!-- status indicators -->
-            <circle cx="35" cy="140" r="5" fill="#C9983A" fill-opacity="0.5"/>
-            <text x="48" y="144" font-family="monospace" font-size="5" fill="#C9983A" opacity="0.5">Signal stable</text>
-            <circle cx="35" cy="158" r="5" fill="#C9983A" fill-opacity="0.5"/>
-            <text x="48" y="162" font-family="monospace" font-size="5" fill="#C9983A" opacity="0.5">MQTT → AWS verified</text>
-            <circle cx="35" cy="176" r="5" fill="#C9983A" fill-opacity="0.5"/>
-            <text x="48" y="180" font-family="monospace" font-size="5" fill="#C9983A" opacity="0.5">Portal live demo complete</text>
-          </svg>
+        <div class="ps-visual" style="padding: 0; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); min-height: auto;">
+          <img src="images/ECG-Compact-Render-4.png" alt="Final ECG Wearable" style="width:100%; height:240px; object-fit:cover; display:block;" />
+          <img src="images/ECG-Compact-Render-5.png" alt="ECG Wearable Detail" style="width:100%; height:240px; object-fit:cover; display:block;" />
         </div>
       </div>
     </div>
@@ -316,16 +240,19 @@
     <div class="project-section">
       <div class="ps-label">Entrepreneurship</div>
       <h2 class="ps-title">Startup Context & Venture Competition</h2>
-      <div class="ps-content ps-full">
+      <div class="ps-content">
         <div class="ps-text">
           <p>Berta Medical was co-founded with Billy Zhang as a genuine product development effort. We developed a full revenue model targeting three customer segments: consumers via monthly subscription for device and care access, small medical practices through a provider-facing service model, and medical research facilities through a data analytics partnership program.</p>
           <p>Primary revenue streams:</p>
           <ul>
-            <li><strong>Consumer subscriptions</strong> — Berta Medical Services: yearly or monthly subscription pairing medical device access with on-demand care across specialties (cardiology, neurology, orthopedics, dermatology, endocrinology, pulmonology)</li>
+            <li><strong>Consumer subscriptions</strong> — yearly or monthly plans pairing device access with on-demand care across specialties (cardiology, neurology, orthopedics, dermatology, endocrinology, pulmonology)</li>
             <li><strong>Small medical practices</strong> — service that pays medical practitioners through Berta as a primary insurance intermediary</li>
             <li><strong>Medical research facilities</strong> — Berta Medical Data Services: selling anonymized medical data to enable research and development of new medical innovations</li>
           </ul>
           <p>The complete prototype system was demonstrated and pitched to interdisciplinary judges at the Rowan New Venture Competition. The pitch covered technical implementation, business viability, target market sizing, and the competitive landscape for wearable remote monitoring.</p>
+        </div>
+        <div class="ps-visual" style="padding: 0; overflow: hidden;">
+          <img src="images/Berta_Medical_Revenue_Structure.jpg" alt="Berta Medical Revenue Structure" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
       </div>
     </div>
