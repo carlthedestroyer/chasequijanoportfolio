@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Berta Medical — Chase Quijano</title>
-    <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
   <div class="grid-bg"></div>
@@ -34,7 +33,7 @@
       <h1 class="project-hero-title">Berta Medical — Wearable ECG Platform</h1>
       <div class="project-hero-subtitle">Co-Founder & Hardware Lead · Rowan University · 2024</div>
 
-      <p class="project-hero-desc">Co-founded a medical startup to make remote health monitoring accessible and affordable. Designed custom wearable ECG hardware through three development phases, wrote embedded firmware for secure data transmission, and integrated everything with an AWS-based cloud backend and patient/doctor web portals.</p>
+      <p class="project-hero-desc">Co-founded a medical startup to make remote health monitoring accessible and affordable. Designed custom wearable ECG hardware through three development phases — prototype, dev kit PCB, and final wearable PCB — wrote ESP32 firmware for encrypted MQTT data transmission, and integrated with an AWS-based cloud backend serving separate patient and doctor web portals.</p>
 
       <div class="project-hero-tags">
         <span class="tag">KiCad</span>
@@ -50,7 +49,7 @@
       </div>
 
       <div class="project-hero-metrics">
-        <div><div class="phm-value">3</div><div class="phm-label">PCBs Designed & Built</div></div>
+        <div><div class="phm-value">3</div><div class="phm-label">Hardware Phases</div></div>
         <div><div class="phm-value">TLS</div><div class="phm-label">Encrypted Data Pipeline</div></div>
         <div><div class="phm-value">2</div><div class="phm-label">Web Portals (Doctor + Patient)</div></div>
         <div><div class="phm-value">Pitched</div><div class="phm-label">Rowan New Venture Comp</div></div>
@@ -64,12 +63,93 @@
       <div class="ps-content">
         <div class="ps-text">
           <p>Berta Medical was co-founded with Billy Zhang to address barriers in accessing affordable healthcare and remote patient monitoring. Existing wearable ECG solutions were either prohibitively expensive or locked into proprietary ecosystems without meaningful data access for patients or providers.</p>
-          <p>My contribution focused on the full hardware stack — designing custom wearable ECG hardware (dev kit PCB, final wearable PCB), writing firmware for secure data transmission, and building the integration layer to an AWS-based backend with patient and doctor portals. Billy developed the AWS backend and front-end user interfaces.</p>
+          <p>My contribution focused on the full hardware stack — designing custom wearable ECG hardware through three phases, writing firmware for secure data transmission, and building the integration layer with an AWS-based backend. Billy developed the AWS backend and front-end user interfaces that both doctors and patients utilize.</p>
+        </div>
+        <div class="ps-visual">
+          <svg viewBox="0 0 240 180" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:90%;max-width:280px;">
+            <!-- ECG waveform -->
+            <polyline points="10,100 40,100 45,88 48,112 51,78 54,124 57,100 90,100 95,88 98,112 101,78 104,124 107,100 140,100 145,88 148,112 151,78 154,124 157,100 230,100"
+              stroke="#C9983A" stroke-width="1.2" fill="none" opacity="0.6"/>
+            <!-- Device outline -->
+            <rect x="80" y="20" width="80" height="55" rx="10" stroke="#C9983A" stroke-width="1" opacity="0.4"/>
+            <text x="120" y="50" text-anchor="middle" font-family="monospace" font-size="6" fill="#C9983A" opacity="0.4">BERTA</text>
+            <text x="120" y="60" text-anchor="middle" font-family="monospace" font-size="5" fill="#C9983A" opacity="0.3">WEARABLE ECG</text>
+            <!-- Electrode leads -->
+            <line x1="80" y1="55" x2="40" y2="80" stroke="#C9983A" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.3"/>
+            <line x1="160" y1="55" x2="200" y2="80" stroke="#C9983A" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.3"/>
+            <circle cx="40" cy="82" r="4" stroke="#C9983A" stroke-width="0.8" opacity="0.35"/>
+            <circle cx="200" cy="82" r="4" stroke="#C9983A" stroke-width="0.8" opacity="0.35"/>
+            <text x="120" y="165" text-anchor="middle" font-family="monospace" font-size="6" fill="#C9983A" opacity="0.3">ECG ACQUISITION</text>
+          </svg>
+        </div>
+      </div>
+    </div>
 
-  <div class="ps-visual">
-    <img src="/images/bertamedical.png" alt="Berta Medical" style="width:85%;max-width:280px;" />
-  </div>
-</div> 
+    <!-- REQUIREMENTS -->
+    <div class="project-section">
+      <div class="ps-label">Requirements & Constraints</div>
+      <h2 class="ps-title">Design Constraints Across Four Domains</h2>
+      <div class="ps-content">
+        <div class="ps-text">
+          <h4>Wearable Device</h4>
+          <ul>
+            <li>Lightweight and comfortable for extended wear</li>
+            <li>Accurate ECG acquisition via AD8232 analog front-end with electrode interface</li>
+            <li>Wireless communication via ESP32 over WiFi</li>
+            <li>Rechargeable Li-ion with safe charging circuitry</li>
+          </ul>
+
+          <h4>Custom PCBs</h4>
+          <ul>
+            <li>Dev Kit PCB: modular expansion headers for firmware and comms testing (OLED, microSD)</li>
+            <li>Final Wearable PCB: integrated ECG front-end, ESP32, MAX1704x fuel gauge, TP4056 charger</li>
+            <li>Compact form factor; SMD-only assembly; test points for post-assembly validation</li>
+          </ul>
+
+          <h4>System Architecture</h4>
+          <ul>
+            <li>Encrypted MQTT to AWS IoT Core for secure device messaging and storage</li>
+            <li>Web portals for doctors and patients serving real-time and historical ECG data</li>
+            <li>Potential AI analytics integration to detect multiple health trends</li>
+          </ul>
+
+          <h4>Startup Context</h4>
+          <p>Turn hardware prototypes into a viable medical product concept and pitch to interdisciplinary judges — physicists, engineers, and business leaders — at the Rowan New Venture Competition.</p>
+        </div>
+        <div class="ps-visual">
+          <svg viewBox="0 0 260 220" fill="none" style="width:90%;max-width:280px;">
+            <!-- Constraint boxes -->
+            <rect x="10" y="10" width="110" height="90" rx="4" stroke="#C9983A" stroke-width="0.8" fill="#C9983A" fill-opacity="0.03"/>
+            <text x="65" y="28" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#C9983A" opacity="0.6">WEARABLE</text>
+            <text x="65" y="42" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">AD8232 ECG</text>
+            <text x="65" y="54" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">ESP32 / WiFi</text>
+            <text x="65" y="66" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">Li-Ion Charging</text>
+            <text x="65" y="78" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">Compact / Light</text>
+
+            <rect x="140" y="10" width="110" height="90" rx="4" stroke="#C9983A" stroke-width="0.8" fill="#C9983A" fill-opacity="0.03"/>
+            <text x="195" y="28" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#C9983A" opacity="0.6">CUSTOM PCBs</text>
+            <text x="195" y="42" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">Dev Kit (OLED/uSD)</text>
+            <text x="195" y="54" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">Final Wearable</text>
+            <text x="195" y="66" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">MAX1704x / TP4056</text>
+            <text x="195" y="78" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">SMD + Test Points</text>
+
+            <rect x="10" y="120" width="110" height="90" rx="4" stroke="#C9983A" stroke-width="0.8" fill="#C9983A" fill-opacity="0.03"/>
+            <text x="65" y="138" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#C9983A" opacity="0.6">CLOUD ARCH</text>
+            <text x="65" y="152" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">MQTT / TLS</text>
+            <text x="65" y="164" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">AWS IoT Core</text>
+            <text x="65" y="176" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">Doctor Portal</text>
+            <text x="65" y="188" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">Patient Portal</text>
+
+            <rect x="140" y="120" width="110" height="90" rx="4" stroke="#C9983A" stroke-width="0.8" fill="#C9983A" fill-opacity="0.03"/>
+            <text x="195" y="138" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#C9983A" opacity="0.6">STARTUP</text>
+            <text x="195" y="152" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">Revenue Model</text>
+            <text x="195" y="164" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">Venture Pitch</text>
+            <text x="195" y="176" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">3 Market Segments</text>
+            <text x="195" y="188" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#C9983A" opacity="0.4">Full Prototype</text>
+          </svg>
+        </div>
+      </div>
+    </div>
 
     <!-- HARDWARE DESIGN -->
     <div class="project-section">
@@ -78,40 +158,35 @@
       <div class="ps-content">
         <div class="ps-text">
           <h4>Phase 1 — Prototype</h4>
-          <p>Two initial variants: a chest-mount and a clip-on form factor. Used off-the-shelf development boards to validate the ECG signal acquisition concept and test electrode placement strategies.</p>
+          <p>Two initial form factor variants were explored: a chest-mount and a clip-on configuration. Off-the-shelf development boards validated ECG signal acquisition concept and electrode placement strategies before committing to custom PCB design.</p>
 
           <h4>Phase 2 — Dev Kit PCB</h4>
-          <p>Designed a custom development kit PCB with modular headers for rapid firmware iteration. Included an OLED display for real-time debug output, microSD card logging for data capture, and a 18650 battery holder. This board became the primary platform for iterating on MQTT communication and firmware reliability before committing to the final wearable form factor.</p>
+          <p>Designed a custom development kit PCB with modular expansion headers for rapid firmware and communications iteration. Key features: 128×32 OLED display for real-time debug output, microSD card slot for local data logging, and an 18650 battery holder. This board served as the primary platform for iterating on MQTT communication flows and firmware reliability before the final wearable form factor was locked in.</p>
+          <ul>
+            <li>ESP32-C3-DevKitC-02 as the compute module</li>
+            <li>AD8232 ECG analog front-end with instrumentation amplifier</li>
+            <li>128×32 OLED via I2C for debug output</li>
+            <li>MicroSD card via SPI for data logging</li>
+            <li>18650 Li-ion battery holder with TP4056 charging</li>
+            <li>Designed in KiCad; assembled in-house</li>
+          </ul>
 
           <h4>Phase 3 — Final Wearable PCB</h4>
-          <p>The final integrated PCB combined everything into a compact, wearable form factor:</p>
+          <p>The final integrated PCB combined everything into a compact wearable form factor designed for actual patient use:</p>
           <ul>
-            <li>AD8232 ECG analog front-end with electrode interface</li>
-            <li>ESP32 microcontroller for processing and WiFi communication</li>
-            <li>MAX1704x fuel gauge for accurate battery state monitoring</li>
+            <li>AD8232 ECG analog front-end with electrode snap connectors</li>
+            <li>ESP32 microcontroller for real-time processing and WiFi</li>
+            <li>MAX1704x fuel gauge for accurate battery state-of-charge monitoring</li>
             <li>TP4056 safe Li-ion charging circuitry</li>
-            <li>Test points for manufacturing validation</li>
-            <li>Compact SMD assembly designed for manufacturability</li>
+            <li>Daughter-board connector for electrode interface separation</li>
+            <li>Strategic test points placed for post-assembly validation</li>
+            <li>Full SMD assembly; no through-hole components in signal path</li>
           </ul>
-          <p>All boards were designed in KiCad with careful attention to footprint selection, DFM guidelines, and in-house assembly. Test points were strategically placed for post-assembly validation.</p>
+          <p>All boards designed in KiCad with careful attention to footprint selection, DFM guidelines, and in-house assembly workflow.</p>
         </div>
-        <!-- Add this in your <head> -->
-
-<!-- Then wherever you want the model -->
-</div>
-<model-viewer
-  src="3dmodels/ufo.glb"
-  alt="Berta Medical PCB"
-  camera-controls
-  auto-rotate
-  background-color:#000000;
-  shadow-intensity="2"
-  style="width: 100%; height: 400px;"
-></model-viewer>
-</div>
         <div class="ps-visual">
           <svg viewBox="0 0 300 280" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:90%;max-width:300px;">
-            <!-- Phase arrows -->
+            <!-- Phase labels -->
             <text x="50" y="20" font-family="monospace" font-size="6" fill="#C9983A" opacity="0.5">PHASE 1</text>
             <text x="130" y="20" font-family="monospace" font-size="6" fill="#C9983A" opacity="0.5">PHASE 2</text>
             <text x="215" y="20" font-family="monospace" font-size="6" fill="#C9983A" opacity="0.5">PHASE 3</text>
@@ -120,7 +195,8 @@
 
             <!-- Prototype -->
             <rect x="20" y="35" width="70" height="90" rx="12" stroke="#C9983A" stroke-width="1" opacity="0.4"/>
-            <text x="55" y="85" text-anchor="middle" font-family="monospace" font-size="5" fill="#C9983A" opacity="0.35">PROTO</text>
+            <text x="55" y="75" text-anchor="middle" font-family="monospace" font-size="5" fill="#C9983A" opacity="0.35">CHEST</text>
+            <text x="55" y="87" text-anchor="middle" font-family="monospace" font-size="5" fill="#C9983A" opacity="0.35">MOUNT</text>
 
             <!-- Dev Kit -->
             <rect x="110" y="35" width="70" height="90" rx="4" stroke="#C9983A" stroke-width="1.2"/>
@@ -140,10 +216,10 @@
             <rect x="244" y="45" width="26" height="16" rx="2" stroke="#C9983A" stroke-width="0.8" fill="#C9983A" fill-opacity="0.06"/>
             <text x="257" y="55" text-anchor="middle" font-family="monospace" font-size="4" fill="#C9983A" opacity="0.5">AD8232</text>
             <rect x="210" y="68" width="60" height="12" rx="2" stroke="#C9983A" stroke-width="0.6" fill="#C9983A" fill-opacity="0.04"/>
-            <text x="240" y="77" text-anchor="middle" font-family="monospace" font-size="4" fill="#C9983A" opacity="0.4">MAX1704x + TP4056</text>
-            <circle cx="220" y="100" r="3" stroke="#C9983A" stroke-width="0.6" opacity="0.4"/>
-            <circle cx="240" y="100" r="3" stroke="#C9983A" stroke-width="0.6" opacity="0.4"/>
-            <circle cx="260" y="100" r="3" stroke="#C9983A" stroke-width="0.6" opacity="0.4"/>
+            <text x="240" y="77" text-anchor="middle" font-family="monospace" font-size="4" fill="#C9983A" opacity="0.4">MAX1704x+TP4056</text>
+            <circle cx="220" cy="100" r="3" stroke="#C9983A" stroke-width="0.6" opacity="0.4"/>
+            <circle cx="240" cy="100" r="3" stroke="#C9983A" stroke-width="0.6" opacity="0.4"/>
+            <circle cx="260" cy="100" r="3" stroke="#C9983A" stroke-width="0.6" opacity="0.4"/>
             <text x="240" y="118" text-anchor="middle" font-family="monospace" font-size="4" fill="#C9983A" opacity="0.3">ELECTRODES</text>
 
             <!-- ECG waveform at bottom -->
@@ -157,20 +233,21 @@
     <!-- FIRMWARE & CLOUD -->
     <div class="project-section">
       <div class="ps-label">Firmware & Cloud</div>
-      <h2 class="ps-title">End-to-End Data Pipeline</h2>
+      <h2 class="ps-title">End-to-End Encrypted Data Pipeline</h2>
       <div class="ps-content">
         <div class="ps-text">
           <h4>Firmware (ESP32, C++)</h4>
-          <p>The embedded firmware handles real-time ECG signal sampling from the AD8232 front-end, applies basic filtering, and packages the data into encrypted MQTT messages for transmission to the cloud. The Dev Kit PCB served as the primary rapid iteration platform before porting the validated firmware to the final wearable hardware.</p>
+          <p>The embedded firmware handles real-time ECG signal sampling from the AD8232 analog front-end, applies basic signal filtering, and packages data into encrypted MQTT messages for cloud transmission. The Dev Kit PCB served as the rapid iteration platform before the validated firmware was ported to the final wearable hardware.</p>
 
-          <h4>Cloud Architecture</h4>
-          <p>Data flows from the wearable device via TLS-encrypted MQTT to AWS IoT Core for secure ingestion and storage. From there, two web portals provide access:</p>
+          <h4>Cloud Architecture (AWS)</h4>
+          <p>Data flows from the wearable device via TLS-encrypted MQTT to AWS IoT Core for secure ingestion and storage. From there, two web portals provide role-based access:</p>
           <ul>
-            <li>Patient portal — personal vitals dashboard, medication tracking, doctor assignments, and device status monitoring</li>
-            <li>Doctor portal — multi-patient monitoring dashboard with real-time ECG viewing, historical data analysis, and AI-powered analytics for detecting health trends</li>
+            <li><strong>Patient portal</strong> — personal vitals dashboard, medication tracking, doctor assignments, appointment scheduling, and device status monitoring</li>
+            <li><strong>Doctor portal</strong> — multi-patient monitoring dashboard with real-time ECG viewing, patient history, appointment management, and AI-powered analytics for detecting health trends across patient populations</li>
           </ul>
+          <p>Both portals were developed by co-founder Billy Zhang; I owned the hardware-to-cloud integration layer, MQTT message formatting, and device authentication.</p>
         </div>
-        <div class="ps-visual" style="flex-direction: column; gap: 1rem;">
+        <div class="ps-visual" style="flex-direction: column; gap: 1rem; justify-content: center;">
           <div class="architecture-flow">
             <div class="arch-node">
               <div class="arch-node-title">Wearable</div>
@@ -191,14 +268,82 @@
       </div>
     </div>
 
+    <!-- TESTING -->
+    <div class="project-section">
+      <div class="ps-label">Testing & Validation</div>
+      <h2 class="ps-title">Signal Integrity, Comms, and Live Demo</h2>
+      <div class="ps-content">
+        <div class="ps-text">
+          <h4>Hardware Validation</h4>
+          <ul>
+            <li>Electrode contact quality and ECG signal stability verified on both the prototype and final wearable PCB</li>
+            <li>AD8232 output confirmed with oscilloscope — clean QRS complex visible in captured waveform</li>
+            <li>MAX1704x fuel gauge readings verified against known battery state</li>
+            <li>TP4056 charging current and cutoff behavior confirmed under bench load</li>
+          </ul>
+
+          <h4>Communications Validation</h4>
+          <ul>
+            <li>Dev Kit PCB validated full MQTT communication path to AWS IoT Core over WiFi</li>
+            <li>TLS handshake and certificate authentication confirmed before final wearable integration</li>
+            <li>End-to-end data latency measured from electrode input to portal display</li>
+          </ul>
+
+          <h4>Competition Demonstration</h4>
+          <p>The complete prototype system — hardware, cloud infrastructure, and both web portals — was live-demonstrated at the Rowan New Venture Competition to an interdisciplinary panel of judges including physicists, engineers, and business leaders. The demo showed real-time ECG acquisition streaming to both portals simultaneously.</p>
+        </div>
+        <div class="ps-visual">
+          <svg viewBox="0 0 260 200" fill="none" style="width:90%;max-width:280px;">
+            <!-- ECG waveform display box -->
+            <rect x="20" y="20" width="220" height="100" rx="4" stroke="#C9983A" stroke-width="0.8" fill="#C9983A" fill-opacity="0.02"/>
+            <text x="130" y="36" text-anchor="middle" font-family="monospace" font-size="5" fill="#C9983A" opacity="0.4">ECG CAPTURE</text>
+            <!-- realistic ECG -->
+            <polyline points="30,80 55,80 58,72 60,88 62,60 64,96 66,78 70,80 95,80 98,72 100,88 102,60 104,96 106,78 110,80 135,80 138,72 140,88 142,60 144,96 146,78 150,80 220,80"
+              stroke="#C9983A" stroke-width="1" fill="none" opacity="0.65"/>
+            <!-- status indicators -->
+            <circle cx="35" cy="140" r="5" fill="#C9983A" fill-opacity="0.5"/>
+            <text x="48" y="144" font-family="monospace" font-size="5" fill="#C9983A" opacity="0.5">Signal stable</text>
+            <circle cx="35" cy="158" r="5" fill="#C9983A" fill-opacity="0.5"/>
+            <text x="48" y="162" font-family="monospace" font-size="5" fill="#C9983A" opacity="0.5">MQTT → AWS verified</text>
+            <circle cx="35" cy="176" r="5" fill="#C9983A" fill-opacity="0.5"/>
+            <text x="48" y="180" font-family="monospace" font-size="5" fill="#C9983A" opacity="0.5">Portal live demo complete</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
     <!-- ENTREPRENEURSHIP -->
     <div class="project-section">
       <div class="ps-label">Entrepreneurship</div>
       <h2 class="ps-title">Startup Context & Venture Competition</h2>
       <div class="ps-content ps-full">
         <div class="ps-text">
-          <p>Berta Medical was co-founded with Billy Zhang as a genuine product development effort, not just a class project. We developed a full revenue model targeting three customer segments: consumers via monthly subscription for device access, small medical practices through a provider-facing service, and medical research facilities through data analytics partnerships.</p>
-          <p>The complete prototype system — hardware, cloud infrastructure, and web portals — was demonstrated and pitched to physicists, engineers, and business leaders at the Rowan New Venture Competition, receiving feedback on both technical implementation and business viability.</p>
+          <p>Berta Medical was co-founded with Billy Zhang as a genuine product development effort. We developed a full revenue model targeting three customer segments: consumers via monthly subscription for device and care access, small medical practices through a provider-facing service model, and medical research facilities through a data analytics partnership program.</p>
+          <p>Primary revenue streams:</p>
+          <ul>
+            <li><strong>Consumer subscriptions</strong> — Berta Medical Services: yearly or monthly subscription pairing medical device access with on-demand care across specialties (cardiology, neurology, orthopedics, dermatology, endocrinology, pulmonology)</li>
+            <li><strong>Small medical practices</strong> — service that pays medical practitioners through Berta as a primary insurance intermediary</li>
+            <li><strong>Medical research facilities</strong> — Berta Medical Data Services: selling anonymized medical data to enable research and development of new medical innovations</li>
+          </ul>
+          <p>The complete prototype system was demonstrated and pitched to interdisciplinary judges at the Rowan New Venture Competition. The pitch covered technical implementation, business viability, target market sizing, and the competitive landscape for wearable remote monitoring.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- REFLECTION -->
+    <div class="project-section">
+      <div class="ps-label">Reflection & Future Work</div>
+      <h2 class="ps-title">Lessons & Next Steps</h2>
+      <div class="ps-content ps-full">
+        <div class="ps-text">
+          <p>The Dev Kit phase proved essential — iterating firmware and MQTT flows on the larger, debug-friendly board before committing to the compact wearable layout significantly accelerated reliability. Issues with WiFi reconnection logic and MQTT message queuing were caught and resolved at the dev kit stage, not on the final wearable.</p>
+          <p>Next steps:</p>
+          <ul>
+            <li>UI and hardware design refinements based on stakeholder feedback from the competition</li>
+            <li>User testing with target patients to validate comfort, lead placement guidance, and portal usability</li>
+            <li>Hardware miniaturization pass — tighter component placement and potentially a single-chip ECG solution</li>
+            <li>Regulatory pathway research (FDA 510k) for eventual commercialization</li>
+          </ul>
         </div>
       </div>
     </div>

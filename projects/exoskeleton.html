@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Exoskeleton Control System — Chase Quijano</title>
-    <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
   <div class="grid-bg"></div>
@@ -21,47 +21,56 @@
       </div>
     </nav>
 
+    <!-- HERO -->
     <div class="project-hero">
       <a href="../projects/" class="project-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12,19 5,12 12,5"/></svg>All Projects</a>
       <div class="project-hero-number">002 · Research</div>
       <h1 class="project-hero-title">Exoskeleton PCB & Control System</h1>
       <div class="project-hero-subtitle">Undergraduate Research · Rowan University · 2024</div>
-      <p class="project-hero-desc">Designed a large-scale integrated PCB and complete control system for an upper-body exoskeleton. The project involved driving multiple brushless DC motors, integrating solar charging, real-time PID control via Raspberry Pi, and fabricating custom 3D-printed enclosures for a functional research prototype.</p>
+      <p class="project-hero-desc">Designed a large-format integrated control PCB and distributed I/O board system for an upper-body exoskeleton research platform. The architecture splits centralized power and compute (Raspberry Pi, motor drivers, solar charging, OLED) from compact per-joint I/O modules — each driving BLDC motors and reading IMU sensors over an I2C bus — fabricated in KiCad and housed in custom 3D-printed ABS enclosures.</p>
       <div class="project-hero-tags">
-        <span class="tag">KiCad</span><span class="tag">BLDC Motors</span><span class="tag">Raspberry Pi</span><span class="tag">PID Control</span><span class="tag">Solar Charging</span><span class="tag">Python</span><span class="tag">3D Printing</span><span class="tag">OLED</span><span class="tag">BNO085</span><span class="tag">Teensy 4.1</span>
+        <span class="tag">KiCad</span>
+        <span class="tag">BLDC Motors</span>
+        <span class="tag">Raspberry Pi</span>
+        <span class="tag">PID Control</span>
+        <span class="tag">Solar Charging</span>
+        <span class="tag">Python</span>
+        <span class="tag">3D Printing</span>
+        <span class="tag">OLED</span>
+        <span class="tag">BNO085</span>
+        <span class="tag">Teensy 4.1</span>
+        <span class="tag">RS485</span>
+        <span class="tag">SLIP Protocol</span>
       </div>
       <div class="project-hero-metrics">
-        <div><div class="phm-value">6-DOF</div><div class="phm-label">Motor Control</div></div>
+        <div><div class="phm-value">6</div><div class="phm-label">Motors Controlled</div></div>
         <div><div class="phm-value">8</div><div class="phm-label">IMU Sensors</div></div>
-        <div><div class="phm-value">Custom</div><div class="phm-label">PCB + Enclosure</div></div>
+        <div><div class="phm-value">2</div><div class="phm-label">Custom PCBs</div></div>
         <div><div class="phm-value">Solar</div><div class="phm-label">Powered System</div></div>
       </div>
     </div>
 
+    <!-- PROBLEM -->
     <div class="project-section">
       <div class="ps-label">Problem</div>
-      <h2 class="ps-title">Control Electronics for Assistive Exoskeletons</h2>
+      <h2 class="ps-title">Control Electronics for a Research Exoskeleton</h2>
       <div class="ps-content">
         <div class="ps-text">
-          <p>Upper-body exoskeletons require precise, coordinated motor control across multiple joints — shoulders, elbows, and wrists — with real-time feedback from inertial measurement units. The control electronics must be compact enough to mount on the exoskeleton frame while handling the power demands of multiple brushless DC motors.</p>
-          <p>This research project required designing integrated electronics that could drive multiple BLDC motors simultaneously, process IMU data for real-time position feedback, and operate from a solar-charged battery system for extended autonomous use. The system also needed a debug/status display and wireless data logging capability.</p>
+          <p>Upper-body exoskeletons require precise, coordinated motor control across multiple joints — shoulders, elbows, and wrists — with real-time feedback from inertial measurement units distributed along each limb segment. The control electronics must be compact enough to mount on the exoskeleton frame while handling the power demands of multiple brushless DC motors simultaneously.</p>
+          <p>This research project required designing integrated electronics that could drive multiple BLDC motors, process IMU data for real-time position feedback, and operate from a solar-charged battery system for extended autonomous use in field conditions. The system also required a debug/status display and graceful degradation behavior so motor faults don't cascade across the full joint network.</p>
         </div>
         <div class="ps-visual">
           <svg viewBox="0 0 300 200" fill="none" style="width:85%;max-width:280px;">
-            <!-- Stick figure with exo -->
             <line x1="150" y1="40" x2="150" y2="100" stroke="#6B8EAE" stroke-width="1.2" opacity="0.5"/>
             <circle cx="150" cy="32" r="10" stroke="#6B8EAE" stroke-width="1" opacity="0.5"/>
-            <!-- Arms -->
             <line x1="150" y1="55" x2="120" y2="80" stroke="#6B8EAE" stroke-width="1" opacity="0.5"/>
             <line x1="120" y1="80" x2="100" y2="110" stroke="#6B8EAE" stroke-width="1" opacity="0.5"/>
             <line x1="150" y1="55" x2="180" y2="80" stroke="#6B8EAE" stroke-width="1" opacity="0.5"/>
             <line x1="180" y1="80" x2="200" y2="110" stroke="#6B8EAE" stroke-width="1" opacity="0.5"/>
-            <!-- Exo overlay -->
             <line x1="150" y1="55" x2="116" y2="82" stroke="#6B8EAE" stroke-width="2.5" opacity="0.3"/>
             <line x1="116" y1="82" x2="96" y2="112" stroke="#6B8EAE" stroke-width="2.5" opacity="0.3"/>
             <line x1="150" y1="55" x2="184" y2="82" stroke="#6B8EAE" stroke-width="2.5" opacity="0.3"/>
             <line x1="184" y1="82" x2="204" y2="112" stroke="#6B8EAE" stroke-width="2.5" opacity="0.3"/>
-            <!-- Motor nodes -->
             <circle cx="120" cy="80" r="5" stroke="#6B8EAE" stroke-width="1" fill="#6B8EAE" fill-opacity="0.08"/>
             <circle cx="180" cy="80" r="5" stroke="#6B8EAE" stroke-width="1" fill="#6B8EAE" fill-opacity="0.08"/>
             <circle cx="100" cy="110" r="5" stroke="#6B8EAE" stroke-width="1" fill="#6B8EAE" fill-opacity="0.08"/>
@@ -70,7 +79,6 @@
             <text x="190" y="72" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.5">M2</text>
             <text x="88" y="106" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.5">M3</text>
             <text x="212" y="106" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.5">M4</text>
-            <!-- IMU labels -->
             <rect x="105" y="130" width="24" height="10" rx="2" stroke="#6B8EAE" stroke-width="0.6" opacity="0.35"/>
             <text x="117" y="137" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.35">IMU</text>
             <rect x="170" y="130" width="24" height="10" rx="2" stroke="#6B8EAE" stroke-width="0.6" opacity="0.35"/>
@@ -81,22 +89,107 @@
       </div>
     </div>
 
+    <!-- REQUIREMENTS -->
     <div class="project-section">
-      <div class="ps-label">Hardware</div>
-      <h2 class="ps-title">Integrated Control Board & Sensor Network</h2>
+      <div class="ps-label">Requirements & Constraints</div>
+      <h2 class="ps-title">Control Board & I/O Board Specifications</h2>
+      <div class="ps-content">
+        <div class="ps-text">
+          <h4>Control Board Requirements</h4>
+          <ul>
+            <li>Centralized control and power distribution for the full system</li>
+            <li>Control-computer agnostic — designed around Raspberry Pi 4 but swappable</li>
+            <li>Graceful degradation: individual joint faults must not cascade to other joints</li>
+            <li>Ability to add or swap filtering components on-board</li>
+            <li>Integrates sensory feedback (IMU data) into the control loop</li>
+            <li>Wireless communication between compute module and joint-level I/O boards</li>
+          </ul>
+
+          <h4>I/O Board Requirements</h4>
+          <ul>
+            <li>Drives up to 6 BLDC motors — one per joint location</li>
+            <li>Compact form factor designed to mount at each joint</li>
+            <li>Voltage and current monitoring per motor channel</li>
+            <li>Clean digital I2C bus for communication and field replaceability</li>
+            <li>Modular design allowing convenient repair and component replacement per joint</li>
+          </ul>
+        </div>
+        <div class="ps-visual">
+          <svg viewBox="0 0 280 220" fill="none" style="width:90%;max-width:300px;">
+            <!-- Control board box -->
+            <rect x="70" y="10" width="140" height="80" rx="4" stroke="#6B8EAE" stroke-width="1.2" fill="#6B8EAE" fill-opacity="0.03"/>
+            <text x="140" y="28" text-anchor="middle" font-family="monospace" font-size="6" fill="#6B8EAE" opacity="0.7">CONTROL BOARD</text>
+            <text x="140" y="42" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#6B8EAE" opacity="0.4">Raspberry Pi · Motor Drivers</text>
+            <text x="140" y="54" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#6B8EAE" opacity="0.4">Solar Charging · OLED</text>
+            <text x="140" y="66" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#6B8EAE" opacity="0.4">Power Distribution</text>
+            <text x="140" y="78" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#6B8EAE" opacity="0.4">WiFi (Computer Agnostic)</text>
+
+            <!-- I2C bus line -->
+            <line x1="140" y1="90" x2="140" y2="115" stroke="#6B8EAE" stroke-width="1" stroke-dasharray="4 2" opacity="0.4"/>
+            <text x="150" y="106" font-family="monospace" font-size="4.5" fill="#6B8EAE" opacity="0.4">I2C BUS</text>
+
+            <!-- I/O boards -->
+            <rect x="10" y="120" width="70" height="60" rx="4" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.02"/>
+            <text x="45" y="138" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">I/O BOARD</text>
+            <text x="45" y="150" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.4">Joint 1–2</text>
+            <text x="45" y="162" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.4">BLDC Driver</text>
+            <text x="45" y="174" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.4">V/I Monitor</text>
+
+            <rect x="105" y="120" width="70" height="60" rx="4" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.02"/>
+            <text x="140" y="138" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">I/O BOARD</text>
+            <text x="140" y="150" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.4">Joint 3–4</text>
+            <text x="140" y="162" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.4">BLDC Driver</text>
+            <text x="140" y="174" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.4">V/I Monitor</text>
+
+            <rect x="200" y="120" width="70" height="60" rx="4" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.02"/>
+            <text x="235" y="138" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">I/O BOARD</text>
+            <text x="235" y="150" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.4">Joint 5–6</text>
+            <text x="235" y="162" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.4">BLDC Driver</text>
+            <text x="235" y="174" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.4">V/I Monitor</text>
+
+            <!-- connecting lines from control board to I/O boards -->
+            <line x1="110" y1="90" x2="45" y2="120" stroke="#6B8EAE" stroke-width="0.6" stroke-dasharray="3 2" opacity="0.3"/>
+            <line x1="140" y1="115" x2="140" y2="120" stroke="#6B8EAE" stroke-width="0.6" opacity="0.3"/>
+            <line x1="170" y1="90" x2="235" y2="120" stroke="#6B8EAE" stroke-width="0.6" stroke-dasharray="3 2" opacity="0.3"/>
+
+            <text x="140" y="210" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#6B8EAE" opacity="0.3">DISTRIBUTED CONTROL ARCHITECTURE</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- HARDWARE -->
+    <div class="project-section">
+      <div class="ps-label">Hardware Design</div>
+      <h2 class="ps-title">Control Board & Distributed I/O Architecture</h2>
       <div class="ps-content">
         <div class="ps-text">
           <h4>Main Control PCB</h4>
-          <p>Designed a large-format custom PCB in KiCad that serves as the central control hub for the exoskeleton. The board integrates multiple BLDC motor driver stages, a Raspberry Pi compute module interface with GPIO header, an OLED display for real-time status feedback, and a complete power management subsystem with solar charging input.</p>
+          <p>Designed a large-format custom PCB in KiCad that serves as the central control hub for the exoskeleton. The board integrates:</p>
+          <ul>
+            <li>Multiple BLDC motor driver stages with current limiting</li>
+            <li>Raspberry Pi 4 compute module header with full GPIO access</li>
+            <li>OLED display for real-time system status and debug output</li>
+            <li>Solar charging input with voltage regulation for extended autonomous operation</li>
+            <li>Power distribution rails for motor drivers and logic-level components</li>
+            <li>ENIG surface finish for reliability and consistent solderability</li>
+          </ul>
+          <p>Board layout prioritized clean power return paths under motor driver sections and kept the Raspberry Pi GPIO header accessible for fieldwork.</p>
+
+          <h4>Distributed I/O Boards</h4>
+          <p>Rather than running all motor wiring back to a central board, the architecture uses compact per-joint I/O modules. Each I/O board:</p>
+          <ul>
+            <li>Drives up to two BLDC motors — bidirectional with current and voltage monitoring</li>
+            <li>Communicates with the control board over an I2C bus daisy-chained across joints</li>
+            <li>Compact form factor designed to mount directly at each joint location on the frame</li>
+            <li>Modular design allows individual joint boards to be swapped without disturbing adjacent joints</li>
+          </ul>
 
           <h4>8-IMU Sensor Array</h4>
-          <p>Built a multi-sensor data acquisition system using 8 BNO085 IMU sensors connected to a Teensy 4.1 via custom UART drivers. Implemented SLIP protocol framing for reliable communication over RS485 transceivers, enabling distributed sensor placement across the exoskeleton frame with robust noise rejection.</p>
+          <p>Built a multi-sensor data acquisition system using 8 BNO085 IMUs connected to a Teensy 4.1 via custom UART drivers. Implemented SLIP protocol framing for reliable communication over RS485 transceivers, enabling distributed sensor placement across the exoskeleton frame with robust noise rejection. Sensor fusion produces stable quaternion orientation estimates for each limb segment.</p>
 
           <h4>Power System</h4>
-          <p>The power subsystem supports both direct solar panel input and rechargeable battery operation, with appropriate voltage regulation for the logic-level components (3.3V/5V) and motor drivers (higher voltage rails). Solar charging enables extended outdoor testing sessions without manual recharging.</p>
-
-          <h4>Enclosure & Mounting</h4>
-          <p>Designed and 3D-printed custom ABS enclosures to protect the electronics and mount them securely to the exoskeleton frame. The enclosure design accounts for heat dissipation from the motor drivers and provides access to debug ports and the OLED display window.</p>
+          <p>The power subsystem supports solar panel input and rechargeable battery operation with appropriate voltage regulation: 24V to 5V conversion at ≥3A for logic-level power, and higher voltage rails for motor drivers. Thermal pads manage heat dissipation from the motor driver ICs under load. Solar charging enables extended outdoor testing sessions without manual recharging.</p>
         </div>
         <div class="ps-visual">
           <svg viewBox="0 0 300 240" fill="none" style="width:90%;max-width:300px;">
@@ -105,32 +198,166 @@
             <circle cx="255" cy="45" r="5" stroke="#6B8EAE" stroke-width="0.5" opacity="0.35"/>
             <circle cx="45" cy="155" r="5" stroke="#6B8EAE" stroke-width="0.5" opacity="0.35"/>
             <circle cx="255" cy="155" r="5" stroke="#6B8EAE" stroke-width="0.5" opacity="0.35"/>
+            <!-- motor drivers -->
             <rect x="55" y="60" width="35" height="28" rx="2" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.05"/>
             <rect x="100" y="60" width="35" height="28" rx="2" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.05"/>
             <rect x="145" y="60" width="35" height="28" rx="2" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.05"/>
             <text x="72" y="77" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">M1</text>
             <text x="117" y="77" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">M2</text>
             <text x="162" y="77" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">M3</text>
+            <!-- RPi -->
             <rect x="195" y="55" width="55" height="40" rx="2" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.03"/>
-            <text x="222" y="78" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">RPi</text>
+            <text x="222" y="78" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.55">RPi 4</text>
+            <!-- power -->
             <rect x="55" y="110" width="80" height="40" rx="2" stroke="#6B8EAE" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.35"/>
             <text x="95" y="133" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.35">SOLAR + PWR</text>
+            <!-- OLED -->
             <rect x="155" y="115" width="40" height="30" rx="3" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.03"/>
             <text x="175" y="133" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.45">OLED</text>
+            <!-- I2C bus label -->
+            <line x1="55" y1="170" x2="245" y2="170" stroke="#6B8EAE" stroke-width="0.8" stroke-dasharray="4 2" opacity="0.3"/>
+            <text x="150" y="183" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#6B8EAE" opacity="0.3">I2C BUS → I/O BOARDS</text>
             <text x="150" y="220" text-anchor="middle" font-family="monospace" font-size="6" fill="#6B8EAE" opacity="0.3">EXOSKELETON CONTROL BOARD</text>
           </svg>
         </div>
       </div>
     </div>
 
+    <!-- ENCLOSURE -->
+    <div class="project-section">
+      <div class="ps-label">Enclosure & Integration</div>
+      <h2 class="ps-title">3D-Printed Housing & Hardware Integration</h2>
+      <div class="ps-content">
+        <div class="ps-text">
+          <p>Custom ABS enclosures were designed in Fusion 360 and printed on a Bambu Lab P1S to protect the electronics and mount them to the exoskeleton frame. The enclosure design accounts for:</p>
+          <ul>
+            <li>Thermal dissipation from motor driver ICs — ventilation channels and thermal pad contact points</li>
+            <li>Accessible debug ports and OLED display window for field use without full disassembly</li>
+            <li>Secure PCB standoffs and fastener pockets to survive vibration from motor actuation</li>
+            <li>Routing cutouts for motor phase wires and sensor harnesses at each joint</li>
+          </ul>
+          <p>The I/O board enclosures are smaller and designed to clamp directly to the exoskeleton tubing at each joint location, keeping wire runs short and minimizing harness complexity.</p>
+        </div>
+        <div class="ps-visual">
+          <svg viewBox="0 0 260 180" fill="none" style="width:90%;max-width:280px;">
+            <!-- Enclosure outline -->
+            <rect x="40" y="20" width="180" height="120" rx="8" stroke="#6B8EAE" stroke-width="1.2" fill="#6B8EAE" fill-opacity="0.02"/>
+            <!-- PCB inside -->
+            <rect x="60" y="35" width="140" height="80" rx="4" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.04"/>
+            <!-- OLED window -->
+            <rect x="160" y="45" width="30" height="18" rx="2" stroke="#6B8EAE" stroke-width="0.6" fill="#6B8EAE" fill-opacity="0.06"/>
+            <text x="175" y="56" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.45">OLED</text>
+            <!-- mounting holes -->
+            <circle cx="55" cy="30" r="4" stroke="#6B8EAE" stroke-width="0.5" opacity="0.3"/>
+            <circle cx="205" cy="30" r="4" stroke="#6B8EAE" stroke-width="0.5" opacity="0.3"/>
+            <circle cx="55" cy="130" r="4" stroke="#6B8EAE" stroke-width="0.5" opacity="0.3"/>
+            <circle cx="205" cy="130" r="4" stroke="#6B8EAE" stroke-width="0.5" opacity="0.3"/>
+            <!-- wire ports -->
+            <rect x="36" y="60" width="8" height="40" rx="2" fill="#6B8EAE" fill-opacity="0.15" stroke="#6B8EAE" stroke-width="0.5" opacity="0.3"/>
+            <rect x="216" y="60" width="8" height="40" rx="2" fill="#6B8EAE" fill-opacity="0.15" stroke="#6B8EAE" stroke-width="0.5" opacity="0.3"/>
+            <text x="130" y="165" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#6B8EAE" opacity="0.3">3D PRINTED ABS ENCLOSURE</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOFTWARE -->
     <div class="project-section">
       <div class="ps-label">Software</div>
-      <h2 class="ps-title">Real-Time Motor Control & Data Acquisition</h2>
+      <h2 class="ps-title">Real-Time Motor Control & Sensor Fusion</h2>
       <div class="ps-content ps-full">
         <div class="ps-text">
-          <p>The control software runs on the Raspberry Pi in Python, implementing PID control loops for each motor joint. IMU data from the 8-sensor array feeds into the control loop to provide real-time position and orientation feedback, enabling smooth joint tracking and trajectory following.</p>
-          <p>The Teensy 4.1 handles the low-level sensor communication — custom UART drivers for the BNO085 IMUs with SLIP protocol framing ensure reliable data delivery over the RS485 physical layer. Sensor fusion algorithms combine accelerometer, gyroscope, and magnetometer data to produce stable quaternion orientation estimates for each limb segment.</p>
-          <p>The OLED display provides real-time feedback on motor states, battery voltage, solar charging status, and sensor health — critical for field testing and debugging without a laptop connected.</p>
+          <p>Control software runs on the Raspberry Pi in Python, implementing PID control loops for each motor joint. IMU data from the 8-sensor BNO085 array feeds into the control loop to provide real-time position and orientation feedback, enabling smooth joint tracking and trajectory following.</p>
+          <p>The Teensy 4.1 handles low-level sensor communication — custom UART drivers for the BNO085 IMUs with SLIP protocol framing ensure reliable data delivery over the RS485 physical layer, which provides noise rejection over the longer cable runs required for distributed sensor placement across the exoskeleton frame.</p>
+          <p>Sensor fusion algorithms combine accelerometer, gyroscope, and magnetometer data from each BNO085 to produce stable quaternion orientation estimates per limb segment. These feed back to the Raspberry Pi PID controller over RS485.</p>
+          <p>The OLED display shows real-time motor states, battery voltage, solar charging status, and sensor health — enabling field debugging without a laptop.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DESIGN NOTES -->
+    <div class="project-section">
+      <div class="ps-label">Design Notes</div>
+      <h2 class="ps-title">Pre-Fabrication Design Decisions</h2>
+      <div class="ps-content ps-full">
+        <div class="ps-text">
+          <ul>
+            <li><strong>24V to 5V regulation at ≥3A:</strong> Motor drivers demand significant current at high duty cycles; linear regulators were ruled out in favor of switching regulators to manage heat at the main board level.</li>
+            <li><strong>Heat management:</strong> Motor driver ICs sit on exposed copper pours with thermal via arrays connecting to the board's bottom copper layer; enclosure design includes corresponding thermal pad contact zones.</li>
+            <li><strong>Control-computer agnostic:</strong> The Raspberry Pi header pinout is standard 40-pin GPIO — future swaps to a Jetson or other SBC require only a carrier board adapter, not a full PCB revision.</li>
+            <li><strong>Graceful degradation:</strong> Each I/O board operates independently over the I2C bus; a fault on one joint's board does not lock up the bus or disable adjacent joints.</li>
+            <li><strong>ENIG finish:</strong> Selected for the control board for reliable and repeatable solderability across fine-pitch motor driver pads and the Raspberry Pi header.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- TESTING -->
+    <div class="project-section">
+      <div class="ps-label">Testing & Validation</div>
+      <h2 class="ps-title">Signal Verification & Position Tracking</h2>
+      <div class="ps-content">
+        <div class="ps-text">
+          <h4>Electrical Validation</h4>
+          <ul>
+            <li>Power rail voltages verified under motor load conditions — no drooping beyond spec</li>
+            <li>Motor driver waveforms captured and confirmed against expected PWM duty cycle profiles</li>
+            <li>I2C bus integrity confirmed across full I/O board chain with logic analyzer</li>
+            <li>RS485 BNO085 IMU data verified on each of the 8 sensor channels</li>
+          </ul>
+
+          <h4>Control System Validation</h4>
+          <ul>
+            <li>PID position control loops tuned per joint and tested for step response overshoot and settling time</li>
+            <li>Position and velocity tracking data logged and compared against commanded trajectories</li>
+            <li>Graceful degradation confirmed — simulated I/O board fault isolated to one joint without disrupting other joints on the bus</li>
+          </ul>
+
+          <h4>Physical Integration</h4>
+          <ul>
+            <li>Electronics package mounted and functionally tested on the exoskeleton frame in the Rowan research lab</li>
+            <li>Full joint actuation sequence verified with real upper-body exoskeleton hardware</li>
+          </ul>
+        </div>
+        <div class="ps-visual">
+          <svg viewBox="0 0 260 200" fill="none" style="width:90%;max-width:280px;">
+            <!-- Scope trace box -->
+            <rect x="20" y="15" width="220" height="80" rx="4" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.02"/>
+            <text x="130" y="30" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.4">POSITION TRACKING</text>
+            <!-- commanded trajectory -->
+            <polyline points="30,70 60,70 65,55 80,55 85,70 110,70 115,50 130,50 135,70 160,70 165,48 180,48 185,70 220,70"
+              stroke="#6B8EAE" stroke-width="1" fill="none" opacity="0.5" stroke-dasharray="3 2"/>
+            <!-- actual response -->
+            <polyline points="30,70 60,70 66,57 82,54 86,71 110,70 116,52 132,49 136,71 160,70 166,50 182,47 186,71 220,70"
+              stroke="#6B8EAE" stroke-width="1" fill="none" opacity="0.7"/>
+            <text x="35" y="90" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.35">--- commanded</text>
+            <text x="35" y="100" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.55">— actual</text>
+            <!-- results -->
+            <circle cx="35" cy="130" r="4" fill="#6B8EAE" fill-opacity="0.5"/>
+            <text x="47" y="134" font-family="monospace" font-size="4.5" fill="#6B8EAE" opacity="0.5">Power rails stable under load</text>
+            <circle cx="35" cy="148" r="4" fill="#6B8EAE" fill-opacity="0.5"/>
+            <text x="47" y="152" font-family="monospace" font-size="4.5" fill="#6B8EAE" opacity="0.5">I2C bus verified across chain</text>
+            <circle cx="35" cy="166" r="4" fill="#6B8EAE" fill-opacity="0.5"/>
+            <text x="47" y="170" font-family="monospace" font-size="4.5" fill="#6B8EAE" opacity="0.5">Full joint actuation on hardware</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- REFLECTION -->
+    <div class="project-section">
+      <div class="ps-label">Reflection & Future Work</div>
+      <h2 class="ps-title">Lessons & Planned Improvements</h2>
+      <div class="ps-content ps-full">
+        <div class="ps-text">
+          <p>The split architecture — centralized control board plus distributed I/O boards — proved the right call for a research platform. Adding or reconfiguring joints means swapping an I/O board rather than redesigning the main PCB.</p>
+          <p>Planned improvements:</p>
+          <ul>
+            <li>Expand I/O board motor channel count and update routing layout to accommodate additional joints as the exoskeleton grows</li>
+            <li>Investigate upgrading from RS485/SLIP to a higher-bandwidth protocol as IMU count scales</li>
+            <li>Tighter enclosure tolerances — the current ABS prints have adequate fit but a refined version would reduce assembly time and connector alignment effort</li>
+            <li>Hardware-in-the-loop simulation setup for validating PID gains before mounting on the physical exoskeleton</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -142,6 +369,11 @@
 
     <footer><div class="footer-text">© 2026 Chase Quijano</div><div class="footer-text">Rowan University · Engineering Entrepreneurship</div></footer>
   </div>
-  <script>window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 50));</script>
+  <script>
+    const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 50));
+    document.querySelectorAll('.nav-links a[href^="../#"]').forEach(a => a.addEventListener('click', () => document.querySelector('.nav-links')?.classList.remove('open')));
+  </script>
 </body>
 </html>
