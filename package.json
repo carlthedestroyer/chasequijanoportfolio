@@ -1,0 +1,23 @@
+{
+  "name": "primary",
+  "version": "1.0.0",
+  "description": "1. Upload this entire folder to your hosting (Vercel, Netlify, GitHub Pages, etc.) 2. That's it — no build step, no dependencies, just static HTML + CSS",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlthedestroyer/chasequijanoportfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlthedestroyer/chasequijanoportfolio/issues"
+  },
+  "homepage": "https://github.com/carlthedestroyer/chasequijanoportfolio#readme",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}
