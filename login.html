@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preview Access — Chase Quijano</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500;600&display=swap');
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:          #0A0A0C;
+      --bg-elevated: #111114;
+      --bg-card:     #161619;
+      --border:       #222228;
+      --border-hover: #333340;
+      --text:           #EFEDE8;
+      --text-secondary: #A8A59E;
+      --text-muted:     #605D56;
+      --gold:        #C9983A;
+      --gold-bright: #DBA94A;
+      --gold-dim:    rgba(201, 152, 58, 0.12);
+      --heading: 'Outfit', -apple-system, sans-serif;
+      --mono:    'Source Code Pro', monospace;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--heading);
+      -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+    }
+
+    /* Noise overlay */
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.018'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 9999;
+    }
+
+    /* Grid background */
+    .grid-bg {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.015;
+      background-image:
+        linear-gradient(rgba(201,152,58,0.4) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,152,58,0.4) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+
+    /* Radial glow behind the card */
+    .glow {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -60%);
+      width: 600px; height: 600px;
+      background: radial-gradient(ellipse at center, rgba(201,152,58,0.05) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+
+    .wrapper {
+      position: relative; z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 400px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2.5rem;
+    }
+
+    .card-header {
+      text-align: center;
+      margin-bottom: 2.25rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--gold-dim);
+      border: 1px solid rgba(201,152,58,0.2);
+      border-radius: 3px;
+      padding: 0.3rem 0.7rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .card-name {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+
+    .card-sub {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 2rem;
+    }
+
+    .field {
+      margin-bottom: 1.1rem;
+    }
+
+    label {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    input {
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-family: var(--heading);
+      font-size: 0.9rem;
+      padding: 0.7rem 0.9rem;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      -webkit-appearance: none;
+    }
+
+    input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,152,58,0.1);
+    }
+
+    input::placeholder { color: var(--text-muted); }
+
+    .submit-btn {
+      width: 100%;
+      margin-top: 1.6rem;
+      padding: 0.8rem;
+      background: var(--gold);
+      color: var(--bg);
+      border: none;
+      border-radius: 6px;
+      font-family: var(--heading);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.1s ease;
+    }
+
+    .submit-btn:hover { background: var(--gold-bright); }
+    .submit-btn:active { transform: scale(0.98); }
+
+    .error-msg {
+      display: none;
+      margin-top: 1rem;
+      padding: 0.65rem 0.9rem;
+      background: rgba(196, 122, 122, 0.08);
+      border: 1px solid rgba(196, 122, 122, 0.25);
+      border-radius: 5px;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: #C47A7A;
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+
+    .error-msg.visible { display: block; }
+
+    .footer-note {
+      margin-top: 1.75rem;
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-bg"></div>
+  <div class="glow"></div>
+
+  <div class="wrapper">
+    <div class="card">
+      <div class="card-header">
+        <div class="badge">Private Preview</div>
+        <div class="card-name">Chase Quijano</div>
+        <div class="card-sub">Engineering Portfolio · 2026</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <form id="login-form" onsubmit="handleSubmit(event)" novalidate>
+        <div class="field">
+          <label for="username">Username</label>
+          <input id="username" type="text" placeholder="Enter username" autocomplete="username" spellcheck="false" />
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" type="password" placeholder="Enter password" autocomplete="current-password" />
+        </div>
+
+        <button type="submit" class="submit-btn">Access Portfolio</button>
+        <div class="error-msg" id="error">Incorrect username or password.</div>
+      </form>
+
+      <div class="footer-note">This site is currently in private preview.</div>
+    </div>
+  </div>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      var user = document.getElementById('username').value.trim();
+      var pass = document.getElementById('password').value;
+      var err  = document.getElementById('error');
+
+      if (window.__cqLogin && window.__cqLogin(user, pass)) {
+        return; // auth.js handles the redirect
+      }
+
+      // auth.js wasn't loaded (e.g. direct login page visit after removal) — do nothing
+      err.classList.add('visible');
+      document.getElementById('password').value = '';
+      document.getElementById('password').focus();
+
+      // Shake the card briefly
+      var card = document.querySelector('.card');
+      card.style.transform = 'translateX(-6px)';
+      setTimeout(function() { card.style.transform = 'translateX(6px)'; }, 80);
+      setTimeout(function() { card.style.transform = 'translateX(-4px)'; }, 160);
+      setTimeout(function() { card.style.transform = ''; }, 240);
+    }
+
+    // Clear error when user starts typing again
+    document.getElementById('username').addEventListener('input', clearErr);
+    document.getElementById('password').addEventListener('input', clearErr);
+    function clearErr() {
+      document.getElementById('error').classList.remove('visible');
+    }
+  </script>
+
+  <!-- auth.js must load AFTER the form handlers so __cqLogin is called correctly -->
+  <script src="/auth.js"></script>
+</body>
+</html>
