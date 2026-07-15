@@ -197,8 +197,8 @@ section { padding: 7rem 2.5rem; }
 .wireframe-photo {
   aspect-ratio: 16 / 9;
   background-color: #D07242;
-  -webkit-mask-image: url('projects/images/digitalscale-cover.png');
-  mask-image: url('projects/images/digitalscale-cover.png');
+  -webkit-mask-image: url('projects/Digital%20Scale/images/digitalscale-cover.png');
+  mask-image: url('projects/Digital%20Scale/images/digitalscale-cover.png');
   -webkit-mask-size: contain; mask-size: contain;
   -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
   -webkit-mask-position: center; mask-position: center;
@@ -272,7 +272,8 @@ section { padding: 7rem 2.5rem; }
 /* ═══════════════════════════════════════
    PROJECT DETAIL PAGES
    ═══════════════════════════════════════ */
-.project-hero { padding: 10rem 2.5rem 4rem; max-width: 1200px; margin: 0 auto; }
+.project-hero { position: relative; padding: 10rem 2.5rem 4rem; max-width: 1200px; margin: 0 auto; }
+.project-hero-graphic { position: absolute; top: 50%; right: 1rem; transform: translateY(-50%); width: 460px; max-width: 42%; opacity: 0.92; z-index: -1; pointer-events: none; user-select: none; }
 .project-back { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2.5rem; transition: color 0.2s ease; }
 .project-back:hover { color: var(--gold); }
 .project-back svg { width: 14px; height: 14px; }
@@ -418,6 +419,7 @@ footer { padding: 2rem 2.5rem; border-top: 1px solid var(--border); display: fle
   .nav-toggle { display: block; }
   section, .project-section, .resume-section { padding-left: 1.25rem; padding-right: 1.25rem; }
   .project-hero, .archive-hero, .resume-hero { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .project-hero-graphic { display: none; }
   .project-nav, .filter-bar, .archive-grid { padding-left: 1.25rem; padding-right: 1.25rem; }
   .hero { padding: 6rem 1.25rem 3rem; }
   .hero-stats { flex-direction: column; gap: 1.5rem; }
