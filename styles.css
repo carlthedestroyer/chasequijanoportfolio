@@ -194,14 +194,11 @@ section { padding: 7rem 2.5rem; }
 .wireframe-svg { width:85%; max-width:300px; opacity:0.8; transition:opacity 0.4s ease; }
 .featured-project:hover .wireframe-svg { opacity:1; }
 
-.wireframe-photo {
-  aspect-ratio: 16 / 9;
-  background-color: #D07242;
-  -webkit-mask-image: url('projects/Digital%20Scale/images/FINAL SCALE v11.png');
-  mask-image: url('projects/Digital%20Scale/images/FINAL SCALE v11.png');
-  -webkit-mask-size: contain; mask-size: contain;
-  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
-  -webkit-mask-position: center; mask-position: center;
+.fp-photo {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: contain;
 }
 .fp-content { padding:2.5rem; display:flex; flex-direction:column; justify-content:center; }
 .fp-number { font-family:var(--mono); font-size:0.56rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem; }
