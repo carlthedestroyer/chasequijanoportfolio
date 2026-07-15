@@ -289,6 +289,25 @@ section { padding: 7rem 2.5rem; }
 .ps-visual { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 8px; padding: 2.5rem; display: flex; align-items: center; justify-content: center; min-height: 280px; }
 .ps-full { grid-template-columns: 1fr; }
 
+/* ═══════════════════════════════════════
+   CODE WINDOW — embedded firmware snippets
+   ═══════════════════════════════════════ */
+.code-window { width: 100%; background: #0D0D10; border-radius: 6px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+.code-window-header { display: flex; align-items: center; gap: 0.6rem; padding: 0.65rem 0.9rem; background: #16161A; border-bottom: 1px solid var(--border); }
+.code-window-dots { display: flex; gap: 0.32rem; flex-shrink: 0; }
+.code-window-dots span { width: 0.55rem; height: 0.55rem; border-radius: 50%; background: #333340; }
+.code-window-title { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.04em; color: var(--text-muted); margin: 0 auto 0 0.3rem; }
+.code-window-lang { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); opacity: 0.7; }
+.code-window pre { margin: 0; padding: 1.1rem 1.25rem; overflow-x: auto; }
+.code-window code { font-family: var(--mono); font-size: 0.72rem; line-height: 1.7; color: #C9C7C2; white-space: pre; }
+.tok-com { color: var(--text-muted); font-style: italic; }
+.tok-kw  { color: var(--gold-bright); }
+.tok-type{ color: var(--project-3); }
+.tok-fn  { color: #E8B15C; }
+.tok-str { color: #9CC08A; }
+.tok-num { color: var(--rose); }
+.tok-pre { color: var(--text-muted); }
+
 .architecture-flow { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; padding: 1.5rem 0; }
 .arch-node { background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1.2rem; text-align: center; }
 .arch-node-title { font-family: var(--mono); font-size: 0.65rem; font-weight: 600; color: var(--text); letter-spacing: 0.04em; }

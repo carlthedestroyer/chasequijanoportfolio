@@ -67,18 +67,8 @@
             <li>User experience testing — unit toggling, tare function, LCD readability, battery access</li>
           </ul>
         </div>
-        <div class="ps-visual">
-          <svg viewBox="0 0 300 220" fill="none" style="width:85%;max-width:280px;">
-            <path d="M50 150 L50 100 Q50 85 65 80 L235 80 Q250 85 250 100 L250 150 Q250 165 235 170 L65 170 Q50 165 50 150Z" stroke="#D07242" stroke-width="1.2" fill="none"/>
-            <rect x="70" y="45" width="160" height="18" rx="3" stroke="#D07242" stroke-width="1" opacity="0.5"/>
-            <line x1="90" y1="63" x2="90" y2="80" stroke="#D07242" stroke-width="0.5" stroke-dasharray="2 2" opacity="0.3"/>
-            <line x1="210" y1="63" x2="210" y2="80" stroke="#D07242" stroke-width="0.5" stroke-dasharray="2 2" opacity="0.3"/>
-            <rect x="95" y="95" width="80" height="30" rx="3" stroke="#D07242" stroke-width="1" fill="#D07242" fill-opacity="0.04"/>
-            <text x="135" y="114" text-anchor="middle" font-family="monospace" font-size="10" fill="#D07242" font-weight="bold" opacity="0.5">1024.7g</text>
-            <rect x="110" y="135" width="80" height="10" rx="2" stroke="#D07242" stroke-width="0.5" stroke-dasharray="2 2" opacity="0.25"/>
-            <text x="150" y="143" text-anchor="middle" font-family="monospace" font-size="4" fill="#D07242" opacity="0.3">LOAD CELL (6010 AL)</text>
-            <text x="150" y="205" text-anchor="middle" font-family="monospace" font-size="6" fill="#D07242" opacity="0.3">CUSTOM DIGITAL SCALE</text>
-          </svg>
+        <div class="ps-visual" style="padding: 0; overflow: hidden; background: #0A0A0C;">
+          <img src="images/digitalscale-blueprint.jpg" alt="Custom digital scale concept line drawing" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
       </div>
     </div>
@@ -90,6 +80,14 @@
         <div class="ps-text">
           <p>The enclosure was modeled in Fusion 360 with a priority on sleek, organic aesthetics — rounded edges and flowing surfaces rather than a boxy utilitarian form. The clamshell design features an offset lip where the two halves of the shroud mate, creating resistance to dust and particles without requiring a gasket.</p>
           <p>Brass heat-set inserts were used throughout: fastening the two enclosure halves, mounting the PCB, and securing the battery compartment cover. This gives the design structural integrity while remaining fully disassembleable — no glue anywhere in the assembly.</p>
+        </div>
+        <div class="ps-visual" style="padding: 0; overflow: hidden; flex-direction: column; gap: 1px; background: var(--border);">
+          <img src="images/digitalscale-fig1-exterior.jpg" alt="Figure 1: Fusion 360 clamshell enclosure exterior render" style="width:100%; height:220px; object-fit:cover; display:block;" />
+          <img src="images/digitalscale-fig2-cutaway.jpg" alt="Figure 2: enclosure cutaway showing internal component layout" style="width:100%; height:220px; object-fit:cover; display:block;" />
+        </div>
+      </div>
+      <div class="ps-content" style="margin-top: 2rem;">
+        <div class="ps-text">
           <h4>Key Design Decisions</h4>
           <ul>
             <li>PCB and 16×2 LCD tilted at a 60° angle and mounted directly to the shroud face, with cutouts for the display window and push buttons below</li>
@@ -98,6 +96,16 @@
             <li>Battery compartment on the bottom, secured with heat-set inserts and neodymium magnets — resilient to drops and vibration, protective against dust and moisture</li>
             <li>TPU rubber feet bonded to the underside to dampen vibrations and prevent slippage during measurement</li>
           </ul>
+        </div>
+        <div class="ps-visual" style="padding: 0; overflow: hidden; flex-direction: column; gap: 1px; background: var(--border);">
+          <img src="images/digitalscale-fig3-pcb-mount.jpg" alt="Figure 3: PCB and LCD tilted 60 degrees and mounted to the shroud face" style="width:100%; height:170px; object-fit:cover; display:block;" />
+          <img src="images/digitalscale-fig4-loadcell-rotation.jpg" alt="Figure 4: load cell assembly rotated 45 degrees to center the measurement point" style="width:100%; height:170px; object-fit:cover; display:block;" />
+          <img src="images/digitalscale-fig5-rocker-switch.jpg" alt="Figure 5: on/off rocker switch mounted flush with the shroud side" style="width:100%; height:170px; object-fit:cover; display:block;" />
+          <img src="images/digitalscale-fig6-battery-compartment.jpg" alt="Figure 6: bottom battery compartment with heat-set inserts and magnets" style="width:100%; height:170px; object-fit:cover; display:block;" />
+        </div>
+      </div>
+      <div class="ps-content" style="margin-top: 2rem;">
+        <div class="ps-text">
           <h4>Material Selection</h4>
           <ul>
             <li><strong>Shroud:</strong> High-impact ABS plastic — durable, UV-resistant, and suited for potential outdoor use</li>
@@ -106,32 +114,8 @@
             <li><strong>Printer:</strong> Bambu Lab P1S, 10% grid infill (under the 20% spec), heated chamber required for ABS</li>
           </ul>
         </div>
-        <div class="ps-visual">
-          <svg viewBox="0 0 300 240" fill="none" style="width:90%;max-width:300px;">
-            <!-- Clamshell enclosure diagram -->
-            <text x="150" y="18" text-anchor="middle" font-family="monospace" font-size="6" fill="#D07242" opacity="0.5">CLAMSHELL ENCLOSURE</text>
-            <!-- Top half -->
-            <path d="M60 40 Q60 28 72 28 L228 28 Q240 28 240 40 L240 100 Q240 112 228 112 L72 112 Q60 112 60 100Z" stroke="#D07242" stroke-width="1" fill="#D07242" fill-opacity="0.04"/>
-            <!-- Offset lip -->
-            <path d="M64 112 L236 112" stroke="#D07242" stroke-width="0.5" stroke-dasharray="3 2" opacity="0.4"/>
-            <path d="M56 116 L244 116" stroke="#D07242" stroke-width="0.8" opacity="0.3"/>
-            <!-- Bottom half -->
-            <path d="M56 116 L56 170 Q56 182 68 182 L232 182 Q244 182 244 170 L244 116Z" stroke="#D07242" stroke-width="1" fill="#D07242" fill-opacity="0.02"/>
-            <!-- LCD window -->
-            <rect x="80" y="45" width="100" height="40" rx="3" stroke="#D07242" stroke-width="0.8" fill="#D07242" fill-opacity="0.07"/>
-            <text x="130" y="68" text-anchor="middle" font-family="monospace" font-size="5" fill="#D07242" opacity="0.5">16×2 LCD</text>
-            <!-- Button holes -->
-            <circle cx="100" cy="105" r="4" stroke="#D07242" stroke-width="0.7" opacity="0.5"/>
-            <circle cx="120" cy="105" r="4" stroke="#D07242" stroke-width="0.7" opacity="0.5"/>
-            <text x="110" y="103" text-anchor="middle" font-family="monospace" font-size="3.5" fill="#D07242" opacity="0.3">TARE / UNITS</text>
-            <!-- Side switch -->
-            <rect x="240" y="140" width="10" height="18" rx="2" stroke="#D07242" stroke-width="0.8" opacity="0.5" fill="#D07242" fill-opacity="0.05"/>
-            <text x="256" y="152" font-family="monospace" font-size="4" fill="#D07242" opacity="0.35">PWR</text>
-            <!-- Battery cover bottom -->
-            <rect x="100" y="175" width="100" height="10" rx="2" stroke="#D07242" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.3"/>
-            <text x="150" y="183" text-anchor="middle" font-family="monospace" font-size="4" fill="#D07242" opacity="0.25">BATTERY COVER</text>
-            <text x="150" y="225" text-anchor="middle" font-family="monospace" font-size="6" fill="#D07242" opacity="0.3">HEAT-SET INSERTS · 4× #6-32 FASTENERS</text>
-          </svg>
+        <div class="ps-visual" style="padding: 0; overflow: hidden;">
+          <img src="images/digitalscale-fig16-slicer.jpg" alt="Figure 16: Bambu Studio slicer preview of the shroud at 10% grid infill" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
       </div>
     </div>
@@ -143,12 +127,26 @@
         <div class="ps-text">
           <p>The custom load cell — the most critical and complex component — translates mechanical force into measurable electrical signals. It was machined from 6010 aluminum for its favorable strength-to-weight ratio, corrosion resistance, and ease of machining on a manual mill.</p>
           <p>Before any metal was cut, a series of SolidWorks static stress simulations were run. Iterating through different geometries and thicknesses confirmed the load cell could support the full 0–3 kg range with minimal deflection and an adequate safety factor. The simulation identified optimal strain gauge placement at the peak-stress region of the beam.</p>
+        </div>
+        <div class="ps-visual" style="padding: 0; overflow: hidden;">
+          <img src="images/digitalscale-fig7-fea-stress.jpg" alt="Figure 7: SolidWorks static stress simulation showing EPSX strain distribution on the load cell beam" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
+      </div>
+      <div class="ps-content" style="margin-top: 2rem;">
+        <div class="ps-text">
           <h4>Simulated Sensor Results</h4>
           <ul>
             <li><strong>Top Strain Gauge (EPSX):</strong> +4.443×10⁻⁴ average normal strain</li>
             <li><strong>Bottom Strain Gauge (EPSX):</strong> −4.487×10⁻⁴ average normal strain</li>
             <li><strong>Minimum Factor of Safety:</strong> 3.84 (alert threshold: below 3)</li>
           </ul>
+        </div>
+        <div class="ps-visual" style="padding: 0.75rem; overflow: hidden; background:#0A0A0C;">
+          <img src="images/digitalscale-fig8-sensor-table.png" alt="Figure 8: SolidWorks simulation sensor table — top and bottom strain gauge EPSX values and minimum factor of safety" style="width:100%; height:260px; object-fit:contain; display:block;" />
+        </div>
+      </div>
+      <div class="ps-content" style="margin-top: 2rem;">
+        <div class="ps-text">
           <h4>Machining Process — Bridgeport Manual Mill</h4>
           <ul>
             <li>Facing operation on both sides to establish flat reference surfaces</li>
@@ -157,11 +155,28 @@
             <li>Part mounted to a custom jig via the threaded holes for rigid fixturing</li>
             <li>Center pocket milled with a ¼″ end mill; exterior dimensions milled to final spec with the same tool</li>
           </ul>
+        </div>
+        <div class="ps-visual" style="padding: 0; overflow: hidden; flex-direction: column; gap: 1px; background: var(--border);">
+          <img src="images/digitalscale-fig9-technical-drawing.jpg" alt="Figure 9: load cell technical drawing, 6061 aluminum" style="width:100%; height:220px; object-fit:contain; display:block; background:#0A0A0C;" />
+          <img src="images/digitalscale-fig10-bridgeport-mill.jpg" alt="Figure 10: milling the load cell stock on a manual Bridgeport mill" style="width:100%; height:220px; object-fit:cover; display:block;" />
+        </div>
+      </div>
+      <div class="ps-content" style="margin-top: 2rem;">
+        <div class="ps-text">
           <h4>Supporting Components (also machined)</h4>
           <ul>
             <li><strong>Spacer Block:</strong> Milled entirely on the Bridgeport; smoothness verified with a dial indicator gauge</li>
             <li><strong>Load Tray Mount:</strong> Aluminum stock first turned on a manual lathe to diameter, then transferred to a custom jig on the Bridgeport where side faces were milled to tolerance</li>
           </ul>
+        </div>
+        <div class="ps-visual" style="padding: 0; overflow: hidden; flex-direction: column; gap: 1px; background: var(--border);">
+          <img src="images/digitalscale-fig11-dial-indicator.jpg" alt="Figure 11: verifying spacer block flatness with a dial indicator gauge" style="width:100%; height:170px; object-fit:cover; display:block;" />
+          <img src="images/digitalscale-fig12-manual-lathe.jpg" alt="Figure 12: turning the load tray mount stock on a manual lathe" style="width:100%; height:170px; object-fit:cover; display:block;" />
+          <img src="images/digitalscale-fig13-mill-transfer-jig.jpg" alt="Figure 13: load tray mount transferred to a custom jig on the mill for side-face milling" style="width:100%; height:170px; object-fit:cover; display:block;" />
+        </div>
+      </div>
+      <div class="ps-content" style="margin-top: 2rem;">
+        <div class="ps-text">
           <h4>Strain Gauge Installation</h4>
           <ul>
             <li>Surfaces cleaned and degreased; strain gauge sprayed with CA glue accelerant</li>
@@ -169,53 +184,8 @@
             <li>Wired into the HX711 strain gauge amplifier PCB, which amplifies and sends readable values to the Arduino microcontroller</li>
           </ul>
         </div>
-        <div class="ps-visual">
-          <svg viewBox="0 0 300 240" fill="none" style="width:90%;max-width:300px;">
-            <text x="150" y="18" text-anchor="middle" font-family="monospace" font-size="6" fill="#D07242" opacity="0.5">SOLIDWORKS FEA · STRESS DISTRIBUTION</text>
-            <!-- Beam body -->
-            <rect x="40" y="80" width="220" height="50" rx="3" stroke="#D07242" stroke-width="1" fill="none"/>
-            <!-- Center pocket cutout -->
-            <rect x="120" y="90" width="80" height="30" rx="4" stroke="#D07242" stroke-width="0.8" stroke-dasharray="3 2" fill="#D07242" fill-opacity="0.04" opacity="0.6"/>
-            <text x="160" y="109" text-anchor="middle" font-family="monospace" font-size="5" fill="#D07242" opacity="0.35">CENTER POCKET</text>
-            <!-- Mesh stress gradient -->
-            <rect x="40" y="80" width="30" height="50" fill="#D07242" fill-opacity="0.2" rx="2"/>
-            <rect x="70" y="80" width="25" height="50" fill="#D07242" fill-opacity="0.14"/>
-            <rect x="95" y="80" width="25" height="50" fill="#D07242" fill-opacity="0.08"/>
-            <rect x="200" y="80" width="25" height="50" fill="#D07242" fill-opacity="0.08"/>
-            <rect x="225" y="80" width="25" height="50" fill="#D07242" fill-opacity="0.14"/>
-            <rect x="250" y="80" width="10" height="50" fill="#D07242" fill-opacity="0.2"/>
-            <!-- Fixed support left -->
-            <line x1="40" y1="70" x2="40" y2="140" stroke="#D07242" stroke-width="2" opacity="0.4"/>
-            <line x1="33" y1="75" x2="40" y2="70" stroke="#D07242" stroke-width="0.7" opacity="0.3"/>
-            <line x1="33" y1="85" x2="40" y2="80" stroke="#D07242" stroke-width="0.7" opacity="0.3"/>
-            <line x1="33" y1="95" x2="40" y2="90" stroke="#D07242" stroke-width="0.7" opacity="0.3"/>
-            <line x1="33" y1="105" x2="40" y2="100" stroke="#D07242" stroke-width="0.7" opacity="0.3"/>
-            <line x1="33" y1="115" x2="40" y2="110" stroke="#D07242" stroke-width="0.7" opacity="0.3"/>
-            <line x1="33" y1="125" x2="40" y2="120" stroke="#D07242" stroke-width="0.7" opacity="0.3"/>
-            <line x1="33" y1="135" x2="40" y2="130" stroke="#D07242" stroke-width="0.7" opacity="0.3"/>
-            <!-- Force arrows (load applied right side) -->
-            <line x1="260" y1="55" x2="260" y2="78" stroke="#D07242" stroke-width="1" opacity="0.5"/>
-            <polyline points="254,72 260,80 266,72" stroke="#D07242" stroke-width="0.9" fill="none" opacity="0.5"/>
-            <text x="260" y="50" text-anchor="middle" font-family="monospace" font-size="5" fill="#D07242" opacity="0.4">F = 29.4N</text>
-            <text x="260" y="44" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#D07242" opacity="0.3">(3 kg max)</text>
-            <!-- Strain gauge markers -->
-            <rect x="60" y="83" width="22" height="5" rx="1" stroke="#D07242" stroke-width="0.9" fill="#D07242" fill-opacity="0.25"/>
-            <text x="71" y="78" text-anchor="middle" font-family="monospace" font-size="4" fill="#D07242" opacity="0.5">TOP GAUGE</text>
-            <rect x="60" y="122" width="22" height="5" rx="1" stroke="#D07242" stroke-width="0.9" fill="#D07242" fill-opacity="0.25"/>
-            <text x="71" y="135" text-anchor="middle" font-family="monospace" font-size="4" fill="#D07242" opacity="0.5">BOT GAUGE</text>
-            <!-- Mounting holes -->
-            <circle cx="68" cy="105" r="5" stroke="#D07242" stroke-width="0.7" opacity="0.4"/>
-            <circle cx="232" cy="105" r="5" stroke="#D07242" stroke-width="0.7" opacity="0.4"/>
-            <!-- FOS callout -->
-            <text x="150" y="165" text-anchor="middle" font-family="monospace" font-size="5" fill="#D07242" opacity="0.4">MIN FACTOR OF SAFETY: 3.84</text>
-            <text x="150" y="175" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#D07242" opacity="0.3">EPSX TOP: +4.443e-04  BOT: -4.487e-04</text>
-            <!-- Legend -->
-            <rect x="50" y="188" width="16" height="6" rx="1" fill="#D07242" fill-opacity="0.2"/>
-            <text x="72" y="194" font-family="monospace" font-size="4" fill="#D07242" opacity="0.4">HIGH STRESS</text>
-            <rect x="150" y="188" width="16" height="6" rx="1" fill="#D07242" fill-opacity="0.04"/>
-            <text x="172" y="194" font-family="monospace" font-size="4" fill="#D07242" opacity="0.4">LOW STRESS</text>
-            <text x="150" y="225" text-anchor="middle" font-family="monospace" font-size="6" fill="#D07242" opacity="0.3">6010 ALUMINUM · MANUAL BRIDGEPORT MILL</text>
-          </svg>
+        <div class="ps-visual" style="padding: 0; overflow: hidden;">
+          <img src="images/digitalscale-fig14-strain-gauge-install.jpg" alt="Figure 14: strain gauge bonded to the machined aluminum load cell" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
       </div>
     </div>
@@ -228,8 +198,84 @@
           <p>The firmware was written in Arduino IDE using the HX711 and LiquidCrystal libraries. The code is structured into distinct functional blocks: initialization, calibration, measurement averaging, unit conversion, display update, and button interrupt handling.</p>
           <h4>Initialization & Setup</h4>
           <p>On power-up, the LCD prints "Initializing…" while the system sets up pin modes and attaches hardware interrupts (FALLING edge) to SW1 (tare) and SW2 (unit swap). After the load cell initializes and tares, "Ready!" is displayed.</p>
+        </div>
+        <div class="ps-visual" style="padding: 0; min-height: 0;">
+          <div class="code-window">
+            <div class="code-window-header">
+              <div class="code-window-dots"><span></span><span></span><span></span></div>
+              <span class="code-window-title">digitalScale.ino</span>
+              <span class="code-window-lang">C++</span>
+            </div>
+            <pre><code><span class="tok-pre">#include</span> &lt;LiquidCrystal.h&gt;  <span class="tok-com">// LCD Library</span>
+<span class="tok-pre">#include</span> <span class="tok-str">"HX711.h"</span>          <span class="tok-com">// Load cell library</span>
+
+<span class="tok-pre">#define</span> DOUT <span class="tok-num">5</span>  <span class="tok-com">// Arduino Pin connection data</span>
+<span class="tok-pre">#define</span> CLK  <span class="tok-num">4</span>  <span class="tok-com">// Arduino Pin connection data</span>
+<span class="tok-pre">#define</span> SW2  <span class="tok-num">2</span>  <span class="tok-com">// Right switch (unit swap)</span>
+<span class="tok-pre">#define</span> SW1  <span class="tok-num">3</span>  <span class="tok-com">// Left switch (tare)</span>
+
+<span class="tok-type">HX711</span> loadCell;
+<span class="tok-kw">long</span> tareValue = <span class="tok-num">0</span>;
+<span class="tok-kw">double</span> calibrationFactor = <span class="tok-num">0.0019963</span>; <span class="tok-com">// [grams/ADC value]</span>
+...
+
+<span class="tok-kw">void</span> <span class="tok-fn">setup</span>() {
+  <span class="tok-fn">pinMode</span>(SW1, INPUT_PULLUP);
+  <span class="tok-fn">pinMode</span>(SW2, INPUT_PULLUP);
+
+  <span class="tok-fn">attachInterrupt</span>(<span class="tok-fn">digitalPinToInterrupt</span>(SW2), sw2ISR, FALLING);
+  <span class="tok-fn">attachInterrupt</span>(<span class="tok-fn">digitalPinToInterrupt</span>(SW1), sw1ISR, FALLING);
+
+  lcd.<span class="tok-fn">begin</span>(<span class="tok-num">16</span>, <span class="tok-num">2</span>);
+  lcd.<span class="tok-fn">setCursor</span>(<span class="tok-num">0</span>, <span class="tok-num">0</span>);
+  lcd.<span class="tok-fn">print</span>(<span class="tok-str">"Initializing..."</span>);
+  <span class="tok-fn">delay</span>(<span class="tok-num">2000</span>);
+
+  Serial.<span class="tok-fn">begin</span>(<span class="tok-num">9600</span>);
+  loadCell.<span class="tok-fn">begin</span>(DOUT, CLK);
+  <span class="tok-fn">tare</span>();
+
+  lcd.<span class="tok-fn">clear</span>();
+  lcd.<span class="tok-fn">print</span>(<span class="tok-str">"Ready!"</span>);
+  <span class="tok-fn">delay</span>(<span class="tok-num">1000</span>);
+}</code></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ps-content" style="margin-top: 2rem;">
+        <div class="ps-text">
           <h4>Tare Function</h4>
           <p>The tare routine takes multiple samples, averages them, and stores the offset as <code>tareValue</code>. Averaging filters out ADC noise and ensures a stable zero baseline — critical for ±1% accuracy. LCD shows "Taring…" then "Tare complete!" before clearing.</p>
+        </div>
+        <div class="ps-visual" style="padding: 0; min-height: 0;">
+          <div class="code-window">
+            <div class="code-window-header">
+              <div class="code-window-dots"><span></span><span></span><span></span></div>
+              <span class="code-window-title">tare()</span>
+              <span class="code-window-lang">C++</span>
+            </div>
+            <pre><code><span class="tok-kw">void</span> <span class="tok-fn">tare</span>() {
+  lcd.<span class="tok-fn">clear</span>();
+  lcd.<span class="tok-fn">setCursor</span>(<span class="tok-num">0</span>, <span class="tok-num">0</span>);
+  lcd.<span class="tok-fn">print</span>(<span class="tok-str">"Taring..."</span>);
+
+  <span class="tok-kw">long</span> total = <span class="tok-num">0</span>;
+  <span class="tok-kw">for</span> (<span class="tok-kw">int</span> i = <span class="tok-num">0</span>; i &lt; NUM_SAMPLES; i++) {
+    total += loadCell.<span class="tok-fn">read</span>();
+    <span class="tok-fn">delay</span>(<span class="tok-num">10</span>);
+  }
+  tareValue = total / NUM_SAMPLES;
+
+  lcd.<span class="tok-fn">setCursor</span>(<span class="tok-num">0</span>, <span class="tok-num">1</span>);
+  lcd.<span class="tok-fn">print</span>(<span class="tok-str">"Tare complete!"</span>);
+  <span class="tok-fn">delay</span>(<span class="tok-num">1000</span>);
+  lcd.<span class="tok-fn">clear</span>();
+}</code></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ps-content" style="margin-top: 2rem;">
+        <div class="ps-text">
           <h4>Unit Conversion</h4>
           <p>The main loop reads averaged raw ADC values, subtracts <code>tareValue</code>, then applies the calibration factor (0.0019963 grams/ADC unit) with a switch-case for unit output:</p>
           <ul>
@@ -238,10 +284,73 @@
             <li><strong>Pounds:</strong> rawValue × calibrationFactor × 0.00220462</li>
             <li><strong>Ounces:</strong> rawValue × calibrationFactor × 0.035274</li>
           </ul>
+        </div>
+        <div class="ps-visual" style="padding: 0; min-height: 0;">
+          <div class="code-window">
+            <div class="code-window-header">
+              <div class="code-window-dots"><span></span><span></span><span></span></div>
+              <span class="code-window-title">digitalScale.ino</span>
+              <span class="code-window-lang">C++</span>
+            </div>
+            <pre><code><span class="tok-kw">void</span> <span class="tok-fn">sw2ISR</span>() {
+  sw2Pressed = <span class="tok-kw">true</span>;
+}
+
+<span class="tok-kw">void</span> <span class="tok-fn">sw1ISR</span>() {
+  sw1Pressed = <span class="tok-kw">true</span>;
+}
+
+...
+
+<span class="tok-kw">long</span> rawValue = <span class="tok-fn">getAverageReading</span>() - tareValue;
+
+<span class="tok-kw">switch</span> (selectedUnit) {
+  <span class="tok-kw">case</span> <span class="tok-num">1</span>: weight = rawValue * calibrationFactor; <span class="tok-kw">break</span>;              <span class="tok-com">// Grams</span>
+  <span class="tok-kw">case</span> <span class="tok-num">2</span>: weight = rawValue * calibrationFactor / <span class="tok-num">1000.0</span>; <span class="tok-kw">break</span>;     <span class="tok-com">// Kilograms</span>
+  <span class="tok-kw">case</span> <span class="tok-num">3</span>: weight = rawValue * calibrationFactor * <span class="tok-num">0.00220462</span>; <span class="tok-kw">break</span>; <span class="tok-com">// Pounds</span>
+  <span class="tok-kw">case</span> <span class="tok-num">4</span>: weight = rawValue * calibrationFactor * <span class="tok-num">0.035274</span>; <span class="tok-kw">break</span>;  <span class="tok-com">// Ounces</span>
+}</code></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ps-content" style="margin-top: 2rem;">
+        <div class="ps-text">
           <h4>Display Update</h4>
           <p>The LCD shows current weight on row 0 (or "Exceeds max!" if over range), with "TARE" and "Units" labels on row 1 and column 11 respectively. Interrupt service routines set <code>sw1Pressed</code> / <code>sw2Pressed</code> flags that the main loop checks, keeping the UI responsive without blocking.</p>
           <h4>Calibration</h4>
           <p>A 200 g standardized weight was used for the final calibration run, achieving readings within the ±1% margin of error specification across the full 0–3 kg range.</p>
+        </div>
+        <div class="ps-visual" style="padding: 0; min-height: 0;">
+          <div class="code-window">
+            <div class="code-window-header">
+              <div class="code-window-dots"><span></span><span></span><span></span></div>
+              <span class="code-window-title">displayWeight()</span>
+              <span class="code-window-lang">C++</span>
+            </div>
+            <pre><code><span class="tok-kw">void</span> <span class="tok-fn">displayWeight</span>(<span class="tok-kw">double</span> weight, <span class="tok-kw">const</span> <span class="tok-kw">char</span> *unit) {
+  lcd.<span class="tok-fn">setCursor</span>(<span class="tok-num">0</span>, <span class="tok-num">0</span>);
+  <span class="tok-kw">if</span> (weight &gt; MAX_WEIGHT) {
+    lcd.<span class="tok-fn">print</span>(<span class="tok-str">"Exceeds max!"</span>);
+  } <span class="tok-kw">else</span> {
+    lcd.<span class="tok-fn">print</span>(weight, <span class="tok-num">2</span>);
+  }
+
+  lcd.<span class="tok-fn">setCursor</span>(<span class="tok-num">0</span>, <span class="tok-num">1</span>);
+  lcd.<span class="tok-fn">print</span>(<span class="tok-str">"TARE"</span>);
+
+  lcd.<span class="tok-fn">setCursor</span>(<span class="tok-num">11</span>, <span class="tok-num">0</span>);
+  lcd.<span class="tok-fn">print</span>(<span class="tok-str">"      "</span>);
+  lcd.<span class="tok-fn">setCursor</span>(<span class="tok-num">11</span>, <span class="tok-num">0</span>);
+  lcd.<span class="tok-fn">print</span>(unit);
+
+  lcd.<span class="tok-fn">setCursor</span>(<span class="tok-num">11</span>, <span class="tok-num">1</span>);
+  lcd.<span class="tok-fn">print</span>(<span class="tok-str">"Units"</span>);
+}</code></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ps-content" style="margin-top: 2rem;">
+        <div class="ps-text">
           <h4>Assembly & Integration</h4>
           <ul>
             <li>JST connectors crimped onto the battery holder and rocker switch for easy disassembly</li>
@@ -250,48 +359,8 @@
             <li>Two shroud halves joined with 4× #6-32 screws through heat-set inserts</li>
           </ul>
         </div>
-        <div class="ps-visual">
-          <svg viewBox="0 0 300 260" fill="none" style="width:90%;max-width:300px;">
-            <text x="150" y="15" text-anchor="middle" font-family="monospace" font-size="6" fill="#D07242" opacity="0.5">SYSTEM ARCHITECTURE</text>
-            <!-- Load cell -->
-            <rect x="20" y="30" width="70" height="35" rx="3" stroke="#D07242" stroke-width="0.9" fill="#D07242" fill-opacity="0.04"/>
-            <text x="55" y="48" text-anchor="middle" font-family="monospace" font-size="5" fill="#D07242" opacity="0.5">LOAD CELL</text>
-            <text x="55" y="57" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#D07242" opacity="0.3">6010 Al + Strain Gauge</text>
-            <!-- HX711 -->
-            <rect x="110" y="30" width="70" height="35" rx="3" stroke="#D07242" stroke-width="0.9" fill="#D07242" fill-opacity="0.04"/>
-            <text x="145" y="48" text-anchor="middle" font-family="monospace" font-size="5" fill="#D07242" opacity="0.5">HX711 AMP</text>
-            <text x="145" y="57" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#D07242" opacity="0.3">24-bit ADC</text>
-            <!-- Arduino -->
-            <rect x="200" y="30" width="80" height="35" rx="3" stroke="#D07242" stroke-width="0.9" fill="#D07242" fill-opacity="0.04"/>
-            <text x="240" y="48" text-anchor="middle" font-family="monospace" font-size="5" fill="#D07242" opacity="0.5">ARDUINO</text>
-            <text x="240" y="57" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#D07242" opacity="0.3">Firmware</text>
-            <!-- Arrows -->
-            <line x1="90" y1="47" x2="108" y2="47" stroke="#D07242" stroke-width="0.8" opacity="0.4"/>
-            <polyline points="105,44 110,47 105,50" stroke="#D07242" stroke-width="0.7" fill="none" opacity="0.4"/>
-            <line x1="180" y1="47" x2="198" y2="47" stroke="#D07242" stroke-width="0.8" opacity="0.4"/>
-            <polyline points="195,44 200,47 195,50" stroke="#D07242" stroke-width="0.7" fill="none" opacity="0.4"/>
-            <!-- LCD -->
-            <rect x="110" y="100" width="80" height="40" rx="3" stroke="#D07242" stroke-width="0.9" fill="#D07242" fill-opacity="0.06"/>
-            <text x="150" y="116" text-anchor="middle" font-family="monospace" font-size="5" fill="#D07242" opacity="0.5">16×2 LCD</text>
-            <text x="150" y="126" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#D07242" opacity="0.4">1024.75g    g</text>
-            <text x="150" y="134" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#D07242" opacity="0.3">TARE         Units</text>
-            <!-- Buttons -->
-            <rect x="60" y="110" width="35" height="20" rx="3" stroke="#D07242" stroke-width="0.8" fill="#D07242" fill-opacity="0.04"/>
-            <text x="77" y="123" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#D07242" opacity="0.4">SW1/SW2</text>
-            <!-- Interrupt lines -->
-            <line x1="95" y1="120" x2="108" y2="120" stroke="#D07242" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.4"/>
-            <line x1="240" y1="65" x2="240" y2="100" stroke="#D07242" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.3"/>
-            <line x1="240" y1="100" x2="200" y2="120" stroke="#D07242" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.3"/>
-            <!-- Battery -->
-            <rect x="20" y="100" width="30" height="20" rx="2" stroke="#D07242" stroke-width="0.7" opacity="0.4" fill="#D07242" fill-opacity="0.03"/>
-            <text x="35" y="114" text-anchor="middle" font-family="monospace" font-size="4" fill="#D07242" opacity="0.35">2× AA</text>
-            <!-- Calibration block -->
-            <rect x="60" y="160" width="180" height="50" rx="4" stroke="#D07242" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.35"/>
-            <text x="150" y="178" text-anchor="middle" font-family="monospace" font-size="5" fill="#D07242" opacity="0.5">CALIBRATION</text>
-            <text x="150" y="190" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#D07242" opacity="0.3">factor = 0.0019963 g/ADC</text>
-            <text x="150" y="200" text-anchor="middle" font-family="monospace" font-size="4.5" fill="#D07242" opacity="0.3">verified with 200g standard weight</text>
-            <text x="150" y="248" text-anchor="middle" font-family="monospace" font-size="6" fill="#D07242" opacity="0.3">ARDUINO IDE · HX711 · LIQUIDCRYSTAL</text>
-          </svg>
+        <div class="ps-visual" style="padding: 0; overflow: hidden;">
+          <img src="images/digitalscale-fig17-assembly.jpg" alt="Figure 17: final assembly — JST-connectorized wiring, PCB fastening, and load cell integration into the shroud" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
       </div>
     </div>
@@ -328,6 +397,9 @@
             <li>Bluetooth module with companion phone app — live data readout, logging to spreadsheet</li>
             <li>Injection molding tooling for commercial-scale production of the enclosure</li>
           </ul>
+        </div>
+        <div class="ps-visual" style="padding: 0; overflow: hidden; min-height: auto;">
+          <img src="images/digitalscale-fig25-final-product.jpg" alt="Completed digital scale prototype: powered on, weighing a calibration standard, and with tray removed" style="width:100%; height:560px; object-fit:cover; object-position: top; display:block;" />
         </div>
       </div>
     </div>
