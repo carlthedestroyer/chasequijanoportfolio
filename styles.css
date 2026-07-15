@@ -193,6 +193,16 @@ section { padding: 7rem 2.5rem; }
 .featured-project:nth-child(even) .fp-visual { border-right:none; border-left:1px solid var(--border); order:2; }
 .wireframe-svg { width:85%; max-width:300px; opacity:0.8; transition:opacity 0.4s ease; }
 .featured-project:hover .wireframe-svg { opacity:1; }
+
+.wireframe-photo {
+  aspect-ratio: 16 / 9;
+  background-color: #D07242;
+  -webkit-mask-image: url('projects/images/digitalscale-cover.png');
+  mask-image: url('projects/images/digitalscale-cover.png');
+  -webkit-mask-size: contain; mask-size: contain;
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  -webkit-mask-position: center; mask-position: center;
+}
 .fp-content { padding:2.5rem; display:flex; flex-direction:column; justify-content:center; }
 .fp-number { font-family:var(--mono); font-size:0.56rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem; }
 .fp-title { font-family:var(--heading); font-size:1.4rem; font-weight:700; letter-spacing:-0.01em; margin-bottom:0.4rem; line-height:1.2; }
