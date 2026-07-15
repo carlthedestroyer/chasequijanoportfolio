@@ -12,7 +12,7 @@
 (function () {
   // ── CREDENTIALS ── change these to whatever you want ──────────────────────
   var USERNAME = 'chasequijano';
-  var PASSWORD = 'stuart27!!!';
+  var PASSWORD = 'Stuart27!!!';
   // ──────────────────────────────────────────────────────────────────────────
 
   var SESSION_KEY = 'cq_preview_auth';
