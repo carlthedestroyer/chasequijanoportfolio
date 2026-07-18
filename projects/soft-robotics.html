@@ -4,9 +4,9 @@
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modular Flex PCB for Soft Robotics — Chase Quijano</title>
+  <title>Modular Flex PCB for Soft Robotics - Chase Quijano</title>
   <link rel="stylesheet" href="../styles.css">
-  <!-- PRIVATE PREVIEW AUTH — remove this line for public launch -->
+  <!-- PRIVATE PREVIEW AUTH - remove this line for public launch -->
   <script src="/auth.js"></script>
 </head>
 <body>
@@ -29,7 +29,7 @@
       <div class="project-hero-number">004 · Research</div>
       <h1 class="project-hero-title">Modular Flexible PCB for Self-Reconfigurable Soft Robotics</h1>
       <div class="project-hero-subtitle">Research Lab · Rowan University · 2024</div>
-      <p class="project-hero-desc">Designed modular flexible PCBs enabling self-reconfiguring soft robotic modules to communicate and share power across an I2C bus and shared power rail. The project required integrating motor drivers, power regulation, and wireless connectivity onto a compact flex substrate with ENIG finish — then iterating through two full PCB revisions based on physical testing on the robotic platform.</p>
+      <p class="project-hero-desc">Designed modular flexible PCBs enabling self-reconfiguring soft robotic modules to communicate and share power across an I2C bus and shared power rail. The project required integrating motor drivers, power regulation, and wireless connectivity onto a compact flex substrate with ENIG finish - then iterating through two full PCB revisions based on physical testing on the robotic platform.</p>
       <div class="project-hero-tags">
         <span class="tag">Flex PCB</span><span class="tag">KiCad</span><span class="tag">ESP32-C3</span><span class="tag">I2C</span><span class="tag">Motor Drivers</span><span class="tag">ENIG</span><span class="tag">DRV8837</span><span class="tag">TPS63001</span><span class="tag">SMD Assembly</span>
       </div>
@@ -46,8 +46,8 @@
       <h2 class="ps-title">Requirements & Constraints</h2>
       <div class="ps-content">
         <div class="ps-text">
-          <p>Self-reconfigurable soft robots present a unique electronics challenge: the PCB must flex with the body, survive repeated mechanical deformation, connect reliably between modules, and support both motor actuation and inter-module communication — all within a highly constrained form factor dictated by the robot geometry.</p>
-          <p>The goal was to design a single modular PCB that could be replicated across every robotic module, enabling the full robot to self-reconfigure by sharing power and commands across a daisy-chained bus. Each module needed its own compute, motor control, and power regulation — communicating with its neighbors via a shared I2C line.</p>
+          <p>Self-reconfigurable soft robots present a unique electronics challenge: the PCB must flex with the body, survive repeated mechanical deformation, connect reliably between modules, and support both motor actuation and inter-module communication - all within a highly constrained form factor dictated by the robot geometry.</p>
+          <p>The goal was to design a single modular PCB that could be replicated across every robotic module, enabling the full robot to self-reconfigure by sharing power and commands across a daisy-chained bus. Each module needed its own compute, motor control, and power regulation - communicating with its neighbors via a shared I2C line.</p>
           <h4>Key Constraints</h4>
           <ul>
             <li>Support ESP32 wireless connectivity and computation in each module</li>
@@ -57,7 +57,7 @@
             <li>Fit within the compact form factor of each soft robotic module body</li>
             <li>Use a flexible PCB substrate that survives repeated bending at flex zones</li>
             <li>ENIG surface finish for reliable solder joints and corrosion resistance on flex</li>
-            <li>All SMD components — no through-hole components that would compromise flex zones</li>
+            <li>All SMD components - no through-hole components that would compromise flex zones</li>
           </ul>
           <h4>Design Approach</h4>
           <p>KiCad was used for schematic capture and PCB layout. All component CAD models were sourced from manufacturer libraries and imported into the layout. The design went through schematic review, DRC, and then fabrication with in-house SMD assembly and reflow.</p>
@@ -105,19 +105,19 @@
       <h2 class="ps-title">Two Design Iterations</h2>
       <div class="ps-content">
         <div class="ps-text">
-          <h4>Revision A — Initial Design</h4>
+          <h4>Revision A - Initial Design</h4>
           <p>The first revision implemented the complete electrical design on a flex substrate: motor drivers (DRV8837 H-bridge for bidirectional control), buck-boost power regulation (TPS63001 for stable 3.3V across varying battery voltages), and the ESP32-C3 module for wireless connectivity and I2C bus communication. KiCad schematics were captured with all inter-component connections, and the PCB layout was routed to fit the module form factor.</p>
           <p>Revision A validated the core electrical design and communication protocols. Physical testing on the soft robotic platform revealed opportunities to improve component density, trace routing at flex zones, and the module-to-module connector interface reliability.</p>
 
-          <h4>Revision B — Refined Design</h4>
-          <p>The second revision incorporated feedback from physical testing. Layout adjustments improved routing at flex zones and tightened component placement. The modular connector interface was refined for more reliable module-to-module docking — a critical requirement for the self-reconfiguration use case where modules must reconnect in arbitrary orientations.</p>
+          <h4>Revision B - Refined Design</h4>
+          <p>The second revision incorporated feedback from physical testing. Layout adjustments improved routing at flex zones and tightened component placement. The modular connector interface was refined for more reliable module-to-module docking - a critical requirement for the self-reconfiguration use case where modules must reconnect in arbitrary orientations.</p>
 
           <h4>Key Component Decisions</h4>
           <ul>
             <li><strong>ESP32-C3:</strong> Compact wireless-capable microcontroller with I2C and UART support, fits on flex without rigid-flex compromise</li>
             <li><strong>DRV8837:</strong> Small-footprint H-bridge motor driver for bidirectional DC motor control per module</li>
             <li><strong>TPS63001:</strong> Buck-boost converter maintaining stable 3.3V rail regardless of battery state-of-charge</li>
-            <li><strong>ENIG finish:</strong> Gold over nickel for reliable solder joint formation and oxidation resistance on flex — critical for long-term reliability through repeated bending</li>
+            <li><strong>ENIG finish:</strong> Gold over nickel for reliable solder joint formation and oxidation resistance on flex - critical for long-term reliability through repeated bending</li>
             <li><strong>Castellated edges explored</strong> for module-to-module power and signal interconnects</li>
           </ul>
         </div>
@@ -181,7 +181,7 @@
       <h2 class="ps-title">Physical Platform Validation</h2>
       <div class="ps-content ps-full">
         <div class="ps-text">
-          <p>Both revisions were fabricated and assembled with SMD reflow soldering. The assembled modules were integrated into the physical soft robotic platform — a multi-module chain-like robot — and tested for functional connectivity, motor actuation, and inter-module I2C communication. Adjacent modules demonstrated reliable communication and shared-power operation under normal robotic motion.</p>
+          <p>Both revisions were fabricated and assembled with SMD reflow soldering. The assembled modules were integrated into the physical soft robotic platform - a multi-module chain-like robot - and tested for functional connectivity, motor actuation, and inter-module I2C communication. Adjacent modules demonstrated reliable communication and shared-power operation under normal robotic motion.</p>
           <h4>Validation Results</h4>
           <ul>
             <li>Module-to-module I2C communication functional across the full chain</li>
@@ -209,7 +209,7 @@
 
     <div class="project-nav">
       <a href="digital-scale.html">← Previous<span class="project-nav-title">Custom Digital Scale</span></a>
-      <a href="../projects/" class="next">All Projects →<span class="project-nav-title">View Archive</span></a>
+      <a href="balancing-robot.html" class="next">Next Project →<span class="project-nav-title">Balancing Robot</span></a>
     </div>
 
     <footer><div class="footer-text">© 2026 Chase Quijano</div><div class="footer-text">Rowan University · Engineering Entrepreneurship</div></footer>

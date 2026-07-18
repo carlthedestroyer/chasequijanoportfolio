@@ -4,9 +4,9 @@
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Berta Medical — Chase Quijano</title>
+  <title>Berta Medical - Chase Quijano</title>
   <link rel="stylesheet" href="../styles.css">
-  <!-- PRIVATE PREVIEW AUTH — remove this line for public launch -->
+  <!-- PRIVATE PREVIEW AUTH - remove this line for public launch -->
   <script src="/auth.js"></script>
 </head>
 <body>
@@ -33,10 +33,10 @@
       </a>
 
       <div class="project-hero-number">001 · Medical Startup</div>
-      <h1 class="project-hero-title">Berta Medical — Wearable ECG Platform</h1>
+      <h1 class="project-hero-title">Berta Medical - Wearable ECG Platform</h1>
       <div class="project-hero-subtitle">Co-Founder & Hardware Lead · Rowan University · 2024</div>
 
-      <p class="project-hero-desc">Co-founded a medical startup to make remote health monitoring accessible and affordable. Designed custom wearable ECG hardware through three development phases — prototype, dev kit PCB, and final wearable PCB — wrote ESP32 firmware for encrypted MQTT data transmission, and integrated with an AWS-based cloud backend serving separate patient and doctor web portals.</p>
+      <p class="project-hero-desc">Co-founded a medical startup to make remote health monitoring accessible and affordable. Designed custom wearable ECG hardware through three development phases - prototype, dev kit PCB, and final wearable PCB - wrote ESP32 firmware for encrypted MQTT data transmission, and integrated with an AWS-based cloud backend serving separate patient and doctor web portals.</p>
 
       <div class="project-hero-tags">
         <span class="tag">KiCad</span>
@@ -66,10 +66,13 @@
       <div class="ps-content">
         <div class="ps-text">
           <p>Berta Medical was co-founded with Billy Zhang to address barriers in accessing affordable healthcare and remote patient monitoring. Existing wearable ECG solutions were either prohibitively expensive or locked into proprietary ecosystems without meaningful data access for patients or providers.</p>
-          <p>My contribution focused on the full hardware stack — designing custom wearable ECG hardware through three phases, writing firmware for secure data transmission, and building the integration layer with an AWS-based backend. Billy developed the AWS backend and front-end user interfaces that both doctors and patients utilize.</p>
+          <p>My contribution focused on the full hardware stack - designing custom wearable ECG hardware through three phases, writing firmware for secure data transmission, and building the integration layer with an AWS-based backend. Billy developed the AWS backend and front-end user interfaces that both doctors and patients utilize.</p>
         </div>
-        <div class="ps-visual" style="padding: 1.5rem; background: #0A0A0C;">
-          <img src="images/bertamedical.png" alt="Berta Medical Logo" style="width: 90%; max-width: 300px; object-fit: contain;" />
+        <div class="ps-visual" style="padding: 3rem 2rem; background: #0A0A0C;">
+          <figure>
+            <img src="images/bertamedical.png" alt="Berta Medical Logo" style="width: 90%; max-width: 340px; object-fit: contain; border: none; margin: 0 auto; display: block;" />
+            <figcaption>Berta Medical logo</figcaption>
+          </figure>
         </div>
       </div>
     </div>
@@ -103,10 +106,17 @@
           </ul>
 
           <h4>Startup Context</h4>
-          <p>Turn hardware prototypes into a viable medical product concept and pitch to interdisciplinary judges — physicists, engineers, and business leaders — at the Rowan New Venture Competition.</p>
+          <p>Turn hardware prototypes into a viable medical product concept and pitch to interdisciplinary judges - physicists, engineers, and business leaders - at the Rowan New Venture Competition.</p>
         </div>
-        <div class="ps-visual" style="padding: 0; overflow: hidden;">
-          <img src="images/ECG-Compact-Render-2.png" alt="ECG Wearable PCB Render" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        <div class="ps-visual figure-grid" style="padding: 0; background: transparent; gap: 2rem;">
+          <figure>
+            <img src="images/ECG-Compact-Render-2.png" alt="ECG Wearable PCB Render" style="width:100%; height:300px; object-fit:cover;" />
+            <figcaption>Wearable ECG PCB render (concept)</figcaption>
+          </figure>
+          <figure>
+            <img src="Berta%20Medical/images/bertamedical-electrode-placement.jpg" alt="3-lead ECG electrode placement diagram: RA red under right clavicle, LA yellow under left clavicle, LL green on lower left rib cage" style="width:100%; height:300px; object-fit:cover;" />
+            <figcaption>3-lead electrode placement (RA / LA / LL)</figcaption>
+          </figure>
         </div>
       </div>
     </div>
@@ -117,10 +127,10 @@
       <h2 class="ps-title">Three Phases of Hardware Development</h2>
       <div class="ps-content">
         <div class="ps-text">
-          <h4>Phase 1 — Prototype</h4>
+          <h4>Phase 1 - Prototype</h4>
           <p>Two initial form factor variants were explored: a chest-mount and a clip-on configuration. Off-the-shelf development boards validated ECG signal acquisition concept and electrode placement strategies before committing to custom PCB design.</p>
 
-          <h4>Phase 2 — Dev Kit PCB</h4>
+          <h4>Phase 2 - Dev Kit PCB</h4>
           <p>Designed a custom development kit PCB with modular expansion headers for rapid firmware and communications iteration. Key features: 128×32 OLED display for real-time debug output, microSD card slot for local data logging, and an 18650 battery holder. This board served as the primary platform for iterating on MQTT communication flows and firmware reliability before the final wearable form factor was locked in.</p>
           <ul>
             <li>ESP32-C3-DevKitC-02 as the compute module</li>
@@ -131,7 +141,7 @@
             <li>Designed in KiCad; assembled in-house</li>
           </ul>
 
-          <h4>Phase 3 — Final Wearable PCB</h4>
+          <h4>Phase 3 - Final Wearable PCB</h4>
           <p>The final integrated PCB combined everything into a compact wearable form factor designed for actual patient use:</p>
           <ul>
             <li>AD8232 ECG analog front-end with electrode snap connectors</li>
@@ -143,11 +153,63 @@
             <li>Full SMD assembly; no through-hole components in signal path</li>
           </ul>
         </div>
-        <div class="ps-visual" style="padding: 0; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); min-height: auto; align-items: stretch;">
-          <img src="images/ECG_DevBoard-ECG%20DevBoardPcb_eb3a%20v11.png" alt="Dev Kit PCB" style="width:100%; height:220px; object-fit:cover; display:block;" />
-          <img src="images/ECG_DevBoard-ECG%20DevBoardPcb_eb3a%20v11%202.png" alt="Dev Kit PCB Back" style="width:100%; height:220px; object-fit:cover; display:block;" />
-          <img src="images/ECG-Compact-Render.png" alt="Wearable PCB Render Front" style="width:100%; height:220px; object-fit:cover; display:block;" />
-          <img src="images/ECG-Compact-Render-1.png" alt="Wearable PCB Render Angle" style="width:100%; height:220px; object-fit:cover; display:block;" />
+        <div class="ps-visual figure-grid" style="padding: 0; background: transparent; min-height: auto; align-items: stretch; gap: 2rem;">
+          <figure>
+            <img src="Berta%20Medical/images/bertamedical-fig1-prototype-exterior.jpg" alt="Figure 1a: Phase 1 prototype - clip-on enclosure exterior" style="width:100%; height:300px; object-fit:cover;" />
+            <figcaption>Fig. 1a - Prototype, clip-on exterior</figcaption>
+          </figure>
+          <figure>
+            <img src="Berta%20Medical/images/bertamedical-fig1-prototype-cutaway.jpg" alt="Figure 1a: Phase 1 prototype - cutaway showing electrode ring and internal PCB" style="width:100%; height:300px; object-fit:cover;" />
+            <figcaption>Fig. 1a - Prototype, internal cutaway</figcaption>
+          </figure>
+          <figure>
+            <img src="Berta%20Medical/images/bertamedical-fig1-devkit-pcb.jpg" alt="Figure 1b: Phase 2 Dev Kit PCB with OLED debug display and electrode leads" style="width:100%; height:300px; object-fit:cover;" />
+            <figcaption>Fig. 1b - Dev Kit PCB with OLED debug display</figcaption>
+          </figure>
+          <figure>
+            <img src="Berta%20Medical/images/bertamedical-fig1-final-wearable.jpg" alt="Figure 1c: Phase 3 final wearable PCB in 3D-printed enclosure with electrode leads" style="width:100%; height:300px; object-fit:cover;" />
+            <figcaption>Fig. 1c - Final wearable PCB, printed enclosure</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="ps-content" style="margin-top: 3rem;">
+        <div class="ps-text">
+          <h4>Schematic Design (KiCad)</h4>
+          <p>Both boards were schematic-captured and laid out in KiCad. The Dev Kit schematic centers on an ESP32-C3-DevKitC-02 with header breakouts for every GPIO, an AD8232 front-end, TP4056 charge circuit, and microSD/OLED interfaces for debug. The final wearable schematic integrates the same AD8232 signal chain with an ESP32-C6, a MAX1704x fuel gauge on I2C, and a daughterboard connector routing test points (TP1–TP9) out to the electrode interface for post-assembly validation.</p>
+        </div>
+        <div class="ps-visual" style="padding: 2rem; background: transparent; flex-direction: column; align-items: stretch; gap: 2.5rem;">
+          <figure>
+            <img src="Berta%20Medical/images/bertamedical-fig2-devkit-schematic.png" alt="Figure 2a: Dev Kit PCB schematic - ESP32-C3-DevKitC-02, AD8232, TP4056, OLED and microSD" style="width:100%; height:auto; object-fit:contain; display:block; background:#0A0A0C; border-radius: 8px; border: 1px solid var(--border);" />
+            <figcaption>Fig. 2a - Dev Kit PCB schematic</figcaption>
+          </figure>
+          <figure>
+            <img src="Berta%20Medical/images/bertamedical-fig2-wearable-schematic.png" alt="Figure 2b: Final wearable PCB schematic - ESP32-C6, AD8232, MAX1704x fuel gauge, daughterboard test points" style="width:100%; height:auto; object-fit:contain; display:block; background:#0A0A0C; border-radius: 8px; border: 1px solid var(--border);" />
+            <figcaption>Fig. 2b - Final wearable PCB schematic</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="ps-content" style="margin-top: 3rem;">
+        <div class="ps-text">
+          <h4>PCB Renders & In-House Assembly</h4>
+          <p>Footprints and test points were laid out for manufacturability before boards were sent out and hand-assembled in house. The Dev Kit ("Berta Board 1.0") broke out the ESP32, OLED, microSD, and battery holder onto one board for rapid bring-up; the final wearable PCB shrank the same signal chain onto a compact two-board stack with a dedicated ECG daughterboard.</p>
+        </div>
+        <div class="ps-visual figure-grid" style="padding: 0; background: transparent; min-height: auto; align-items: stretch; gap: 2rem;">
+          <figure>
+            <img src="Berta%20Medical/images/bertamedical-fig3-devkit-render.png" alt="Figure 3a: Dev Kit PCB 3D render - Berta Board 1.0 ECG Development Board" style="width:100%; height:280px; object-fit:cover; background:#0A0A0C;" />
+            <figcaption>Fig. 3a - Dev Kit PCB, 3D render</figcaption>
+          </figure>
+          <figure>
+            <img src="Berta%20Medical/images/bertamedical-fig3-wearable-render.png" alt="Figure 3b: Final Wearable PCB 3D render - compact ECG mainboard and daughterboard" style="width:100%; height:280px; object-fit:cover; background:#0A0A0C;" />
+            <figcaption>Fig. 3b - Final wearable PCB, 3D render</figcaption>
+          </figure>
+          <figure style="grid-column: 1 / -1;">
+            <img src="Berta%20Medical/images/bertamedical-pcb-copper-routing.jpg" alt="ECG MainBoard MK1 PCB layout view showing copper routing" style="width:100%; height:340px; object-fit:cover; background:#0A0A0C;" />
+            <figcaption>ECG MainBoard MK1, copper routing</figcaption>
+          </figure>
+          <figure style="grid-column: 1 / -1;">
+            <img src="Berta%20Medical/images/bertamedical-fig3-devkit-assembly.jpg" alt="Dev Kit boards during in-house assembly, alongside the clip-on prototype enclosure and electrode leads" style="width:100%; height:340px; object-fit:cover;" />
+            <figcaption>Dev Kit boards during in-house assembly, alongside the prototype enclosure</figcaption>
+          </figure>
         </div>
       </div>
     </div>
@@ -155,16 +217,35 @@
     <!-- 3D MODEL -->
     <div class="project-section">
       <div class="ps-label">3D Model</div>
-      <h2 class="ps-title">Interactive PCB Model</h2>
-      <div style="border: 1px solid var(--border); border-radius: 8px; overflow: hidden;">
-        <model-viewer
-          src="3dmodels/ufo.glb"
-          alt="Berta Medical Wearable PCB 3D Model"
-          camera-controls
-          auto-rotate
-          shadow-intensity="1.5"
-          style="width: 100%; height: 480px; background-color: #111114;"
-        ></model-viewer>
+      <h2 class="ps-title">Interactive PCB Models</h2>
+      <!-- TODO: swap placeholder src="3dmodels/ufo.glb" for real Dev Kit / Wearable PCB exports -->
+      <div class="model-pair" style="gap: 2.5rem;">
+        <figure>
+          <div style="border: 1px solid var(--border); border-radius: 8px; overflow: hidden;">
+            <model-viewer
+              src="3dmodels/ufo.glb"
+              alt="Berta Medical Dev Kit PCB 3D Model"
+              camera-controls
+              auto-rotate
+              shadow-intensity="1.5"
+              style="width: 100%; height: 480px; background-color: #111114;"
+            ></model-viewer>
+          </div>
+          <figcaption>Dev Kit PCB</figcaption>
+        </figure>
+        <figure>
+          <div style="border: 1px solid var(--border); border-radius: 8px; overflow: hidden;">
+            <model-viewer
+              src="3dmodels/ufo.glb"
+              alt="Berta Medical Final Wearable PCB 3D Model"
+              camera-controls
+              auto-rotate
+              shadow-intensity="1.5"
+              style="width: 100%; height: 480px; background-color: #111114;"
+            ></model-viewer>
+          </div>
+          <figcaption>Final Wearable PCB</figcaption>
+        </figure>
       </div>
     </div>
 
@@ -180,8 +261,8 @@
           <h4>Cloud Architecture (AWS)</h4>
           <p>Data flows from the wearable device via TLS-encrypted MQTT to AWS IoT Core for secure ingestion and storage. From there, two web portals provide role-based access:</p>
           <ul>
-            <li><strong>Patient portal</strong> — personal vitals dashboard, medication tracking, doctor assignments, appointment scheduling, and device status monitoring</li>
-            <li><strong>Doctor portal</strong> — multi-patient monitoring dashboard with real-time ECG viewing, patient history, appointment management, and AI-powered analytics for detecting health trends across patient populations</li>
+            <li><strong>Patient portal</strong> - personal vitals dashboard, medication tracking, doctor assignments, appointment scheduling, and device status monitoring</li>
+            <li><strong>Doctor portal</strong> - multi-patient monitoring dashboard with real-time ECG viewing, patient history, appointment management, and AI-powered analytics for detecting health trends across patient populations</li>
           </ul>
           <p>Both portals were developed by co-founder Billy Zhang; I owned the hardware-to-cloud integration layer, MQTT message formatting, and device authentication.</p>
         </div>
@@ -202,7 +283,18 @@
               <div class="arch-node-sub">Doctor + Patient</div>
             </div>
           </div>
-          <img src="images/ECG-Compact-Render-3.png" alt="ECG Wearable Assembled" style="width:100%; border-radius:4px; border:1px solid var(--border); object-fit:cover; max-height:180px;" />
+        </div>
+      </div>
+      <div class="ps-content ps-full" style="margin-top: 3rem;">
+        <div class="ps-visual" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; gap: 3rem; background: transparent; min-height: auto;">
+          <figure style="margin: 0;">
+            <img src="Berta%20Medical/images/bertamedical-fig6-patient-portal.png" alt="Figure 6a: Patient portal - vitals dashboard, medications, doctor assignments, and appointment scheduling" style="width:100%; height:auto; object-fit:contain; display:block; background:#0A0A0C; border:1px solid var(--border); border-radius:8px;" />
+            <figcaption style="margin-top:0.75rem; font-size:0.85rem; color:var(--text-muted);">Patient portal - vitals dashboard, medications, doctor assignments, and appointment scheduling</figcaption>
+          </figure>
+          <figure style="margin: 0;">
+            <img src="Berta%20Medical/images/bertamedical-fig6-doctor-portal.png" alt="Figure 6b: Doctor portal - patient analytics, heart-rate history, and AI-generated health trend summary" style="width:100%; height:auto; object-fit:contain; display:block; background:#0A0A0C; border:1px solid var(--border); border-radius:8px;" />
+            <figcaption style="margin-top:0.75rem; font-size:0.85rem; color:var(--text-muted);">Doctor portal - patient analytics, heart-rate history, and AI-generated health trend summary</figcaption>
+          </figure>
         </div>
       </div>
     </div>
@@ -216,7 +308,7 @@
           <h4>Hardware Validation</h4>
           <ul>
             <li>Electrode contact quality and ECG signal stability verified on both the prototype and final wearable PCB</li>
-            <li>AD8232 output confirmed with oscilloscope — clean QRS complex visible in captured waveform</li>
+            <li>AD8232 output confirmed with oscilloscope - clean QRS complex visible in captured waveform</li>
             <li>MAX1704x fuel gauge readings verified against known battery state</li>
             <li>TP4056 charging current and cutoff behavior confirmed under bench load</li>
           </ul>
@@ -229,11 +321,17 @@
           </ul>
 
           <h4>Competition Demonstration</h4>
-          <p>The complete prototype system — hardware, cloud infrastructure, and both web portals — was live-demonstrated at the Rowan New Venture Competition to an interdisciplinary panel of judges including physicists, engineers, and business leaders.</p>
+          <p>The complete prototype system - hardware, cloud infrastructure, and both web portals - was live-demonstrated at the Rowan New Venture Competition to an interdisciplinary panel of judges including physicists, engineers, and business leaders.</p>
         </div>
-        <div class="ps-visual" style="padding: 0; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); min-height: auto;">
-          <img src="images/ECG-Compact-Render-4.png" alt="Final ECG Wearable" style="width:100%; height:240px; object-fit:cover; display:block;" />
-          <img src="images/ECG-Compact-Render-5.png" alt="ECG Wearable Detail" style="width:100%; height:240px; object-fit:cover; display:block;" />
+        <div class="ps-visual figure-grid" style="padding: 0; background: transparent; min-height: auto; gap: 2rem;">
+          <figure>
+            <img src="Berta%20Medical/images/bertamedical-fig7-ecg-waveform.png" alt="Figure 7a: captured ECG waveform, sample output from the wearable's analog front-end" style="width:100%; height:320px; object-fit:cover; background:#0A0A0C;" />
+            <figcaption>Fig. 7a - Captured ECG waveform (sample output)</figcaption>
+          </figure>
+          <figure>
+            <img src="Berta%20Medical/images/bertamedical-fig7-final-wearable-assembled.jpg" alt="Figure 7b: final ECG wearable fully assembled with electrode leads" style="width:100%; height:320px; object-fit:cover;" />
+            <figcaption>Fig. 7b - Final ECG wearable, fully assembled</figcaption>
+          </figure>
         </div>
       </div>
     </div>
@@ -247,14 +345,25 @@
           <p>Berta Medical was co-founded with Billy Zhang as a genuine product development effort. We developed a full revenue model targeting three customer segments: consumers via monthly subscription for device and care access, small medical practices through a provider-facing service model, and medical research facilities through a data analytics partnership program.</p>
           <p>Primary revenue streams:</p>
           <ul>
-            <li><strong>Consumer subscriptions</strong> — yearly or monthly plans pairing device access with on-demand care across specialties (cardiology, neurology, orthopedics, dermatology, endocrinology, pulmonology)</li>
-            <li><strong>Small medical practices</strong> — service that pays medical practitioners through Berta as a primary insurance intermediary</li>
-            <li><strong>Medical research facilities</strong> — Berta Medical Data Services: selling anonymized medical data to enable research and development of new medical innovations</li>
+            <li><strong>Consumer subscriptions</strong> - yearly or monthly plans pairing device access with on-demand care across specialties (cardiology, neurology, orthopedics, dermatology, endocrinology, pulmonology)</li>
+            <li><strong>Small medical practices</strong> - service that pays medical practitioners through Berta as a primary insurance intermediary</li>
+            <li><strong>Medical research facilities</strong> - Berta Medical Data Services: selling anonymized medical data to enable research and development of new medical innovations</li>
           </ul>
           <p>The complete prototype system was demonstrated and pitched to interdisciplinary judges at the Rowan New Venture Competition. The pitch covered technical implementation, business viability, target market sizing, and the competitive landscape for wearable remote monitoring.</p>
         </div>
-        <div class="ps-visual" style="padding: 0; overflow: hidden;">
-          <img src="images/Berta_Medical_Revenue_Structure.jpg" alt="Berta Medical Revenue Structure" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        <div class="ps-visual" style="padding: 0; overflow: hidden; flex-direction: column;">
+          <figure style="width: 100%;">
+            <img src="Berta%20Medical/images/bertamedical-fig8-revenue-structure.png" alt="Figure 8a: Berta Medical revenue structure - consumer subscriptions, small practice services, and medical research data licensing" style="width:100%; height:100%; object-fit:cover; display:block; border: none; background:#0A0A0C;" />
+            <figcaption style="padding: 0.75rem 1rem;">Fig. 8a - Berta Medical revenue structure</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="ps-content ps-full" style="margin-top: 3rem;">
+        <div class="ps-visual" style="padding: 0; overflow: hidden; flex-direction: column;">
+          <figure style="width: 100%;">
+            <img src="Berta%20Medical/images/bertamedical-fig8-competition-pitch.jpg" alt="Figure 8b: Chase Quijano and Billy Zhang presenting the Berta Medical prototype at the Rowan New Venture Competition" style="width:100%; height:auto; object-fit:contain; display:block; border: none;" />
+            <figcaption style="padding: 0.75rem 1rem;">Fig. 8b - Presenting at the Rowan New Venture Competition</figcaption>
+          </figure>
         </div>
       </div>
     </div>
@@ -265,12 +374,12 @@
       <h2 class="ps-title">Lessons & Next Steps</h2>
       <div class="ps-content ps-full">
         <div class="ps-text">
-          <p>The Dev Kit phase proved essential — iterating firmware and MQTT flows on the larger, debug-friendly board before committing to the compact wearable layout significantly accelerated reliability. Issues with WiFi reconnection logic and MQTT message queuing were caught and resolved at the dev kit stage, not on the final wearable.</p>
+          <p>The Dev Kit phase proved essential - iterating firmware and MQTT flows on the larger, debug-friendly board before committing to the compact wearable layout significantly accelerated reliability. Issues with WiFi reconnection logic and MQTT message queuing were caught and resolved at the dev kit stage, not on the final wearable.</p>
           <p>Next steps:</p>
           <ul>
             <li>UI and hardware design refinements based on stakeholder feedback from the competition</li>
             <li>User testing with target patients to validate comfort, lead placement guidance, and portal usability</li>
-            <li>Hardware miniaturization pass — tighter component placement and potentially a single-chip ECG solution</li>
+            <li>Hardware miniaturization pass - tighter component placement and potentially a single-chip ECG solution</li>
             <li>Regulatory pathway research (FDA 510k) for eventual commercialization</li>
           </ul>
         </div>

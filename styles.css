@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   CHASE QUIJANO — PORTFOLIO STYLES
+   CHASE QUIJANO - PORTFOLIO STYLES
    
    ╔═══════════════════════════════════════════════════════╗
    ║  HOW TO CUSTOMIZE:                                    ║
@@ -14,10 +14,10 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 /* ╔═══════════════════════════════════════╗
-   ║  CONFIG — EDIT THESE TO CUSTOMIZE     ║
+   ║  CONFIG - EDIT THESE TO CUSTOMIZE     ║
    ╚═══════════════════════════════════════╝ */
 :root {
-  /* BACKGROUNDS — darkest to lightest */
+  /* BACKGROUNDS - darkest to lightest */
   --bg:          #0A0A0C;   /* main page background */
   --bg-elevated: #111114;   /* cards, sections */
   --bg-card:     #161619;   /* grid cards */
@@ -27,27 +27,27 @@
   --border:       #222228;  /* default border */
   --border-hover: #333340;  /* hover border */
 
-  /* TEXT — brightest to dimmest */
+  /* TEXT - brightest to dimmest */
   --text:           #EFEDE8;  /* headings, primary */
   --text-secondary: #A8A59E;  /* body text */
   --text-muted:     #605D56;  /* labels, captions */
 
-  /* ACCENT — your primary brand color (gold) */
+  /* ACCENT - your primary brand color (gold) */
   --gold:        #C9983A;
   --gold-bright: #DBA94A;
   --gold-dim:    rgba(201, 152, 58, 0.12);
   --gold-glow:   rgba(201, 152, 58, 0.06);
 
-  /* PROJECT WIREFRAME COLORS — one per featured project */
-  --project-1: #C9983A;  /* Berta Medical — gold */
-  --project-2: #6B8EAE;  /* Exoskeleton — steel blue */
-  --project-3: #D07242;  /* Digital Scale — copper */
-  --project-4: #5AB882;  /* Soft Robotics — sage green */
+  /* PROJECT WIREFRAME COLORS - one per featured project */
+  --project-1: #C9983A;  /* Berta Medical - gold */
+  --project-2: #6B8EAE;  /* Exoskeleton - steel blue */
+  --project-3: #D07242;  /* Digital Scale - copper */
+  --project-4: #5AB882;  /* Soft Robotics - sage green */
 
   /* MISC COLORS */
   --rose: #C47A7A;  /* glitch secondary color */
 
-  /* FONTS — change these to swap typography */
+  /* FONTS - change these to swap typography */
   --heading: 'Outfit', -apple-system, sans-serif;
   --mono:    'Source Code Pro', 'SF Mono', monospace;
   --display: 'Playfair Display', Georgia, serif;
@@ -136,7 +136,7 @@ section { padding: 7rem 2.5rem; }
 
 
 /* ═══════════════════════════════════════
-   HOMEPAGE — GLITCH NAME
+   HOMEPAGE - GLITCH NAME
    ═══════════════════════════════════════ */
 .glitch-wrapper { position: relative; display: inline-block; }
 .glitch {
@@ -162,7 +162,7 @@ section { padding: 7rem 2.5rem; }
 
 
 /* ═══════════════════════════════════════
-   HOMEPAGE — HERO
+   HOMEPAGE - HERO
    ═══════════════════════════════════════ */
 .hero { min-height:100vh; display:flex; align-items:center; padding:8rem 2.5rem 4rem; max-width:1200px; margin:0 auto; }
 .hero-content { max-width:820px; }
@@ -185,7 +185,7 @@ section { padding: 7rem 2.5rem; }
 
 
 /* ═══════════════════════════════════════
-   HOMEPAGE — FEATURED PROJECTS
+   HOMEPAGE - FEATURED PROJECTS
    ═══════════════════════════════════════ */
 .featured-project { display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--border); border-radius:10px; overflow:hidden; background:var(--bg-elevated); margin-bottom:1.5rem; transition:all 0.4s var(--ease); text-decoration:none; color:var(--text); }
 .featured-project:hover { border-color:var(--border-hover); box-shadow:0 0 80px rgba(201,152,58,0.02); color:var(--text); }
@@ -214,7 +214,7 @@ section { padding: 7rem 2.5rem; }
 
 
 /* ═══════════════════════════════════════
-   HOMEPAGE — PROJECT GRID
+   HOMEPAGE - PROJECT GRID
    ═══════════════════════════════════════ */
 .grid-section { background:var(--bg-elevated); }
 .project-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:10px; overflow:hidden; }
@@ -227,7 +227,7 @@ section { padding: 7rem 2.5rem; }
 
 
 /* ═══════════════════════════════════════
-   HOMEPAGE — SKILLS
+   HOMEPAGE - SKILLS
    ═══════════════════════════════════════ */
 .skills-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:10px; overflow:hidden; }
 .skill-cell { background:var(--bg-elevated); padding:2rem; transition:background 0.3s ease; }
@@ -238,7 +238,7 @@ section { padding: 7rem 2.5rem; }
 
 
 /* ═══════════════════════════════════════
-   HOMEPAGE — ABOUT
+   HOMEPAGE - ABOUT
    ═══════════════════════════════════════ */
 .about-grid { display:grid; grid-template-columns:5fr 3fr; gap:4rem; align-items:start; }
 .about-text { font-size:0.95rem; line-height:1.75; color:var(--text-secondary); }
@@ -250,7 +250,7 @@ section { padding: 7rem 2.5rem; }
 
 
 /* ═══════════════════════════════════════
-   HOMEPAGE — CONTACT
+   HOMEPAGE - CONTACT
    ═══════════════════════════════════════ */
 .contact-section { text-align:center; padding:8rem 2.5rem; border-top:1px solid var(--border); }
 .contact-title { font-family:var(--heading); font-size:clamp(2rem,4vw,3rem); font-weight:700; letter-spacing:-0.02em; margin-bottom:1rem; }
@@ -293,12 +293,17 @@ section { padding: 7rem 2.5rem; }
 .ps-text h4 { font-family: var(--heading); font-size: 0.95rem; font-weight: 600; color: var(--text); margin-top: 1.5rem; margin-bottom: 0.5rem; }
 .ps-text ul { list-style: none; padding: 0; margin-top: 0.75rem; }
 .ps-text ul li { font-size: 0.85rem; color: var(--text-secondary); padding: 0.3rem 0; padding-left: 1.2rem; position: relative; line-height: 1.6; }
-.ps-text ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold); opacity: 0.5; }
+.ps-text ul li::before { content: '-'; position: absolute; left: 0; color: var(--gold); opacity: 0.5; }
 .ps-visual { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 8px; padding: 2.5rem; display: flex; align-items: center; justify-content: center; min-height: 280px; }
 .ps-full { grid-template-columns: 1fr; }
+.model-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.figure-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.figure-grid figure, .model-pair figure { margin: 0; }
+.figure-grid img, .model-pair img { border: 1px solid var(--border); border-radius: 8px; display: block; }
+.figure-grid figcaption, .model-pair figcaption, .ps-visual figcaption { margin-top: 0.75rem; font-size: 0.85rem; color: var(--text-muted); text-align: center; }
 
 /* ═══════════════════════════════════════
-   CODE WINDOW — embedded firmware snippets
+   CODE WINDOW - embedded firmware snippets
    ═══════════════════════════════════════ */
 .code-window { width: 100%; background: #0D0D10; border-radius: 6px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
 .code-window-header { display: flex; align-items: center; gap: 0.6rem; padding: 0.65rem 0.9rem; background: #16161A; border-bottom: 1px solid var(--border); }
@@ -404,6 +409,8 @@ footer { padding: 2rem 2.5rem; border-top: 1px solid var(--border); display: fle
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .hero-stats { gap: 2rem; flex-wrap: wrap; }
   .ps-content { grid-template-columns: 1fr; }
+  .model-pair { grid-template-columns: 1fr; }
+  .figure-grid { grid-template-columns: 1fr; }
   .archive-grid { grid-template-columns: 1fr; }
   .resume-skills-grid { grid-template-columns: 1fr 1fr; }
   .project-hero-metrics { flex-wrap: wrap; gap: 2rem; }

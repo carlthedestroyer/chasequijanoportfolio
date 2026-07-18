@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>All Projects — Chase Quijano</title>
+  <title>All Projects - Chase Quijano</title>
     <link rel="stylesheet" href="../styles.css">
-  <!-- PRIVATE PREVIEW AUTH — remove this line for public launch -->
+  <!-- PRIVATE PREVIEW AUTH - remove this line for public launch -->
   <script src="/auth.js"></script>
 </head>
 <body>
@@ -26,7 +26,7 @@
     <div class="archive-hero">
       <div class="section-label">Projects</div>
       <h1 class="archive-hero-title">All Work</h1>
-      <p class="archive-hero-desc">Every project I've designed and built — from wearable medical devices to autonomous drones and custom game consoles. Filter by category to explore.</p>
+      <p class="archive-hero-desc">Every project I've designed and built - from wearable medical devices to autonomous drones and custom game consoles. Filter by category to explore.</p>
     </div>
 
     <div class="filter-bar" id="filterBar">
@@ -51,7 +51,7 @@
 </div>
         <div class="ac-content">
           <div class="ac-type">Medical Startup · Featured</div>
-          <h3 class="ac-title">Berta Medical — Wearable ECG Platform</h3>
+          <h3 class="ac-title">Berta Medical - Wearable ECG Platform</h3>
           <p class="ac-desc">Custom ECG hardware, ESP32 firmware, AWS IoT cloud, and doctor/patient web portals. 3 PCB iterations.</p>
           <div class="ac-tags"><span class="tag">KiCad</span><span class="tag">ESP32</span><span class="tag">MQTT</span><span class="tag">AWS</span></div>
         </div>
@@ -98,20 +98,24 @@
       </a>
 
       <!-- NON-FEATURED -->
-      <div class="archive-card" data-category="robotics">
-        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><rect x="60" y="50" width="180" height="100" rx="8" stroke="#C9983A" stroke-width="1" opacity="0.5"/><circle cx="150" cy="100" r="25" stroke="#C9983A" stroke-width="0.8" opacity="0.4"/></svg></div>
-        <div class="ac-content"><div class="ac-type">Autonomous</div><h3 class="ac-title">ROS Robot</h3><p class="ac-desc">Autonomous mobile robot with ROS navigation stack, LIDAR, and custom chassis.</p><div class="ac-tags"><span class="tag">ROS</span><span class="tag">Python</span><span class="tag">LIDAR</span></div></div>
-      </div>
+      <a href="ros-robot.html" class="archive-card" data-category="robotics">
+        <div class="ac-visual">
+          <img src="ROS%20Robot/images/rosrobot-front.jpg" alt="ROS Robot" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
+        <div class="ac-content"><div class="ac-type">Autonomous Robotics</div><h3 class="ac-title">ROS Robot</h3><p class="ac-desc">Autonomous mobile robot running ROS 2 Iron with RPLiDAR and Intel RealSense point cloud mapping.</p><div class="ac-tags"><span class="tag">ROS 2</span><span class="tag">RPLiDAR</span><span class="tag">RealSense</span></div></div>
+      </a>
 
       <div class="archive-card" data-category="uav">
         <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><circle cx="150" cy="100" r="50" stroke="#C9983A" stroke-width="1" opacity="0.4"/><path d="M110 100 L190 100 M150 60 L150 140 M120 70 L180 130 M180 70 L120 130" stroke="#C9983A" stroke-width="0.8" opacity="0.3"/></svg></div>
         <div class="ac-content"><div class="ac-type">UAV</div><h3 class="ac-title">Autonomous Drone</h3><p class="ac-desc">Custom-built autonomous drone with GPS waypoint navigation and flight controller.</p><div class="ac-tags"><span class="tag">CAD</span><span class="tag">Flight Control</span><span class="tag">GPS</span></div></div>
       </div>
 
-      <div class="archive-card" data-category="controls robotics">
-        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><rect x="110" y="30" width="80" height="140" rx="8" stroke="#C9983A" stroke-width="1" opacity="0.4"/><circle cx="150" cy="140" r="15" stroke="#C9983A" stroke-width="0.8" opacity="0.3"/></svg></div>
-        <div class="ac-content"><div class="ac-type">Controls</div><h3 class="ac-title">Balancing Robot Mk2</h3><p class="ac-desc">Two-wheeled self-balancing robot with PID control and IMU feedback.</p><div class="ac-tags"><span class="tag">PID</span><span class="tag">IMU</span><span class="tag">Arduino</span></div></div>
-      </div>
+      <a href="balancing-robot.html" class="archive-card" data-category="controls robotics">
+        <div class="ac-visual">
+          <img src="Balancing%20Robot/images/balancingrobot-carlbot-front.jpg" alt="Balancing Robot" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
+        <div class="ac-content"><div class="ac-type">Controls</div><h3 class="ac-title">Balancing Robot</h3><p class="ac-desc">Two-wheeled self-balancing robot with Kalman-filtered PID control, now in development with ROS 2 and RealSense.</p><div class="ac-tags"><span class="tag">PID</span><span class="tag">Kalman Filter</span><span class="tag">ROS 2</span></div></div>
+      </a>
 
       <div class="archive-card" data-category="medical">
         <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><ellipse cx="150" cy="100" rx="60" ry="40" stroke="#C9983A" stroke-width="1" opacity="0.4"/><circle cx="150" cy="100" r="12" stroke="#C9983A" stroke-width="0.8" opacity="0.3"/></svg></div>
@@ -121,11 +125,6 @@
       <div class="archive-card" data-category="iot">
         <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><rect x="80" y="50" width="140" height="100" rx="8" stroke="#C9983A" stroke-width="1" opacity="0.4"/><circle cx="150" cy="100" r="25" stroke="#C9983A" stroke-width="0.8" opacity="0.3"/></svg></div>
         <div class="ac-content"><div class="ac-type">IoT</div><h3 class="ac-title">Farm Camera System</h3><p class="ac-desc">Remote monitoring camera system with weatherproof enclosure and wireless data link.</p><div class="ac-tags"><span class="tag">ESP32</span><span class="tag">Camera</span><span class="tag">IoT</span></div></div>
-      </div>
-
-      <div class="archive-card" data-category="controls robotics">
-        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><rect x="110" y="30" width="80" height="140" rx="8" stroke="#C9983A" stroke-width="1" opacity="0.4"/><circle cx="150" cy="140" r="15" stroke="#C9983A" stroke-width="0.8" opacity="0.3"/></svg></div>
-        <div class="ac-content"><div class="ac-type">Controls</div><h3 class="ac-title">Balancing Robot V1</h3><p class="ac-desc">First-generation self-balancing robot. Foundation for control theory exploration.</p><div class="ac-tags"><span class="tag">Arduino</span><span class="tag">PID</span><span class="tag">CAD</span></div></div>
       </div>
 
       <div class="archive-card" data-category="pcb medical">
@@ -153,10 +152,12 @@
         <div class="ac-content"><div class="ac-type">UAV</div><h3 class="ac-title">Deployable Drone</h3><p class="ac-desc">Folding-arm drone design for rapid deployment from a compact enclosure.</p><div class="ac-tags"><span class="tag">CAD</span><span class="tag">Mechanical</span><span class="tag">UAV</span></div></div>
       </div>
 
-      <div class="archive-card" data-category="controls">
-        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><circle cx="150" cy="100" r="45" stroke="#C9983A" stroke-width="1" opacity="0.4"/><circle cx="150" cy="100" r="18" stroke="#C9983A" stroke-width="0.8" opacity="0.3"/><line x1="150" y1="55" x2="150" y2="82" stroke="#C9983A" stroke-width="0.6" opacity="0.3"/></svg></div>
-        <div class="ac-content"><div class="ac-type">Motor Control</div><h3 class="ac-title">FOC Test Rig</h3><p class="ac-desc">Field-oriented control test rig for BLDC motor characterization and tuning.</p><div class="ac-tags"><span class="tag">FOC</span><span class="tag">BLDC</span><span class="tag">Controls</span></div></div>
-      </div>
+      <a href="foc-control-rig.html" class="archive-card" data-category="controls">
+        <div class="ac-visual" style="background: #fff;">
+          <img src="FOC%20Control%20Rig/images/foc-rig-cad-render.png" alt="FOC Control Rig" style="width:100%; height:100%; object-fit:contain; display:block;" />
+        </div>
+        <div class="ac-content"><div class="ac-type">Motor Control</div><h3 class="ac-title">FOC Control Rig</h3><p class="ac-desc">Field oriented control test bench built around an ODrive S1 and Eagle Power brushless motor.</p><div class="ac-tags"><span class="tag">FOC</span><span class="tag">ODrive</span><span class="tag">BLDC</span></div></div>
+      </a>
 
       <div class="archive-card" data-category="pcb">
         <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><rect x="60" y="55" width="180" height="90" rx="16" stroke="#C9983A" stroke-width="1" opacity="0.4"/><rect x="80" y="70" width="70" height="45" rx="4" stroke="#C9983A" stroke-width="0.6" opacity="0.3"/><circle cx="200" cy="85" r="8" stroke="#C9983A" stroke-width="0.5" opacity="0.3"/><circle cx="200" cy="110" r="8" stroke="#C9983A" stroke-width="0.5" opacity="0.3"/></svg></div>

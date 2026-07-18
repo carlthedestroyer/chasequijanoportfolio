@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROS Robot - Chase Quijano</title>
+  <link rel="stylesheet" href="../styles.css">
+  <!-- PRIVATE PREVIEW AUTH - remove this line for public launch -->
+  <script src="/auth.js"></script>
+</head>
+<body>
+  <div class="grid-bg"></div>
+  <div class="content">
+
+    <nav id="nav">
+      <a href="../" class="nav-name">Chase Quijano</a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="../projects/" class="active">Projects</a>
+        <a href="../#skills">Skills</a>
+        <a href="../#about">About</a>
+        <a href="../#contact">Contact</a>
+        <a href="../resume.html" class="nav-resume">Resume</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="project-hero">
+      <a href="../projects/" class="project-back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12,19 5,12 12,5"/></svg>
+        All Projects
+      </a>
+
+      <div class="project-hero-number">004 · Autonomous Robotics</div>
+      <h1 class="project-hero-title">ROS Robot</h1>
+      <div class="project-hero-subtitle">Personal Project · Rowan University</div>
+
+      <p class="project-hero-desc">Developed an autonomous mobile robot running ROS 2 Iron on a Linux-based mini PC. A Teensy microcontroller controls the drive motors through a stepper driver breakout board, while the navigation system integrates an RPLiDAR A1 and an Intel RealSense depth camera for point cloud mapping and environmental awareness.</p>
+
+      <div class="project-hero-tags">
+        <span class="tag">ROS 2 Iron</span>
+        <span class="tag">Teensy</span>
+        <span class="tag">RPLiDAR A1</span>
+        <span class="tag">Intel RealSense</span>
+        <span class="tag">Point Cloud Mapping</span>
+      </div>
+
+      <div class="project-hero-metrics">
+        <div><div class="phm-value">ROS 2</div><div class="phm-label">Iron, on Linux Mini PC</div></div>
+        <div><div class="phm-value">A1</div><div class="phm-label">RPLiDAR Navigation</div></div>
+        <div><div class="phm-value">22.2V</div><div class="phm-label">6000mAh LiPo Power</div></div>
+        <div><div class="phm-value">10mm</div><div class="phm-label">Fans, Custom Cooling</div></div>
+      </div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div class="project-section">
+      <div class="ps-label">Overview</div>
+      <h2 class="ps-title">Autonomous Perception on a Mobile Base</h2>
+      <div class="ps-content">
+        <div class="ps-text">
+          <p>I developed an autonomous robot running ROS 2 Iron on a Linux-based mini PC. It uses a Teensy microcontroller to control the drive motors via a stepper driver breakout board. The navigation system integrates an RPLiDAR A1 and an Intel RealSense depth camera, which uses point cloud mapping for environmental awareness.</p>
+          <p>A 22.2V 6000mAh LiPo battery powers the system, with a step-down voltage regulator managing power for the primary electronics and computer. The robot also features a custom cooling solution with 10mm fans to handle thermal management for the onboard mini PC.</p>
+        </div>
+        <div class="ps-visual" style="padding: 0; overflow: hidden;">
+          <figure style="width: 100%;">
+            <img src="ROS%20Robot/images/rosrobot-front.jpg" alt="ROS Robot front view showing RPLiDAR, Intel RealSense camera, and drive wheels" style="width:100%; height:100%; object-fit:cover; display:block; border: none;" />
+            <figcaption style="padding: 0.75rem 1rem;">ROS Robot, assembled and ready to run</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <!-- HARDWARE -->
+    <div class="project-section">
+      <div class="ps-label">Hardware</div>
+      <h2 class="ps-title">Sensing, Compute, and Drive</h2>
+      <div class="ps-content">
+        <div class="ps-text">
+          <h4>Sensing & Compute</h4>
+          <ul>
+            <li>RPLiDAR A1 for 360-degree range scanning and localization</li>
+            <li>Intel RealSense depth camera for point cloud mapping</li>
+            <li>Linux-based mini PC running ROS 2 Iron</li>
+            <li>Teensy microcontroller for low-level drive motor control</li>
+          </ul>
+          <h4>Power & Thermal</h4>
+          <ul>
+            <li>22.2V 6000mAh LiPo battery as the main power source</li>
+            <li>Step-down voltage regulator for electronics and computer power rails</li>
+            <li>Stepper driver breakout board between the Teensy and drive motors</li>
+            <li>Custom cooling solution with 10mm fans for sustained compute load</li>
+          </ul>
+        </div>
+        <div class="ps-visual figure-grid" style="padding: 0; background: transparent;">
+          <figure>
+            <img src="ROS%20Robot/images/rosrobot-angle.jpg" alt="ROS Robot 3/4 angle view showing battery and top-mounted electronics" style="width:100%; height:260px; object-fit:cover;" />
+            <figcaption>3/4 view, battery and electronics</figcaption>
+          </figure>
+          <figure>
+            <img src="ROS%20Robot/images/rosrobot-top-angle.jpg" alt="ROS Robot top angle view showing LiPo battery and cooling fan intake" style="width:100%; height:260px; object-fit:cover;" />
+            <figcaption>Top angle, cooling intake</figcaption>
+          </figure>
+          <figure>
+            <img src="ROS%20Robot/images/rosrobot-top-front.jpg" alt="ROS Robot top-front view showing RPLiDAR mount, Intel RealSense camera, and wiring" style="width:100%; height:260px; object-fit:cover;" />
+            <figcaption>Top-front, sensor stack</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="ps-content ps-full" style="margin-top: 2rem;">
+        <div class="ps-text">
+          <h4>Internal Wiring</h4>
+          <p>With the top cover removed, the internal layout shows the dual stepper driver boards, the Teensy microcontroller, the step-down voltage regulator with its digital readout, and the XT60 power connector feeding the drive electronics from the LiPo battery.</p>
+        </div>
+        <div class="ps-visual" style="padding: 0; overflow: hidden;">
+          <figure style="width: 100%;">
+            <img src="ROS%20Robot/images/rosrobot-internal-wiring.jpg" alt="ROS Robot internal wiring, top view with cover removed, showing stepper drivers, Teensy, and voltage regulator" style="width:100%; height:100%; object-fit:cover; display:block; border: none;" />
+            <figcaption style="padding: 0.75rem 1rem;">Internal wiring: stepper drivers, Teensy, and voltage regulator</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3D MODEL -->
+    <div class="project-section">
+      <div class="ps-label">3D Model</div>
+      <h2 class="ps-title">Interactive Chassis Model</h2>
+      <!-- TODO: swap placeholder src="3dmodels/ufo.glb" for a real ROS Robot chassis export -->
+      <div style="border: 1px solid var(--border); border-radius: 8px; overflow: hidden;">
+        <model-viewer
+          src="3dmodels/ufo.glb"
+          alt="ROS Robot chassis 3D model"
+          camera-controls
+          auto-rotate
+          shadow-intensity="1.5"
+          style="width: 100%; height: 480px; background-color: #111114;"
+        ></model-viewer>
+      </div>
+    </div>
+
+    <!-- NAVIGATION & MAPPING -->
+    <div class="project-section">
+      <div class="ps-label">Navigation & Mapping</div>
+      <h2 class="ps-title">RPLiDAR and RealSense Point Cloud Mapping</h2>
+      <div class="ps-content">
+        <div class="ps-text">
+          <p>The RPLiDAR A1 provides a 360-degree planar scan of the environment, used for localization and obstacle detection. The live capture below shows the LiDAR sweeping a room, with the white line marking the current scan angle and red points marking detected surfaces.</p>
+        </div>
+        <div class="ps-visual" style="padding: 0; overflow: hidden;">
+          <figure style="width: 100%;">
+            <img src="ROS%20Robot/images/rosrobot-8k-loop.gif" alt="Animated RPLiDAR A1 scan visualization, sweeping a room and plotting detected surfaces as red points" style="width:100%; height:100%; object-fit:contain; display:block; background:#000; border: none;" />
+            <figcaption style="padding: 0.75rem 1rem;">Live RPLiDAR A1 scan</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="ps-content" style="margin-top: 2rem;">
+        <div class="ps-text">
+          <p>The Intel RealSense depth camera complements the 2D LiDAR scan with a full RGB point cloud, giving the robot a 3D understanding of the space it is navigating, including furniture and other obstacles outside the LiDAR's scan plane.</p>
+        </div>
+        <div class="ps-visual figure-grid" style="padding: 0; background: transparent;">
+          <figure>
+            <img src="ROS%20Robot/images/rosrobot-rplidar-mapping.png" alt="RPLiDAR A1 mapping screenshot showing a polar plot of a room scan" style="width:100%; height:220px; object-fit:contain; background:#000;" />
+            <figcaption>RPLiDAR A1 mapping</figcaption>
+          </figure>
+          <figure>
+            <img src="ROS%20Robot/images/rosrobot-pointcloud-mapping.png" alt="Intel RealSense point cloud mapping screenshot showing a colored 3D reconstruction of a living room" style="width:100%; height:220px; object-fit:contain; background:#000;" />
+            <figcaption>Intel RealSense point cloud mapping</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEMO -->
+    <div class="project-section">
+      <div class="ps-label">Demonstration</div>
+      <h2 class="ps-title">Assembled and Running</h2>
+      <div class="ps-content ps-full">
+        <div class="ps-visual" style="padding: 0; overflow: hidden;">
+          <figure style="width: 100%;">
+            <img src="ROS%20Robot/images/rosrobot-demo.gif" alt="Animated demo clip of the fully assembled ROS Robot" style="width:100%; max-width:480px; height:auto; object-fit:contain; display:block; margin: 0 auto; border: none;" />
+            <figcaption style="padding: 0.75rem 1rem; text-align:center;">Fully assembled ROS Robot</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <!-- REFLECTION -->
+    <div class="project-section">
+      <div class="ps-label">Reflection & Future Work</div>
+      <h2 class="ps-title">From Sensor Fusion to Full Navigation</h2>
+      <div class="ps-content ps-full">
+        <div class="ps-text">
+          <p>Getting the RPLiDAR and RealSense streams both publishing cleanly into ROS 2 was the biggest early hurdle. Once both sensor pipelines were reliable, combining a 2D planar scan with a full 3D point cloud gave a much more complete picture of the robot's surroundings than either sensor alone.</p>
+          <p>Next steps:</p>
+          <ul>
+            <li>Bring up full SLAM and autonomous waypoint navigation using the existing sensor stack</li>
+            <li>Fuse the RPLiDAR and RealSense data into a single occupancy map</li>
+            <li>Validate thermal performance of the mini PC and cooling system during extended mapping runs</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAV -->
+    <div class="project-nav">
+      <a href="foc-control-rig.html">
+        ← Previous
+        <span class="project-nav-title">FOC Control Rig</span>
+      </a>
+      <a href="../projects/" class="next">
+        All Projects →
+        <span class="project-nav-title">View Archive</span>
+      </a>
+    </div>
+
+    <footer>
+      <div class="footer-text">© 2026 Chase Quijano</div>
+      <div class="footer-text">Rowan University · Engineering Entrepreneurship</div>
+    </footer>
+  </div>
+
+  <script>
+    const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 50));
+    document.querySelectorAll('.nav-links a[href^="../#"]').forEach(a => a.addEventListener('click', () => document.querySelector('.nav-links')?.classList.remove('open')));
+  </script>
+</body>
+</html>

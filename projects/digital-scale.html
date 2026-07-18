@@ -4,9 +4,9 @@
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Custom Digital Scale — Chase Quijano</title>
+  <title>Custom Digital Scale - Chase Quijano</title>
   <link rel="stylesheet" href="../styles.css">
-  <!-- PRIVATE PREVIEW AUTH — remove this line for public launch -->
+  <!-- PRIVATE PREVIEW AUTH - remove this line for public launch -->
   <script src="/auth.js"></script>
 </head>
 <body>
@@ -29,7 +29,7 @@
       <div class="project-hero-number">003 · Manufacturing</div>
       <h1 class="project-hero-title">Custom Digital Scale</h1>
       <div class="project-hero-subtitle">Manufacturing & Measurement Techniques · Rowan University · December 2024</div>
-      <p class="project-hero-desc">A full-stack manufacturing project — CNC-machined a custom load cell from 6010 aluminum billet (validated with SolidWorks FEA), designed a Fusion 360 CAD enclosure with an organic clamshell design, 3D printed ABS shrouds, and wrote Arduino firmware for calibrated multi-unit weight measurement with tare and interrupt-driven button control. Every component, from raw billet to working instrument, was designed and built in-house.</p>
+      <p class="project-hero-desc">A full-stack manufacturing project - CNC-machined a custom load cell from 6010 aluminum billet (validated with SolidWorks FEA), designed a Fusion 360 CAD enclosure with an organic clamshell design, 3D printed ABS shrouds, and wrote Arduino firmware for calibrated multi-unit weight measurement with tare and interrupt-driven button control. Every component, from raw billet to working instrument, was designed and built in-house.</p>
       <div class="project-hero-tags">
         <span class="tag">Fusion 360</span><span class="tag">SolidWorks FEA</span><span class="tag">CNC Milling</span><span class="tag">Manual Lathe</span><span class="tag">Arduino</span><span class="tag">HX711</span><span class="tag">3D Printing (ABS)</span><span class="tag">GD&amp;T</span><span class="tag">Strain Gauge</span><span class="tag">Heat-Set Inserts</span>
       </div>
@@ -46,7 +46,7 @@
       <h2 class="ps-title">Engineering a Scale from Scratch</h2>
       <div class="ps-content">
         <div class="ps-text">
-          <p>The objective was to design and develop a fully functional digital scale prototype — integrating standard electronic components within a completely custom enclosure — as a proof of concept for a customizable weighing appliance product line. No off-the-shelf load cells or housings were permitted; everything had to be conceived, designed, and manufactured in-house.</p>
+          <p>The objective was to design and develop a fully functional digital scale prototype - integrating standard electronic components within a completely custom enclosure - as a proof of concept for a customizable weighing appliance product line. No off-the-shelf load cells or housings were permitted; everything had to be conceived, designed, and manufactured in-house.</p>
           <h4>Scale Specifications</h4>
           <ul>
             <li><strong>Measurement Range:</strong> 0–3 kg</li>
@@ -57,14 +57,14 @@
             <li><strong>Power Source:</strong> Two AA batteries with externally accessible on/off rocker switch</li>
             <li><strong>Enclosure Size:</strong> Fits within a 75 in³ cuboid (excluding weighing tray)</li>
             <li><strong>IP Rating:</strong> IP31-rated shroud protecting internal electronics</li>
-            <li><strong>Accessibility:</strong> All internals accessible via engineered fastening — no glue</li>
+            <li><strong>Accessibility:</strong> All internals accessible via engineered fastening - no glue</li>
             <li><strong>Infill:</strong> Shroud printed at 20% infill or less; final used 10% grid pattern</li>
           </ul>
           <h4>Objective Evaluation Criteria</h4>
           <ul>
             <li>Functional testing against known standardized weights (200 g calibration standard)</li>
             <li>Aesthetic and ergonomic assessment with feedback from colleagues and professors</li>
-            <li>User experience testing — unit toggling, tare function, LCD readability, battery access</li>
+            <li>User experience testing - unit toggling, tare function, LCD readability, battery access</li>
           </ul>
         </div>
         <div class="ps-visual" style="padding: 1.5rem; background: #0A0A0C;">
@@ -78,8 +78,8 @@
       <h2 class="ps-title">Organic Clamshell Shroud in Fusion 360</h2>
       <div class="ps-content">
         <div class="ps-text">
-          <p>The enclosure was modeled in Fusion 360 with a priority on sleek, organic aesthetics — rounded edges and flowing surfaces rather than a boxy utilitarian form. The clamshell design features an offset lip where the two halves of the shroud mate, creating resistance to dust and particles without requiring a gasket.</p>
-          <p>Brass heat-set inserts were used throughout: fastening the two enclosure halves, mounting the PCB, and securing the battery compartment cover. This gives the design structural integrity while remaining fully disassembleable — no glue anywhere in the assembly.</p>
+          <p>The enclosure was modeled in Fusion 360 with a priority on sleek, organic aesthetics - rounded edges and flowing surfaces rather than a boxy utilitarian form. The clamshell design features an offset lip where the two halves of the shroud mate, creating resistance to dust and particles without requiring a gasket.</p>
+          <p>Brass heat-set inserts were used throughout: fastening the two enclosure halves, mounting the PCB, and securing the battery compartment cover. This gives the design structural integrity while remaining fully disassembleable - no glue anywhere in the assembly.</p>
         </div>
         <div class="ps-visual" style="padding: 0; overflow: hidden; flex-direction: column; gap: 1px; background: var(--border);">
           <img src="Digital%20Scale/images/digitalscale-fig1-exterior.jpg" alt="Figure 1: Fusion 360 clamshell enclosure exterior render" style="width:100%; height:220px; object-fit:cover; display:block;" />
@@ -93,7 +93,7 @@
             <li>PCB and 16×2 LCD tilted at a 60° angle and mounted directly to the shroud face, with cutouts for the display window and push buttons below</li>
             <li>Load cell assembly rotated 45° within the scale to keep measurement centered while fitting within dimensional constraints without interfering with other components</li>
             <li>On/off rocker switch placed flush with the side of the shroud, preventing accidental actuation when the scale is bumped</li>
-            <li>Battery compartment on the bottom, secured with heat-set inserts and neodymium magnets — resilient to drops and vibration, protective against dust and moisture</li>
+            <li>Battery compartment on the bottom, secured with heat-set inserts and neodymium magnets - resilient to drops and vibration, protective against dust and moisture</li>
             <li>TPU rubber feet bonded to the underside to dampen vibrations and prevent slippage during measurement</li>
           </ul>
         </div>
@@ -108,8 +108,8 @@
         <div class="ps-text">
           <h4>Material Selection</h4>
           <ul>
-            <li><strong>Shroud:</strong> High-impact ABS plastic — durable, UV-resistant, and suited for potential outdoor use</li>
-            <li><strong>Feet:</strong> TPU — flexible, vibration-absorbing, non-slip</li>
+            <li><strong>Shroud:</strong> High-impact ABS plastic - durable, UV-resistant, and suited for potential outdoor use</li>
+            <li><strong>Feet:</strong> TPU - flexible, vibration-absorbing, non-slip</li>
             <li><strong>Hardware:</strong> Brass heat-set inserts throughout, #6-32 and #8-32 screws</li>
             <li><strong>Printer:</strong> Bambu Lab P1S, 10% grid infill (under the 20% spec), heated chamber required for ABS</li>
           </ul>
@@ -125,7 +125,7 @@
       <h2 class="ps-title">FEA-Validated Aluminum Load Cell</h2>
       <div class="ps-content">
         <div class="ps-text">
-          <p>The custom load cell — the most critical and complex component — translates mechanical force into measurable electrical signals. It was machined from 6010 aluminum for its favorable strength-to-weight ratio, corrosion resistance, and ease of machining on a manual mill.</p>
+          <p>The custom load cell - the most critical and complex component - translates mechanical force into measurable electrical signals. It was machined from 6010 aluminum for its favorable strength-to-weight ratio, corrosion resistance, and ease of machining on a manual mill.</p>
           <p>Before any metal was cut, a series of SolidWorks static stress simulations were run. Iterating through different geometries and thicknesses confirmed the load cell could support the full 0–3 kg range with minimal deflection and an adequate safety factor. The simulation identified optimal strain gauge placement at the peak-stress region of the beam.</p>
         </div>
         <div class="ps-visual" style="padding: 0; overflow: hidden;">
@@ -142,12 +142,12 @@
           </ul>
         </div>
         <div class="ps-visual" style="padding: 0; overflow: hidden; background:#0A0A0C;">
-          <img src="Digital%20Scale/images/digitalscale-fig8-sensor-table.png" alt="Figure 8: SolidWorks simulation sensor table — top and bottom strain gauge EPSX values and minimum factor of safety" style="width:100%; height:auto; object-fit:contain; display:block;" />
+          <img src="Digital%20Scale/images/digitalscale-fig8-sensor-table.png" alt="Figure 8: SolidWorks simulation sensor table - top and bottom strain gauge EPSX values and minimum factor of safety" style="width:100%; height:auto; object-fit:contain; display:block;" />
         </div>
       </div>
       <div class="ps-content" style="margin-top: 2rem;">
         <div class="ps-text">
-          <h4>Machining Process — Bridgeport Manual Mill</h4>
+          <h4>Machining Process - Bridgeport Manual Mill</h4>
           <ul>
             <li>Facing operation on both sides to establish flat reference surfaces</li>
             <li>Edge-finding tool to locate center point of aluminum stock; holes located via DRO (X/Y readout)</li>
@@ -245,7 +245,7 @@
       <div class="ps-content" style="margin-top: 2rem;">
         <div class="ps-text">
           <h4>Tare Function</h4>
-          <p>The tare routine takes multiple samples, averages them, and stores the offset as <code>tareValue</code>. Averaging filters out ADC noise and ensures a stable zero baseline — critical for ±1% accuracy. LCD shows "Taring…" then "Tare complete!" before clearing.</p>
+          <p>The tare routine takes multiple samples, averages them, and stores the offset as <code>tareValue</code>. Averaging filters out ADC noise and ensures a stable zero baseline - critical for ±1% accuracy. LCD shows "Taring…" then "Tare complete!" before clearing.</p>
         </div>
         <div class="ps-visual" style="padding: 0; min-height: 0;">
           <div class="code-window">
@@ -360,7 +360,7 @@
           </ul>
         </div>
         <div class="ps-visual" style="padding: 0; overflow: hidden;">
-          <img src="Digital%20Scale/images/digitalscale-fig17-assembly.jpg" alt="Figure 17: final assembly — JST-connectorized wiring, PCB fastening, and load cell integration into the shroud" style="width:100%; height:100%; object-fit:cover; display:block;" />
+          <img src="Digital%20Scale/images/digitalscale-fig17-assembly.jpg" alt="Figure 17: final assembly - JST-connectorized wiring, PCB fastening, and load cell integration into the shroud" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
       </div>
     </div>
@@ -382,19 +382,19 @@
 
     <div class="project-section">
       <div class="ps-label">Results & Discussion</div>
-      <h2 class="ps-title">Objectives Met — Instrument to Consumer Product</h2>
+      <h2 class="ps-title">Objectives Met - Instrument to Consumer Product</h2>
       <div class="ps-content ps-full">
         <div class="ps-text">
           <p>The fully assembled digital scale met or exceeded all established specifications. Functional testing confirmed ±1% accuracy across the full 0–3 kg range, with reliable unit switching between grams, kilograms, pounds, and ounces. The TARE function performed consistently across every test, allowing users to zero the display for any container without recalibration.</p>
-          <p>The ABS enclosure proved durable and weather-resistant. Printing ABS on the Bambu Lab P1S required a heated build chamber and careful slicer tuning to prevent warping and fume issues — after iterating on settings, consistent high-quality prints were achieved. The clamshell design with multiple heat-set insert fastening points kept the structure tight against moisture and debris while remaining fully accessible for component servicing and battery replacement.</p>
-          <p>The machining process for the aluminum load cell was the highest-stakes aspect of the project. Milling the inner pocket to tolerance required careful feed-rate control — even a minor miscalculation could ruin the entire part. After practice runs and rigorous order-of-operations planning, the process became repeatable and efficient. The load tray mount — requiring both lathe turning and subsequent mill operations via a transfer jig — was the most complex multi-machine workflow.</p>
-          <p>Feedback from colleagues and faculty highlighted the organic form factor and intuitive button/display layout. The battery access design — magnetically held bottom cover with heat-set fasteners — was called out specifically as a practical and refined solution.</p>
+          <p>The ABS enclosure proved durable and weather-resistant. Printing ABS on the Bambu Lab P1S required a heated build chamber and careful slicer tuning to prevent warping and fume issues - after iterating on settings, consistent high-quality prints were achieved. The clamshell design with multiple heat-set insert fastening points kept the structure tight against moisture and debris while remaining fully accessible for component servicing and battery replacement.</p>
+          <p>The machining process for the aluminum load cell was the highest-stakes aspect of the project. Milling the inner pocket to tolerance required careful feed-rate control - even a minor miscalculation could ruin the entire part. After practice runs and rigorous order-of-operations planning, the process became repeatable and efficient. The load tray mount - requiring both lathe turning and subsequent mill operations via a transfer jig - was the most complex multi-machine workflow.</p>
+          <p>Feedback from colleagues and faculty highlighted the organic form factor and intuitive button/display layout. The battery access design - magnetically held bottom cover with heat-set fasteners - was called out specifically as a practical and refined solution.</p>
           <h4>Future Improvements Considered</h4>
           <ul>
             <li>Higher-precision CNC load cell to improve reading quality beyond ±1%</li>
             <li>Piezo speaker for auditory feedback on mode changes</li>
             <li>Indicator LEDs corresponding to active mode (visual feedback)</li>
-            <li>Bluetooth module with companion phone app — live data readout, logging to spreadsheet</li>
+            <li>Bluetooth module with companion phone app - live data readout, logging to spreadsheet</li>
             <li>Injection molding tooling for commercial-scale production of the enclosure</li>
           </ul>
         </div>

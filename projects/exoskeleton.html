@@ -4,9 +4,9 @@
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Exoskeleton Control System — Chase Quijano</title>
+  <title>Exoskeleton Control System - Chase Quijano</title>
   <link rel="stylesheet" href="../styles.css">
-  <!-- PRIVATE PREVIEW AUTH — remove this line for public launch -->
+  <!-- PRIVATE PREVIEW AUTH - remove this line for public launch -->
   <script src="/auth.js"></script>
 </head>
 <body>
@@ -30,7 +30,7 @@
       <div class="project-hero-number">002 · Research</div>
       <h1 class="project-hero-title">Exoskeleton PCB & Control System</h1>
       <div class="project-hero-subtitle">Undergraduate Research · Rowan University · 2024</div>
-      <p class="project-hero-desc">Designed a large-format integrated control PCB and distributed I/O board system for an upper-body exoskeleton research platform. The architecture splits centralized power and compute (Raspberry Pi, motor drivers, solar charging, OLED) from compact per-joint I/O modules — each driving BLDC motors and reading IMU sensors over an I2C bus — fabricated in KiCad and housed in custom 3D-printed ABS enclosures.</p>
+      <p class="project-hero-desc">Designed a large-format integrated control PCB and distributed I/O board system for an upper-body exoskeleton research platform. The architecture splits centralized power and compute (Raspberry Pi, motor drivers, solar charging, OLED) from compact per-joint I/O modules - each driving BLDC motors and reading IMU sensors over an I2C bus - fabricated in KiCad and housed in custom 3D-printed ABS enclosures.</p>
       <div class="project-hero-tags">
         <span class="tag">KiCad</span>
         <span class="tag">BLDC Motors</span>
@@ -59,7 +59,7 @@
       <h2 class="ps-title">Control Electronics for a Research Exoskeleton</h2>
       <div class="ps-content">
         <div class="ps-text">
-          <p>Upper-body exoskeletons require precise, coordinated motor control across multiple joints — shoulders, elbows, and wrists — with real-time feedback from inertial measurement units distributed along each limb segment. The control electronics must be compact enough to mount on the exoskeleton frame while handling the power demands of multiple brushless DC motors simultaneously.</p>
+          <p>Upper-body exoskeletons require precise, coordinated motor control across multiple joints - shoulders, elbows, and wrists - with real-time feedback from inertial measurement units distributed along each limb segment. The control electronics must be compact enough to mount on the exoskeleton frame while handling the power demands of multiple brushless DC motors simultaneously.</p>
           <p>This research project required designing integrated electronics that could drive multiple BLDC motors, process IMU data for real-time position feedback, and operate from a solar-charged battery system for extended autonomous use in field conditions. The system also required a debug/status display and graceful degradation behavior so motor faults don't cascade across the full joint network.</p>
         </div>
         <div class="ps-visual" style="padding: 0; overflow: hidden;">
@@ -77,7 +77,7 @@
           <h4>Control Board Requirements</h4>
           <ul>
             <li>Centralized control and power distribution for the full system</li>
-            <li>Control-computer agnostic — designed around Raspberry Pi 4 but swappable</li>
+            <li>Control-computer agnostic - designed around Raspberry Pi 4 but swappable</li>
             <li>Graceful degradation: individual joint faults must not cascade to other joints</li>
             <li>Ability to add or swap filtering components on-board</li>
             <li>Integrates sensory feedback (IMU data) into the control loop</li>
@@ -86,7 +86,7 @@
 
           <h4>I/O Board Requirements</h4>
           <ul>
-            <li>Drives up to 6 BLDC motors — one per joint location</li>
+            <li>Drives up to 6 BLDC motors - one per joint location</li>
             <li>Compact form factor designed to mount at each joint</li>
             <li>Voltage and current monitoring per motor channel</li>
             <li>Clean digital I2C bus for communication and field replaceability</li>
@@ -154,7 +154,7 @@
         <div class="ps-text">
           <p>Custom ABS enclosures were designed in Fusion 360 and printed on a Bambu Lab P1S to protect the electronics and mount them to the exoskeleton frame. The enclosure design accounts for:</p>
           <ul>
-            <li>Thermal dissipation from motor driver ICs — ventilation channels and thermal pad contact points</li>
+            <li>Thermal dissipation from motor driver ICs - ventilation channels and thermal pad contact points</li>
             <li>Accessible debug ports and OLED display window for field use without full disassembly</li>
             <li>Secure PCB standoffs and fastener pockets to survive vibration from motor actuation</li>
             <li>Routing cutouts for motor phase wires and sensor harnesses at each joint</li>
@@ -186,9 +186,9 @@
       <div class="ps-content ps-full">
         <div class="ps-text">
           <p>Control software runs on the Raspberry Pi in Python, implementing PID control loops for each motor joint. IMU data from the 8-sensor BNO085 array feeds into the control loop to provide real-time position and orientation feedback, enabling smooth joint tracking and trajectory following.</p>
-          <p>The Teensy 4.1 handles low-level sensor communication — custom UART drivers for the BNO085 IMUs with SLIP protocol framing ensure reliable data delivery over the RS485 physical layer, which provides noise rejection over the longer cable runs required for distributed sensor placement across the exoskeleton frame.</p>
+          <p>The Teensy 4.1 handles low-level sensor communication - custom UART drivers for the BNO085 IMUs with SLIP protocol framing ensure reliable data delivery over the RS485 physical layer, which provides noise rejection over the longer cable runs required for distributed sensor placement across the exoskeleton frame.</p>
           <p>Sensor fusion algorithms combine accelerometer, gyroscope, and magnetometer data from each BNO085 to produce stable quaternion orientation estimates per limb segment. These feed back to the Raspberry Pi PID controller over RS485.</p>
-          <p>The OLED display shows real-time motor states, battery voltage, solar charging status, and sensor health — enabling field debugging without a laptop.</p>
+          <p>The OLED display shows real-time motor states, battery voltage, solar charging status, and sensor health - enabling field debugging without a laptop.</p>
         </div>
       </div>
     </div>
@@ -202,7 +202,7 @@
           <ul>
             <li><strong>24V to 5V regulation at ≥3A:</strong> Motor drivers demand significant current at high duty cycles; linear regulators were ruled out in favor of switching regulators to manage heat at the main board level.</li>
             <li><strong>Heat management:</strong> Motor driver ICs sit on exposed copper pours with thermal via arrays connecting to the board's bottom copper layer; enclosure design includes corresponding thermal pad contact zones.</li>
-            <li><strong>Control-computer agnostic:</strong> The Raspberry Pi header pinout is standard 40-pin GPIO — future swaps to a Jetson or other SBC require only a carrier board adapter, not a full PCB revision.</li>
+            <li><strong>Control-computer agnostic:</strong> The Raspberry Pi header pinout is standard 40-pin GPIO - future swaps to a Jetson or other SBC require only a carrier board adapter, not a full PCB revision.</li>
             <li><strong>Graceful degradation:</strong> Each I/O board operates independently over the I2C bus; a fault on one joint's board does not lock up the bus or disable adjacent joints.</li>
             <li><strong>ENIG finish:</strong> Selected for the control board for reliable and repeatable solderability across fine-pitch motor driver pads and the Raspberry Pi header.</li>
           </ul>
@@ -218,7 +218,7 @@
         <div class="ps-text">
           <h4>Electrical Validation</h4>
           <ul>
-            <li>Power rail voltages verified under motor load conditions — no drooping beyond spec</li>
+            <li>Power rail voltages verified under motor load conditions - no drooping beyond spec</li>
             <li>Motor driver waveforms captured and confirmed against expected PWM duty cycle profiles</li>
             <li>I2C bus integrity confirmed across full I/O board chain with logic analyzer</li>
             <li>RS485 BNO085 IMU data verified on each of the 8 sensor channels</li>
@@ -228,7 +228,7 @@
           <ul>
             <li>PID position control loops tuned per joint and tested for step response overshoot and settling time</li>
             <li>Position and velocity tracking data logged and compared against commanded trajectories</li>
-            <li>Graceful degradation confirmed — simulated I/O board fault isolated to one joint without disrupting other joints on the bus</li>
+            <li>Graceful degradation confirmed - simulated I/O board fault isolated to one joint without disrupting other joints on the bus</li>
           </ul>
 
           <h4>Physical Integration</h4>
@@ -246,7 +246,7 @@
             <polyline points="30,70 60,70 66,57 82,54 86,71 110,70 116,52 132,49 136,71 160,70 166,50 182,47 186,71 220,70"
               stroke="#6B8EAE" stroke-width="1" fill="none" opacity="0.7"/>
             <text x="35" y="90" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.35">--- commanded</text>
-            <text x="35" y="100" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.55">— actual</text>
+            <text x="35" y="100" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.55">- actual</text>
             <circle cx="35" cy="130" r="4" fill="#6B8EAE" fill-opacity="0.5"/>
             <text x="47" y="134" font-family="monospace" font-size="4.5" fill="#6B8EAE" opacity="0.5">Power rails stable under load</text>
             <circle cx="35" cy="148" r="4" fill="#6B8EAE" fill-opacity="0.5"/>
@@ -264,12 +264,12 @@
       <h2 class="ps-title">Lessons & Planned Improvements</h2>
       <div class="ps-content ps-full">
         <div class="ps-text">
-          <p>The split architecture — centralized control board plus distributed I/O boards — proved the right call for a research platform. Adding or reconfiguring joints means swapping an I/O board rather than redesigning the main PCB.</p>
+          <p>The split architecture - centralized control board plus distributed I/O boards - proved the right call for a research platform. Adding or reconfiguring joints means swapping an I/O board rather than redesigning the main PCB.</p>
           <p>Planned improvements:</p>
           <ul>
             <li>Expand I/O board motor channel count and update routing layout to accommodate additional joints as the exoskeleton grows</li>
             <li>Investigate upgrading from RS485/SLIP to a higher-bandwidth protocol as IMU count scales</li>
-            <li>Tighter enclosure tolerances — the current ABS prints have adequate fit but a refined version would reduce assembly time and connector alignment effort</li>
+            <li>Tighter enclosure tolerances - the current ABS prints have adequate fit but a refined version would reduce assembly time and connector alignment effort</li>
             <li>Hardware-in-the-loop simulation setup for validating PID gains before mounting on the physical exoskeleton</li>
           </ul>
         </div>
