@@ -43,6 +43,18 @@
     <div class="archive-grid" id="archiveGrid">
 
       <!-- FEATURED -->
+      <a href="subaru-internship.html" class="archive-card" data-category="manufacturing iot">
+        <div class="ac-visual">
+          <img src="SubaruInternship/images/bugbox-node-cad-render.jpg" alt="Subaru Technical Training Internship" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
+        <div class="ac-content">
+          <div class="ac-type">Internship · Featured</div>
+          <h3 class="ac-title">Subaru Technical Training Internship</h3>
+          <p class="ac-desc">Year-long internship building a 14-node wireless training network, an autonomous demo vehicle, and a full shop infrastructure overhaul.</p>
+          <div class="ac-tags"><span class="tag">ESP32</span><span class="tag">CAD</span><span class="tag">3D Printing</span><span class="tag">Laser Cutting</span></div>
+        </div>
+      </a>
+
       <a href="berta-medical.html" class="archive-card" data-category="medical pcb">
 
     <div class="ac-visual">
@@ -61,15 +73,39 @@
 
 
 
-      <a href="exoskeleton.html" class="archive-card" data-category="robotics pcb controls">
+      <a href="exoskeleton.html" class="archive-card" data-category="robotics pcb controls medical">
         <div class="ac-visual">
-          <svg viewBox="0 0 300 200" fill="none"><rect x="30" y="30" width="240" height="120" rx="6" stroke="#6B8EAE" stroke-width="1.2"/><rect x="50" y="50" width="35" height="25" rx="2" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.05"/><rect x="95" y="50" width="35" height="25" rx="2" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.05"/><rect x="140" y="50" width="35" height="25" rx="2" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.05"/></svg>
+          <img src="Exoskeleton%20Research/IMU%20System%20V2/image2.jpg" alt="Fall-Prevention Exoskeleton IMU System V2" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
         <div class="ac-content">
           <div class="ac-type">Research · Featured</div>
-          <h3 class="ac-title">Exoskeleton PCB & Control System</h3>
-          <p class="ac-desc">Multi-motor BLDC control board with solar charging, Raspberry Pi, and 8-IMU sensor array.</p>
-          <div class="ac-tags"><span class="tag">KiCad</span><span class="tag">BLDC</span><span class="tag">PID</span><span class="tag">RPi</span></div>
+          <h3 class="ac-title">Fall-Prevention Exoskeleton</h3>
+          <p class="ac-desc">Pneumatically-actuated exoskeleton: control/relay PCBs and an 8-sensor RS-485 IMU array rebuilt for 400Hz, zero packet loss.</p>
+          <div class="ac-tags"><span class="tag">KiCad</span><span class="tag">Teensy 4.1</span><span class="tag">RS-485</span><span class="tag">ESP32</span></div>
+        </div>
+      </a>
+
+      <a href="imu-sensing-system.html" class="archive-card" data-category="robotics pcb controls">
+        <div class="ac-visual">
+          <img src="Exoskeleton%20Research/IMU%20System%20V1/IMU%20System%20V1%20layout.png" alt="IMU Sensing System - 8-sensor body orientation array" style="width:100%; height:100%; object-fit:contain; background:#0A0A0C;" />
+        </div>
+        <div class="ac-content">
+          <div class="ac-type">Research · Sensing</div>
+          <h3 class="ac-title">IMU Sensing System</h3>
+          <p class="ac-desc">Root-caused an I2C bandwidth failure with real measurements, then rebuilt the 8-sensor array around RS-485 for 400Hz, zero packet loss.</p>
+          <div class="ac-tags"><span class="tag">BNO085</span><span class="tag">Teensy 4.1</span><span class="tag">RS-485</span></div>
+        </div>
+      </a>
+
+      <a href="test-rig-instrumentation.html" class="archive-card" data-category="robotics pcb controls">
+        <div class="ac-visual">
+          <img src="Exoskeleton%20Research/Control%20System%20+%20Test%20Bench/testbench2.jpg" alt="Test rig, instrumentation, and pneumatic force-testing setup" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
+        <div class="ac-content">
+          <div class="ac-type">Research · Test Engineering</div>
+          <h3 class="ac-title">Test Rig, Instrumentation &amp; Human Trials</h3>
+          <p class="ac-desc">Designed the pneumatic test fixture and instrumentation, ran two 96-trial force campaigns (hip abduction, knee extension), now developing the human-trials procedure.</p>
+          <div class="ac-tags"><span class="tag">KiCad</span><span class="tag">Load Cell</span><span class="tag">DOE</span></div>
         </div>
       </a>
 
@@ -102,7 +138,7 @@
         <div class="ac-visual">
           <img src="ROS%20Robot/images/rosrobot-front.jpg" alt="ROS Robot" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
-        <div class="ac-content"><div class="ac-type">Autonomous Robotics</div><h3 class="ac-title">ROS Robot</h3><p class="ac-desc">Autonomous mobile robot running ROS 2 Iron with RPLiDAR and Intel RealSense point cloud mapping.</p><div class="ac-tags"><span class="tag">ROS 2</span><span class="tag">RPLiDAR</span><span class="tag">RealSense</span></div></div>
+        <div class="ac-content"><div class="ac-type">Autonomous Robotics</div><h3 class="ac-title">ROS Robot</h3><p class="ac-desc">Mobile robot platform on ROS 2 Iron with a working RPLiDAR + Intel RealSense sensing stack; navigation loop not yet built.</p><div class="ac-tags"><span class="tag">ROS 2</span><span class="tag">RPLiDAR</span><span class="tag">RealSense</span></div></div>
       </a>
 
       <div class="archive-card" data-category="uav">
@@ -114,7 +150,7 @@
         <div class="ac-visual">
           <img src="Balancing%20Robot/images/balancingrobot-carlbot-front.jpg" alt="Balancing Robot" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
-        <div class="ac-content"><div class="ac-type">Controls</div><h3 class="ac-title">Balancing Robot</h3><p class="ac-desc">Two-wheeled self-balancing robot with Kalman-filtered PID control, now in development with ROS 2 and RealSense.</p><div class="ac-tags"><span class="tag">PID</span><span class="tag">Kalman Filter</span><span class="tag">ROS 2</span></div></div>
+        <div class="ac-content"><div class="ac-type">Controls</div><h3 class="ac-title">Balancing Robot</h3><p class="ac-desc">Two-wheeled inverted-pendulum robot with a Kalman-filtered PID control stack designed and wired; balance tuning left unfinished.</p><div class="ac-tags"><span class="tag">PID</span><span class="tag">Kalman Filter</span><span class="tag">ROS 2</span></div></div>
       </a>
 
       <div class="archive-card" data-category="medical">

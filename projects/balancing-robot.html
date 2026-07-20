@@ -8,6 +8,15 @@
   <link rel="stylesheet" href="../styles.css">
   <!-- PRIVATE PREVIEW AUTH - remove this line for public launch -->
   <script src="/auth.js"></script>
+  <style>
+    .media-placeholder { border: 1.5px dashed var(--border-hover); border-radius: 8px; background: var(--bg-elevated); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.55rem; padding: 2.25rem 1.25rem; min-height: 200px; text-align: center; }
+    .media-placeholder svg { width: 28px; height: 28px; opacity: 0.3; color: var(--text-muted); }
+    .mp-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); opacity: 0.85; }
+    .mp-desc { font-size: 0.76rem; color: var(--text-muted); max-width: 260px; line-height: 1.5; }
+    .media-placeholder.data-plot { border-color: var(--gold); background: var(--gold-glow); }
+    .media-placeholder.data-plot .mp-label { color: var(--gold-bright); }
+    .media-placeholder.data-plot svg { opacity: 0.5; color: var(--gold); }
+  </style>
 </head>
 <body>
   <div class="grid-bg"></div>
@@ -36,7 +45,7 @@
       <h1 class="project-hero-title">Balancing Robot - Two Generations of Control System Design</h1>
       <div class="project-hero-subtitle">Personal Project · Rowan University</div>
 
-      <p class="project-hero-desc">Designed, built, and tuned a self-balancing two-wheeled robot ("Carl Bot") from the ground up as a control theory learning platform, then followed it with a second-generation redesign that adds a mini PC, ROS 2, and an Intel RealSense depth camera for autonomous environmental perception. Both generations share the same core balance loop: a Teensy microcontroller, an MPU6050 IMU, a Kalman filter for sensor fusion, and a PID controller driving NEMA 17 stepper motors through DRV8825 drivers.</p>
+      <p class="project-hero-desc">Designed and built a two-wheeled balancing robot ("Carl Bot") from the ground up as a control theory learning platform - full sensor fusion and PID control stack implemented, though I moved on to a second-generation redesign before finishing the balance tuning. The V2 platform reuses that same control architecture while adding a mini PC, ROS 2, and an Intel RealSense depth camera for autonomous environmental perception. Both generations share a Teensy microcontroller, an MPU6050 IMU, a Kalman filter for sensor fusion, and a PID controller driving NEMA 17 stepper motors through DRV8825 drivers.</p>
 
       <div class="project-hero-tags">
         <span class="tag">Teensy</span>
@@ -64,7 +73,7 @@
       <div class="ps-content">
         <div class="ps-text">
           <p>A two-wheeled self-balancing robot is a classic inverted-pendulum problem: the system is open-loop unstable, so it only stays upright through continuous, correct feedback control. That made it an ideal personal project for getting hands-on with sensor fusion and closed-loop control, rather than just studying the theory.</p>
-          <p>The first version, Carl Bot, proved out the full control stack on a simple aluminum-extrusion frame. The second version keeps that same proven balance loop but rebuilds the platform around a mini PC and ROS 2, turning the balancing chassis into a base for autonomous navigation experiments.</p>
+          <p>The first version, Carl Bot, got the full sensing and control stack designed, wired, and running on a simple aluminum-extrusion frame. The second version reuses that same control architecture but rebuilds the platform around a mini PC and ROS 2, turning the balancing chassis into a base for autonomous navigation experiments.</p>
         </div>
         <div class="ps-visual" style="padding: 0; overflow: hidden;">
           <figure style="width: 100%;">
@@ -82,7 +91,7 @@
       <div class="ps-content">
         <div class="ps-text">
           <p>Carl Bot relies on a Teensy microcontroller for real-time computation. An MPU6050 IMU gathers gyroscopic and accelerometer data, giving the controller information about the robot's orientation. That raw data is noisy on its own, so it is processed through a Kalman filter to produce a clean, accurate estimate of angular velocity and tilt angle.</p>
-          <p>To stay upright, the robot drives two NEMA 17 stepper motors through DRV8825 stepper drivers, adjusting position dynamically based on a PID (Proportional-Integral-Derivative) control loop. The PID controller continuously calculates the error between the robot's current angle and its desired upright position, adjusting motor power to bring the robot back to balance. Combining Kalman-filtered sensor fusion with PID control lets the robot self-correct and stay upright even when it is bumped or disturbed.</p>
+          <p>To stay upright, the robot drives two NEMA 17 stepper motors through DRV8825 stepper drivers, with motor power intended to be set by a PID (Proportional-Integral-Derivative) control loop computing the error between the robot's current angle and its desired upright position. The design combines Kalman-filtered sensor fusion with PID control - the standard architecture for this class of inverted-pendulum problem - though I never finished tuning the loop to a reliably self-balancing state before moving on to the V2 platform.</p>
         </div>
         <div class="ps-visual figure-grid" style="padding: 0; background: transparent;">
           <figure>
@@ -180,22 +189,29 @@
           </figure>
         </div>
       </div>
+      <div class="ps-content ps-full" style="margin-top: 2rem;">
+        <div class="ps-text"><h4 style="margin-top: 0;">Electronics Bay &amp; Wireframe Detail</h4></div>
+        <div class="ps-visual figure-grid" style="padding: 0; background: transparent;">
+          <figure>
+            <img src="Balancing%20Robot/images/balancingrobot-v2-electronics-bay.png" alt="V2 electronics bay detail - RealSense camera, dual cooling fans, and full assembly on wheels" style="width:100%; height:280px; object-fit:contain; background:#fff;" />
+            <figcaption>Electronics bay - camera, fans, and full assembly</figcaption>
+          </figure>
+          <figure>
+            <img src="Balancing%20Robot/Photos/balancingrobotv3%20v36_edited(1).png" alt="V2 wireframe engineering drawing, front 3/4 view with camera bay and vent detail" style="width:100%; height:280px; object-fit:contain; background:#fff;" />
+            <figcaption>Wireframe engineering drawing</figcaption>
+          </figure>
+        </div>
+      </div>
     </div>
 
     <!-- REFLECTION -->
     <div class="project-section">
-      <div class="ps-label">Reflection & Future Work</div>
-      <h2 class="ps-title">From Bench Prototype to Autonomous Platform</h2>
+      <div class="ps-label">Reflection & Current Status</div>
+      <h2 class="ps-title">Where This Actually Stands</h2>
       <div class="ps-content ps-full">
         <div class="ps-text">
-          <p>Carl Bot proved out the hardest part of this project first: getting a Kalman-filtered IMU estimate and a tuned PID loop working together well enough to keep an inverted pendulum upright in real time. That validated control stack is what made it possible to scope a much more ambitious second generation without having to re-derive the balance controller from scratch.</p>
-          <p>Next steps for the V2 platform:</p>
-          <ul>
-            <li>Bring up ROS 2 navigation on top of the existing balance controller</li>
-            <li>Validate point cloud mapping from the Intel RealSense against known room geometry</li>
-            <li>Characterize thermal performance of the mini PC and cooling system under sustained load</li>
-            <li>Finish assembly of the redesigned modular enclosure and re-run balance tuning on the new hardware</li>
-          </ul>
+          <p>Both generations are honestly incomplete. I got the hardware built, the sensor fusion and PID architecture designed and wired, and the V2 chassis redesigned around a mini PC and ROS 2 - but I never finished tuning either robot to a reliably self-balancing state, and neither has driven under its own control. This page is a record of the design work, not a demo of a finished result.</p>
+          <p>What's actually there: a working Kalman filter reading the MPU6050 and producing clean tilt estimates, a PID loop wired to the stepper drivers with gains that were never fully tuned, and - on V2 - a mechanically complete platform with the mini PC, ROS 2, and RealSense camera installed but not yet integrated with the balance controller. Picking this back up would mean starting from a tuning session, not a rebuild.</p>
         </div>
       </div>
     </div>

@@ -8,6 +8,15 @@
   <link rel="stylesheet" href="../styles.css">
   <!-- PRIVATE PREVIEW AUTH - remove this line for public launch -->
   <script src="/auth.js"></script>
+  <style>
+    .media-placeholder { border: 1.5px dashed var(--border-hover); border-radius: 8px; background: var(--bg-elevated); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.55rem; padding: 2.25rem 1.25rem; min-height: 200px; text-align: center; }
+    .media-placeholder svg { width: 28px; height: 28px; opacity: 0.3; color: var(--text-muted); }
+    .mp-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); opacity: 0.85; }
+    .mp-desc { font-size: 0.76rem; color: var(--text-muted); max-width: 260px; line-height: 1.5; }
+    .media-placeholder.data-plot { border-color: var(--gold); background: var(--gold-glow); }
+    .media-placeholder.data-plot .mp-label { color: var(--gold-bright); }
+    .media-placeholder.data-plot svg { opacity: 0.5; color: var(--gold); }
+  </style>
 </head>
 <body>
   <div class="grid-bg"></div>
@@ -84,6 +93,12 @@
         <div class="ps-visual" style="padding: 0; overflow: hidden; flex-direction: column; gap: 1px; background: var(--border);">
           <img src="Digital%20Scale/images/digitalscale-fig1-exterior.jpg" alt="Figure 1: Fusion 360 clamshell enclosure exterior render" style="width:100%; height:220px; object-fit:cover; display:block;" />
           <img src="Digital%20Scale/images/digitalscale-fig2-cutaway.jpg" alt="Figure 2: enclosure cutaway showing internal component layout" style="width:100%; height:220px; object-fit:cover; display:block;" />
+        </div>
+      </div>
+      <div class="ps-content ps-full" style="margin-top: 2rem;">
+        <div class="ps-text"><h4 style="margin-top: 0;">Full-Section Cutaway</h4></div>
+        <div class="ps-visual" style="padding: 1rem; background: #fff;">
+          <img src="Digital%20Scale/images/image21.png" alt="Full cross-section render of the assembled scale showing load cell, LCD, PCB, and battery compartment stacked layout" style="width:100%; height:auto; object-fit:contain; display:block;" />
         </div>
       </div>
       <div class="ps-content" style="margin-top: 2rem;">
@@ -173,6 +188,12 @@
           <img src="Digital%20Scale/images/digitalscale-fig11-dial-indicator.jpg" alt="Figure 11: verifying spacer block flatness with a dial indicator gauge" style="width:100%; height:auto; object-fit:contain; display:block; background:#0A0A0C;" />
           <img src="Digital%20Scale/images/digitalscale-fig12-manual-lathe.jpg" alt="Figure 12: turning the load tray mount stock on a manual lathe" style="width:100%; height:auto; object-fit:contain; display:block; background:#0A0A0C;" />
           <img src="Digital%20Scale/images/digitalscale-fig13-mill-transfer-jig.jpg" alt="Figure 13: load tray mount transferred to a custom jig on the mill for side-face milling" style="width:100%; height:auto; object-fit:contain; display:block; background:#0A0A0C;" />
+        </div>
+      </div>
+      <div class="ps-content ps-full" style="margin-top: 2rem;">
+        <div class="ps-text"><h4 style="margin-top: 0;">Load Tray Mount - CAD Detail</h4></div>
+        <div class="ps-visual" style="padding: 0; overflow: hidden; background:#fff;">
+          <img src="Digital%20Scale/images/image23.png" alt="Load tray mount detail - closed, partially assembled, and exploded views of the machined mount within the tray" style="width:100%; height:auto; object-fit:contain; display:block;" />
         </div>
       </div>
       <div class="ps-content" style="margin-top: 2rem;">
@@ -363,6 +384,17 @@
           <img src="Digital%20Scale/images/digitalscale-fig17-assembly.jpg" alt="Figure 17: final assembly - JST-connectorized wiring, PCB fastening, and load cell integration into the shroud" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
       </div>
+      <div class="ps-content ps-full" style="margin-top: 2rem;">
+        <div class="ps-text"><h4 style="margin-top: 0;">Assembly Detail - Physical Build &amp; CAD Cross-Sections</h4></div>
+        <div class="ps-visual" style="padding: 0; overflow: hidden; background:#fff;">
+          <img src="Digital%20Scale/images/image18.png" alt="Assembly detail composite - bottom shell, internal PCB and switch wiring, and load cell wiring with strain gauge leads" style="width:100%; height:auto; object-fit:contain; display:block;" />
+        </div>
+      </div>
+      <div class="ps-content ps-full" style="margin-top: 1.5rem;">
+        <div class="ps-visual" style="padding: 0; overflow: hidden; background:#fff;">
+          <img src="Digital%20Scale/images/image19.png" alt="CAD cross-section composite - internal component stack, LCD mounting, and PCB placement in the lower shell" style="width:100%; height:auto; object-fit:contain; display:block;" />
+        </div>
+      </div>
     </div>
 
     <div class="project-section">
@@ -386,6 +418,14 @@
       <div class="ps-content ps-full">
         <div class="ps-text">
           <p>The fully assembled digital scale met or exceeded all established specifications. Functional testing confirmed ±1% accuracy across the full 0–3 kg range, with reliable unit switching between grams, kilograms, pounds, and ounces. The TARE function performed consistently across every test, allowing users to zero the display for any container without recalibration.</p>
+        </div>
+        <div class="media-placeholder data-plot" style="margin: 1.5rem 0;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 20l16-16"/><circle cx="6" cy="18" r="1.2"/><circle cx="9" cy="14.5" r="1.2"/><circle cx="13" cy="10.5" r="1.2"/><circle cx="17" cy="6.5" r="1.2"/></svg>
+          <div class="mp-label">Placeholder · Data Plot</div>
+          <div class="mp-desc">Measured vs. actual weight across a set of calibration standards spanning the 0–3 kg range, with error bars showing the measured ±1% deviation - the direct evidence behind the accuracy spec</div>
+        </div>
+        <div class="ps-text">
+
           <p>The ABS enclosure proved durable and weather-resistant. Printing ABS on the Bambu Lab P1S required a heated build chamber and careful slicer tuning to prevent warping and fume issues - after iterating on settings, consistent high-quality prints were achieved. The clamshell design with multiple heat-set insert fastening points kept the structure tight against moisture and debris while remaining fully accessible for component servicing and battery replacement.</p>
           <p>The machining process for the aluminum load cell was the highest-stakes aspect of the project. Milling the inner pocket to tolerance required careful feed-rate control - even a minor miscalculation could ruin the entire part. After practice runs and rigorous order-of-operations planning, the process became repeatable and efficient. The load tray mount - requiring both lathe turning and subsequent mill operations via a transfer jig - was the most complex multi-machine workflow.</p>
           <p>Feedback from colleagues and faculty highlighted the organic form factor and intuitive button/display layout. The battery access design - magnetically held bottom cover with heat-set fasteners - was called out specifically as a practical and refined solution.</p>
@@ -405,7 +445,7 @@
     </div>
 
     <div class="project-nav">
-      <a href="exoskeleton.html">← Previous<span class="project-nav-title">Exoskeleton Control System</span></a>
+      <a href="test-rig-instrumentation.html">← Previous<span class="project-nav-title">Test Rig, Instrumentation &amp; Human Trials</span></a>
       <a href="soft-robotics.html" class="next">Next Project →<span class="project-nav-title">Soft Robotics Flex PCB</span></a>
     </div>
 

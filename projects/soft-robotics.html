@@ -8,6 +8,17 @@
   <link rel="stylesheet" href="../styles.css">
   <!-- PRIVATE PREVIEW AUTH - remove this line for public launch -->
   <script src="/auth.js"></script>
+  <style>
+    .media-placeholder { border: 1.5px dashed var(--border-hover); border-radius: 8px; background: var(--bg-elevated); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.55rem; padding: 2.25rem 1.25rem; min-height: 200px; text-align: center; }
+    .media-placeholder svg { width: 28px; height: 28px; opacity: 0.3; color: var(--text-muted); }
+    .mp-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); opacity: 0.85; }
+    .mp-desc { font-size: 0.76rem; color: var(--text-muted); max-width: 260px; line-height: 1.5; }
+    .media-placeholder.data-plot { border-color: var(--gold); background: var(--gold-glow); }
+    .media-placeholder.data-plot .mp-label { color: var(--gold-bright); }
+    .media-placeholder.data-plot svg { opacity: 0.5; color: var(--gold); }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    @media (max-width: 720px) { .grid-2 { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
   <div class="grid-bg"></div>
@@ -159,20 +170,40 @@
           </svg>
         </div>
       </div>
+      <div class="ps-content ps-full" style="margin-top: 2rem;">
+        <div class="ps-text"><h4 style="margin-top: 0;">Real Hardware - Not Yet Uploaded</h4></div>
+        <div class="grid-2">
+          <div class="media-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
+            <div class="mp-label">Placeholder · Photo</div>
+            <div class="mp-desc">Assembled Revision A flex PCB, populated with ESP32-C3, dual DRV8837, and TPS63001</div>
+          </div>
+          <div class="media-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
+            <div class="mp-label">Placeholder · Photo</div>
+            <div class="mp-desc">Assembled Revision B flex PCB, showing the refined connector interface and tightened component placement</div>
+          </div>
+          <div class="media-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 4v4M16 4v4M4 10h16"/><path d="M8 14h3M8 17h5"/></svg>
+            <div class="mp-label">Placeholder · Schematic</div>
+            <div class="mp-desc">KiCad schematic capture - ESP32-C3, DRV8837 x2, TPS63001, and the I2C/power bus connector</div>
+          </div>
+          <div class="media-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg>
+            <div class="mp-label">Placeholder · CAD / Render</div>
+            <div class="mp-desc">PCB layout render or KiCad 3D view of the flex board, matching the block diagrams above with real routing</div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="project-section">
       <div class="ps-label">3D Model</div>
       <h2 class="ps-title">Interactive Module Model</h2>
-      <div style="border: 1px solid var(--border); border-radius: 8px; overflow: hidden;">
-        <model-viewer
-          src="3dmodels/ufo.glb"
-          alt="Soft Robotics Flex PCB Module 3D Model"
-          camera-controls
-          auto-rotate
-          shadow-intensity="1.5"
-          style="width: 100%; height: 480px; background-color: #111114;"
-        ></model-viewer>
+      <div class="media-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M7 7l10 10M17 7L7 17"/></svg>
+        <div class="mp-label">Placeholder · 3D Model</div>
+        <div class="mp-desc">Interactive GLB export of a single flex PCB module in its printed housing</div>
       </div>
     </div>
 
@@ -182,6 +213,20 @@
       <div class="ps-content ps-full">
         <div class="ps-text">
           <p>Both revisions were fabricated and assembled with SMD reflow soldering. The assembled modules were integrated into the physical soft robotic platform - a multi-module chain-like robot - and tested for functional connectivity, motor actuation, and inter-module I2C communication. Adjacent modules demonstrated reliable communication and shared-power operation under normal robotic motion.</p>
+        </div>
+        <div class="grid-2" style="margin: 1.5rem 0;">
+          <div class="media-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3l14 9-14 9V3z"/></svg>
+            <div class="mp-label">Placeholder · Photo / Video</div>
+            <div class="mp-desc">The multi-module robotic platform assembled and reconfiguring, modules docked and driving</div>
+          </div>
+          <div class="media-placeholder data-plot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 15l4-4 4 4 6-6 4 4"/></svg>
+            <div class="mp-label">Placeholder · Data Plot</div>
+            <div class="mp-desc">Logic analyzer capture of I2C traffic across the module chain, and a scope trace of TPS63001 3.3V rail stability under load</div>
+          </div>
+        </div>
+        <div class="ps-text">
           <h4>Validation Results</h4>
           <ul>
             <li>Module-to-module I2C communication functional across the full chain</li>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IMU Sensing System - Chase Quijano</title>
+  <link rel="stylesheet" href="../styles.css">
+  <!-- PRIVATE PREVIEW AUTH - remove this line for public launch -->
+  <script src="/auth.js"></script>
+  <style>
+    .spec-table-wrap { overflow-x: auto; margin: 1.25rem 0; border: 1px solid var(--border); border-radius: 8px; }
+    table.spec-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; min-width: 480px; }
+    table.spec-table th, table.spec-table td { padding: 0.6rem 0.9rem; text-align: left; border-bottom: 1px solid var(--border); color: var(--text-secondary); white-space: nowrap; }
+    table.spec-table th { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); background: var(--bg-elevated); font-weight: 600; }
+    table.spec-table tr:last-child td { border-bottom: none; }
+    table.spec-table td.hl { color: var(--text); font-weight: 600; }
+    table.spec-table td.win { color: var(--gold-bright); font-weight: 600; }
+    .pull-note { border-left: 2px solid var(--gold); padding: 0.9rem 1.25rem; margin: 1.25rem 0; background: var(--bg-elevated); border-radius: 0 6px 6px 0; }
+    .pull-note p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; margin: 0; }
+    .pull-note p + p { margin-top: 0.6rem; }
+    .media-placeholder { border: 1.5px dashed var(--border-hover); border-radius: 8px; background: var(--bg-elevated); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.55rem; padding: 2.25rem 1.25rem; min-height: 200px; text-align: center; }
+    .media-placeholder svg { width: 28px; height: 28px; opacity: 0.3; color: var(--text-muted); }
+    .mp-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); opacity: 0.85; }
+    .mp-desc { font-size: 0.76rem; color: var(--text-muted); max-width: 260px; line-height: 1.5; }
+    .media-placeholder.data-plot { border-color: var(--gold); background: var(--gold-glow); }
+    .media-placeholder.data-plot .mp-label { color: var(--gold-bright); }
+    .media-placeholder.data-plot svg { opacity: 0.5; color: var(--gold); }
+    .schematic-embed { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: #fdf6e3; }
+    .schematic-embed img { width: 100%; height: auto; display: block; }
+    .schematic-embed-footer { display: flex; justify-content: flex-end; padding: 0.55rem 0.9rem; border-top: 1px solid var(--border); background: var(--bg-elevated); }
+    .schematic-embed-footer a { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.03em; color: var(--gold); text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; }
+    .schematic-embed-footer a:hover { color: var(--gold-bright); }
+  </style>
+</head>
+<body>
+  <div class="grid-bg"></div>
+  <div class="content">
+    <nav id="nav">
+      <a href="../" class="nav-name">Chase Quijano</a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="../projects/" class="active">Projects</a>
+        <a href="../#skills">Skills</a>
+        <a href="../#about">About</a>
+        <a href="../#contact">Contact</a>
+        <a href="../resume.html" class="nav-resume">Resume</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="project-hero">
+      <a href="exoskeleton.html" class="project-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12,19 5,12 12,5"/></svg>Fall-Prevention Exoskeleton</a>
+      <div class="project-hero-number">002a · Sensing System</div>
+      <h1 class="project-hero-title">IMU Sensing System</h1>
+      <div class="project-hero-subtitle">Fall-Prevention Exoskeleton Program · Rowan University · Fall 2025 – Spring 2026</div>
+      <p class="project-hero-desc">An 8-sensor body-orientation array for a wearable exoskeleton, taken from a first-generation design that silently failed its own timing budget to a measured root-cause diagnosis, a formal engineering proposal, and a rebuilt system that hit its target sampling rate with zero data loss. I designed, built, and validated both generations end to end.</p>
+      <div class="project-hero-tags">
+        <span class="tag">BNO085</span>
+        <span class="tag">Teensy 4.1</span>
+        <span class="tag">RS-485</span>
+        <span class="tag">UART</span>
+        <span class="tag">I2C</span>
+        <span class="tag">KiCad</span>
+        <span class="tag">Sensor Fusion</span>
+        <span class="tag">EMI Hardening</span>
+        <span class="tag">Raspberry Pi 4</span>
+      </div>
+      <div class="project-hero-metrics">
+        <div><div class="phm-value">8</div><div class="phm-label">Body-Segment IMUs</div></div>
+        <div><div class="phm-value">400 Hz</div><div class="phm-label">Zero-Packet-Loss Sampling</div></div>
+        <div><div class="phm-value">55x</div><div class="phm-label">Latency Cut, I2C → UART</div></div>
+        <div><div class="phm-value">2</div><div class="phm-label">Full Redesign Cycles</div></div>
+      </div>
+    </div>
+
+    <!-- PROBLEM -->
+    <div class="project-section">
+      <div class="ps-label">Problem</div>
+      <h2 class="ps-title">8 Points of Orientation, Read Fast Enough to Matter</h2>
+      <div class="ps-content">
+        <div class="ps-text">
+          <p>A fall-prevention exoskeleton is only as good as its ability to sense a fall-risk motion before it becomes a fall. That means reading orientation from 8 points on the body - both thighs, both calves, both ankles, and upper/lower back - fast and reliably enough to eventually drive a real-time control loop. The sensor itself was never the hard part; getting 8 of them talking over a shared bus, on a mobile platform, next to solenoids and motor drivers throwing off electrical noise, was.</p>
+          <p>I designed, built, and debugged this system twice: once as the original I2C-based array, and again as a ground-up RS-485 rebuild after the first version's real-world performance didn't match its spec sheet.</p>
+        </div>
+        <div class="ps-visual" style="padding: 0; overflow: hidden;">
+          <img src="Exoskeleton%20Research/IMU%20System%20V2/image11.jpg" alt="Assembled IMU System V2 Mainboard on the workbench, Teensy 4.1 and six RS-485 breakout headers populated" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
+      </div>
+    </div>
+
+    <!-- V1 -->
+    <div class="project-section">
+      <div class="ps-label">Generation 1</div>
+      <h2 class="ps-title">I2C Architecture &amp; the Body Position Device</h2>
+      <div class="ps-content">
+        <div class="ps-text">
+          <p>The first-generation system used 8 BNO055 IMUs, one at each body segment, wired over RJ12 into a custom PCB I designed - the "Body Position Device" - which multiplexed all 8 sensors onto a single I2C bus read by a Raspberry Pi 4. A smaller satellite breakout carried the two back-mounted sensors onto the same bus.</p>
+          <p>It worked on the bench in isolation, but the deployed environment exposed three weaknesses at once: I2C has no noise immunity, and the bus ran close to solenoids, relays, and motor drivers throwing off EMI; I2C's cable-length ceiling meant every RJ12 jack needed a 100Ω series damping resistor just to keep signal reflections on the long leg-length cable runs from corrupting reads; and multiplexing 8 sensors onto one address meant every read was sequential, never simultaneous.</p>
+        </div>
+        <div class="ps-visual" style="padding: 0; overflow: hidden;">
+          <img src="Exoskeleton%20Research/IMU%20System%20V1/IMU%20System%20V1%20layout.png" alt="IMU System V1 - Body Position Device board, KiCad layout with Right Thigh, Left Thigh, Right Calf, Left Calf, Right Ankle, Left Ankle body-segment breakouts" style="width:100%; height:100%; object-fit:contain; background:#0A0A0C;" />
+        </div>
+      </div>
+      <div class="ps-content ps-full" style="margin-top: 2rem;">
+        <div class="ps-visual figure-grid" style="padding: 0; background: transparent; min-height: auto; align-items: stretch; gap: 1.5rem;">
+          <figure>
+            <img src="Exoskeleton%20Research/IMU%20System%20V1/IMU%20Tracking%20System.png" alt="IMU System V1 board render, BNO055 with dual RJ12 breakout jacks" style="width:100%; height:220px; object-fit:contain; background:#0A0A0C;" />
+            <figcaption>Body Position Device, product render</figcaption>
+          </figure>
+          <figure>
+            <img src="Exoskeleton%20Research/IMU%20System%20V1/IMU%20Tracking%20System2.png" alt="IMU System V1 satellite breakout board for the two back-mounted sensors" style="width:100%; height:220px; object-fit:contain; background:#0A0A0C;" />
+            <figcaption>Back-segment satellite breakout</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="ps-content ps-full" style="margin-top: 2rem;">
+        <div class="ps-text"><h4 style="margin-top: 0;">Schematic - I2C Multiplexer Architecture</h4></div>
+        <div class="schematic-embed">
+          <img src="Exoskeleton%20Research/IMU%20System%20V1/schematic-render.png" alt="IMU System V1 KiCad schematic - I2C multiplexer architecture" />
+          <div class="schematic-embed-footer"><a href="Exoskeleton%20Research/IMU%20System%20V1/IMU%20Tracking%20System.pdf" target="_blank" rel="noopener">Open full-resolution PDF ↗</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARCHITECTURE COMPARISON -->
+    <div class="project-section">
+      <div class="ps-label">Architecture, Side by Side</div>
+      <h2 class="ps-title">From a Shared Bus to Point-to-Point</h2>
+      <div class="ps-content ps-full">
+        <div class="ps-text">
+          <p>These are the actual wiring diagrams from my proposal - the V1 bus with every sensor sharing one I2C multiplexer into the Raspberry Pi, against the V2 architecture with each sensor on its own RS-485 transmitter/receiver pair, bussed into a dedicated Teensy 4.1 that hands orientation data to the Pi over USB serial.</p>
+        </div>
+      </div>
+      <div class="ps-content ps-full">
+        <div class="ps-visual figure-grid" style="padding: 0; background: transparent; min-height: auto; align-items: stretch; gap: 1.5rem;">
+          <figure>
+            <img src="Exoskeleton%20Research/Rowan%20University%20Mail%20-%20Technical%20Proposal%20for%20Second%20Iteration%20of%20IMU%20System_files/unnamed_002_x5Ef.png" alt="V1 wiring diagram - 8 IMUs into an I2C multiplexer into the Raspberry Pi" style="width:100%; height:280px; object-fit:contain; background:#fff;" />
+            <figcaption>V1 - shared I2C bus through a multiplexer</figcaption>
+          </figure>
+          <figure>
+            <img src="Exoskeleton%20Research/Rowan%20University%20Mail%20-%20Technical%20Proposal%20for%20Second%20Iteration%20of%20IMU%20System_files/unnamed_003_x5Ef.png" alt="V2 wiring diagram - 8 IMUs each on a dedicated RS-485 transmitter/receiver pair into a Teensy 4.1, then USB serial to the Raspberry Pi" style="width:100%; height:280px; object-fit:contain; background:#fff;" />
+            <figcaption>V2 - point-to-point RS-485 into a dedicated Teensy 4.1</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUANTIFYING THE FAILURE -->
+    <div class="project-section">
+      <div class="ps-label">Root-Cause Analysis</div>
+      <h2 class="ps-title">Quantifying the Failure</h2>
+      <div class="ps-content ps-full">
+        <div class="ps-text">
+          <p>The theoretical model for the I2C bus looked fine on paper: 306 bits per sensor at 100 Hz across 8 sensors on a 400 kHz bus penciled out to 2.34 ms of latency and 61% bus utilization - comfortably inside the 10 ms window a 100 Hz control loop needs. It didn't hold up on the bench. I traced the gap to clock stretching: the BNO055 holds the clock line low for 1-3 ms while it runs its onboard sensor-fusion algorithm, a stall the naive bandwidth model doesn't account for at all.</p>
+          <p>Measured against real clock stretching, one full 8-sensor frame took 18.34 ms - nearly double the available window - and I confirmed the number in bench testing before writing anything up.</p>
+          <div class="spec-table-wrap">
+            <table class="spec-table">
+              <thead><tr><th>Metric</th><th>I2C, theoretical</th><th>I2C, measured</th><th>UART, standard speed</th></tr></thead>
+              <tbody>
+                <tr><td>Bus logic</td><td>Sequential</td><td>Sequential + stalls</td><td class="win">Parallel</td></tr>
+                <tr><td>Bus utilization</td><td>61%</td><td class="hl">183.4%</td><td class="win">3.3%</td></tr>
+                <tr><td>Total latency</td><td>2.34 ms</td><td class="hl">18.34 ms</td><td class="win">0.33 ms</td></tr>
+                <tr><td>Bandwidth capacity</td><td>427 Hz</td><td class="hl">54 Hz</td><td class="win">19,607 Hz</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>The measured bus utilization of 183% says everything - the system was structurally incapable of hitting its 100 Hz target, not just running a little slow.</p>
+        </div>
+      </div>
+      <div class="ps-content ps-full">
+        <div class="deepdive-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+          <div class="media-placeholder data-plot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="12" width="4" height="8"/><rect x="10" y="6" width="4" height="14"/><rect x="16" y="2" width="4" height="18"/></svg>
+            <div class="mp-label">Placeholder · Data Plot</div>
+            <div class="mp-desc">Bar chart of bus utilization by protocol - 61% theoretical, 183% measured, 3.3% UART - the single clearest visual of the failure and the fix</div>
+          </div>
+          <div class="media-placeholder data-plot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 15l4-4 4 4 6-6 4 4"/></svg>
+            <div class="mp-label">Placeholder · Bench Data</div>
+            <div class="mp-desc">Logic analyzer or oscilloscope capture of the I2C clock line stretching during a BNO055 fusion cycle, from the weekend of bench testing that confirmed the 18.34 ms figure</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROPOSAL -->
+    <div class="project-section">
+      <div class="ps-label">Engineering Proposal</div>
+      <h2 class="ps-title">Writing the Case Before Touching a Soldering Iron</h2>
+      <div class="ps-content ps-full">
+        <div class="ps-text">
+          <p>Once the failure mode was quantified, I wrote a formal technical proposal to our faculty advisor, Dr. Mitja Trkov, recommending a move to a UART + RS-485 architecture built around the BNO085 IMU and a Teensy 4.1 acting as a dedicated intermediary between the sensors and the Raspberry Pi. RS-485's differential signaling rejects the EMI from nearby solenoids and power systems, its cable-length rating (100+ m) removes any concern for the runs down the leg, and point-to-point wiring to the Teensy eliminates the multiplexer entirely - all 8 sensors read in parallel instead of waiting in line.</p>
+          <div class="spec-table-wrap">
+            <table class="spec-table">
+              <thead><tr><th>Feature</th><th>BNO055 (V1)</th><th>BNO085 (V2)</th><th>Advantage</th></tr></thead>
+              <tbody>
+                <tr><td>Primary protocol</td><td>I2C</td><td class="win">SPI / UART</td><td>Reliable transfer over long cable runs</td></tr>
+                <tr><td>Fusion engine</td><td>Bosch BSX Lite</td><td class="win">Hillcrest SH-2</td><td>Tuned for high-noise environments</td></tr>
+                <tr><td>Max output rate</td><td>100 Hz</td><td class="win">400 Hz</td><td>Higher resolution for gait analysis</td></tr>
+                <tr><td>Latency</td><td>High, variable</td><td class="win">Low, fixed</td><td>Essential for real-time detection</td></tr>
+                <tr><td>Simultaneity</td><td>Sequential (mux)</td><td class="win">Parallel</td><td>All 8 sensors report at once</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>The proposal costed out two implementation paths so the decision wasn't made blind: hand-wiring the new components onto an existing unpopulated board ($288, 10-18 days) versus a second PCB iteration ($318, 15-25 days, at the cost of a short JLCPCB turnaround). We chose the PCB path for the tighter, more field-reliable result.</p>
+          <div class="pull-note">
+            <p>"I propose moving to a UART + RS-485 architecture using BNO085 IMUs and a Teensy 4.1 as the intermediary. This allows parallel sampling, real time latency, and immunity to electromagnetic interference."</p>
+            <p>From my technical proposal to Dr. Mitja Trkov, December 8, 2025</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V2 -->
+    <div class="project-section">
+      <div class="ps-label">Generation 2</div>
+      <h2 class="ps-title">Built &amp; Validated</h2>
+      <div class="ps-content">
+        <div class="ps-text">
+          <p>I designed the IMU System V2 Mainboard around the Teensy 4.1: eight RJ45 channels - six leg-segment breakouts on the main board plus two more on a satellite board for the back-mounted sensors - each with its own SN65HVD1476D RS-485 transceiver and CDSOT23-SM712 ESD protection diode, wired over shielded 22 AWG 3-conductor cable to a remote BNO085 breakout at the limb segment. The board also breaks out a direct header for a Raspberry Pi 4B, so the sensing stack can run standalone off the Teensy or hand off through the Pi.</p>
+          <p>The result matched the model I'd built in the proposal: a sustained 400 Hz sampling rate across all 8 sensors with zero packet loss, replacing the 54 Hz real-world ceiling of the original I2C system - an outcome I could point back to a specific, measured cause rather than a general sense that "it should be better now."</p>
+        </div>
+        <div class="ps-visual" style="padding: 0; overflow: hidden;">
+          <img src="Exoskeleton%20Research/IMU%20System%20V2/IMU%20System%20V2%20Layout.png" alt="IMU System V2 Mainboard KiCad layout - Teensy 4.1 with RT, RC, RA, LA, LC, LT body-segment breakouts" style="width:100%; height:100%; object-fit:contain; background:#0A0A0C;" />
+        </div>
+      </div>
+      <div class="ps-content ps-full" style="margin-top: 2rem;">
+        <div class="ps-visual figure-grid" style="padding: 0; background: transparent; min-height: auto; align-items: stretch; gap: 1.5rem;">
+          <figure>
+            <img src="Exoskeleton%20Research/IMU%20System%20V2/image2.jpg" alt="IMU System V2 Mainboard with Teensy 4.1 and shielded RS-485 breakout chain to individual BNO085 IMU pods" style="width:100%; height:280px; object-fit:cover;" />
+            <figcaption>Mainboard and shielded RS-485 breakout chain</figcaption>
+          </figure>
+          <figure>
+            <img src="Exoskeleton%20Research/IMU%20System%20V2/image4.jpg" alt="Close-up of an individually enclosed BNO085 IMU breakout pod with direction-reference arrow" style="width:100%; height:280px; object-fit:cover;" />
+            <figcaption>Individual IMU pod, direction-marked for calibration</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="ps-content ps-full" style="margin-top: 1.5rem;">
+        <div class="ps-visual figure-grid" style="padding: 0; background: transparent; min-height: auto; align-items: stretch; gap: 1.5rem;">
+          <figure>
+            <img src="Exoskeleton%20Research/IMU%20System%20V2/image.jpg" alt="Wearable compute enclosure and chain of individually enclosed BNO085 IMU pods" style="width:100%; height:260px; object-fit:cover;" />
+            <figcaption>Belt-mounted compute enclosure and IMU pod chain</figcaption>
+          </figure>
+          <div class="media-placeholder" style="height: 260px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg>
+            <div class="mp-label">Placeholder · CAD</div>
+            <div class="mp-desc">Exploded assembly view of a single IMU breakout pod enclosure - PCB, RS-485 transceiver, and 3D-printed shell</div>
+          </div>
+        </div>
+      </div>
+      <div class="ps-content ps-full" style="margin-top: 1.5rem;">
+        <div class="ps-text"><h4 style="margin-top: 0;">Schematic - RS-485 Point-to-Point Architecture</h4></div>
+        <div class="schematic-embed">
+          <img src="Exoskeleton%20Research/IMU%20System%20V2/schematic-render.png" alt="IMU System V2 KiCad schematic - RS-485 point-to-point architecture" />
+          <div class="schematic-embed-footer"><a href="Exoskeleton%20Research/IMU%20System%20V2/IMU%20System%20V3.pdf" target="_blank" rel="noopener">Open full-resolution PDF ↗</a></div>
+        </div>
+      </div>
+      <div class="ps-content ps-full" style="margin-top: 1.5rem;">
+        <div class="media-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M7 7l10 10M17 7L7 17"/></svg>
+          <div class="mp-label">Placeholder · 3D Model</div>
+          <div class="mp-desc">Interactive model of the IMU System V2 Mainboard - STEP file exists, needs a GLB export to match the Control Board V2 viewer</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VALIDATION -->
+    <div class="project-section">
+      <div class="ps-label">Testing &amp; Validation</div>
+      <h2 class="ps-title">From Bus Analysis to Confirmed Result</h2>
+      <div class="ps-content ps-full">
+        <div class="ps-text">
+          <ul>
+            <li>I2C bus latency measured under real load, isolating BNO055 clock-stretching (not bandwidth) as the actual root cause of the 100 Hz shortfall</li>
+            <li>Failure mode quantified and cross-checked against a rebuilt theoretical model before any hardware was ordered</li>
+            <li>RS-485/UART frame integrity verified across the full 8-sensor chain at a sustained 400 Hz with zero packet loss</li>
+            <li>EMI immunity confirmed with the sensor array running adjacent to the solenoid-driven pneumatic actuators that caused problems in V1</li>
+          </ul>
+        </div>
+        <div class="deepdive-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+          <div class="media-placeholder data-plot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg>
+            <div class="mp-label">Placeholder · Data Plot</div>
+            <div class="mp-desc">Per-frame timing scatter or packet-interval histogram from the 400 Hz, zero-packet-loss validation run across all 8 sensors</div>
+          </div>
+          <div class="media-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
+            <div class="mp-label">Placeholder · Photo</div>
+            <div class="mp-desc">EMI immunity test setup - IMU array running adjacent to the energized solenoid-driven pneumatic actuators</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REFLECTION -->
+    <div class="project-section">
+      <div class="ps-label">Reflection</div>
+      <h2 class="ps-title">Why the Proposal Mattered as Much as the Fix</h2>
+      <div class="ps-content ps-full">
+        <div class="ps-text">
+          <p>The easy version of this story is "I2C was too slow, so I switched to UART." The real lesson was upstream of that: the original bandwidth model was correct on its own terms and still wrong, because it didn't account for a real device behavior (clock stretching) that only showed up under measurement. Trusting the bench data over the datasheet math is what actually found the bottleneck.</p>
+          <p>Writing that analysis up as a formal proposal - with a second, competing implementation model, real cost figures, and a schedule - before committing to a redesign meant the decision was made with numbers in hand, not a hunch. That proposal is the piece of this project I'd point to first.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-nav">
+      <a href="exoskeleton.html">← Previous<span class="project-nav-title">Fall-Prevention Exoskeleton</span></a>
+      <a href="test-rig-instrumentation.html" class="next">Next Project →<span class="project-nav-title">Test Rig, Instrumentation &amp; Human Trials</span></a>
+    </div>
+
+    <footer><div class="footer-text">© 2026 Chase Quijano</div><div class="footer-text">Rowan University · Engineering Entrepreneurship</div></footer>
+  </div>
+  <script>
+    const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 50));
+    document.querySelectorAll('.nav-links a[href^="../#"]').forEach(a => a.addEventListener('click', () => document.querySelector('.nav-links')?.classList.remove('open')));
+  </script>
+</body>
+</html>

@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Exoskeleton Control System - Chase Quijano</title>
+  <title>Fall-Prevention Exoskeleton - Chase Quijano</title>
   <link rel="stylesheet" href="../styles.css">
   <!-- PRIVATE PREVIEW AUTH - remove this line for public launch -->
   <script src="/auth.js"></script>
+  <style>
+    .arch-flow-label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.6rem; }
+    .arch-flow-block + .arch-flow-block { margin-top: 1.75rem; }
+    .deepdive-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    @media (max-width: 720px) { .deepdive-grid { grid-template-columns: 1fr; } }
+    .media-placeholder { border: 1.5px dashed var(--border-hover); border-radius: 8px; background: var(--bg-elevated); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.55rem; padding: 2.25rem 1.25rem; min-height: 200px; text-align: center; }
+    .media-placeholder svg { width: 28px; height: 28px; opacity: 0.3; color: var(--text-muted); }
+    .mp-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); opacity: 0.85; }
+    .mp-desc { font-size: 0.76rem; color: var(--text-muted); max-width: 260px; line-height: 1.5; }
+    .media-placeholder.data-plot { border-color: var(--gold); background: var(--gold-glow); }
+    .media-placeholder.data-plot .mp-label { color: var(--gold-bright); }
+    .media-placeholder.data-plot svg { opacity: 0.5; color: var(--gold); }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    @media (max-width: 720px) { .grid-2 { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
   <div class="grid-bg"></div>
@@ -28,249 +42,185 @@
     <div class="project-hero">
       <a href="../projects/" class="project-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12,19 5,12 12,5"/></svg>All Projects</a>
       <div class="project-hero-number">002 · Research</div>
-      <h1 class="project-hero-title">Exoskeleton PCB & Control System</h1>
-      <div class="project-hero-subtitle">Undergraduate Research · Rowan University · 2024</div>
-      <p class="project-hero-desc">Designed a large-format integrated control PCB and distributed I/O board system for an upper-body exoskeleton research platform. The architecture splits centralized power and compute (Raspberry Pi, motor drivers, solar charging, OLED) from compact per-joint I/O modules - each driving BLDC motors and reading IMU sensors over an I2C bus - fabricated in KiCad and housed in custom 3D-printed ABS enclosures.</p>
+      <h1 class="project-hero-title">Fall-Prevention Exoskeleton</h1>
+      <div class="project-hero-subtitle">Undergraduate Engineering Clinic · Rowan University · Fall 2025 – Spring 2026 · Advised by Dr. Mitja Trkov</div>
+      <p class="project-hero-desc">A two-semester research clinic building a pneumatically-actuated, hip-level exoskeleton to sense and counteract a fall before it happens. The platform spans mechanism design, embedded sensing, custom PCBs, and a structured test campaign now moving toward human trials. This page covers the program as a whole; the two systems I own end to end - sensing and test engineering - each have their own deep dive below.</p>
       <div class="project-hero-tags">
         <span class="tag">KiCad</span>
-        <span class="tag">BLDC Motors</span>
-        <span class="tag">Raspberry Pi</span>
-        <span class="tag">PID Control</span>
-        <span class="tag">Solar Charging</span>
-        <span class="tag">Python</span>
-        <span class="tag">3D Printing</span>
-        <span class="tag">OLED</span>
-        <span class="tag">BNO085</span>
         <span class="tag">Teensy 4.1</span>
-        <span class="tag">RS485</span>
-        <span class="tag">SLIP Protocol</span>
+        <span class="tag">BNO085</span>
+        <span class="tag">RS-485</span>
+        <span class="tag">ESP32</span>
+        <span class="tag">Raspberry Pi 4</span>
+        <span class="tag">Pneumatic Actuation</span>
+        <span class="tag">FEA</span>
+        <span class="tag">SolidWorks</span>
+        <span class="tag">Design of Experiments</span>
       </div>
       <div class="project-hero-metrics">
-        <div><div class="phm-value">6</div><div class="phm-label">Motors Controlled</div></div>
-        <div><div class="phm-value">8</div><div class="phm-label">IMU Sensors</div></div>
-        <div><div class="phm-value">2</div><div class="phm-label">Custom PCBs</div></div>
-        <div><div class="phm-value">Solar</div><div class="phm-label">Powered System</div></div>
+        <div><div class="phm-value">8</div><div class="phm-label">IMU Sensor Array</div></div>
+        <div><div class="phm-value">2×96</div><div class="phm-label">Trial Force Campaigns</div></div>
+        <div><div class="phm-value">6</div><div class="phm-label">Custom PCBs Designed</div></div>
+        <div><div class="phm-value">2</div><div class="phm-label">Clinic Semesters</div></div>
       </div>
     </div>
 
     <!-- PROBLEM -->
     <div class="project-section">
       <div class="ps-label">Problem</div>
-      <h2 class="ps-title">Control Electronics for a Research Exoskeleton</h2>
+      <h2 class="ps-title">Fall Risk, Wearable Sensing, and a Two-Semester Clinic</h2>
       <div class="ps-content">
         <div class="ps-text">
-          <p>Upper-body exoskeletons require precise, coordinated motor control across multiple joints - shoulders, elbows, and wrists - with real-time feedback from inertial measurement units distributed along each limb segment. The control electronics must be compact enough to mount on the exoskeleton frame while handling the power demands of multiple brushless DC motors simultaneously.</p>
-          <p>This research project required designing integrated electronics that could drive multiple BLDC motors, process IMU data for real-time position feedback, and operate from a solar-charged battery system for extended autonomous use in field conditions. The system also required a debug/status display and graceful degradation behavior so motor faults don't cascade across the full joint network.</p>
+          <p>Falls are a leading cause of injury for older adults and people with gait or balance impairments. Our Engineering Clinic team set out to build a wearable, hip-level exoskeleton that could sense a fall-risk motion in real time and pneumatically assist the hip joint before a fall occurs, actuating abduction/adduction and flexion through Bowden-cable-driven pneumatic cylinders.</p>
+          <p>Getting there required a mechanical structure that could transmit real actuation force to the hip without injuring the wearer, and a sensing and control stack that could read 8 points of body orientation fast enough to eventually close the loop. I own the electrical, embedded, and test-engineering side across both semesters, working alongside teammates leading the mechanical design.</p>
         </div>
         <div class="ps-visual" style="padding: 0; overflow: hidden;">
-          <img src="images/render2.png" alt="Exoskeleton Control Board" style="width:100%; height:100%; object-fit:cover; display:block;" />
+          <img src="Exoskeleton%20Research/Exoskeleton%20Bench%20Testing/benchtest1.jpg" alt="Hip brace and pneumatic actuator mounted to the force-testing rig, FUTEK load cell inline" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
+      </div>
+      <div class="ps-content ps-full" style="margin-top: 2rem;">
+        <div class="media-placeholder" style="min-height: 260px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg>
+          <div class="mp-label">Placeholder · CAD / Photo</div>
+          <div class="mp-desc">Full-assembly render or worn photo of the complete exoskeleton - chassis, hip mechanism, IMU array, and control electronics together. Currently every image on this site shows one subsystem at a time; this is the shot that shows how they fit as one platform.</div>
         </div>
       </div>
     </div>
 
-    <!-- REQUIREMENTS -->
+    <!-- SYSTEM ARCHITECTURE -->
     <div class="project-section">
-      <div class="ps-label">Requirements & Constraints</div>
-      <h2 class="ps-title">Control Board & I/O Board Specifications</h2>
+      <div class="ps-label">System Architecture</div>
+      <h2 class="ps-title">Two Control Loops, One Test Platform</h2>
+      <div class="ps-content ps-full">
+        <div class="ps-text">
+          <p>The electronics split into two independent chains that meet on the bench: a <strong>sensing chain</strong> streaming 8-point body orientation up to the Raspberry Pi for future closed-loop gait detection, and an <strong>actuation chain</strong> that switches the pneumatic valves driving the hip cylinders during testing. During bench trials, the same control board also reads back pressure transducers, potentiometers, and a load cell so every actuation event is logged against real force data.</p>
+        </div>
+        <div class="arch-flow-block">
+          <div class="arch-flow-label">Sensing Chain</div>
+          <div class="architecture-flow">
+            <div class="arch-node"><div class="arch-node-title">8× BNO085 IMU</div><div class="arch-node-sub">RS-485 differential</div></div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-node"><div class="arch-node-title">Teensy 4.1</div><div class="arch-node-sub">UART aggregation</div></div>
+            <div class="arch-arrow">→ Serial →</div>
+            <div class="arch-node"><div class="arch-node-title">Raspberry Pi 4</div><div class="arch-node-sub">Gait / orientation data</div></div>
+          </div>
+        </div>
+        <div class="arch-flow-block">
+          <div class="arch-flow-label">Actuation &amp; Test Chain</div>
+          <div class="architecture-flow">
+            <div class="arch-node"><div class="arch-node-title">ESP32 Control Board</div><div class="arch-node-sub">Control Board V1 / V2</div></div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-node"><div class="arch-node-title">Relay Board V1</div><div class="arch-node-sub">12-channel switching</div></div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-node"><div class="arch-node-title">Pneumatic Valves</div><div class="arch-node-sub">AirTac solenoids</div></div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-node"><div class="arch-node-title">Hip Cylinders</div><div class="arch-node-sub">Ab/adduction + flexion</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MECHANICAL -->
+    <div class="project-section">
+      <div class="ps-label">Mechanical Design</div>
+      <h2 class="ps-title">Chassis Redesign &amp; FEA Validation</h2>
       <div class="ps-content">
         <div class="ps-text">
-          <h4>Control Board Requirements</h4>
-          <ul>
-            <li>Centralized control and power distribution for the full system</li>
-            <li>Control-computer agnostic - designed around Raspberry Pi 4 but swappable</li>
-            <li>Graceful degradation: individual joint faults must not cascade to other joints</li>
-            <li>Ability to add or swap filtering components on-board</li>
-            <li>Integrates sensory feedback (IMU data) into the control loop</li>
-            <li>Wireless communication between compute module and joint-level I/O boards</li>
-          </ul>
-
-          <h4>I/O Board Requirements</h4>
-          <ul>
-            <li>Drives up to 6 BLDC motors - one per joint location</li>
-            <li>Compact form factor designed to mount at each joint</li>
-            <li>Voltage and current monitoring per motor channel</li>
-            <li>Clean digital I2C bus for communication and field replaceability</li>
-            <li>Modular design allowing convenient repair and component replacement per joint</li>
-          </ul>
+          <p>The original thigh brace used a plastic jointed thigh link that couldn't transmit actuation force reliably - it flexed under load instead of driving the hip joint. In Spring 2026 the team replaced it with a cuff-based brace and a system of aluminum C-channels, verified against the redesign with FEA before fabrication. This resolved the force-transmission deficiencies that had limited every earlier iteration.</p>
+          <p>The hip mechanism actuates two degrees of freedom, abduction/adduction and flexion, through Bowden-cable-linked pneumatic cylinders driven by the modular cylinder assembly and instrumentation covered in the Test Rig deep dive below.</p>
         </div>
         <div class="ps-visual" style="padding: 0; overflow: hidden;">
-          <img src="images/BodyPositiondeviceDevBoard-BodyPositiondeviceDevBoard%20v2.png" alt="I/O Board PCB" style="width:100%; height:100%; object-fit:cover; display:block;" />
+          <img src="Exoskeleton%20Research/Exoskeleton%20Bench%20Testing/benchtest3.jpg" alt="Redesigned cuff-based thigh brace on the force-testing stand with FUTEK load cell" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
+      </div>
+      <div class="ps-content ps-full" style="margin-top: 2rem;">
+        <div class="grid-2">
+          <div class="media-placeholder data-plot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 20l4-9 4 4 4-11 4 12"/></svg>
+            <div class="mp-label">Placeholder · Data Plot</div>
+            <div class="mp-desc">FEA stress-contour plot for the redesigned cuff brace and aluminum C-channels, the analysis that verified the fix before fabrication</div>
+          </div>
+          <div class="media-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="7" r="3"/><path d="M12 10v6M8 12l4 4 4-4M9 20h6"/></svg>
+            <div class="mp-label">Placeholder · CAD</div>
+            <div class="mp-desc">Hip mechanism diagram showing the two actuated degrees of freedom - abduction/adduction and flexion - and how the Bowden cables route to each</div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- HARDWARE -->
+    <!-- DEEP DIVES -->
     <div class="project-section">
-      <div class="ps-label">Hardware Design</div>
-      <h2 class="ps-title">Control Board & Distributed I/O Architecture</h2>
-      <div class="ps-content">
-        <div class="ps-text">
-          <h4>Main Control PCB</h4>
-          <p>Designed a large-format custom PCB in KiCad that serves as the central control hub for the exoskeleton. The board integrates:</p>
-          <ul>
-            <li>Multiple BLDC motor driver stages with current limiting</li>
-            <li>Raspberry Pi 4 compute module header with full GPIO access</li>
-            <li>OLED display for real-time system status and debug output</li>
-            <li>Solar charging input with voltage regulation for extended autonomous operation</li>
-            <li>Power distribution rails for motor drivers and logic-level components</li>
-            <li>ENIG surface finish for reliability and consistent solderability</li>
-          </ul>
-
-          <h4>Distributed I/O Boards</h4>
-          <p>Rather than running all motor wiring back to a central board, the architecture uses compact per-joint I/O modules. Each I/O board drives up to two BLDC motors bidirectionally with voltage and current monitoring, communicates over an I2C bus daisy-chained across joints, and is designed to mount directly at each joint location for short wire runs and easy field replacement.</p>
-
-          <h4>8-IMU Sensor Array</h4>
-          <p>Built a multi-sensor data acquisition system using 8 BNO085 IMUs connected to a Teensy 4.1 via custom UART drivers with SLIP protocol framing over RS485 transceivers. Sensor fusion produces stable quaternion orientation estimates per limb segment for PID feedback.</p>
-        </div>
-        <div class="ps-visual" style="padding: 0; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); min-height: auto; align-items: stretch;">
-          <img src="images/BodyPositiondeviceDevBoard-BodyPositiondeviceDevBoard%20v2.png" alt="I/O Board Front" style="width:100%; height:220px; object-fit:cover; display:block;" />
-          <img src="images/BodyPositiondeviceDevBoard-BodyPositiondeviceDevBoard%20v2%202.png" alt="I/O Board Back" style="width:100%; height:220px; object-fit:cover; display:block;" />
-          <img src="images/render2.png" alt="Control Board" style="width:100%; height:220px; object-fit:cover; display:block; grid-column: span 2;" />
-        </div>
+      <div class="ps-label">Deep Dives</div>
+      <h2 class="ps-title">The Two Systems I Own End to End</h2>
+      <div class="deepdive-grid">
+        <a href="imu-sensing-system.html" class="archive-card">
+          <div class="ac-visual" style="height: 200px; padding: 0;">
+            <img src="Exoskeleton%20Research/IMU%20System%20V2/image2.jpg" alt="IMU System V2 Mainboard with Teensy 4.1 and RS-485 breakout chain" style="width:100%; height:100%; object-fit:cover; display:block;" />
+          </div>
+          <div class="ac-content">
+            <div class="ac-type">Deep Dive · Sensing</div>
+            <h3 class="ac-title">IMU Sensing System</h3>
+            <p class="ac-desc">Root-causing a 55x latency gap between an I2C bandwidth model and measured reality, then rebuilding the 8-sensor array around RS-485 to hit 400 Hz with zero packet loss.</p>
+            <div class="ac-tags"><span class="tag">BNO085</span><span class="tag">Teensy 4.1</span><span class="tag">RS-485</span></div>
+          </div>
+        </a>
+        <a href="test-rig-instrumentation.html" class="archive-card">
+          <div class="ac-visual" style="height: 200px; padding: 0;">
+            <img src="Exoskeleton%20Research/Control%20System%20+%20Test%20Bench/testbench2.jpg" alt="Redesigned pneumatic test bench with instrumentation and hip mechanism" style="width:100%; height:100%; object-fit:cover; display:block;" />
+          </div>
+          <div class="ac-content">
+            <div class="ac-type">Deep Dive · Test Engineering</div>
+            <h3 class="ac-title">Test Rig, Instrumentation &amp; Human Trials</h3>
+            <p class="ac-desc">Designing the pneumatic test fixture and its electronics, running two 96-trial force campaigns (hip abduction, knee extension), and developing the human-subjects test procedure for trials this fall.</p>
+            <div class="ac-tags"><span class="tag">KiCad</span><span class="tag">Load Cell</span><span class="tag">DOE</span></div>
+          </div>
+        </a>
       </div>
     </div>
 
-    <!-- 3D MODEL -->
+    <!-- TEAM & TIMELINE -->
     <div class="project-section">
-      <div class="ps-label">3D Model</div>
-      <h2 class="ps-title">Interactive PCB Model</h2>
-      <div style="border: 1px solid var(--border); border-radius: 8px; overflow: hidden;">
-        <model-viewer
-          src="3dmodels/controlboardv3.glb"
-          alt="Exoskeleton Control Board 3D Model"
-          camera-controls
-          auto-rotate
-          shadow-intensity="1.5"
-          style="width: 100%; height: 480px; background-color: #111114;"
-        ></model-viewer>
-      </div>
-    </div>
-
-    <!-- ENCLOSURE -->
-    <div class="project-section">
-      <div class="ps-label">Enclosure & Integration</div>
-      <h2 class="ps-title">3D-Printed Housing & Hardware Integration</h2>
-      <div class="ps-content">
-        <div class="ps-text">
-          <p>Custom ABS enclosures were designed in Fusion 360 and printed on a Bambu Lab P1S to protect the electronics and mount them to the exoskeleton frame. The enclosure design accounts for:</p>
-          <ul>
-            <li>Thermal dissipation from motor driver ICs - ventilation channels and thermal pad contact points</li>
-            <li>Accessible debug ports and OLED display window for field use without full disassembly</li>
-            <li>Secure PCB standoffs and fastener pockets to survive vibration from motor actuation</li>
-            <li>Routing cutouts for motor phase wires and sensor harnesses at each joint</li>
-          </ul>
-          <p>The I/O board enclosures are smaller and designed to clamp directly to the exoskeleton tubing at each joint location, keeping wire runs short and minimizing harness complexity.</p>
-        </div>
-        <div class="ps-visual">
-          <svg viewBox="0 0 260 180" fill="none" style="width:90%;max-width:280px;">
-            <rect x="40" y="20" width="180" height="120" rx="8" stroke="#6B8EAE" stroke-width="1.2" fill="#6B8EAE" fill-opacity="0.02"/>
-            <rect x="60" y="35" width="140" height="80" rx="4" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.04"/>
-            <rect x="160" y="45" width="30" height="18" rx="2" stroke="#6B8EAE" stroke-width="0.6" fill="#6B8EAE" fill-opacity="0.06"/>
-            <text x="175" y="56" text-anchor="middle" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.45">OLED</text>
-            <circle cx="55" cy="30" r="4" stroke="#6B8EAE" stroke-width="0.5" opacity="0.3"/>
-            <circle cx="205" cy="30" r="4" stroke="#6B8EAE" stroke-width="0.5" opacity="0.3"/>
-            <circle cx="55" cy="130" r="4" stroke="#6B8EAE" stroke-width="0.5" opacity="0.3"/>
-            <circle cx="205" cy="130" r="4" stroke="#6B8EAE" stroke-width="0.5" opacity="0.3"/>
-            <rect x="36" y="60" width="8" height="40" rx="2" fill="#6B8EAE" fill-opacity="0.15" stroke="#6B8EAE" stroke-width="0.5" opacity="0.3"/>
-            <rect x="216" y="60" width="8" height="40" rx="2" fill="#6B8EAE" fill-opacity="0.15" stroke="#6B8EAE" stroke-width="0.5" opacity="0.3"/>
-            <text x="130" y="165" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#6B8EAE" opacity="0.3">3D PRINTED ABS ENCLOSURE</text>
-          </svg>
-        </div>
-      </div>
-    </div>
-
-    <!-- SOFTWARE -->
-    <div class="project-section">
-      <div class="ps-label">Software</div>
-      <h2 class="ps-title">Real-Time Motor Control & Sensor Fusion</h2>
+      <div class="ps-label">Team &amp; Timeline</div>
+      <h2 class="ps-title">Two Semesters, Two Rosters, One Platform</h2>
       <div class="ps-content ps-full">
         <div class="ps-text">
-          <p>Control software runs on the Raspberry Pi in Python, implementing PID control loops for each motor joint. IMU data from the 8-sensor BNO085 array feeds into the control loop to provide real-time position and orientation feedback, enabling smooth joint tracking and trajectory following.</p>
-          <p>The Teensy 4.1 handles low-level sensor communication - custom UART drivers for the BNO085 IMUs with SLIP protocol framing ensure reliable data delivery over the RS485 physical layer, which provides noise rejection over the longer cable runs required for distributed sensor placement across the exoskeleton frame.</p>
-          <p>Sensor fusion algorithms combine accelerometer, gyroscope, and magnetometer data from each BNO085 to produce stable quaternion orientation estimates per limb segment. These feed back to the Raspberry Pi PID controller over RS485.</p>
-          <p>The OLED display shows real-time motor states, battery voltage, solar charging status, and sensor health - enabling field debugging without a laptop.</p>
+          <h4>Fall 2025</h4>
+          <p>Sarah Smith, Chase Quijano, Reuben Cuevas, Eric Carty - advised by Dr. Mitja Trkov. Built the V1 hip mechanism and the first-generation I2C-based IMU array, and identified the sampling-rate shortfall that shaped the following semester's redesign.</p>
+          <h4>Spring 2026</h4>
+          <p>Chase Quijano, Eric Carty, Preston Haddon - advised by Dr. Mitja Trkov. Executed the chassis redesign, the IMU System V2 rebuild, the test-rig instrumentation redesign, and the two 96-trial hip-abduction and knee-extension test campaigns.</p>
+          <p style="margin-top: 1rem;">Across both semesters, I owned the electrical, embedded, and test-engineering side end to end - detailed in the two deep dives above - while collaborating with the team on the mechanical chassis redesign and FEA validation.</p>
         </div>
       </div>
-    </div>
-
-    <!-- DESIGN NOTES -->
-    <div class="project-section">
-      <div class="ps-label">Design Notes</div>
-      <h2 class="ps-title">Pre-Fabrication Design Decisions</h2>
-      <div class="ps-content ps-full">
-        <div class="ps-text">
-          <ul>
-            <li><strong>24V to 5V regulation at ≥3A:</strong> Motor drivers demand significant current at high duty cycles; linear regulators were ruled out in favor of switching regulators to manage heat at the main board level.</li>
-            <li><strong>Heat management:</strong> Motor driver ICs sit on exposed copper pours with thermal via arrays connecting to the board's bottom copper layer; enclosure design includes corresponding thermal pad contact zones.</li>
-            <li><strong>Control-computer agnostic:</strong> The Raspberry Pi header pinout is standard 40-pin GPIO - future swaps to a Jetson or other SBC require only a carrier board adapter, not a full PCB revision.</li>
-            <li><strong>Graceful degradation:</strong> Each I/O board operates independently over the I2C bus; a fault on one joint's board does not lock up the bus or disable adjacent joints.</li>
-            <li><strong>ENIG finish:</strong> Selected for the control board for reliable and repeatable solderability across fine-pitch motor driver pads and the Raspberry Pi header.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- TESTING -->
-    <div class="project-section">
-      <div class="ps-label">Testing & Validation</div>
-      <h2 class="ps-title">Signal Verification & Position Tracking</h2>
-      <div class="ps-content">
-        <div class="ps-text">
-          <h4>Electrical Validation</h4>
-          <ul>
-            <li>Power rail voltages verified under motor load conditions - no drooping beyond spec</li>
-            <li>Motor driver waveforms captured and confirmed against expected PWM duty cycle profiles</li>
-            <li>I2C bus integrity confirmed across full I/O board chain with logic analyzer</li>
-            <li>RS485 BNO085 IMU data verified on each of the 8 sensor channels</li>
-          </ul>
-
-          <h4>Control System Validation</h4>
-          <ul>
-            <li>PID position control loops tuned per joint and tested for step response overshoot and settling time</li>
-            <li>Position and velocity tracking data logged and compared against commanded trajectories</li>
-            <li>Graceful degradation confirmed - simulated I/O board fault isolated to one joint without disrupting other joints on the bus</li>
-          </ul>
-
-          <h4>Physical Integration</h4>
-          <ul>
-            <li>Electronics package mounted and functionally tested on the exoskeleton frame in the Rowan research lab</li>
-            <li>Full joint actuation sequence verified with real upper-body exoskeleton hardware</li>
-          </ul>
-        </div>
-        <div class="ps-visual">
-          <svg viewBox="0 0 260 200" fill="none" style="width:90%;max-width:280px;">
-            <rect x="20" y="15" width="220" height="80" rx="4" stroke="#6B8EAE" stroke-width="0.8" fill="#6B8EAE" fill-opacity="0.02"/>
-            <text x="130" y="30" text-anchor="middle" font-family="monospace" font-size="5" fill="#6B8EAE" opacity="0.4">POSITION TRACKING</text>
-            <polyline points="30,70 60,70 65,55 80,55 85,70 110,70 115,50 130,50 135,70 160,70 165,48 180,48 185,70 220,70"
-              stroke="#6B8EAE" stroke-width="1" fill="none" opacity="0.5" stroke-dasharray="3 2"/>
-            <polyline points="30,70 60,70 66,57 82,54 86,71 110,70 116,52 132,49 136,71 160,70 166,50 182,47 186,71 220,70"
-              stroke="#6B8EAE" stroke-width="1" fill="none" opacity="0.7"/>
-            <text x="35" y="90" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.35">--- commanded</text>
-            <text x="35" y="100" font-family="monospace" font-size="4" fill="#6B8EAE" opacity="0.55">- actual</text>
-            <circle cx="35" cy="130" r="4" fill="#6B8EAE" fill-opacity="0.5"/>
-            <text x="47" y="134" font-family="monospace" font-size="4.5" fill="#6B8EAE" opacity="0.5">Power rails stable under load</text>
-            <circle cx="35" cy="148" r="4" fill="#6B8EAE" fill-opacity="0.5"/>
-            <text x="47" y="152" font-family="monospace" font-size="4.5" fill="#6B8EAE" opacity="0.5">I2C bus verified across chain</text>
-            <circle cx="35" cy="166" r="4" fill="#6B8EAE" fill-opacity="0.5"/>
-            <text x="47" y="170" font-family="monospace" font-size="4.5" fill="#6B8EAE" opacity="0.5">Full joint actuation on hardware</text>
-          </svg>
+      <div class="ps-content ps-full" style="margin-top: 1.5rem;">
+        <div class="grid-2">
+          <div class="media-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 20c0-2-1-3.8-2.5-5"/></svg>
+            <div class="mp-label">Placeholder · Photo</div>
+            <div class="mp-desc">Team photo, Fall 2025 and Spring 2026 rosters, with Dr. Trkov in the Rowan research lab</div>
+          </div>
+          <div class="media-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h18M6 12V6M12 12V4M18 12v8"/><circle cx="6" cy="6" r="1.2"/><circle cx="12" cy="4" r="1.2"/><circle cx="18" cy="20" r="1.2"/></svg>
+            <div class="mp-label">Placeholder · Diagram</div>
+            <div class="mp-desc">Program timeline across both semesters - chassis V1 → V2, IMU V1 → V2, bench V1 → V2, leading into the human-trials phase</div>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- REFLECTION -->
     <div class="project-section">
-      <div class="ps-label">Reflection & Future Work</div>
-      <h2 class="ps-title">Lessons & Planned Improvements</h2>
+      <div class="ps-label">Reflection &amp; Future Work</div>
+      <h2 class="ps-title">Where the Program Goes Next</h2>
       <div class="ps-content ps-full">
         <div class="ps-text">
-          <p>The split architecture - centralized control board plus distributed I/O boards - proved the right call for a research platform. Adding or reconfiguring joints means swapping an I/O board rather than redesigning the main PCB.</p>
-          <p>Planned improvements:</p>
+          <p>The platform's split architecture - independent sensing and actuation chains that meet on a shared, well-instrumented test bench - held up across a full mechanical redesign and a ground-up sensing rebuild without either side blocking the other. That separation is what let me rebuild the IMU system in the middle of the project without touching the actuation side at all.</p>
+          <p>Next up across the program:</p>
           <ul>
-            <li>Expand I/O board motor channel count and update routing layout to accommodate additional joints as the exoskeleton grows</li>
-            <li>Investigate upgrading from RS485/SLIP to a higher-bandwidth protocol as IMU count scales</li>
-            <li>Tighter enclosure tolerances - the current ABS prints have adequate fit but a refined version would reduce assembly time and connector alignment effort</li>
-            <li>Hardware-in-the-loop simulation setup for validating PID gains before mounting on the physical exoskeleton</li>
+            <li>Complete the force-vs-pressure trend analysis from the 96-trial hip-abduction and knee-extension datasets</li>
+            <li>Begin closed-loop pneumatic control using a string-driven potentiometer for cylinder position feedback</li>
+            <li>Move into human trials this fall, combining the IMU array with an OptiTrack motion-capture system for worn data acquisition</li>
+            <li>Advance to worn testing with the gait-detection algorithm driving real-time actuation - the closed-loop fall-prevention behavior the whole platform is built toward</li>
           </ul>
         </div>
       </div>
@@ -278,7 +228,7 @@
 
     <div class="project-nav">
       <a href="berta-medical.html">← Previous<span class="project-nav-title">Berta Medical</span></a>
-      <a href="digital-scale.html" class="next">Next Project →<span class="project-nav-title">Custom Digital Scale</span></a>
+      <a href="imu-sensing-system.html" class="next">Next Project →<span class="project-nav-title">IMU Sensing System</span></a>
     </div>
 
     <footer><div class="footer-text">© 2026 Chase Quijano</div><div class="footer-text">Rowan University · Engineering Entrepreneurship</div></footer>

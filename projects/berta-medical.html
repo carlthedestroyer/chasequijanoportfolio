@@ -8,6 +8,12 @@
   <link rel="stylesheet" href="../styles.css">
   <!-- PRIVATE PREVIEW AUTH - remove this line for public launch -->
   <script src="/auth.js"></script>
+  <style>
+    .media-placeholder { border: 1.5px dashed var(--border-hover); border-radius: 8px; background: var(--bg-elevated); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.55rem; padding: 2.25rem 1.25rem; min-height: 200px; text-align: center; }
+    .media-placeholder svg { width: 28px; height: 28px; opacity: 0.3; color: var(--text-muted); }
+    .mp-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); opacity: 0.85; }
+    .mp-desc { font-size: 0.76rem; color: var(--text-muted); max-width: 260px; line-height: 1.5; }
+  </style>
 </head>
 <body>
   <div class="grid-bg"></div>
@@ -186,6 +192,10 @@
             <img src="Berta%20Medical/images/bertamedical-fig2-wearable-schematic.png" alt="Figure 2b: Final wearable PCB schematic - ESP32-C6, AD8232, MAX1704x fuel gauge, daughterboard test points" style="width:100%; height:auto; object-fit:contain; display:block; background:#0A0A0C; border-radius: 8px; border: 1px solid var(--border);" />
             <figcaption>Fig. 2b - Final wearable PCB schematic</figcaption>
           </figure>
+          <figure>
+            <img src="Berta%20Medical/quality%20images/ECG%20MainBoard%20V1%20%E2%80%94%20Schematic%20Editor%209_29_2024%204_11_28%20PM.png" alt="Raw KiCad Schematic Editor screenshot of ECG MainBoard V1 - ESP32-C6-DevKitC-1, AD8232, TP4056, RGB status LED, daughterboard test points" style="width:100%; height:auto; object-fit:contain; display:block; background:#fdf6e3; border-radius: 8px; border: 1px solid var(--border);" />
+            <figcaption>Raw KiCad Schematic Editor capture, ECG MainBoard V1</figcaption>
+          </figure>
         </div>
       </div>
       <div class="ps-content" style="margin-top: 3rem;">
@@ -218,31 +228,20 @@
     <div class="project-section">
       <div class="ps-label">3D Model</div>
       <h2 class="ps-title">Interactive PCB Models</h2>
-      <!-- TODO: swap placeholder src="3dmodels/ufo.glb" for real Dev Kit / Wearable PCB exports -->
       <div class="model-pair" style="gap: 2.5rem;">
         <figure>
-          <div style="border: 1px solid var(--border); border-radius: 8px; overflow: hidden;">
-            <model-viewer
-              src="3dmodels/ufo.glb"
-              alt="Berta Medical Dev Kit PCB 3D Model"
-              camera-controls
-              auto-rotate
-              shadow-intensity="1.5"
-              style="width: 100%; height: 480px; background-color: #111114;"
-            ></model-viewer>
+          <div class="media-placeholder" style="height: 480px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M7 7l10 10M17 7L7 17"/></svg>
+            <div class="mp-label">Placeholder · 3D Model</div>
+            <div class="mp-desc">Interactive GLB export of the Dev Kit PCB</div>
           </div>
           <figcaption>Dev Kit PCB</figcaption>
         </figure>
         <figure>
-          <div style="border: 1px solid var(--border); border-radius: 8px; overflow: hidden;">
-            <model-viewer
-              src="3dmodels/ufo.glb"
-              alt="Berta Medical Final Wearable PCB 3D Model"
-              camera-controls
-              auto-rotate
-              shadow-intensity="1.5"
-              style="width: 100%; height: 480px; background-color: #111114;"
-            ></model-viewer>
+          <div class="media-placeholder" style="height: 480px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M7 7l10 10M17 7L7 17"/></svg>
+            <div class="mp-label">Placeholder · 3D Model</div>
+            <div class="mp-desc">Interactive GLB export of the final wearable PCB</div>
           </div>
           <figcaption>Final Wearable PCB</figcaption>
         </figure>
@@ -332,6 +331,10 @@
             <img src="Berta%20Medical/images/bertamedical-fig7-final-wearable-assembled.jpg" alt="Figure 7b: final ECG wearable fully assembled with electrode leads" style="width:100%; height:320px; object-fit:cover;" />
             <figcaption>Fig. 7b - Final ECG wearable, fully assembled</figcaption>
           </figure>
+          <figure style="grid-column: 1 / -1;">
+            <img src="Berta%20Medical/quality%20images/graph(1).png" alt="Live serial-plotter capture of the AD8232 output over a live COM port connection, showing repeated QRS peaks" style="width:100%; height:320px; object-fit:cover; background:#000;" />
+            <figcaption>Live serial-plotter capture, AD8232 output over a live COM port connection</figcaption>
+          </figure>
         </div>
       </div>
     </div>
@@ -388,9 +391,9 @@
 
     <!-- NAV -->
     <div class="project-nav">
-      <a href="../projects/">
+      <a href="subaru-internship.html">
         ← Previous
-        <span class="project-nav-title">All Projects</span>
+        <span class="project-nav-title">Subaru Technical Training Internship</span>
       </a>
       <a href="exoskeleton.html" class="next">
         Next Project →
