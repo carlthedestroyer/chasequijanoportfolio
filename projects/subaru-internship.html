@@ -1,22 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Subaru Technical Training Internship - Chase Quijano</title>
   <link rel="stylesheet" href="../styles.css">
   <!-- PRIVATE PREVIEW AUTH - remove this line for public launch -->
   <script src="/auth.js"></script>
-  <style>
-    .media-placeholder { border: 1.5px dashed var(--border-hover); border-radius: 8px; background: var(--bg-elevated); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.55rem; padding: 2.25rem 1.25rem; min-height: 200px; text-align: center; }
-    .media-placeholder svg { width: 28px; height: 28px; opacity: 0.3; color: var(--text-muted); }
-    .mp-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); opacity: 0.85; }
-    .mp-desc { font-size: 0.76rem; color: var(--text-muted); max-width: 260px; line-height: 1.5; }
-  </style>
 </head>
 <body>
-  <div class="grid-bg"></div>
   <div class="content">
 
     <nav id="nav">
@@ -24,376 +16,60 @@
       <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
       <div class="nav-links">
         <a href="../projects/" class="active">Projects</a>
-        <a href="../#skills">Skills</a>
         <a href="../#about">About</a>
         <a href="../#contact">Contact</a>
-        <a href="../resume.html" class="nav-resume">Resume</a>
+        <a href="../resume.html" class="nav-resume">Resume (PDF)</a>
       </div>
     </nav>
 
-    <!-- HERO -->
-    <div class="project-hero">
-      <a href="../projects/" class="project-back">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12,19 5,12 12,5"/></svg>
-        All Projects
-      </a>
+    <!-- HEADER (rendered from content/projects/subaru-internship.md) -->
+    <div class="pd-header" id="pd-header"></div>
 
-      <div class="project-hero-number">000 · Product Design & Manufacturing</div>
-      <h1 class="project-hero-title">Subaru Technical Training Internship</h1>
-      <div class="project-hero-subtitle">Product Design &amp; Fabrication Intern · Subaru of America, Technical Training · Year-Long</div>
+    <!-- TOP SPLIT: Executive Summary + Hardware Specs card -->
+    <div class="pd-split" id="pd-split"></div>
 
-      <p class="project-hero-desc">A year-long internship inside Subaru's Technical Training group, designing and building the physical hardware and shop infrastructure that the department runs on. The work spanned a networked wireless test-bench system, an autonomous demo vehicle, event fabrication for a company-wide outing, and a full overhaul of the shop's laser-cutting and component-storage workflow, touching CAD, embedded firmware, electronics, and rapid prototyping in roughly equal measure.</p>
+    <!-- VISUAL GALLERY -->
+    <div class="gallery-grid" id="pd-gallery"></div>
 
-      <div class="project-hero-tags">
-        <span class="tag">SolidWorks / Fusion 360</span>
-        <span class="tag">ESP32 / ESP8266</span>
-        <span class="tag">Arduino</span>
-        <span class="tag">FDM 3D Printing</span>
-        <span class="tag">Laser Cutting</span>
-        <span class="tag">Embedded Systems</span>
-        <span class="tag">ESP-NOW Mesh</span>
-        <span class="tag">DFM</span>
-      </div>
+    <!-- ENGINEERING CHALLENGES & ITERATIONS -->
+    <div class="pd-section" id="pd-challenges"></div>
 
-      <div class="project-hero-metrics">
-        <div><div class="phm-value">14</div><div class="phm-label">Networked Bug Box Nodes</div></div>
-        <div><div class="phm-value">10+</div><div class="phm-label">Hardware Projects Shipped</div></div>
-        <div><div class="phm-value">1 Yr</div><div class="phm-label">Internship Duration</div></div>
-        <div><div class="phm-value">3</div><div class="phm-label">Microcontroller Platforms</div></div>
-      </div>
-    </div>
+    <!-- QUANTITATIVE RESULTS CALLOUT -->
+    <div class="pd-section" id="pd-results"></div>
 
-    <!-- ROLE OVERVIEW -->
-    <div class="project-section">
-      <div class="ps-label">Overview</div>
-      <h2 class="ps-title">A Year Inside a Technical Training Shop</h2>
-      <div class="ps-content ps-full">
-        <div class="ps-text">
-          <p>Subaru's Technical Training group builds the hardware, fixtures, and demo equipment that technicians train on nationwide. As the product design intern, I owned projects end-to-end, from a napkin sketch or a vague ask through CAD, electronics, firmware, fabrication, and delivery, across a very wide range of problem types. Some projects were purely mechanical fixtures, some were embedded systems with wireless networking, and some were shop infrastructure meant to make everyone else's work faster.</p>
-          <p>That breadth is the throughline of the year: I wasn't specializing in one subsystem. I was the person who could take a request in any domain (electrical, mechanical, or software) and turn it into a working, shippable piece of hardware. The sections below walk through the major bodies of work, roughly in the order they built on each other.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- BUG BOX NETWORK -->
-    <div class="project-section">
-      <div class="ps-label">Flagship Project</div>
-      <h2 class="ps-title">Bug Box Network: From Bench Prototype to 14-Node System</h2>
-      <div class="ps-content">
-        <div class="ps-text">
-          <p>The centerpiece of the internship was the "Bug Box," a remotely controlled node that toggles electrical components inside training vehicles on and off, letting instructors intentionally introduce faults ("bugs") for technicians to diagnose during competitions and hands-on training. It started as a single test bench built to validate the core electronics before committing to a fleet.</p>
-          <h4>Test Bench (Proof of Concept)</h4>
-          <ul>
-            <li>ESP8266 microcontroller driving a switching MOSFET to interrupt vehicle circuits on command</li>
-            <li>Current and temperature sensing for closed-loop safety monitoring</li>
-            <li>TP4056 LiPo charge management with an 18650 pack, plus selective diode switching between two power sources</li>
-            <li>Interactive pushbutton for on-bench manual triggering during bring-up</li>
-          </ul>
-          <p>Once the bench validated the switching and power architecture, I scaled it into a proper multi-node network: 14 independent, individually addressable boxes that instructors can arm and fire remotely across a training bay.</p>
-          <h4>Production Node (×14)</h4>
-          <ul>
-            <li>Xiao ESP32-S3 per node for wireless control, replacing the ESP8266 bench design</li>
-            <li>Dual 18650 cells (6000 mAh) per node with passive cooling and a high-voltage-rated switching transistor</li>
-            <li>3D-printed enclosure designed for four-point fastening so any node can be opened and serviced in the field without special tools</li>
-          </ul>
-        </div>
-        <div class="ps-visual figure-grid" style="padding: 0; background: transparent;">
-          <figure>
-            <img src="SubaruInternship/images/bugbox-testbench.jpg" alt="Bug Box test bench: ESP8266, MOSFET, current and temperature sensors, and battery charging circuit on a plywood board" style="width:100%; height:260px; object-fit:cover;" />
-            <figcaption>Bug Box test bench: proof-of-concept electronics</figcaption>
-          </figure>
-          <figure>
-            <img src="SubaruInternship/images/bugbox-node-assembly-bench.jpg" alt="Bench full of Bug Box node enclosures mid-assembly with battery packs and wiring" style="width:100%; height:260px; object-fit:cover;" />
-            <figcaption>Node assembly: batteries, wiring, enclosures</figcaption>
-          </figure>
-          <figure>
-            <img src="SubaruInternship/images/bugbox-nodes-labeled.jpg" alt="Fourteen labeled Bug Box nodes (Node 1 through Node 14) laid out and wired to a power strip" style="width:100%; height:260px; object-fit:cover;" />
-            <figcaption>The completed 14-node fleet, labeled and wired</figcaption>
-          </figure>
-        </div>
-      </div>
-
-      <div class="ps-content" style="margin-top: 2rem;">
-        <div class="ps-text">
-          <h4>Assembly &amp; Bill of Materials</h4>
-          <p>Each node is a fully hand-built electromechanical assembly, documented in a step-by-step build guide so any teammate could reliably reproduce it. The battery pack, switching stage, and controller are built up from a 23-line BOM and assembled in roughly twenty sequenced steps:</p>
-          <ul>
-            <li><strong>Power:</strong> two 18650 cells spot-welded into a pack with polarity-coded nickel-strip leads, wrapped in Kapton tape for electrical insulation</li>
-            <li><strong>Switching:</strong> a logic-level MOSFET wired gate/drain/source, gated through a 220&Omega; resistor off a Xiao ESP32-S3 Plus GPIO pin, with a heat sink epoxied and mechanically fastened for thermal margin</li>
-            <li><strong>Controller mounting:</strong> the ESP32-S3 board is epoxied flush into a recessed pocket with the battery leads dressed underneath it, and the antenna press-fit afterward</li>
-            <li><strong>Serviceability:</strong> four M3 heat-set inserts pressed in with a soldering iron so the top plate can be removed and re-fastened without stripping plastic threads</li>
-            <li><strong>Strain relief &amp; safety:</strong> a rubber grommet for the switched leads leaving the enclosure, heat-shrunk brass spade connectors on the battery leads, and a power-on smoke test (checking for the ESP32's status LED) before final assembly</li>
-          </ul>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">Tools: spot welder, soldering iron, wire strippers, side cutters, calipers.</p>
-        </div>
-      </div>
-
-      <div class="ps-content" style="margin-top: 2rem;">
-        <div class="ps-text">
-          <h4>Enclosure Design</h4>
-          <p>The final enclosure was designed in CAD to carry the Subaru Technical Training branding, with a debug port and charging port broken out on the same face as the power switch so a node never has to be opened just to charge or reflash it. The model below is the production enclosure. Drag to rotate.</p>
-        </div>
-        <div class="media-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M7 7l10 10M17 7L7 17"/></svg>
-          <div class="mp-label">Placeholder · 3D Model</div>
-          <div class="mp-desc">Interactive GLB export of the production Bug Box enclosure - charging port, debug port, and power switch</div>
-        </div>
-      </div>
-
-      <div class="ps-content ps-full" style="margin-top: 2rem;">
-        <div class="ps-text">
-          <img src="SubaruInternship/images/bugbox-node-cad-render.jpg" alt="CAD render of the finished Bug Box enclosure with Subaru Technical Training branding, charging and debug ports, and a power switch" style="width:100%; max-width:420px; display:block; margin: 0 auto; border: 1px solid var(--border); border-radius: 8px;" />
-          <p style="text-align:center; margin-top: 0.75rem; font-size: 0.85rem; color: var(--text-muted);">Production enclosure render: charging port, debug port, and power switch on one face</p>
-        </div>
-      </div>
-
-      <div class="ps-content ps-full" style="margin-top: 2rem;">
-        <div class="ps-text">
-          <h4>Live Control Interface</h4>
-          <p>Each node hosts its own lightweight web server, and the most recent firmware turns one node into an access point running an ESP-NOW mesh dashboard: instructors connect to it directly from a phone or laptop to arm and fire any node in range, no app required. The panel below is a running copy of that dashboard's front end, driven with simulated node data since there's no physical mesh connected to this page. The toggles, uptime counters, and buttons are fully live. Try switching a node's MOSFET power, running <em>Discover</em>, or hitting <em>All Off</em>.</p>
-        </div>
-        <div class="ps-visual" style="padding: 2rem; background: transparent; display: flex; justify-content: center;">
-          <div style="width: 100%; max-width: 480px; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.35);">
-            <div style="display:flex; align-items:center; gap:6px; padding: 0.6rem 0.9rem; background: var(--bg-elevated); border-bottom: 1px solid var(--border);">
-              <span style="width:9px;height:9px;border-radius:50%;background:#ef4444;display:inline-block;"></span>
-              <span style="width:9px;height:9px;border-radius:50%;background:#f59e0b;display:inline-block;"></span>
-              <span style="width:9px;height:9px;border-radius:50%;background:#10b981;display:inline-block;"></span>
-              <span style="flex:1; text-align:center; font-family: var(--mono, monospace); font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.03em;">control.local</span>
-            </div>
-            <iframe src="SubaruInternship/bugbox-dashboard.html" title="Bug Box node control dashboard, live simulated demo" style="width: 100%; height: 1060px; border: 0; display: block; background: #0a0e17;" loading="lazy"></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- AUTONOMOUS CAR -->
-    <div class="project-section">
-      <div class="ps-label">Embedded Systems</div>
-      <h2 class="ps-title">Autonomous Demo Vehicle for a Golf-Themed Event</h2>
-      <div class="ps-content">
-        <div class="ps-text">
-          <p>For a company-wide golf-themed event, I built an autonomous vehicle around a modified RC K-Truck chassis to serve as a demo piece. An Arduino Uno reads three Time-of-Flight (ToF) sensors (front, left, and right) to sense obstacle distance and also to derive tire rotation and speed, while a DRV8322 motor driver handles propulsion.</p>
-          <p>Each ToF sensor works by timing a photon's round trip to a target and back, giving real, effective 3D distance data rather than an inferred estimate. The diagram below is the working principle I used to size sensor placement and update rate for the chassis.</p>
-          <p>The truck bed was fitted with a custom 3D-printed cargo container carrying the Subaru Technical Training logo, turning a bare RC chassis into a branded piece for the event.</p>
-        </div>
-        <div class="ps-visual" style="padding: 1.5rem; background: #fff;">
-          <img src="SubaruInternship/images/tof-sensor-diagram.jpg" alt="Time-of-Flight sensor diagram showing an emitted photon reflecting off a target back to the sensor to derive distance" style="width:100%; height:auto; object-fit:contain; display:block;" />
-        </div>
-      </div>
-      <div class="ps-content figure-grid ps-full" style="margin-top: 2rem; padding: 0; background: transparent; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem;">
-        <figure>
-          <img src="SubaruInternship/images/autonomous-car-prototype.jpg" alt="Early autonomous car prototype: bare RC chassis with ultrasonic and ESP-based control board exposed" style="width:100%; height:220px; object-fit:cover; border: 1px solid var(--border); border-radius: 8px;" />
-          <figcaption style="text-align:center; margin-top:0.6rem; font-size:0.85rem; color:var(--text-muted);">Early chassis bring-up and sensor placement</figcaption>
-        </figure>
-        <figure>
-          <img src="SubaruInternship/images/autonomous-car-truck-front.jpg" alt="Finished autonomous demo vehicle: teal K-Truck model with a 3D-printed Subaru Technical Training cargo container" style="width:100%; height:220px; object-fit:cover; border: 1px solid var(--border); border-radius: 8px;" />
-          <figcaption style="text-align:center; margin-top:0.6rem; font-size:0.85rem; color:var(--text-muted);">Finished vehicle with branded cargo container</figcaption>
-        </figure>
-        <figure>
-          <img src="SubaruInternship/images/autonomous-car-truck-electronics.jpg" alt="Rear view of the truck bed showing the Arduino Uno, motor driver shield, and wiring for the ToF sensors and drivetrain" style="width:100%; height:220px; object-fit:cover; border: 1px solid var(--border); border-radius: 8px;" />
-          <figcaption style="text-align:center; margin-top:0.6rem; font-size:0.85rem; color:var(--text-muted);">Arduino Uno, DRV8322 driver, and ToF wiring in the bed</figcaption>
-        </figure>
-      </div>
-    </div>
-
-    <!-- GOLF EVENT FABRICATION -->
-    <div class="project-section">
-      <div class="ps-label">Event Fabrication</div>
-      <h2 class="ps-title">Golf Event Hardware: Ramps, Caddy, and Signage</h2>
-      <div class="ps-content ps-full">
-        <div class="ps-text">
-          <p>Alongside the demo vehicle, the same golf-themed event needed a set of physical props designed and printed from scratch: modular putting ramps, a golf caddy accessory, and reusable event signage. Each was designed as a small manufacturing exercise in its own right: modularity, tolerancing, and multi-material printing all came up in service of props that only needed to survive a single event.</p>
-        </div>
-      </div>
-
-      <div class="ps-content" style="margin-top: 1rem;">
-        <div class="ps-text">
-          <h4>Modular Golf Ramps</h4>
-          <p>3D printed with modularity as the primary design driver: embedded magnets let sections interlock into longer or branching runs, and internal weights keep each section fixed in place during play. A V-shaped ramp profile creates more than one viable route for the ball, adding a small amount of randomness to an otherwise deterministic prop.</p>
-        </div>
-        <div class="ps-visual figure-grid" style="padding: 0; background: transparent;">
-          <figure>
-            <img src="SubaruInternship/images/golf-ramp-motor.jpg" alt="Orange 3D-printed golf ramp resting against a motor stator on a workbench" style="width:100%; height:240px; object-fit:cover;" />
-            <figcaption>V-profile ramp section, magnet-interlocking ends</figcaption>
-          </figure>
-          <figure>
-            <img src="SubaruInternship/images/golf-ramp-engine.jpg" alt="Gray 3D-printed golf ramp positioned against a disassembled engine block" style="width:100%; height:240px; object-fit:cover;" />
-            <figcaption>Second ramp variant, weighted for stability</figcaption>
-          </figure>
-        </div>
-      </div>
-
-      <div class="ps-content" style="margin-top: 2rem;">
-        <div class="ps-text">
-          <h4>Golf Caddy</h4>
-          <p>A pole-mounted accessory combining a pencil holder for scorecards, a card slot for easy reach, and a golf ball hopper with a protruding tab that makes it easy to retrieve balls sitting low in the hopper. Printed multi-color on a Bambu Lab AMS so the Subaru Technical Training logo came out of the printer pre-finished, with no post-print painting.</p>
-        </div>
-        <div class="ps-visual figure-grid" style="padding: 0; background: transparent;">
-          <figure>
-            <img src="SubaruInternship/images/golf-caddy-cad.jpg" alt="Fusion 360 CAD model of the golf caddy showing pencil, card, and golf ball hopper sections" style="width:100%; height:240px; object-fit:cover; background:#fff;" />
-            <figcaption>CAD model: pencil, card, and ball sections</figcaption>
-          </figure>
-          <figure>
-            <img src="SubaruInternship/images/golf-caddy-print.jpg" alt="Finished multi-color 3D-printed golf caddy with the Subaru Technical Training logo" style="width:100%; height:240px; object-fit:cover;" />
-            <figcaption>Finished print, multi-color AMS logo</figcaption>
-          </figure>
-        </div>
-        <div class="media-placeholder" style="margin-top: 1.5rem;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M7 7l10 10M17 7L7 17"/></svg>
-          <div class="mp-label">Placeholder · 3D Model</div>
-          <div class="mp-desc">Interactive GLB export of the golf caddy CAD model</div>
-        </div>
-      </div>
-
-      <div class="ps-content" style="margin-top: 2rem;">
-        <div class="ps-text">
-          <h4>Reusable Event Signage</h4>
-          <p>A pole-mounted sign with a clamshell design: several layers of laser-cut and 3D-printed components sandwich a removable, custom laser-cut whiteboard insert. Because the whiteboard pops out independently of the frame, the same sign hardware gets reused across different events just by swapping and rewriting the insert.</p>
-        </div>
-        <div class="ps-visual figure-grid" style="padding: 0; background: transparent;">
-          <figure>
-            <img src="SubaruInternship/images/event-sign-photo.jpg" alt="Finished pole-mounted event sign with a blue frame, Subaru logo, and blank whiteboard insert" style="width:100%; height:240px; object-fit:cover;" />
-            <figcaption>Finished sign, pole-mounted</figcaption>
-          </figure>
-          <figure>
-            <img src="SubaruInternship/images/event-sign-cad-exploded2.jpg" alt="Exploded CAD assembly of the event sign showing the clamshell layers, whiteboard insert, and pole mount" style="width:100%; height:240px; object-fit:contain; background:#fff;" />
-            <figcaption>Exploded assembly: clamshell layers and pole mount</figcaption>
-          </figure>
-        </div>
-        <div class="media-placeholder" style="margin-top: 1.5rem;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M7 7l10 10M17 7L7 17"/></svg>
-          <div class="mp-label">Placeholder · 3D Model</div>
-          <div class="mp-desc">Interactive GLB export of the event sign's clamshell assembly</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SHOP INFRASTRUCTURE -->
-    <div class="project-section">
-      <div class="ps-label">Shop Infrastructure</div>
-      <h2 class="ps-title">Xtool Laser Cutter Overhaul &amp; Organization Systems</h2>
-      <div class="ps-content">
-        <div class="ps-text">
-          <p>Outside of individual builds, I also invested time improving the shop itself. The Xtool laser cutter's stock setup required swapping hardware to switch between conveyor-belt cutting and regular flat-bed cutting, which discouraged people from using the conveyor mode at all. I modified the machine to support both without any equipment changes, and designed a compact ventilation system, simulated in SolidWorks Flow Simulation before I cut anything, that requires no additional setup between jobs.</p>
-          <p>A companion material-organization system keeps sheet stock sorted by type and grouped for quick access during cutting, cutting down on the time spent hunting for the right material mid-project.</p>
-        </div>
-        <div class="ps-visual" style="padding: 0.5rem; background: #fff;">
-          <img src="SubaruInternship/images/xtool-ventilation-cfd-animated.gif" alt="Animated SolidWorks Flow Simulation of the Xtool ventilation system, rotating to show airflow trajectories colored by pressure" style="width:100%; height:auto; object-fit:contain; display:block;" />
-        </div>
-      </div>
-      <div class="ps-content figure-grid ps-full" style="margin-top: 2rem; padding: 0; background: transparent; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-        <figure>
-          <img src="SubaruInternship/images/xtool-duct-fitting-installed.jpg" alt="Custom-fit gray 3D-printed duct adapter installed on the Xtool laser cutter's rear exhaust, connected to PVC ducting" style="width:100%; height:280px; object-fit:cover; border: 1px solid var(--border); border-radius: 8px;" />
-          <figcaption style="text-align:center; margin-top:0.6rem; font-size:0.85rem; color:var(--text-muted);">Ventilation ducting installed on the machine</figcaption>
-        </figure>
-        <figure>
-          <img src="SubaruInternship/images/xtool-duct-fitting-closeup.jpg" alt="Close-up of the 3D-printed duct adapter fitting, showing the transition from the machine's square exhaust port to round PVC pipe" style="width:100%; height:280px; object-fit:cover; border: 1px solid var(--border); border-radius: 8px;" />
-          <figcaption style="text-align:center; margin-top:0.6rem; font-size:0.85rem; color:var(--text-muted);">Printed adapter, square port to round duct</figcaption>
-        </figure>
-        <figure>
-          <img src="SubaruInternship/images/xtool-material-organizer-filled.jpg" alt="Vertical slot organizer loaded with sheet stock of different materials for the laser cutter" style="width:100%; height:280px; object-fit:cover; border: 1px solid var(--border); border-radius: 8px;" />
-          <figcaption style="text-align:center; margin-top:0.6rem; font-size:0.85rem; color:var(--text-muted);">Material organizer, loaded with sheet stock</figcaption>
-        </figure>
-        <figure>
-          <img src="SubaruInternship/images/xtool-material-organizer-cart.jpg" alt="Rolling cart with the empty vertical slot organizer built underneath the work surface" style="width:100%; height:280px; object-fit:cover; border: 1px solid var(--border); border-radius: 8px;" />
-          <figcaption style="text-align:center; margin-top:0.6rem; font-size:0.85rem; color:var(--text-muted);">Rolling cart, organizer built into the base</figcaption>
-        </figure>
-      </div>
-
-      <div class="ps-content" style="margin-top: 2rem;">
-        <div class="ps-text">
-          <h4>Component Organizational System</h4>
-          <p>For small electronics, I designed a parametric, 3D-printed bin system to centralize the shop's loose components (resistors, sensors, dev boards, connectors) that had previously been scattered across drawers. Two sliding layers of bins expose different sections without needing to pull the whole tray, and each bin has a labeling section printed directly into the part so labels stay put.</p>
-        </div>
-        <div class="ps-visual" style="padding: 0; overflow: hidden;">
-          <figure style="width: 100%;">
-            <img src="SubaruInternship/images/component-organizer-drawer.jpg" alt="Fully organized component drawer with color-coded parametric bins holding sensors, resistors, dev boards, and connectors, each labeled" style="width:100%; height:100%; object-fit:cover; display:block; border: none;" />
-            <figcaption style="padding: 0.75rem 1rem;">Centralized, labeled component storage for the whole shop</figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
-
-    <!-- LARGE FORMAT & TRAINING AIDS -->
-    <div class="project-section">
-      <div class="ps-label">Large-Format Printing &amp; Training Aids</div>
-      <h2 class="ps-title">A Full-Scale UFO Prop and 3D-Printed Engine Trainers</h2>
-      <div class="ps-content">
-        <div class="ps-text">
-          <p>One build started as a large-scale UFO prop, originally designed to be 3D printed in multiple riveted sections with an RGB strip revolving around the rim for visual effect. Once the sectioned version proved more expensive to print than it needed to be, I redesigned it as a single component at a smaller scale, cutting print cost without losing the shape or the lighting effect. The model below is the finalized single-piece design. Drag to rotate.</p>
-        </div>
-        <!-- Real CAD export for this project -->
-        <div class="ps-visual" style="padding: 0; overflow: hidden;">
-          <model-viewer
-            src="3dmodels/ufo.glb"
-            alt="Large-scale UFO prop 3D model, single-piece redesign"
-            camera-controls
-            auto-rotate
-            shadow-intensity="1.5"
-            style="width: 100%; height: 420px; background-color: #111114;"
-          ></model-viewer>
-        </div>
-      </div>
-      <div class="ps-content figure-grid ps-full" style="margin-top: 2rem; padding: 0; background: transparent;">
-        <figure>
-          <img src="SubaruInternship/images/ufo-sections-print.jpg" alt="Early multi-section 3D printed UFO dome pieces meant to be riveted together" style="width:100%; height:260px; object-fit:cover; border: 1px solid var(--border); border-radius: 8px;" />
-          <figcaption style="text-align:center; margin-top:0.6rem; font-size:0.85rem; color:var(--text-muted);">Original multi-section concept, riveted assembly</figcaption>
-        </figure>
-        <figure>
-          <img src="SubaruInternship/images/ufo-final-print.jpg" alt="Final single-piece large-scale 3D printed UFO dome, smaller scale to reduce print cost" style="width:100%; height:260px; object-fit:cover; border: 1px solid var(--border); border-radius: 8px;" />
-          <figcaption style="text-align:center; margin-top:0.6rem; font-size:0.85rem; color:var(--text-muted);">Final single-piece redesign</figcaption>
-        </figure>
-      </div>
-
-      <div class="ps-content ps-full" style="margin-top: 2rem;">
-        <div class="ps-text">
-          <h4>3D-Printed TH2B Engine Trainers</h4>
-          <p>To support demonstrations at remote training centers, I produced a batch of 3D-printed TH2B engine models as tactile teaching aids. Beyond just printing the parts, this meant dremeling out clearance pockets on nearly every unit to hit the tolerances needed for the assembly and disassembly instructors rely on during a live demo, a reminder that a "3D printed part" is rarely finished the moment it comes off the plate.</p>
-        </div>
-        <div class="ps-visual" style="padding: 0; overflow: hidden;">
-          <figure style="width: 100%;">
-            <img src="SubaruInternship/images/th2b-training-parts-room.jpg" alt="A training room lined with dozens of 3D-printed TH2B engine trainer components ready for shipping to training centers" style="width:100%; height:100%; object-fit:cover; display:block; border: none;" />
-            <figcaption style="padding: 0.75rem 1rem;">A batch of TH2B trainers staged for shipping to training centers</figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
-
-    <!-- REFLECTION -->
-    <div class="project-section">
-      <div class="ps-label">Reflection</div>
-      <h2 class="ps-title">What a Year of Breadth Taught Me</h2>
-      <div class="ps-content ps-full">
-        <div class="ps-text">
-          <p>The unifying skill this internship built wasn't any single tool. It was moving fluidly between electrical, mechanical, and firmware work on the same project, often in the same week. Scaling the Bug Box from one bench prototype to fourteen networked, field-serviceable units taught me how much design work happens after something "works" once: power budgeting across a fleet, enclosure serviceability, and designing for a technician who isn't the person who built it.</p>
-          <p>The shop-infrastructure work was a different kind of lesson: some of the highest-leverage projects aren't the flashiest ones. A ventilation duct and a labeled parts drawer don't demo well, but they removed friction from every other project the team touched for the rest of the year.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- NAV -->
-    <div class="project-nav">
-      <a href="../projects/">
-        ← Previous
-        <span class="project-nav-title">All Projects</span>
-      </a>
-      <a href="berta-medical.html" class="next">
-        Next Project →
-        <span class="project-nav-title">Berta Medical</span>
-      </a>
-    </div>
+    <!-- FOOTER NAV -->
+    <div class="project-nav" id="project-nav"></div>
 
     <footer>
-      <div class="footer-text">© 2026 Chase Quijano</div>
-      <div class="footer-text">Rowan University · Engineering Entrepreneurship</div>
+      <div class="footer-top">
+        <div class="footer-name">Chase Quijano</div>
+        <div class="footer-links">
+          <a href="mailto:chase@example.com">Email</a>
+          <a href="http://www.linkedin.com/in/chase-quijano-8a4b031ab" target="_blank">LinkedIn</a>
+          <a href="#" target="_blank">GitHub</a>
+          <a href="../resume.html">Resume (PDF)</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-text">© 2026 Chase Quijano</div>
+        <div class="footer-text">Rowan University · Engineering Entrepreneurship</div>
+      </div>
     </footer>
   </div>
 
   <script>
-    const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.08 });
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 50));
     document.querySelectorAll('.nav-links a[href^="../#"]').forEach(a => a.addEventListener('click', () => document.querySelector('.nav-links')?.classList.remove('open')));
+  </script>
+
+  <!-- Content pipeline: renders this page from content/projects/subaru-internship.md -->
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
+  <script src="../assets/js/project-render.js"></script>
+  <script>
+    renderProject('subaru-internship').catch(function (err) {
+      console.error('Failed to render project content:', err);
+    });
   </script>
 </body>
 </html>

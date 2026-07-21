@@ -9,17 +9,15 @@
   <script src="/auth.js"></script>
 </head>
 <body>
-  <div class="grid-bg"></div>
   <div class="content">
     <nav id="nav">
       <a href="./" class="nav-name">Chase Quijano</a>
       <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
       <div class="nav-links">
         <a href="./projects/">Projects</a>
-        <a href="./#skills">Skills</a>
         <a href="./#about">About</a>
         <a href="./#contact">Contact</a>
-        <a href="./resume.html" class="nav-resume active">Resume</a>
+        <a href="./resume.html" class="nav-resume active">Resume (PDF)</a>
       </div>
     </nav>
 
@@ -27,7 +25,7 @@
       <div class="section-label">Resume</div>
       <h1 class="resume-hero-title">Chase Quijano</h1>
       <p class="resume-hero-desc">Engineering Entrepreneurship · Rowan University · Class of 2027</p>
-      <a href="#" class="resume-download">Download PDF</a>
+      <a href="Resume/Chase_Quijano_Resume_2026.pdf" class="btn btn-primary" download>Download PDF</a>
     </div>
 
     <!-- EDUCATION -->
@@ -195,7 +193,21 @@
       </div>
     </div>
 
-    <footer><div class="footer-text">© 2026 Chase Quijano</div><div class="footer-text">Rowan University · Engineering Entrepreneurship</div></footer>
+    <footer>
+      <div class="footer-top">
+        <div class="footer-name">Chase Quijano</div>
+        <div class="footer-links">
+          <a href="mailto:chase@example.com">Email</a>
+          <a href="http://www.linkedin.com/in/chase-quijano-8a4b031ab" target="_blank">LinkedIn</a>
+          <a href="#" target="_blank">GitHub</a>
+          <a href="./resume.html">Resume (PDF)</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-text">© 2026 Chase Quijano</div>
+        <div class="footer-text">Rowan University · Engineering Entrepreneurship</div>
+      </div>
+    </footer>
   </div>
   <script>window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 50));</script>
 </body>

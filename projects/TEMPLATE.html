@@ -1,250 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- ╔══════════════════════════════════════════════════════════════╗
+       ║  TEMPLATE — copy this file to create a new project page.     ║
+       ║                                                                ║
+       ║  1. Rename this file to projects/<your-slug>.html             ║
+       ║  2. Write content/projects/<your-slug>.md following the       ║
+       ║     schema documented in content/projects/README.md           ║
+       ║  3. Below, replace every "TODO" and every instance of the     ║
+       ║     placeholder slug "your-project-slug" with your real slug  ║
+       ║  4. Add a card for it in projects/index.html, and update      ║
+       ║     nav.prev / nav.next on its two neighbor projects          ║
+       ║                                                                ║
+       ║  This page has almost no content of its own — it's a thin     ║
+       ║  shell. The header, executive-summary/specs split, image      ║
+       ║  gallery, challenges section, results callout, and prev/next  ║
+       ║  nav are all rendered at runtime from your .md content file   ║
+       ║  by assets/js/project-render.js. Don't hand-write any of      ║
+       ║  that markup here — see projects/berta-medical.html for the   ║
+       ║  fully worked reference.                                      ║
+       ╚══════════════════════════════════════════════════════════════╝ -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- ╔══════════════════════════════════════════════╗
-       ║  TEMPLATE - DUPLICATE THIS FILE FOR EACH     ║
-       ║  NEW PROJECT. SEARCH FOR "TODO" TO FIND ALL   ║
-       ║  FIELDS YOU NEED TO FILL IN.                  ║
-       ╚══════════════════════════════════════════════╝ -->
-
-  <!-- TODO: Change title -->
-  <title>Project Name - Chase Quijano</title>
-
-    <link rel="stylesheet" href="../styles.css">
+  <title>TODO: Project Title - Chase Quijano</title>
+  <link rel="stylesheet" href="../styles.css">
+  <!-- PRIVATE PREVIEW AUTH - remove this line for public launch -->
+  <script src="/auth.js"></script>
 </head>
 <body>
-  <div class="grid-bg"></div>
   <div class="content">
 
-    <!-- NAV - no changes needed -->
     <nav id="nav">
       <a href="../" class="nav-name">Chase Quijano</a>
       <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
       <div class="nav-links">
         <a href="../projects/" class="active">Projects</a>
-        <a href="../#skills">Skills</a>
         <a href="../#about">About</a>
         <a href="../#contact">Contact</a>
-        <a href="../resume.html" class="nav-resume">Resume</a>
+        <a href="../resume.html" class="nav-resume">Resume (PDF)</a>
       </div>
     </nav>
 
+    <!-- HEADER (rendered from content/projects/your-project-slug.md) -->
+    <div class="pd-header" id="pd-header"></div>
 
-    <!-- ╔══════════════════════════════════════════════╗
-         ║  HERO SECTION - THE TOP OF THE PAGE          ║
-         ╚══════════════════════════════════════════════╝ -->
-    <div class="project-hero">
-      <a href="../projects/" class="project-back">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12,19 5,12 12,5"/></svg>
-        All Projects
-      </a>
+    <!-- TOP SPLIT: Executive Summary + Hardware Specs card -->
+    <div class="pd-split" id="pd-split"></div>
 
-      <!-- TODO: Change number and category label -->
-      <div class="project-hero-number">00X · Category</div>
+    <!-- VISUAL GALLERY -->
+    <div class="gallery-grid" id="pd-gallery"></div>
 
-      <!-- TODO: Change project title -->
-      <h1 class="project-hero-title">Project Name Here</h1>
+    <!-- ENGINEERING CHALLENGES & ITERATIONS -->
+    <div class="pd-section" id="pd-challenges"></div>
 
-      <!-- TODO: Change subtitle / context -->
-      <div class="project-hero-subtitle">Role · Course or Lab · Year</div>
+    <!-- QUANTITATIVE RESULTS CALLOUT -->
+    <div class="pd-section" id="pd-results"></div>
 
-      <!-- TODO: Write 2-3 sentence overview of the project -->
-      <p class="project-hero-desc">A brief overview of what this project is, why it exists, and what your role was. Keep it high-level - the sections below will provide detail. This is the first thing a recruiter reads, so lead with the most impressive aspect.</p>
-
-      <!-- TODO: Add your technology tags -->
-      <div class="project-hero-tags">
-        <span class="tag">Tool 1</span>
-        <span class="tag">Tool 2</span>
-        <span class="tag">Tool 3</span>
-        <span class="tag">Tool 4</span>
-        <!-- Add or remove tags as needed -->
-      </div>
-
-      <!-- TODO: Add 3-4 key metrics / highlights -->
-      <div class="project-hero-metrics">
-        <div>
-          <div class="phm-value">XX</div>
-          <div class="phm-label">Metric Label</div>
-        </div>
-        <div>
-          <div class="phm-value">XX</div>
-          <div class="phm-label">Metric Label</div>
-        </div>
-        <div>
-          <div class="phm-value">XX</div>
-          <div class="phm-label">Metric Label</div>
-        </div>
-        <!-- Optional 4th metric:
-        <div>
-          <div class="phm-value">XX</div>
-          <div class="phm-label">Metric Label</div>
-        </div>
-        -->
-      </div>
-    </div>
-
-
-    <!-- ╔══════════════════════════════════════════════╗
-         ║  SECTION 1 - PROBLEM / CONTEXT               ║
-         ║  What problem were you solving? Why?          ║
-         ╚══════════════════════════════════════════════╝ -->
-    <div class="project-section">
-      <div class="ps-label">Problem</div>
-
-      <!-- TODO: Change section title -->
-      <h2 class="ps-title">Why This Project Exists</h2>
-
-      <div class="ps-content">
-        <div class="ps-text">
-          <!-- TODO: Describe the problem / motivation -->
-          <p>Describe the problem or need that motivated this project. What gap were you filling? What existing solutions were inadequate?</p>
-          <p>Add a second paragraph if needed for more context. Recruiters want to see that you understand the "why" behind the work, not just the "what."</p>
-        </div>
-
-        <!-- VISUAL PANEL - choose one of these options: -->
-        <div class="ps-visual">
-
-          <!-- OPTION A: Simple SVG wireframe diagram -->
-          <!-- Tip: use var(--gold) as the stroke color, or pick a
-               unique color per project for variety:
-               --gold: #C9983A  --blue: #6B8EAE
-               --warm: #D07242  --green: #5AB882  -->
-          <svg viewBox="0 0 300 200" fill="none" style="width:85%;max-width:280px;">
-            <rect x="50" y="40" width="200" height="120" rx="8" stroke="#C9983A" stroke-width="1" opacity="0.4"/>
-            <text x="150" y="105" text-anchor="middle" font-family="monospace" font-size="8" fill="#C9983A" opacity="0.4">YOUR DIAGRAM HERE</text>
-          </svg>
-
-          <!-- OPTION B: Architecture flow diagram (uncomment to use)
-          <div class="architecture-flow">
-            <div class="arch-node">
-              <div class="arch-node-title">Input</div>
-              <div class="arch-node-sub">Description</div>
-            </div>
-            <div class="arch-arrow">→</div>
-            <div class="arch-node">
-              <div class="arch-node-title">Process</div>
-              <div class="arch-node-sub">Description</div>
-            </div>
-            <div class="arch-arrow">→</div>
-            <div class="arch-node">
-              <div class="arch-node-title">Output</div>
-              <div class="arch-node-sub">Description</div>
-            </div>
-          </div>
-          -->
-
-          <!-- OPTION C: Replace SVG with an image (uncomment to use)
-          <img src="your-image.jpg" alt="Description" style="width:100%; border-radius:4px;">
-          -->
-
-        </div>
-      </div>
-    </div>
-
-
-    <!-- ╔══════════════════════════════════════════════╗
-         ║  SECTION 2 - APPROACH / DESIGN               ║
-         ║  How did you solve it? Technical details.     ║
-         ╚══════════════════════════════════════════════╝ -->
-    <div class="project-section">
-      <div class="ps-label">Design</div>
-
-      <!-- TODO: Change section title -->
-      <h2 class="ps-title">Technical Approach</h2>
-
-      <div class="ps-content">
-        <div class="ps-text">
-          <!-- TODO: Describe your approach with sub-headings -->
-          <h4>Sub-Topic A</h4>
-          <p>Describe the first major aspect of your approach. Be specific - mention part numbers, materials, protocols, tools used.</p>
-
-          <h4>Sub-Topic B</h4>
-          <p>Describe the second major aspect. Use the bullet list below for specs or key decisions:</p>
-          <ul>
-            <li>Specific detail or design decision</li>
-            <li>Another technical spec or choice</li>
-            <li>A constraint you worked within</li>
-            <li>A tool or method you used</li>
-          </ul>
-
-          <!-- Optional additional sub-topics:
-          <h4>Sub-Topic C</h4>
-          <p>More details as needed.</p>
-          -->
-        </div>
-
-        <!-- TODO: Add a visual for this section (same options as above) -->
-        <div class="ps-visual">
-          <svg viewBox="0 0 300 200" fill="none" style="width:85%;max-width:280px;">
-            <rect x="50" y="40" width="200" height="120" rx="8" stroke="#C9983A" stroke-width="1" opacity="0.4"/>
-            <text x="150" y="105" text-anchor="middle" font-family="monospace" font-size="8" fill="#C9983A" opacity="0.4">YOUR DIAGRAM HERE</text>
-          </svg>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- ╔══════════════════════════════════════════════╗
-         ║  SECTION 3 - RESULTS / OUTCOME               ║
-         ║  What happened? What did you learn?           ║
-         ║                                               ║
-         ║  Uses "ps-full" class for full-width text     ║
-         ║  (no side visual). Remove "ps-full" and add   ║
-         ║  a ps-visual div if you want a 2-column       ║
-         ║  layout instead.                              ║
-         ╚══════════════════════════════════════════════╝ -->
-    <div class="project-section">
-      <div class="ps-label">Results</div>
-
-      <!-- TODO: Change section title -->
-      <h2 class="ps-title">Outcomes & Lessons Learned</h2>
-
-      <div class="ps-content ps-full">
-        <div class="ps-text">
-          <!-- TODO: Describe outcomes, results, what worked, what you'd change -->
-          <p>Describe the results. Did it work? What performance did you achieve? What did you demonstrate? Recruiters love concrete numbers - accuracy percentages, speed improvements, weight reductions, etc.</p>
-          <p>If applicable, describe what you'd do differently next time or what future work looks like. This shows maturity and self-awareness.</p>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- ╔══════════════════════════════════════════════╗
-         ║  EXTRA SECTIONS - copy any project-section    ║
-         ║  block above to add more sections. Common:    ║
-         ║  • Firmware / Software                        ║
-         ║  • Manufacturing / Fabrication                ║
-         ║  • Testing / Validation                       ║
-         ║  • Entrepreneurship / Business Context         ║
-         ╚══════════════════════════════════════════════╝ -->
-
-
-    <!-- ╔══════════════════════════════════════════════╗
-         ║  PROJECT NAVIGATION - links to prev/next      ║
-         ╚══════════════════════════════════════════════╝ -->
-    <div class="project-nav">
-      <!-- TODO: Update prev/next links and titles -->
-      <a href="PREVIOUS-PROJECT.html">
-        ← Previous
-        <span class="project-nav-title">Previous Project Name</span>
-      </a>
-      <a href="NEXT-PROJECT.html" class="next">
-        Next Project →
-        <span class="project-nav-title">Next Project Name</span>
-      </a>
-    </div>
+    <!-- FOOTER NAV -->
+    <div class="project-nav" id="project-nav"></div>
 
     <footer>
-      <div class="footer-text">© 2026 Chase Quijano</div>
-      <div class="footer-text">Rowan University · Engineering Entrepreneurship</div>
+      <div class="footer-top">
+        <div class="footer-name">Chase Quijano</div>
+        <div class="footer-links">
+          <a href="mailto:chase@example.com">Email</a>
+          <a href="http://www.linkedin.com/in/chase-quijano-8a4b031ab" target="_blank">LinkedIn</a>
+          <a href="#" target="_blank">GitHub</a>
+          <a href="../resume.html">Resume (PDF)</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-text">© 2026 Chase Quijano</div>
+        <div class="footer-text">Rowan University · Engineering Entrepreneurship</div>
+      </div>
     </footer>
   </div>
 
   <script>
     window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 50));
+    document.querySelectorAll('.nav-links a[href^="../#"]').forEach(a => a.addEventListener('click', () => document.querySelector('.nav-links')?.classList.remove('open')));
+  </script>
+
+  <!-- Content pipeline: renders this page from content/projects/your-project-slug.md -->
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
+  <script src="../assets/js/project-render.js"></script>
+  <script>
+    // TODO: replace 'your-project-slug' with your real slug (must match the .md filename)
+    renderProject('your-project-slug').catch(function (err) {
+      console.error('Failed to render project content:', err);
+    });
   </script>
 </body>
 </html>

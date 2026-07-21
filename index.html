@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chase Quijano - Engineering Portfolio</title>
+  <title>Chase Quijano - Mechatronics & Embedded Hardware Engineer</title>
   <meta name="description" content="Engineering Entrepreneurship student at Rowan University. PCB design, embedded systems, robotics, and medical devices." />
-    <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css">
   <!-- PRIVATE PREVIEW AUTH - remove this line for public launch -->
   <script src="/auth.js"></script>
 </head>
 <body>
-  <div class="grid-bg"></div>
   <div class="content">
 
     <nav id="nav">
@@ -18,10 +17,9 @@
       <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
       <div class="nav-links">
         <a href="./projects/">Projects</a>
-        <a href="#skills">Skills</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
-        <a href="./resume.html" class="nav-resume">Resume</a>
+        <a href="./resume.html" class="nav-resume">Resume (PDF)</a>
       </div>
     </nav>
 
@@ -30,154 +28,118 @@
       <div class="hero-content">
         <div class="hero-tag">Rowan University · Engineering Entrepreneurship · 2027</div>
         <div class="hero-name-block">
-          <div class="glitch-wrapper"><div class="glitch" data-text="Chase">Chase</div></div><br>
-          <div class="glitch-wrapper"><div class="glitch" data-text="Quijano.">Quijano.</div></div>
+          <div class="hero-name">Chase Quijano</div>
+          <div class="hero-role">Mechatronics &amp; Embedded Hardware Engineer</div>
         </div>
-        <p class="hero-subtitle">I design and build systems that merge mechanics, electronics, and software - from wearable medical devices to autonomous robots.</p>
-        <p class="hero-desc">Engineering Entrepreneurship student focused on custom PCBs, embedded firmware, CAD/CAM, and taking ideas from concept to functional prototype. Co-founder of Berta Medical.</p>
+        <p class="hero-desc">I design and build custom PCBs, embedded firmware, and mechanical systems for medical devices and robotics — from a three-revision wearable ECG platform to an RS-485 sensor array validated at 400&nbsp;Hz with zero packet loss. Co-founder of Berta Medical; contributor to ongoing soft-robotics and exoskeleton research at Rowan.</p>
         <div class="hero-links">
-          <a href="#projects" class="hero-btn primary">View Projects</a>
-          <a href="http://www.linkedin.com/in/chase-quijano-8a4b031ab" class="hero-btn secondary" target="_blank">LinkedIn</a>
-        </div>
-        <div class="hero-stats">
-          <div><div class="hero-stat-num">20+</div><div class="hero-stat-label">Engineering Projects</div></div>
-          <div><div class="hero-stat-num">6</div><div class="hero-stat-label">Custom PCB Designs</div></div>
-          <div><div class="hero-stat-num">1</div><div class="hero-stat-label">Startup Founded</div></div>
-          <div><div class="hero-stat-num">4</div><div class="hero-stat-label">Research Projects</div></div>
-          <div><div class="hero-stat-num">$4.6K</div><div class="hero-stat-label">Grant Secured (SAME)</div></div>
+          <a href="#projects" class="btn btn-primary">View Featured Projects</a>
+          <a href="Resume/Chase_Quijano_Resume_2026.pdf" class="btn btn-secondary" download>Download Resume PDF</a>
         </div>
       </div>
     </section>
+
+    <!-- METRICS STRIP -->
+    <div class="metrics-strip">
+      <div class="metrics-strip-item"><div class="metrics-strip-value">6</div><div class="metrics-strip-label">Custom PCB Designs</div></div>
+      <div class="metrics-strip-item"><div class="metrics-strip-value">20+</div><div class="metrics-strip-label">Engineering Projects</div></div>
+      <div class="metrics-strip-item"><div class="metrics-strip-value">4</div><div class="metrics-strip-label">Research Projects</div></div>
+      <div class="metrics-strip-item"><div class="metrics-strip-value">400 Hz</div><div class="metrics-strip-label">Zero-Packet-Loss Telemetry</div></div>
+      <div class="metrics-strip-item"><div class="metrics-strip-value">$4.6K</div><div class="metrics-strip-label">Grant Secured (SAME)</div></div>
+    </div>
 
     <!-- FEATURED PROJECTS -->
     <section id="projects">
       <div class="section-inner">
-        <div class="section-label reveal">01 - Featured Work</div>
-        <h2 class="section-title reveal">Selected Projects</h2>
-        <p class="section-desc reveal">Deep dives into my most impactful engineering work - click any project for the full technical breakdown.</p>
+        <div class="section-label">Featured Work</div>
+        <h2 class="section-title">Selected Projects</h2>
+        <p class="section-desc">Technical deep dives into the most representative hardware work — PCB revisions, failure analysis, and validated results.</p>
 
-        <a href="./projects/subaru-internship.html" class="featured-project reveal">
-          <div class="fp-visual">
-            <img class="fp-photo" src="projects/SubaruInternship/images/bugbox-nodes-labeled.jpg" alt="Subaru Technical Training Internship - 14-node Bug Box network" />
-          </div>
-          <div class="fp-content">
-            <div class="fp-number">000 · Product Design & Manufacturing</div>
-            <h3 class="fp-title">Subaru Technical Training Internship</h3>
-            <div class="fp-subtitle">Product Design & Fabrication Intern · Subaru of America, Technical Training</div>
-            <p class="fp-desc">Year-long internship building the physical hardware and shop infrastructure a technical training department runs on - a 14-node wireless training network, an autonomous demo vehicle, event fabrication, and a full laser-cutter and storage overhaul.</p>
-            <div class="fp-tags"><span class="tag">ESP32</span><span class="tag">Arduino</span><span class="tag">SolidWorks</span><span class="tag">3D Printing</span><span class="tag">Laser Cutting</span></div>
-            <div class="fp-highlights"><div><div class="fp-hl-value">14</div><div class="fp-hl-label">Networked Nodes</div></div><div><div class="fp-hl-value">10+</div><div class="fp-hl-label">Projects Shipped</div></div><div><div class="fp-hl-value">1 Yr</div><div class="fp-hl-label">Internship</div></div></div>
-          </div>
-        </a>
+        <div class="project-card-grid">
+          <a href="./projects/berta-medical.html" class="project-card card">
+            <div class="project-card-img-wrap"><img class="project-card-img" src="projects/Berta%20Medical/images/bertamedical-fig3-wearable-render.png" alt="Berta Medical final wearable PCB, 3D render" /></div>
+            <div class="project-card-body">
+              <div class="project-card-eyebrow">001 · Medical Startup</div>
+              <h3 class="project-card-title">Berta Medical — Wearable ECG Platform</h3>
+              <p class="project-card-desc">Co-founded a wearable ECG startup and owned the hardware stack through three PCB revisions, from off-the-shelf modules to an AWS-connected wearable.</p>
+              <div class="project-card-tags"><span class="tag">KiCad</span><span class="tag">ESP32</span><span class="tag">AD8232</span><span class="tag">MQTT</span></div>
+              <span class="project-card-link">Read Technical Breakdown →</span>
+            </div>
+          </a>
 
-        <a href="./projects/berta-medical.html" class="featured-project reveal">
-          <div class="fp-visual">
-            <svg class="wireframe-svg" viewBox="0 0 300 240" fill="none"><rect x="60" y="40" width="180" height="100" rx="16" stroke="#C9983A" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.2"/><rect x="80" y="55" width="140" height="70" rx="8" stroke="#C9983A" stroke-width="1.2"/><rect x="95" y="68" width="40" height="30" rx="3" stroke="#C9983A" stroke-width="0.8" fill="#C9983A" fill-opacity="0.05"/><text x="115" y="86" text-anchor="middle" font-family="monospace" font-size="6" fill="#C9983A" opacity="0.6">ESP32</text><rect x="150" y="68" width="55" height="30" rx="3" stroke="#C9983A" stroke-width="0.8" fill="#C9983A" fill-opacity="0.05"/><text x="177" y="86" text-anchor="middle" font-family="monospace" font-size="6" fill="#C9983A" opacity="0.6">AD8232</text><polyline points="40,180 70,180 85,160 90,200 95,150 100,210 105,175 110,180 140,180 155,160 160,200 165,150 170,210 175,175 180,180 210,180 225,160 230,200 235,150 240,210 245,175 250,180 270,180" stroke="#C9983A" stroke-width="1.2" fill="none" opacity="0.6"/><text x="150" y="228" text-anchor="middle" font-family="monospace" font-size="7" fill="#C9983A" opacity="0.3">BERTA MEDICAL · ECG WEARABLE</text></svg>
-          </div>
-          <div class="fp-content">
-            <div class="fp-number">001 · Medical Startup</div>
-            <h3 class="fp-title">Berta Medical - Wearable ECG Platform</h3>
-            <div class="fp-subtitle">Co-Founder & Hardware Lead · Rowan New Venture Competition</div>
-            <p class="fp-desc">Co-founded a medical startup to make remote health monitoring accessible. Designed custom ECG hardware through 3 iterations with ESP32 firmware, encrypted MQTT to AWS IoT Core, and doctor/patient web portals.</p>
-            <div class="fp-tags"><span class="tag">KiCad</span><span class="tag">ESP32</span><span class="tag">AD8232</span><span class="tag">MQTT</span><span class="tag">AWS IoT</span><span class="tag">C++</span><span class="tag">SMD</span></div>
-            <div class="fp-highlights"><div><div class="fp-hl-value">3 PCBs</div><div class="fp-hl-label">Designed & Built</div></div><div><div class="fp-hl-value">TLS</div><div class="fp-hl-label">Encrypted Pipeline</div></div><div><div class="fp-hl-value">Pitched</div><div class="fp-hl-label">Venture Comp</div></div></div>
-          </div>
-        </a>
+          <a href="./projects/exoskeleton.html" class="project-card card">
+            <div class="project-card-img-wrap"><img class="project-card-img" src="projects/Exoskeleton%20Research/IMU%20System%20V2/image2.jpg" alt="Fall-Prevention Exoskeleton IMU System V2 mainboard" /></div>
+            <div class="project-card-body">
+              <div class="project-card-eyebrow">002 · Engineering Clinic Research</div>
+              <h3 class="project-card-title">Fall-Prevention Exoskeleton</h3>
+              <p class="project-card-desc">Rebuilt an 8-sensor IMU array around RS-485 after root-causing an I2C bandwidth failure, cutting latency 55x to a validated 400&nbsp;Hz.</p>
+              <div class="project-card-tags"><span class="tag">KiCad</span><span class="tag">Teensy 4.1</span><span class="tag">RS-485</span></div>
+              <span class="project-card-link">Read Technical Breakdown →</span>
+            </div>
+          </a>
 
-        <a href="./projects/exoskeleton.html" class="featured-project reveal">
-          <div class="fp-visual">
-            <img class="fp-photo" src="projects/Exoskeleton%20Research/IMU%20System%20V2/image2.jpg" alt="Fall-Prevention Exoskeleton IMU System V2 - Teensy 4.1 mainboard with 8-sensor RS-485 IMU array" />
-          </div>
-          <div class="fp-content">
-            <div class="fp-number">002 · Research</div>
-            <h3 class="fp-title">Fall-Prevention Exoskeleton</h3>
-            <div class="fp-subtitle">Engineering Clinic · Rowan University · Fall 2025 – Spring 2026</div>
-            <p class="fp-desc">Own the electrical, embedded, and test-engineering side of a pneumatically-actuated fall-prevention exoskeleton: rebuilt an 8-sensor IMU array around RS-485 after root-causing an I2C bottleneck, and designed the test rig and instrumentation behind two 96-trial force campaigns now heading toward human trials.</p>
-            <div class="fp-tags"><span class="tag">KiCad</span><span class="tag">Teensy 4.1</span><span class="tag">BNO085</span><span class="tag">RS-485</span><span class="tag">ESP32</span><span class="tag">Pneumatics</span></div>
-            <div class="fp-highlights"><div><div class="fp-hl-value">8 IMUs</div><div class="fp-hl-label">Sensor Array</div></div><div><div class="fp-hl-value">400 Hz</div><div class="fp-hl-label">Zero Packet Loss</div></div><div><div class="fp-hl-value">55x</div><div class="fp-hl-label">Latency Cut</div></div></div>
-          </div>
-        </a>
+          <a href="./projects/digital-scale.html" class="project-card card">
+            <div class="project-card-img-wrap"><img class="project-card-img" src="projects/Digital%20Scale/images/digitalscale-fig25-final-product.jpg" alt="Custom digital scale, completed prototype" /></div>
+            <div class="project-card-body">
+              <div class="project-card-eyebrow">003 · Manufacturing</div>
+              <h3 class="project-card-title">Custom Digital Scale</h3>
+              <p class="project-card-desc">Machined a custom aluminum load cell validated by FEA before cutting, closing the loop with strain-gauge signal conditioning to ±1% accuracy.</p>
+              <div class="project-card-tags"><span class="tag">SolidWorks FEA</span><span class="tag">CNC Milling</span><span class="tag">HX711</span></div>
+              <span class="project-card-link">Read Technical Breakdown →</span>
+            </div>
+          </a>
 
-        <a href="./projects/digital-scale.html" class="featured-project reveal">
-          <div class="fp-visual">
-            <img class="fp-photo" src="projects/Digital%20Scale/images/FINAL SCALE v11.png" alt="Custom digital scale" />
-          </div>
-          <div class="fp-content">
-            <div class="fp-number">003 · Manufacturing</div>
-            <h3 class="fp-title">Custom Digital Scale</h3>
-            <div class="fp-subtitle">Manufacturing & Measurement Techniques · Rowan University</div>
-            <p class="fp-desc">Designed and manufactured a functional digital scale from scratch - CNC-machined custom load cell from 6010 aluminum (FEA validated), 3D printed ABS enclosures, and Arduino firmware for calibrated measurement.</p>
-            <div class="fp-tags"><span class="tag">Fusion 360</span><span class="tag">SolidWorks FEA</span><span class="tag">CNC Milling</span><span class="tag">Lathe</span><span class="tag">Arduino</span><span class="tag">3D Printing</span></div>
-            <div class="fp-highlights"><div><div class="fp-hl-value">±1%</div><div class="fp-hl-label">Accuracy</div></div><div><div class="fp-hl-value">0–3 kg</div><div class="fp-hl-label">Range</div></div><div><div class="fp-hl-value">IP31</div><div class="fp-hl-label">Enclosure Rating</div></div></div>
-          </div>
-        </a>
+          <a href="./projects/soft-robotics.html" class="project-card card">
+            <div class="project-card-img-wrap"><img class="project-card-img" src="projects/Soft%20Robotics%20Research/images/pcb-render-v2-front.png" alt="Modular flex PCB mainboard for soft robotics, Rev B render" /></div>
+            <div class="project-card-body">
+              <div class="project-card-eyebrow">004 · Rowan Robotics Lab</div>
+              <h3 class="project-card-title">Modular Flexible PCB for Soft Robotics</h3>
+              <p class="project-card-desc">Designed the flexible mainboard driving actuation and I2C comms for a self-reconfigurable soft robot, cited in a forthcoming 2025 publication.</p>
+              <div class="project-card-tags"><span class="tag">Flex PCB</span><span class="tag">KiCad 9</span><span class="tag">DRV8833</span></div>
+              <span class="project-card-link">Read Technical Breakdown →</span>
+            </div>
+          </a>
 
-        <a href="./projects/soft-robotics.html" class="featured-project reveal">
-          <div class="fp-visual">
-            <img class="fp-photo" src="projects/Soft%20Robotics%20Research/images/module-photo-assembled.png" alt="Self-reconfigurable soft robot module with modular flex PCB mainboard" />
-          </div>
-          <div class="fp-content">
-            <div class="fp-number">004 · Research</div>
-            <h3 class="fp-title">Modular Flexible PCB for Soft Robotics</h3>
-            <div class="fp-subtitle">Rowan Robotics Lab (PI: Dr. Mitja Trkov)</div>
-            <p class="fp-desc">Designed and hand-assembled the flexible mainboard driving actuators, sensing, and I2C communication for a self-reconfigurable soft robot - across two full revisions. Work is cited in a forthcoming 2025 publication I co-authored.</p>
-            <div class="fp-tags"><span class="tag">Flex PCB</span><span class="tag">KiCad</span><span class="tag">DRV8833</span><span class="tag">I2C</span><span class="tag">FPC Connector</span></div>
-            <div class="fp-highlights"><div><div class="fp-hl-value">2 Revs</div><div class="fp-hl-label">PCB Iterations</div></div><div><div class="fp-hl-value">Modular</div><div class="fp-hl-label">Self-Reconfig</div></div><div><div class="fp-hl-value">2025</div><div class="fp-hl-label">Co-Authored Paper</div></div></div>
-          </div>
-        </a>
+          <a href="./projects/same-rowan-chapter.html" class="project-card card">
+            <div class="project-card-img-wrap"><img class="project-card-img" src="projects/Society%20of%20Military%20Engineers/IMAGES/sar-drone-render-cover.png" alt="Search-and-rescue UAV CAD render" /></div>
+            <div class="project-card-body">
+              <div class="project-card-eyebrow">005 · Grant-Funded UAV Program</div>
+              <h3 class="project-card-title">Search-and-Rescue UAV — SAME Rowan</h3>
+              <p class="project-card-desc">Authored the technical proposal that secured a $4,640 grant for a 7-ft composite search-and-rescue UAV and direct its power-distribution subframe.</p>
+              <div class="project-card-tags"><span class="tag">UAV Systems</span><span class="tag">Composite Airframe</span></div>
+              <span class="project-card-link">Read Technical Breakdown →</span>
+            </div>
+          </a>
 
-        <a href="./projects/same-rowan-chapter.html" class="featured-project reveal">
-          <div class="fp-visual">
-            <img class="fp-photo" src="projects/Society%20of%20Military%20Engineers/images/sar-drone-render-cover.png" alt="Society of American Military Engineers Rowan Chapter search-and-rescue UAV render" />
-          </div>
-          <div class="fp-content">
-            <div class="fp-number">005 · Leadership</div>
-            <h3 class="fp-title">Society of American Military Engineers - Rowan Chapter</h3>
-            <div class="fp-subtitle">President · SAME Rowan Student Chapter · Sep 2025 - Present</div>
-            <p class="fp-desc">Revitalized a dormant chapter by rebuilding its officer board and faculty ties, then authored the winning technical proposal that secured a $4,640 SAME Philadelphia Post grant for a 7-ft composite search-and-rescue UAV - plus recurring K-12 STEM outreach events.</p>
-            <div class="fp-tags"><span class="tag">Grant Writing</span><span class="tag">UAV Systems Design</span><span class="tag">FAA Part 107</span><span class="tag">STEM Outreach</span></div>
-            <div class="fp-highlights"><div><div class="fp-hl-value">$4,640</div><div class="fp-hl-label">Grant Secured</div></div><div><div class="fp-hl-value">7 ft</div><div class="fp-hl-label">UAV Wingspan</div></div><div><div class="fp-hl-value">2 hr</div><div class="fp-hl-label">Target Endurance</div></div></div>
-          </div>
-        </a>
-
-        <a href="./projects/" class="view-all-link">View all 20+ projects →</a>
-      </div>
-    </section>
-
-    <!-- ALL PROJECTS GRID -->
-    <section class="grid-section">
-      <div class="section-inner">
-        <div class="section-label reveal">02 - All Work</div>
-        <h2 class="section-title reveal">More Projects</h2>
-        <p class="section-desc reveal">A quick glance at everything else. <a href="./projects/" style="color:var(--gold)">Browse the full archive →</a></p>
-        <div class="project-grid reveal">
-          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><rect x="12" y="20" width="40" height="30" rx="4" stroke="#C9983A" stroke-width="1.5"/><circle cx="32" cy="35" r="8" stroke="#C9983A" stroke-width="1"/></svg><div class="pg-name">ROS Robot</div><div class="pg-type">Autonomous</div></div>
-          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="18" stroke="#C9983A" stroke-width="1.5"/><path d="M22 32 L42 32 M32 14 L32 50" stroke="#C9983A" stroke-width="1.2"/></svg><div class="pg-name">Autonomous Drone</div><div class="pg-type">UAV</div></div>
-          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><rect x="22" y="8" width="20" height="48" rx="3" stroke="#C9983A" stroke-width="1.5"/><circle cx="32" cy="44" r="5" stroke="#C9983A" stroke-width="1"/></svg><div class="pg-name">Balancing Robot</div><div class="pg-type">Controls</div></div>
-          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="32" rx="20" ry="14" stroke="#C9983A" stroke-width="1.5"/><circle cx="32" cy="32" r="4" stroke="#C9983A" stroke-width="1"/></svg><div class="pg-name">ECG Mk2</div><div class="pg-type">Medical</div></div>
-          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><rect x="14" y="14" width="36" height="36" rx="4" stroke="#C9983A" stroke-width="1.5"/><circle cx="32" cy="32" r="10" stroke="#C9983A" stroke-width="1"/></svg><div class="pg-name">Farm Camera</div><div class="pg-type">IoT</div></div>
-          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><rect x="10" y="20" width="44" height="28" rx="3" stroke="#C9983A" stroke-width="1.5"/><rect x="16" y="26" width="20" height="12" rx="1" stroke="#C9983A" stroke-width="1" fill="#C9983A" fill-opacity="0.05"/></svg><div class="pg-name">ECG Dev Kit</div><div class="pg-type">PCB Design</div></div>
-          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><rect x="14" y="20" width="36" height="24" rx="3" stroke="#C9983A" stroke-width="1.5"/><rect x="18" y="24" width="10" height="8" rx="1" stroke="#C9983A" stroke-width="1"/><rect x="30" y="24" width="10" height="8" rx="1" stroke="#C9983A" stroke-width="1"/></svg><div class="pg-name">Macropad</div><div class="pg-type">Input Device</div></div>
-          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="16" stroke="#C9983A" stroke-width="1.5"/><circle cx="32" cy="32" r="6" stroke="#C9983A" stroke-width="1"/></svg><div class="pg-name">FOC Test Rig</div><div class="pg-type">Motor Control</div></div>
-          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><rect x="10" y="18" width="44" height="28" rx="6" stroke="#C9983A" stroke-width="1.5"/><rect x="16" y="24" width="20" height="14" rx="2" stroke="#C9983A" stroke-width="1"/></svg><div class="pg-name">Handheld Console</div><div class="pg-type">Game Dev</div></div>
-          <div class="pg-card"><svg class="pg-icon" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="12" stroke="#C9983A" stroke-width="1.5"/><circle cx="32" cy="32" r="5" stroke="#C9983A" stroke-width="0.75"/></svg><div class="pg-name">Flex Sensor Ring</div><div class="pg-type">Wearable</div></div>
+          <a href="./projects/subaru-internship.html" class="project-card card">
+            <div class="project-card-img-wrap"><img class="project-card-img" src="projects/SubaruInternship/images/bugbox-node-cad-render.jpg" alt="Subaru Technical Training Internship node enclosure CAD render" /></div>
+            <div class="project-card-body">
+              <div class="project-card-eyebrow">006 · Product Design &amp; Manufacturing</div>
+              <h3 class="project-card-title">Subaru Technical Training Internship</h3>
+              <p class="project-card-desc">Scaled a single bench prototype into a 14-node wireless training network and a ToF-sensing autonomous demo vehicle over a year-long internship.</p>
+              <div class="project-card-tags"><span class="tag">ESP32-S3</span><span class="tag">ESP-NOW</span><span class="tag">SolidWorks</span></div>
+              <span class="project-card-link">Read Technical Breakdown →</span>
+            </div>
+          </a>
         </div>
+
+        <a href="./projects/" class="view-all-link">View all 11 projects →</a>
       </div>
     </section>
 
     <!-- SKILLS -->
     <section id="skills">
       <div class="section-inner">
-        <div class="section-label reveal">03 - Capabilities</div>
-        <h2 class="section-title reveal">Technical Skills</h2>
-        <p class="section-desc reveal">Hands-on skills spanning the full product development cycle.</p>
-        <div class="skills-grid reveal">
-          <div class="skill-cell"><span class="skill-icon">⬡</span><div class="skill-name">PCB & Electronics</div><div class="skill-items">KiCad · Schematic Capture · PCB Layout<br>SMD Soldering · Flex PCBs · ENIG<br>Signal Integrity · DFM</div></div>
-          <div class="skill-cell"><span class="skill-icon">◎</span><div class="skill-name">CAD & Mechanical</div><div class="skill-items">Fusion 360 · SolidWorks · FEA<br>GD&T · Technical Drawing<br>DFM · Tolerance Analysis</div></div>
-          <div class="skill-cell"><span class="skill-icon">{ }</span><div class="skill-name">Embedded & Firmware</div><div class="skill-items">C/C++ · Arduino · ESP32<br>Raspberry Pi · Python · ROS<br>MQTT · I2C · SPI · UART</div></div>
-          <div class="skill-cell"><span class="skill-icon">▲</span><div class="skill-name">Manufacturing</div><div class="skill-items">CNC Milling · Manual Lathe<br>FDM 3D Printing (ABS, PLA, TPU)<br>Sheet Metal · Heat-Set Inserts</div></div>
-          <div class="skill-cell"><span class="skill-icon">◆</span><div class="skill-name">Software & Cloud</div><div class="skill-items">AWS IoT Core · MQTT (TLS)<br>Git · Linux · Arduino IDE<br>Web Development</div></div>
-          <div class="skill-cell"><span class="skill-icon">✦</span><div class="skill-name">Testing & Validation</div><div class="skill-items">Oscilloscope · Multimeter<br>Static Stress Simulation<br>Hardware-in-the-Loop</div></div>
+        <div class="section-label">Capabilities</div>
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="section-desc">Hands-on skills spanning the full product development cycle.</p>
+        <div class="skills-grid">
+          <div class="skill-cell"><div class="skill-name">PCB &amp; Electronics</div><div class="skill-items">KiCad · Schematic Capture · PCB Layout<br>SMD Soldering · Flex PCBs · ENIG<br>Signal Integrity · DFM</div></div>
+          <div class="skill-cell"><div class="skill-name">CAD &amp; Mechanical</div><div class="skill-items">Fusion 360 · SolidWorks · FEA<br>GD&amp;T · Technical Drawing<br>DFM · Tolerance Analysis</div></div>
+          <div class="skill-cell"><div class="skill-name">Embedded &amp; Firmware</div><div class="skill-items">C/C++ · Arduino · ESP32<br>Raspberry Pi · Python · ROS<br>MQTT · I2C · SPI · UART</div></div>
+          <div class="skill-cell"><div class="skill-name">Manufacturing</div><div class="skill-items">CNC Milling · Manual Lathe<br>FDM 3D Printing (ABS, PLA, TPU)<br>Sheet Metal · Heat-Set Inserts</div></div>
+          <div class="skill-cell"><div class="skill-name">Software &amp; Cloud</div><div class="skill-items">AWS IoT Core · MQTT (TLS)<br>Git · Linux · Arduino IDE</div></div>
+          <div class="skill-cell"><div class="skill-name">Testing &amp; Validation</div><div class="skill-items">Oscilloscope · Multimeter<br>Static Stress Simulation<br>Hardware-in-the-Loop</div></div>
         </div>
       </div>
     </section>
@@ -185,13 +147,13 @@
     <!-- ABOUT -->
     <section id="about">
       <div class="section-inner">
-        <div class="section-label reveal">04 - About</div>
-        <h2 class="section-title reveal">Who I Am</h2>
-        <div class="about-grid reveal">
+        <div class="section-label">About</div>
+        <h2 class="section-title">Who I Am</h2>
+        <div class="about-grid">
           <div class="about-text">
-            <p>I'm a junior studying Engineering Entrepreneurship at Rowan University, and I spend most of my time in the lab designing systems that merge mechanics, electronics, and software. Whether it's CNC machining a custom load cell, designing a flex PCB for a soft robotics research lab, or pitching a medical wearable startup at a venture competition - I'm drawn to the full lifecycle of turning an idea into a working product.</p>
-            <p>My projects span autonomous robots, wearable medical devices, custom control hardware, and precision instruments. I've designed and assembled over 6 custom PCBs, co-founded Berta Medical, and contributed to multiple research efforts at Rowan. I'm currently seeking internship opportunities where I can apply my hands-on engineering skills to real-world product development.</p>
-            <p>I also lead Rowan's Society of American Military Engineers chapter as President, where I rebuilt a dormant chapter and authored the technical proposal that won a $4,640 grant from the SAME Philadelphia Post to build a composite search-and-rescue UAV - work that's given me a growing interest in the defense and aerospace industry alongside my hardware background.</p>
+            <p>I'm a junior studying Engineering Entrepreneurship at Rowan University, and I spend most of my time in the lab designing systems that merge mechanics, electronics, and software. Whether it's CNC machining a custom load cell, designing a flex PCB for a soft robotics research lab, or pitching a medical wearable startup at a venture competition, I'm drawn to the full lifecycle of turning an idea into a working product.</p>
+            <p>My projects span autonomous robots, wearable medical devices, custom control hardware, and precision instruments. I've designed and assembled six custom PCBs, co-founded Berta Medical, and contributed to multiple research efforts at Rowan. I'm currently seeking internship opportunities where I can apply hands-on engineering skills to real-world product development.</p>
+            <p>I also lead Rowan's Society of American Military Engineers chapter as President, where I rebuilt a dormant chapter and authored the technical proposal that won a $4,640 grant from the SAME Philadelphia Post to build a composite search-and-rescue UAV.</p>
           </div>
           <div class="about-details">
             <div class="about-detail"><div class="about-detail-label">Education</div><div class="about-detail-value">B.S. Engineering Entrepreneurship</div></div>
@@ -205,26 +167,24 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section class="contact-section" id="contact">
-      <div class="section-inner">
-        <div class="section-label reveal">05 - Connect</div>
-        <h2 class="contact-title reveal">Let's build something <em>together.</em></h2>
-        <p class="contact-desc reveal">Open to internships, research collaborations, and interesting engineering challenges.</p>
-        <div class="contact-links reveal">
-          <a href="mailto:chase@example.com" class="contact-link email">Email Me</a>
-          <a href="http://www.linkedin.com/in/chase-quijano-8a4b031ab" class="contact-link linkedin" target="_blank">LinkedIn</a>
-          <a href="#" class="contact-link github">GitHub</a>
+    <footer id="contact">
+      <div class="footer-top">
+        <div class="footer-name">Chase Quijano</div>
+        <div class="footer-links">
+          <a href="mailto:chase@example.com">Email</a>
+          <a href="http://www.linkedin.com/in/chase-quijano-8a4b031ab" target="_blank">LinkedIn</a>
+          <a href="#" target="_blank">GitHub</a>
+          <a href="./resume.html">Resume (PDF)</a>
         </div>
       </div>
-    </section>
-
-    <footer><div class="footer-text">© 2026 Chase Quijano</div><div class="footer-text">Rowan University · Engineering Entrepreneurship</div></footer>
+      <div class="footer-bottom">
+        <div class="footer-text">© 2026 Chase Quijano</div>
+        <div class="footer-text">Rowan University · Engineering Entrepreneurship</div>
+      </div>
+    </footer>
   </div>
 
   <script>
-    const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 50));
     document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', e => { e.preventDefault(); const t = document.querySelector(a.getAttribute('href')); if (t) { t.scrollIntoView({ behavior: 'smooth' }); document.querySelector('.nav-links')?.classList.remove('open'); } }); });
   </script>

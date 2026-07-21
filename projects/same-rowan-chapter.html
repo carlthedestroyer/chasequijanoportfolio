@@ -3,246 +3,73 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SAME Rowan Chapter - Chase Quijano</title>
+  <title>Search-and-Rescue UAV — SAME Rowan Grant Program - Chase Quijano</title>
   <link rel="stylesheet" href="../styles.css">
   <!-- PRIVATE PREVIEW AUTH - remove this line for public launch -->
   <script src="/auth.js"></script>
-  <style>
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    @media (max-width: 720px) { .grid-2 { grid-template-columns: 1fr; } }
-    .photo-frame { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--bg-elevated); }
-    .photo-frame img { width: 100%; height: 100%; object-fit: contain; display: block; background: #0A0A0C; }
-    .photo-frame.cover img { object-fit: cover; }
-    .photo-caption { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.03em; color: var(--text-muted); padding: 0.65rem 0.9rem; border-top: 1px solid var(--border); }
-    .impact-callout { border: 1px solid var(--gold); background: var(--gold-glow); border-radius: 8px; padding: 1.25rem 1.4rem; margin: 1.5rem 0; }
-    .impact-callout .mp-label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-bright); margin-bottom: 0.5rem; display: block; }
-    .spec-table { width: 100%; border-collapse: collapse; margin-top: 0.75rem; font-size: 0.82rem; }
-    .spec-table th { text-align: left; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); padding: 0.55rem 0.8rem; border-bottom: 1px solid var(--border-hover); }
-    .spec-table td { padding: 0.55rem 0.8rem; border-bottom: 1px solid var(--border); color: var(--text-secondary); vertical-align: top; }
-    .spec-table tr:last-child td { border-bottom: none; }
-    .spec-table td:first-child { color: var(--text); font-weight: 500; white-space: nowrap; }
-    .spec-table.bom tr.cat td { color: var(--gold-bright); font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.06em; text-transform: uppercase; background: var(--gold-glow); border-bottom: 1px solid var(--border-hover); }
-    .spec-table.bom td:last-child { text-align: right; white-space: nowrap; }
-    .spec-table.bom tr.total td { color: var(--gold-bright); font-weight: 700; font-size: 0.95rem; border-top: 1px solid var(--gold); }
-  </style>
 </head>
 <body>
-  <div class="grid-bg"></div>
   <div class="content">
+
     <nav id="nav">
       <a href="../" class="nav-name">Chase Quijano</a>
       <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
       <div class="nav-links">
         <a href="../projects/" class="active">Projects</a>
-        <a href="../#skills">Skills</a>
         <a href="../#about">About</a>
         <a href="../#contact">Contact</a>
-        <a href="../resume.html" class="nav-resume">Resume</a>
+        <a href="../resume.html" class="nav-resume">Resume (PDF)</a>
       </div>
     </nav>
 
-    <div class="project-hero">
-      <a href="../projects/" class="project-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12,19 5,12 12,5"/></svg>All Projects</a>
-      <div class="project-hero-number">005 · Leadership & UAV Engineering</div>
-      <h1 class="project-hero-title">Society of American Military Engineers - Rowan Chapter</h1>
-      <div class="project-hero-subtitle">President · Rowan University SAME Student Chapter · Sep 2025 - Present</div>
-      <p class="project-hero-desc">Took over a dormant SAME chapter, rebuilt its officer board and faculty ties, then authored the technical proposal that won a $4,640 grant from the SAME Philadelphia Post to design and build a 7-ft-wingspan composite fixed-wing search-and-rescue drone. Alongside the engineering work, the chapter runs recurring STEM outreach events to introduce K-12 students to the defense and aerospace industry.</p>
-      <div class="project-hero-tags">
-        <span class="tag">Chapter Leadership</span><span class="tag">Grant Writing</span><span class="tag">UAV Systems Design</span><span class="tag">Composite Fabrication</span><span class="tag">FAA Part 107</span><span class="tag">STEM Outreach</span>
-      </div>
-      <div class="project-hero-metrics">
-        <div><div class="phm-value">$4,640</div><div class="phm-label">Grant Secured</div></div>
-        <div><div class="phm-value">7 ft</div><div class="phm-label">UAV Wingspan</div></div>
-        <div><div class="phm-value">3</div><div class="phm-label">Co-Authors on Proposal</div></div>
-        <div><div class="phm-value">2 hr</div><div class="phm-label">Target Flight Endurance</div></div>
-      </div>
-    </div>
+    <!-- HEADER (rendered from content/projects/same-rowan-chapter.md) -->
+    <div class="pd-header" id="pd-header"></div>
 
-    <div class="project-section">
-      <div class="ps-label">Leadership</div>
-      <h2 class="ps-title">Revitalizing a Dormant Chapter</h2>
-      <div class="ps-content">
-        <div class="ps-text">
-          <p>When I took over as President in September 2025, Rowan's SAME chapter had gone dormant - no active officer board, no faculty advisor relationship, no running projects. The chapter's mission is to educate and inspire engineering students interested in the defense and aerospace industry, through both technical projects and hands-on STEM outreach - none of that happens without people and a working relationship with the department.</p>
-          <p>I recruited a cross-disciplinary student officer board and rebuilt the chapter's connections with its faculty executives, restarting regular meetings and re-establishing SAME Rowan as an active student chapter rather than a line on a club roster. That foundation is what made it possible to go after outside funding a few months later.</p>
-        </div>
-        <div class="ps-visual" style="padding: 0; overflow: hidden;">
-          <img src="Society%20of%20Military%20Engineers/images/officer-board-gear-table.jpg" alt="SAME Rowan officer board members at a club table with 3D printed components" style="width:100%; height:100%; object-fit:cover; display:block;" />
-        </div>
-      </div>
-    </div>
+    <!-- TOP SPLIT: Executive Summary + Hardware Specs card -->
+    <div class="pd-split" id="pd-split"></div>
 
-    <div class="project-section">
-      <div class="ps-label">Grant Proposal</div>
-      <h2 class="ps-title">Authoring the $4,640 Winning Proposal</h2>
-      <div class="ps-content">
-        <div class="ps-text">
-          <p>I authored the technical proposal to the SAME Philadelphia Post - an 8-section document covering the problem statement, technical solution, specifications, testing plan, bill of materials, milestones, and risk mitigation - co-written with fellow members Jakub Gajda and Brian Smith, and directed the electrical and power-distribution subframe architecture for the aircraft.</p>
-          <p>The pitch: municipalities and emergency responders are stuck choosing between $10,000+ professional search-and-rescue drones or consumer drones with limited payload and range. We proposed a low-cost, 2-hour-endurance, 3.5kg-payload fixed-wing UAV that closes that gap - a woven carbon-fiber airframe with a V-tail empennage, designed to deliver medical supplies to disaster areas on a single charge.</p>
-        </div>
-        <div class="ps-visual" style="padding: 0; overflow: hidden;">
-          <img src="Society%20of%20Military%20Engineers/images/sar-drone-render-cover.png" alt="CAD render of the Rowan SAME search-and-rescue drone - carbon fiber fuselage, high-aspect wing, V-tail empennage on a carbon rod boom" style="width:100%; height:100%; object-fit:cover; display:block;" />
-        </div>
-      </div>
-      <div class="ps-content ps-full" style="margin-top: 2rem;">
-        <div class="ps-text">
-          <h4>Key Technical Objectives</h4>
-          <table class="spec-table">
-            <tr><th>Objective</th><th>Requirement</th></tr>
-            <tr><td>Load</td><td>Static load capacity of 3.5 kg with a Factor of Safety of 1.5</td></tr>
-            <tr><td>Endurance</td><td>Sustain 2-hour-long missions on one charge</td></tr>
-            <tr><td>Altitude</td><td>Reach and sustain no more than 400 ft AGL, per FAA Part 107</td></tr>
-            <tr><td>Range</td><td>Long-range receiving and transmitting capability</td></tr>
-            <tr><td>Optical System</td><td>High-definition system capable of tracking small objects from altitude</td></tr>
-            <tr><td>Modularity</td><td>Interchangeable sensor packages for different mission types and easy transport</td></tr>
-          </table>
-        </div>
-      </div>
-    </div>
+    <!-- VISUAL GALLERY -->
+    <div class="gallery-grid" id="pd-gallery"></div>
 
-    <div class="project-section">
-      <div class="ps-label">Technical Solution</div>
-      <h2 class="ps-title">Assembly Architecture &amp; Fabrication Plan</h2>
-      <div class="ps-content ps-full">
-        <div class="ps-text">
-          <ul>
-            <li><strong>Fuselage:</strong> woven carbon-fiber unibody, cast as one piece to house avionics, power, and the motor while cutting weight and adding stiffness; outfitted with interchangeable modular sensor packages</li>
-            <li><strong>Empennage:</strong> a carbon-fiber rod boom in place of a standard bulky tail structure, carrying a V-tail with symmetrical-airfoil ruddervators that combine elevator and rudder into one control surface - fewer actuators, simpler build</li>
-            <li><strong>Wing:</strong> two-piece wing using a NACA 2412 airfoil, chosen for strong low-speed lift suited to slow, long-endurance, and loitering search patterns</li>
-          </ul>
-          <p style="margin-top:1rem;">Fabrication follows a low-cost-first sequence: FDM, SLA, and laser cutting for rapid, cheap prototyping and design validation, then a final woven carbon-fiber composite build for the production airframe - chosen for its strength-to-weight ratio and resistance to the weather and salt-air corrosion search operations actually get performed in.</p>
+    <!-- ENGINEERING CHALLENGES & ITERATIONS -->
+    <div class="pd-section" id="pd-challenges"></div>
+
+    <!-- QUANTITATIVE RESULTS CALLOUT -->
+    <div class="pd-section" id="pd-results"></div>
+
+    <!-- FOOTER NAV -->
+    <div class="project-nav" id="project-nav"></div>
+
+    <footer>
+      <div class="footer-top">
+        <div class="footer-name">Chase Quijano</div>
+        <div class="footer-links">
+          <a href="mailto:chase@example.com">Email</a>
+          <a href="http://www.linkedin.com/in/chase-quijano-8a4b031ab" target="_blank">LinkedIn</a>
+          <a href="#" target="_blank">GitHub</a>
+          <a href="../resume.html">Resume (PDF)</a>
         </div>
       </div>
-      <div class="ps-content" style="margin-top: 2rem;">
-        <div class="ps-text">
-          <h4>Technical Specifications</h4>
-          <table class="spec-table">
-            <tr><th>Feature</th><th>Requirement</th></tr>
-            <tr><td>Wingspan</td><td>7.0 ft (2.13 m), high-aspect ratio</td></tr>
-            <tr><td>Max Take-Off Weight</td><td>9.5 kg, including 3.5 kg payload</td></tr>
-            <tr><td>Max Flight Duration</td><td>120 min at 20 m/s cruise</td></tr>
-            <tr><td>Propulsion</td><td>Pusher propeller, T-Motor AT4130 / 15&quot; prop</td></tr>
-            <tr><td>Primary Flight Computer</td><td>Cube Orange+ (ArduPilot/PX4), triple-redundant IMU</td></tr>
-            <tr><td>Secondary Computer</td><td>Nvidia Jetson Orin Nano - edge AI / computer vision</td></tr>
-            <tr><td>Navigation</td><td>Airspeed (Pitot), LiDAR, triple-redundant GNSS</td></tr>
-            <tr><td>Camera System</td><td>Dual-axis FPV + thermal (FLIR/Sony), 1080p60 / 640px thermal</td></tr>
-            <tr><td>Comm Range</td><td>50-60 km line-of-sight</td></tr>
-            <tr><td>Max Altitude</td><td>400 ft AGL, hard-coded geofence</td></tr>
-            <tr><td>Material</td><td>Woven carbon fiber, 2x2 twill</td></tr>
-          </table>
-        </div>
-        <div class="ps-text">
-          <h4>Risk Mitigation</h4>
-          <table class="spec-table">
-            <tr><th>Risk</th><th>Mitigation</th></tr>
-            <tr><td>Structural Fatigue</td><td>5mm fillets to redistribute stress; NDT inspection every 5 flight hours</td></tr>
-            <tr><td>Thermal Runaway</td><td>Integrated heat sinks in the fuselage airflow path; telemetry alerts above 55°C</td></tr>
-            <tr><td>RF Interference</td><td>DragonLink V3 (433MHz) for penetration, auto Return-to-Launch on signal loss</td></tr>
-            <tr><td>Payload Shift</td><td>Rail-mounted internal payload so weight drops vertically through the neutral CoG point</td></tr>
-          </table>
-        </div>
+      <div class="footer-bottom">
+        <div class="footer-text">© 2026 Chase Quijano</div>
+        <div class="footer-text">Rowan University · Engineering Entrepreneurship</div>
       </div>
-    </div>
-
-    <div class="project-section">
-      <div class="ps-label">Testing & Validation Plan</div>
-      <h2 class="ps-title">From FEA to Flight Trials</h2>
-      <div class="ps-content ps-full">
-        <div class="ps-text">
-          <p>The proposal lays out a full validation campaign spanning digital and physical testing before the aircraft flies a real mission:</p>
-          <ul>
-            <li><strong>Simulation &amp; FEA:</strong> Simulink and CAD-based stability simulation for payload release and severe weather; stress/strain FEA on the airframe to confirm a 1.5 Factor of Safety</li>
-            <li><strong>Physical testing:</strong> power-system thermal testing across the full 2-hour flight envelope, center-of-gravity testing with the payload loaded, and thrust/efficiency testing to tune motor speed for endurance</li>
-            <li><strong>Flight trials:</strong> low-altitude stability testing first, a dummy-payload release test to check for stability and drop-damage, and a full 2-hour endurance test at the 3.5 kg payload target</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-section">
-      <div class="ps-label">Budget</div>
-      <h2 class="ps-title">Bill of Materials &amp; Grant Approval</h2>
-      <div class="ps-content ps-full">
-        <div class="ps-text">
-          <table class="spec-table bom">
-            <tr><th>Line Item</th><th>Cost</th></tr>
-            <tr class="cat"><td colspan="2">Airframe &amp; Mold Fabrication</td></tr>
-            <tr><td>Carbon fiber wing skins &amp; spars, foam sandwich core, tooling, sealant</td><td>$750</td></tr>
-            <tr class="cat"><td colspan="2">Propulsion System</td></tr>
-            <tr><td>T-Motor AT4130, Talon 90 ESC, props, custom motor mount</td><td>$450</td></tr>
-            <tr class="cat"><td colspan="2">Flight Control &amp; Custom Avionics</td></tr>
-            <tr><td>Cube Orange+ w/ ADS-B, Here4 GNSS, custom PCB (ESP32/Teensy)</td><td>$720</td></tr>
-            <tr class="cat"><td colspan="2">Actuators &amp; Linkages</td></tr>
-            <tr><td>4x digital servos, CF pushrods, titanium turnbuckles</td><td>$380</td></tr>
-            <tr class="cat"><td colspan="2">Reconnaissance Payload &amp; Sensors</td></tr>
-            <tr><td>FPV cam, digital pitot, Sony RX0 II, Jetson</td><td>$580</td></tr>
-            <tr class="cat"><td colspan="2">Long Range Communication</td></tr>
-            <tr><td>DragonLink V3 Slim, Walksnail Avatar HD Pro</td><td>$620</td></tr>
-            <tr class="cat"><td colspan="2">Power Source</td></tr>
-            <tr><td>72x Molicel P42A 18650 cells, 6S 100A BMS, nickel strip</td><td>$290</td></tr>
-            <tr class="cat"><td colspan="2">Capital Tooling &amp; Consumables</td></tr>
-            <tr><td>Large-format printer, spot welder, filament, epoxy, shop supplies</td><td>$750</td></tr>
-            <tr class="cat"><td colspan="2">Reserve</td></tr>
-            <tr><td>Buffer for shipping, duty, fastener hardware</td><td>$100</td></tr>
-            <tr class="total"><td>Total Grant Requested &amp; Approved</td><td>$4,640</td></tr>
-          </table>
-        </div>
-        <div class="impact-callout">
-          <span class="mp-label">Grant Status</span>
-          Approved in full by the SAME Philadelphia Post, per the proposal amount of $4,640 - confirmed by our faculty advisor: <em>"Good news! SAME Philadelphia Post has approved the drone project - fully funded per the proposal in the amount of $4640... Congratulations!"</em>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-section">
-      <div class="ps-label">Prototyping</div>
-      <h2 class="ps-title">Low-Cost Technology Demonstrator</h2>
-      <div class="ps-content ps-full">
-        <div class="ps-text">
-          <p>Ahead of committing to a full carbon-fiber layup, the club built a hand-assembled balsa-and-foam flying-wing demonstrator - laser-cut balsa wing ribs, a foam-core boom, and an off-the-shelf motor/ESC - to validate the aerodynamic layout and get hands-on build experience before working in composite. It's the same low-cost-prototyping philosophy from the proposal's fabrication plan, just applied at club scale.</p>
-        </div>
-        <div class="grid-2" style="margin-top: 1.5rem;">
-          <div class="photo-frame cover" style="min-height:260px;">
-            <img src="Society%20of%20Military%20Engineers/images/balsa-wing-rib-assembly.jpg" alt="Laser-cut balsa wing rib assembly for the club's technology demonstrator" style="max-height:340px;" />
-            <div class="photo-caption">Laser-cut balsa wing ribs under assembly</div>
-          </div>
-          <div class="photo-frame cover" style="min-height:260px;">
-            <img src="Society%20of%20Military%20Engineers/images/balsa-glider-assembled.jpg" alt="Assembled balsa and foam flying-wing demonstrator with motor and ESC installed" style="max-height:340px;" />
-            <div class="photo-caption">Assembled demonstrator, motor and ESC installed</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-section">
-      <div class="ps-label">Outreach</div>
-      <h2 class="ps-title">STEM Education &amp; Community Outreach</h2>
-      <div class="ps-content ps-full">
-        <div class="ps-text">
-          <p>Technical projects are half the chapter's mission - the other half is outreach. SAME Rowan attends workshops and runs its own table at community STEM days, introducing K-12 students to engineering and the defense and aerospace field through hands-on activities. At the SAME Philadelphia Post's STEM Day, we exhibited as the Rowan University Student Chapter, and later staffed our own outreach tent with build demos, flyers, and a printout of the reconnaissance drone project for kids to see real hardware up close.</p>
-        </div>
-        <div class="grid-2" style="margin-top: 1.5rem;">
-          <div class="photo-frame cover" style="min-height:260px;">
-            <img src="Society%20of%20Military%20Engineers/images/stem-day-exhibitor-screen.jpg" alt="SAME Philadelphia Post STEM Day - Rowan University Student Chapter exhibitor table signage" style="max-height:340px;" />
-            <div class="photo-caption">SAME Philadelphia Post STEM Day, Rowan exhibitor table</div>
-          </div>
-          <div class="photo-frame cover" style="min-height:260px;">
-            <img src="Society%20of%20Military%20Engineers/images/stem-day-outreach-tent.jpg" alt="SAME Rowan outreach tent staffed by five club members with a Society of American Military Engineers signboard" style="max-height:340px;" />
-            <div class="photo-caption">SAME Rowan's own outreach tent and table</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-nav">
-      <a href="ros-robot.html">← Previous<span class="project-nav-title">ROS Robot</span></a>
-      <a href="../projects/" class="next">All Projects →</a>
-    </div>
-
-    <footer><div class="footer-text">© 2026 Chase Quijano</div><div class="footer-text">Rowan University · Engineering Entrepreneurship</div></footer>
+    </footer>
   </div>
+
   <script>
     window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 50));
+    document.querySelectorAll('.nav-links a[href^="../#"]').forEach(a => a.addEventListener('click', () => document.querySelector('.nav-links')?.classList.remove('open')));
+  </script>
+
+  <!-- Content pipeline: renders this page from content/projects/same-rowan-chapter.md -->
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
+  <script src="../assets/js/project-render.js"></script>
+  <script>
+    renderProject('same-rowan-chapter').catch(function (err) {
+      console.error('Failed to render project content:', err);
+    });
   </script>
 </body>
 </html>

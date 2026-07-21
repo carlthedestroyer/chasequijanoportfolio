@@ -1,25 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Balancing Robot - Chase Quijano</title>
   <link rel="stylesheet" href="../styles.css">
   <!-- PRIVATE PREVIEW AUTH - remove this line for public launch -->
   <script src="/auth.js"></script>
-  <style>
-    .media-placeholder { border: 1.5px dashed var(--border-hover); border-radius: 8px; background: var(--bg-elevated); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.55rem; padding: 2.25rem 1.25rem; min-height: 200px; text-align: center; }
-    .media-placeholder svg { width: 28px; height: 28px; opacity: 0.3; color: var(--text-muted); }
-    .mp-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); opacity: 0.85; }
-    .mp-desc { font-size: 0.76rem; color: var(--text-muted); max-width: 260px; line-height: 1.5; }
-    .media-placeholder.data-plot { border-color: var(--gold); background: var(--gold-glow); }
-    .media-placeholder.data-plot .mp-label { color: var(--gold-bright); }
-    .media-placeholder.data-plot svg { opacity: 0.5; color: var(--gold); }
-  </style>
 </head>
 <body>
-  <div class="grid-bg"></div>
   <div class="content">
 
     <nav id="nav">
@@ -27,218 +16,60 @@
       <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
       <div class="nav-links">
         <a href="../projects/" class="active">Projects</a>
-        <a href="../#skills">Skills</a>
         <a href="../#about">About</a>
         <a href="../#contact">Contact</a>
-        <a href="../resume.html" class="nav-resume">Resume</a>
+        <a href="../resume.html" class="nav-resume">Resume (PDF)</a>
       </div>
     </nav>
 
-    <!-- HERO -->
-    <div class="project-hero">
-      <a href="../projects/" class="project-back">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12,19 5,12 12,5"/></svg>
-        All Projects
-      </a>
+    <!-- HEADER (rendered from content/projects/balancing-robot.md) -->
+    <div class="pd-header" id="pd-header"></div>
 
-      <div class="project-hero-number">002 · Controls & Robotics</div>
-      <h1 class="project-hero-title">Balancing Robot - Two Generations of Control System Design</h1>
-      <div class="project-hero-subtitle">Personal Project · Rowan University</div>
+    <!-- TOP SPLIT: Executive Summary + Hardware Specs card -->
+    <div class="pd-split" id="pd-split"></div>
 
-      <p class="project-hero-desc">Designed and built a two-wheeled balancing robot ("Carl Bot") from the ground up as a control theory learning platform - full sensor fusion and PID control stack implemented, though I moved on to a second-generation redesign before finishing the balance tuning. The V2 platform reuses that same control architecture while adding a mini PC, ROS 2, and an Intel RealSense depth camera for autonomous environmental perception. Both generations share a Teensy microcontroller, an MPU6050 IMU, a Kalman filter for sensor fusion, and a PID controller driving NEMA 17 stepper motors through DRV8825 drivers.</p>
+    <!-- VISUAL GALLERY -->
+    <div class="gallery-grid" id="pd-gallery"></div>
 
-      <div class="project-hero-tags">
-        <span class="tag">Teensy</span>
-        <span class="tag">MPU6050</span>
-        <span class="tag">Kalman Filter</span>
-        <span class="tag">PID</span>
-        <span class="tag">NEMA 17</span>
-        <span class="tag">DRV8825</span>
-        <span class="tag">ROS 2</span>
-        <span class="tag">Intel RealSense</span>
-      </div>
+    <!-- ENGINEERING CHALLENGES & ITERATIONS -->
+    <div class="pd-section" id="pd-challenges"></div>
 
-      <div class="project-hero-metrics">
-        <div><div class="phm-value">2</div><div class="phm-label">Robot Generations</div></div>
-        <div><div class="phm-value">PID</div><div class="phm-label">Balance Control Loop</div></div>
-        <div><div class="phm-value">2</div><div class="phm-label">NEMA 17 Stepper Motors</div></div>
-        <div><div class="phm-value">In Dev</div><div class="phm-label">ROS 2 + RealSense Upgrade</div></div>
-      </div>
-    </div>
+    <!-- QUANTITATIVE RESULTS CALLOUT -->
+    <div class="pd-section" id="pd-results"></div>
 
-    <!-- MOTIVATION -->
-    <div class="project-section">
-      <div class="ps-label">Motivation</div>
-      <h2 class="ps-title">Learning Control Theory by Building an Unstable System</h2>
-      <div class="ps-content">
-        <div class="ps-text">
-          <p>A two-wheeled self-balancing robot is a classic inverted-pendulum problem: the system is open-loop unstable, so it only stays upright through continuous, correct feedback control. That made it an ideal personal project for getting hands-on with sensor fusion and closed-loop control, rather than just studying the theory.</p>
-          <p>The first version, Carl Bot, got the full sensing and control stack designed, wired, and running on a simple aluminum-extrusion frame. The second version reuses that same control architecture but rebuilds the platform around a mini PC and ROS 2, turning the balancing chassis into a base for autonomous navigation experiments.</p>
-        </div>
-        <div class="ps-visual" style="padding: 0; overflow: hidden;">
-          <figure style="width: 100%;">
-            <img src="Balancing%20Robot/images/balancingrobot-carlbot-front.jpg" alt="Carl Bot, first-generation self-balancing robot, front view" style="width:100%; height:100%; object-fit:cover; border: none;" />
-            <figcaption style="padding: 0.75rem 1rem;">Carl Bot, first-generation self-balancing robot</figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
-
-    <!-- CARL BOT V1 -->
-    <div class="project-section">
-      <div class="ps-label">Generation 1 - Carl Bot</div>
-      <h2 class="ps-title">Kalman-Filtered PID Balance Control</h2>
-      <div class="ps-content">
-        <div class="ps-text">
-          <p>Carl Bot relies on a Teensy microcontroller for real-time computation. An MPU6050 IMU gathers gyroscopic and accelerometer data, giving the controller information about the robot's orientation. That raw data is noisy on its own, so it is processed through a Kalman filter to produce a clean, accurate estimate of angular velocity and tilt angle.</p>
-          <p>To stay upright, the robot drives two NEMA 17 stepper motors through DRV8825 stepper drivers, with motor power intended to be set by a PID (Proportional-Integral-Derivative) control loop computing the error between the robot's current angle and its desired upright position. The design combines Kalman-filtered sensor fusion with PID control - the standard architecture for this class of inverted-pendulum problem - though I never finished tuning the loop to a reliably self-balancing state before moving on to the V2 platform.</p>
-        </div>
-        <div class="ps-visual figure-grid" style="padding: 0; background: transparent;">
-          <figure>
-            <img src="Balancing%20Robot/images/balancingrobot-carlbot-front.jpg" alt="Carl Bot front view showing HRB LiPo battery and stepper drivers" style="width:100%; height:260px; object-fit:cover;" />
-            <figcaption>Carl Bot, front view</figcaption>
-          </figure>
-          <figure>
-            <img src="Balancing%20Robot/images/balancingrobot-carlbot-side.jpg" alt="Carl Bot side view showing 3D-printed CARL BOT enclosure and wheel" style="width:100%; height:260px; object-fit:cover;" />
-            <figcaption>Carl Bot, side view</figcaption>
-          </figure>
-          <figure>
-            <img src="Balancing%20Robot/images/balancingrobot-carlbot-back.jpg" alt="Carl Bot rear view showing wiring, rocker switch, and voltage regulator" style="width:100%; height:260px; object-fit:cover;" />
-            <figcaption>Carl Bot, rear wiring</figcaption>
-          </figure>
-        </div>
-      </div>
-      <div class="ps-content" style="margin-top: 2rem;">
-        <div class="ps-text">
-          <h4>Control Architecture</h4>
-          <ul>
-            <li>Teensy microcontroller as the real-time control loop processor</li>
-            <li>MPU6050 IMU for gyroscope and accelerometer measurement</li>
-            <li>Kalman filter for sensor fusion, tilt angle, and angular velocity estimation</li>
-            <li>PID controller computing motor power from angle error</li>
-            <li>Two NEMA 17 stepper motors via DRV8825 drivers for balance correction</li>
-          </ul>
-        </div>
-        <div class="ps-visual figure-grid" style="padding: 0; background: transparent;">
-          <figure>
-            <img src="Balancing%20Robot/images/balancingrobot-control-system-diagram.png" alt="Control system block diagram: reference, controller (Teensy), system, and sensor (MPU6050) feedback loop" style="width:100%; height:220px; object-fit:contain; background:#fff;" />
-            <figcaption>Closed-loop control system diagram</figcaption>
-          </figure>
-          <figure>
-            <img src="Balancing%20Robot/images/balancingrobot-pid-diagram.png" alt="PID control loop block diagram showing proportional, integral, and derivative terms" style="width:100%; height:220px; object-fit:contain; background:#fff;" />
-            <figcaption>PID control loop</figcaption>
-          </figure>
-          <figure style="grid-column: 1 / -1;">
-            <img src="Balancing%20Robot/images/balancingrobot-complementary-filter.jpg" alt="Complementary filter block diagram combining accelerometer and gyroscope data into a tilt angle estimate" style="width:100%; height:220px; object-fit:contain; background:#fff;" />
-            <figcaption>Complementary filter reference diagram, used alongside the Kalman filter for sensor fusion tuning</figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
-
-    <!-- V2 ROS BALANCING ROBOT -->
-    <div class="project-section">
-      <div class="ps-label">Generation 2 - In Development</div>
-      <h2 class="ps-title">Adding ROS 2 and Depth Perception</h2>
-      <div class="ps-content">
-        <div class="ps-text">
-          <p>The second-generation robot builds on Carl Bot's proven foundation while retaining the core control stack: real-time processing via a Teensy microcontroller, orientation data from an MPU6050 sensor, and a Kalman filter for accurate sensor fusion. It continues to use a PID control loop for balance, driven by the same NEMA 17 stepper motor and DRV8825 driver combination.</p>
-          <p>This iteration introduces a modular, redesigned enclosure for easier access and modification, and integrates a mini PC running Linux with ROS 2 alongside an Intel RealSense depth camera, enabling autonomous environmental perception through point cloud mapping. A dedicated cooling system was also added to manage thermal performance during extended operation.</p>
-        </div>
-        <div class="ps-visual figure-grid" style="padding: 0; background: transparent;">
-          <figure>
-            <img src="Balancing%20Robot/images/balancingrobot-v2-exterior-render.png" alt="V2 balancing robot CAD render, exterior 3/4 view with modular enclosure and depth camera bay" style="width:100%; height:240px; object-fit:contain; background:#fff;" />
-            <figcaption>V2 exterior, 3/4 view</figcaption>
-          </figure>
-          <figure>
-            <img src="Balancing%20Robot/images/balancingrobot-v2-front-detail.png" alt="V2 balancing robot CAD render, front view showing RealSense camera and vent" style="width:100%; height:240px; object-fit:contain; background:#fff;" />
-            <figcaption>V2 exterior, front view</figcaption>
-          </figure>
-        </div>
-      </div>
-      <div class="ps-content" style="margin-top: 2rem;">
-        <div class="ps-text">
-          <h4>New in This Iteration</h4>
-          <ul>
-            <li>Modular, redesigned enclosure for easier access and modification</li>
-            <li>Mini PC running Linux with ROS 2 for onboard autonomy</li>
-            <li>Intel RealSense depth camera for point cloud mapping and environmental perception</li>
-            <li>Dedicated cooling system for sustained thermal performance</li>
-          </ul>
-        </div>
-        <div class="ps-visual figure-grid" style="padding: 0; background: transparent;">
-          <figure>
-            <img src="Balancing%20Robot/images/balancingrobot-v2-side-detail.png" alt="V2 balancing robot CAD render, side profile showing RealSense mount and cooling vent" style="width:100%; height:240px; object-fit:contain; background:#fff;" />
-            <figcaption>V2 side profile, cooling vent</figcaption>
-          </figure>
-          <figure>
-            <img src="Balancing%20Robot/images/balancingrobot-v2-exterior-wireframe.png" alt="V2 balancing robot wireframe render showing enclosure geometry" style="width:100%; height:240px; object-fit:contain; background:#fff;" />
-            <figcaption>V2 enclosure wireframe</figcaption>
-          </figure>
-        </div>
-      </div>
-      <div class="ps-content ps-full" style="margin-top: 2rem;">
-        <div class="ps-text">
-          <h4>Internal Layout</h4>
-          <p>The internal cutaway below shows the mini PC compartment ("PC"), the Intel RealSense module, and the dual cooling fans that were added to manage heat from the onboard computer during extended autonomous operation.</p>
-        </div>
-        <div class="ps-visual" style="padding: 0; overflow: hidden;">
-          <figure style="width: 100%;">
-            <img src="Balancing%20Robot/images/balancingrobot-v2-cutaway-pc.png" alt="V2 balancing robot cutaway CAD render showing mini PC compartment, RealSense camera, and cooling fans" style="width:100%; height:auto; object-fit:contain; display:block; background:#fff; border: none;" />
-            <figcaption style="padding: 0.75rem 1rem;">Cutaway showing the mini PC compartment, RealSense camera, and cooling fans</figcaption>
-          </figure>
-        </div>
-      </div>
-      <div class="ps-content ps-full" style="margin-top: 2rem;">
-        <div class="ps-text"><h4 style="margin-top: 0;">Electronics Bay &amp; Wireframe Detail</h4></div>
-        <div class="ps-visual figure-grid" style="padding: 0; background: transparent;">
-          <figure>
-            <img src="Balancing%20Robot/images/balancingrobot-v2-electronics-bay.png" alt="V2 electronics bay detail - RealSense camera, dual cooling fans, and full assembly on wheels" style="width:100%; height:280px; object-fit:contain; background:#fff;" />
-            <figcaption>Electronics bay - camera, fans, and full assembly</figcaption>
-          </figure>
-          <figure>
-            <img src="Balancing%20Robot/Photos/balancingrobotv3%20v36_edited(1).png" alt="V2 wireframe engineering drawing, front 3/4 view with camera bay and vent detail" style="width:100%; height:280px; object-fit:contain; background:#fff;" />
-            <figcaption>Wireframe engineering drawing</figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
-
-    <!-- REFLECTION -->
-    <div class="project-section">
-      <div class="ps-label">Reflection & Current Status</div>
-      <h2 class="ps-title">Where This Actually Stands</h2>
-      <div class="ps-content ps-full">
-        <div class="ps-text">
-          <p>Both generations are honestly incomplete. I got the hardware built, the sensor fusion and PID architecture designed and wired, and the V2 chassis redesigned around a mini PC and ROS 2 - but I never finished tuning either robot to a reliably self-balancing state, and neither has driven under its own control. This page is a record of the design work, not a demo of a finished result.</p>
-          <p>What's actually there: a working Kalman filter reading the MPU6050 and producing clean tilt estimates, a PID loop wired to the stepper drivers with gains that were never fully tuned, and - on V2 - a mechanically complete platform with the mini PC, ROS 2, and RealSense camera installed but not yet integrated with the balance controller. Picking this back up would mean starting from a tuning session, not a rebuild.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- NAV -->
-    <div class="project-nav">
-      <a href="soft-robotics.html">
-        ← Previous
-        <span class="project-nav-title">Soft Robotics Flex PCB</span>
-      </a>
-      <a href="foc-control-rig.html" class="next">
-        Next Project →
-        <span class="project-nav-title">FOC Control Rig</span>
-      </a>
-    </div>
+    <!-- FOOTER NAV -->
+    <div class="project-nav" id="project-nav"></div>
 
     <footer>
-      <div class="footer-text">© 2026 Chase Quijano</div>
-      <div class="footer-text">Rowan University · Engineering Entrepreneurship</div>
+      <div class="footer-top">
+        <div class="footer-name">Chase Quijano</div>
+        <div class="footer-links">
+          <a href="mailto:chase@example.com">Email</a>
+          <a href="http://www.linkedin.com/in/chase-quijano-8a4b031ab" target="_blank">LinkedIn</a>
+          <a href="#" target="_blank">GitHub</a>
+          <a href="../resume.html">Resume (PDF)</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-text">© 2026 Chase Quijano</div>
+        <div class="footer-text">Rowan University · Engineering Entrepreneurship</div>
+      </div>
     </footer>
   </div>
 
   <script>
-    const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.08 });
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 50));
     document.querySelectorAll('.nav-links a[href^="../#"]').forEach(a => a.addEventListener('click', () => document.querySelector('.nav-links')?.classList.remove('open')));
+  </script>
+
+  <!-- Content pipeline: renders this page from content/projects/balancing-robot.md -->
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
+  <script src="../assets/js/project-render.js"></script>
+  <script>
+    renderProject('balancing-robot').catch(function (err) {
+      console.error('Failed to render project content:', err);
+    });
   </script>
 </body>
 </html>

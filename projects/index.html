@@ -4,227 +4,178 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>All Projects - Chase Quijano</title>
-    <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../styles.css">
   <!-- PRIVATE PREVIEW AUTH - remove this line for public launch -->
   <script src="/auth.js"></script>
 </head>
 <body>
-  <div class="grid-bg"></div>
   <div class="content">
     <nav id="nav">
       <a href="../" class="nav-name">Chase Quijano</a>
       <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
       <div class="nav-links">
         <a href="./" class="active">Projects</a>
-        <a href="../#skills">Skills</a>
         <a href="../#about">About</a>
         <a href="../#contact">Contact</a>
-        <a href="../resume.html" class="nav-resume">Resume</a>
+        <a href="../resume.html" class="nav-resume">Resume (PDF)</a>
       </div>
     </nav>
 
     <div class="archive-hero">
       <div class="section-label">Projects</div>
       <h1 class="archive-hero-title">All Work</h1>
-      <p class="archive-hero-desc">Every project I've designed and built - from wearable medical devices to autonomous drones and custom game consoles. Filter by category to explore.</p>
+      <p class="archive-hero-desc">Custom PCB design, embedded firmware, mechanical fabrication, and controls work spanning wearable medical devices, research hardware, and autonomous systems.</p>
     </div>
 
     <div class="filter-bar" id="filterBar">
       <button class="filter-btn active" data-filter="all">All</button>
       <button class="filter-btn" data-filter="medical">Medical</button>
-      <button class="filter-btn" data-filter="pcb">PCB Design</button>
-      <button class="filter-btn" data-filter="robotics">Robotics</button>
+      <button class="filter-btn" data-filter="research">Research</button>
       <button class="filter-btn" data-filter="controls">Controls</button>
-      <button class="filter-btn" data-filter="uav">UAV</button>
-      <button class="filter-btn" data-filter="iot">IoT</button>
       <button class="filter-btn" data-filter="manufacturing">Manufacturing</button>
-      <button class="filter-btn" data-filter="leadership">Leadership</button>
+      <button class="filter-btn" data-filter="uav">UAV / Leadership</button>
     </div>
 
-    <div class="archive-grid" id="archiveGrid">
+    <div class="archive-grid project-card-grid" id="archiveGrid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
 
-      <!-- FEATURED -->
-      <a href="subaru-internship.html" class="archive-card" data-category="manufacturing iot">
-        <div class="ac-visual">
-          <img src="SubaruInternship/images/bugbox-node-cad-render.jpg" alt="Subaru Technical Training Internship" style="width:100%; height:100%; object-fit:cover; display:block;" />
-        </div>
-        <div class="ac-content">
-          <div class="ac-type">Internship · Featured</div>
-          <h3 class="ac-title">Subaru Technical Training Internship</h3>
-          <p class="ac-desc">Year-long internship building a 14-node wireless training network, an autonomous demo vehicle, and a full shop infrastructure overhaul.</p>
-          <div class="ac-tags"><span class="tag">ESP32</span><span class="tag">CAD</span><span class="tag">3D Printing</span><span class="tag">Laser Cutting</span></div>
+      <a href="berta-medical.html" class="project-card card archive-card" data-category="medical">
+        <div class="project-card-img-wrap"><img class="project-card-img" src="Berta%20Medical/images/bertamedical-fig3-wearable-render.png" alt="Berta Medical final wearable PCB, 3D render" /></div>
+        <div class="project-card-body">
+          <div class="project-card-eyebrow">Medical Startup</div>
+          <h3 class="project-card-title">Berta Medical — Wearable ECG Platform</h3>
+          <p class="project-card-desc">Co-founded a wearable ECG startup and owned the hardware stack across three PCB revisions, from off-the-shelf modules to an encrypted, cloud-connected device.</p>
+          <div class="project-card-tags"><span class="tag">KiCad</span><span class="tag">ESP32</span><span class="tag">AD8232</span><span class="tag">MQTT</span></div>
+          <span class="project-card-link">Read Technical Breakdown →</span>
         </div>
       </a>
 
-      <a href="berta-medical.html" class="archive-card" data-category="medical pcb">
-
-    <div class="ac-visual">
-<img src="images/render2.png" alt="Berta Medical" style="width:180px; height:auto;" />
-</div>
-</div>
-        <div class="ac-content">
-          <div class="ac-type">Medical Startup · Featured</div>
-          <h3 class="ac-title">Berta Medical - Wearable ECG Platform</h3>
-          <p class="ac-desc">Custom ECG hardware, ESP32 firmware, AWS IoT cloud, and doctor/patient web portals. 3 PCB iterations.</p>
-          <div class="ac-tags"><span class="tag">KiCad</span><span class="tag">ESP32</span><span class="tag">MQTT</span><span class="tag">AWS</span></div>
+      <a href="exoskeleton.html" class="project-card card archive-card" data-category="research medical">
+        <div class="project-card-img-wrap"><img class="project-card-img" src="Exoskeleton%20Research/IMU%20System%20V2/image2.jpg" alt="Fall-Prevention Exoskeleton IMU System V2 mainboard" /></div>
+        <div class="project-card-body">
+          <div class="project-card-eyebrow">Engineering Clinic Research</div>
+          <h3 class="project-card-title">Fall-Prevention Exoskeleton</h3>
+          <p class="project-card-desc">Own the electrical, embedded, and test-engineering side of a pneumatically-actuated hip exoskeleton, from sensor array to bench force-testing.</p>
+          <div class="project-card-tags"><span class="tag">KiCad</span><span class="tag">Teensy 4.1</span><span class="tag">RS-485</span><span class="tag">Pneumatics</span></div>
+          <span class="project-card-link">Read Technical Breakdown →</span>
         </div>
       </a>
 
- 
-
-
-
-      <a href="exoskeleton.html" class="archive-card" data-category="robotics pcb controls medical">
-        <div class="ac-visual">
-          <img src="Exoskeleton%20Research/IMU%20System%20V2/image2.jpg" alt="Fall-Prevention Exoskeleton IMU System V2" style="width:100%; height:100%; object-fit:cover; display:block;" />
-        </div>
-        <div class="ac-content">
-          <div class="ac-type">Research · Featured</div>
-          <h3 class="ac-title">Fall-Prevention Exoskeleton</h3>
-          <p class="ac-desc">Pneumatically-actuated exoskeleton: control/relay PCBs and an 8-sensor RS-485 IMU array rebuilt for 400Hz, zero packet loss.</p>
-          <div class="ac-tags"><span class="tag">KiCad</span><span class="tag">Teensy 4.1</span><span class="tag">RS-485</span><span class="tag">ESP32</span></div>
+      <a href="imu-sensing-system.html" class="project-card card archive-card" data-category="research">
+        <div class="project-card-img-wrap"><img class="project-card-img" src="Exoskeleton%20Research/IMU%20System%20V2/image11.jpg" alt="IMU Sensing System V2 assembled mainboard" /></div>
+        <div class="project-card-body">
+          <div class="project-card-eyebrow">Engineering Clinic Research</div>
+          <h3 class="project-card-title">IMU Sensing System</h3>
+          <p class="project-card-desc">Root-caused an I2C bandwidth failure with real measurements, then rebuilt the 8-sensor body-orientation array around RS-485 for a 55x latency cut.</p>
+          <div class="project-card-tags"><span class="tag">BNO085</span><span class="tag">Teensy 4.1</span><span class="tag">RS-485</span></div>
+          <span class="project-card-link">Read Technical Breakdown →</span>
         </div>
       </a>
 
-      <a href="imu-sensing-system.html" class="archive-card" data-category="robotics pcb controls">
-        <div class="ac-visual">
-          <img src="Exoskeleton%20Research/IMU%20System%20V1/IMU%20System%20V1%20layout.png" alt="IMU Sensing System - 8-sensor body orientation array" style="width:100%; height:100%; object-fit:contain; background:#0A0A0C;" />
-        </div>
-        <div class="ac-content">
-          <div class="ac-type">Research · Sensing</div>
-          <h3 class="ac-title">IMU Sensing System</h3>
-          <p class="ac-desc">Root-caused an I2C bandwidth failure with real measurements, then rebuilt the 8-sensor array around RS-485 for 400Hz, zero packet loss.</p>
-          <div class="ac-tags"><span class="tag">BNO085</span><span class="tag">Teensy 4.1</span><span class="tag">RS-485</span></div>
-        </div>
-      </a>
-
-      <a href="test-rig-instrumentation.html" class="archive-card" data-category="robotics pcb controls">
-        <div class="ac-visual">
-          <img src="Exoskeleton%20Research/Control%20System%20+%20Test%20Bench/testbench2.jpg" alt="Test rig, instrumentation, and pneumatic force-testing setup" style="width:100%; height:100%; object-fit:cover; display:block;" />
-        </div>
-        <div class="ac-content">
-          <div class="ac-type">Research · Test Engineering</div>
-          <h3 class="ac-title">Test Rig, Instrumentation &amp; Human Trials</h3>
-          <p class="ac-desc">Designed the pneumatic test fixture and instrumentation, ran two 96-trial force campaigns (hip abduction, knee extension), now developing the human-trials procedure.</p>
-          <div class="ac-tags"><span class="tag">KiCad</span><span class="tag">Load Cell</span><span class="tag">DOE</span></div>
+      <a href="test-rig-instrumentation.html" class="project-card card archive-card" data-category="research controls">
+        <div class="project-card-img-wrap"><img class="project-card-img" src="Exoskeleton%20Research/Control%20System%20+%20Test%20Bench/testbench2.jpg" alt="Exoskeleton test rig and pneumatic force-testing bench" /></div>
+        <div class="project-card-body">
+          <div class="project-card-eyebrow">Engineering Clinic Research</div>
+          <h3 class="project-card-title">Test Rig, Instrumentation &amp; Human Trials</h3>
+          <p class="project-card-desc">Designed the pneumatic test fixture and control/relay electronics behind two 96-trial force campaigns, now heading toward human-subjects trials.</p>
+          <div class="project-card-tags"><span class="tag">KiCad</span><span class="tag">Load Cell</span><span class="tag">DOE</span></div>
+          <span class="project-card-link">Read Technical Breakdown →</span>
         </div>
       </a>
 
-      <a href="digital-scale.html" class="archive-card" data-category="manufacturing">
-        <div class="ac-visual">
-          <img src="Digital%20Scale/images/FINAL SCALE v11.png" alt="Custom Digital Scale" style="width:100%; height:100%; object-fit:contain; display:block;" />
-        </div>
-        <div class="ac-content">
-          <div class="ac-type">Manufacturing · Featured</div>
-          <h3 class="ac-title">Custom Digital Scale</h3>
-          <p class="ac-desc">CNC-machined load cell, FEA validation, 3D printed enclosure, Arduino firmware. Full-stack manufacturing.</p>
-          <div class="ac-tags"><span class="tag">CNC</span><span class="tag">FEA</span><span class="tag">Arduino</span><span class="tag">CAD</span></div>
-        </div>
-      </a>
-
-      <a href="soft-robotics.html" class="archive-card" data-category="robotics pcb">
-        <div class="ac-visual">
-          <img src="Soft%20Robotics%20Research/images/pcb-render-v2-front.png" alt="MRSR Mainboard V2 flex PCB for self-reconfigurable soft robotics" style="width:100%; height:100%; object-fit:contain; background:#0A0A0C;" />
-        </div>
-        <div class="ac-content">
-          <div class="ac-type">Research · Featured</div>
-          <h3 class="ac-title">Modular Flex PCB for Soft Robotics</h3>
-          <p class="ac-desc">Flex mainboard driving actuators and I2C comms for a self-reconfiguring soft robot; two revisions, cited in a forthcoming 2025 co-authored publication.</p>
-          <div class="ac-tags"><span class="tag">Flex PCB</span><span class="tag">DRV8833</span><span class="tag">I2C</span><span class="tag">KiCad</span></div>
+      <a href="digital-scale.html" class="project-card card archive-card" data-category="manufacturing">
+        <div class="project-card-img-wrap"><img class="project-card-img" src="Digital%20Scale/images/digitalscale-fig25-final-product.jpg" alt="Custom digital scale, completed prototype" /></div>
+        <div class="project-card-body">
+          <div class="project-card-eyebrow">Manufacturing &amp; Measurement</div>
+          <h3 class="project-card-title">Custom Digital Scale</h3>
+          <p class="project-card-desc">Machined a custom load cell from aluminum billet, FEA-validated before cutting, and closed the loop with strain-gauge signal conditioning and calibration.</p>
+          <div class="project-card-tags"><span class="tag">SolidWorks FEA</span><span class="tag">CNC Milling</span><span class="tag">HX711</span></div>
+          <span class="project-card-link">Read Technical Breakdown →</span>
         </div>
       </a>
 
-      <a href="same-rowan-chapter.html" class="archive-card" data-category="uav leadership">
-        <div class="ac-visual">
-          <img src="Society%20of%20Military%20Engineers/images/sar-drone-render-cover.png" alt="Society of American Military Engineers Rowan Chapter - search and rescue UAV" style="width:100%; height:100%; object-fit:cover; display:block;" />
-        </div>
-        <div class="ac-content">
-          <div class="ac-type">Leadership · Featured</div>
-          <h3 class="ac-title">SAME Rowan Chapter - President</h3>
-          <p class="ac-desc">Revitalized a dormant chapter and authored the winning $4,640 SAME Philadelphia Post proposal for a 7-ft composite search-and-rescue UAV, plus recurring K-12 STEM outreach.</p>
-          <div class="ac-tags"><span class="tag">Grant Writing</span><span class="tag">UAV Design</span><span class="tag">Leadership</span></div>
+      <a href="soft-robotics.html" class="project-card card archive-card" data-category="research">
+        <div class="project-card-img-wrap"><img class="project-card-img" src="Soft%20Robotics%20Research/images/pcb-render-v2-front.png" alt="Modular flex PCB mainboard for soft robotics, Rev B render" /></div>
+        <div class="project-card-body">
+          <div class="project-card-eyebrow">Rowan Robotics Lab</div>
+          <h3 class="project-card-title">Modular Flex PCB for Soft Robotics</h3>
+          <p class="project-card-desc">Designed the flexible mainboard driving actuation, sensing, and inter-module comms for a self-reconfigurable soft robot, cited in a forthcoming publication.</p>
+          <div class="project-card-tags"><span class="tag">Flex PCB</span><span class="tag">KiCad 9</span><span class="tag">DRV8833</span></div>
+          <span class="project-card-link">Read Technical Breakdown →</span>
         </div>
       </a>
 
-      <!-- NON-FEATURED -->
-      <a href="ros-robot.html" class="archive-card" data-category="robotics">
-        <div class="ac-visual">
-          <img src="ROS%20Robot/images/rosrobot-front.jpg" alt="ROS Robot" style="width:100%; height:100%; object-fit:cover; display:block;" />
+      <a href="same-rowan-chapter.html" class="project-card card archive-card" data-category="uav">
+        <div class="project-card-img-wrap"><img class="project-card-img" src="Society%20of%20Military%20Engineers/IMAGES/sar-drone-render-cover.png" alt="Search-and-rescue UAV CAD render, SAME Rowan Chapter" /></div>
+        <div class="project-card-body">
+          <div class="project-card-eyebrow">Grant-Funded UAV Program</div>
+          <h3 class="project-card-title">Search-and-Rescue UAV — SAME Rowan</h3>
+          <p class="project-card-desc">Authored the technical proposal that secured a $4,640 grant for a 7-ft composite search-and-rescue UAV, and direct the power-distribution subframe.</p>
+          <div class="project-card-tags"><span class="tag">UAV Systems</span><span class="tag">Composite Airframe</span><span class="tag">FAA Part 107</span></div>
+          <span class="project-card-link">Read Technical Breakdown →</span>
         </div>
-        <div class="ac-content"><div class="ac-type">Autonomous Robotics</div><h3 class="ac-title">ROS Robot</h3><p class="ac-desc">Mobile robot platform on ROS 2 Iron with a working RPLiDAR + Intel RealSense sensing stack; navigation loop not yet built.</p><div class="ac-tags"><span class="tag">ROS 2</span><span class="tag">RPLiDAR</span><span class="tag">RealSense</span></div></div>
       </a>
 
-      <div class="archive-card" data-category="uav">
-        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><circle cx="150" cy="100" r="50" stroke="#C9983A" stroke-width="1" opacity="0.4"/><path d="M110 100 L190 100 M150 60 L150 140 M120 70 L180 130 M180 70 L120 130" stroke="#C9983A" stroke-width="0.8" opacity="0.3"/></svg></div>
-        <div class="ac-content"><div class="ac-type">UAV</div><h3 class="ac-title">Autonomous Drone</h3><p class="ac-desc">Custom-built autonomous drone with GPS waypoint navigation and flight controller.</p><div class="ac-tags"><span class="tag">CAD</span><span class="tag">Flight Control</span><span class="tag">GPS</span></div></div>
-      </div>
-
-      <a href="balancing-robot.html" class="archive-card" data-category="controls robotics">
-        <div class="ac-visual">
-          <img src="Balancing%20Robot/images/balancingrobot-carlbot-front.jpg" alt="Balancing Robot" style="width:100%; height:100%; object-fit:cover; display:block;" />
+      <a href="ros-robot.html" class="project-card card archive-card" data-category="research controls">
+        <div class="project-card-img-wrap"><img class="project-card-img" src="ROS%20Robot/images/rosrobot-front.jpg" alt="ROS Robot mobile perception platform" /></div>
+        <div class="project-card-body">
+          <div class="project-card-eyebrow">Personal Project</div>
+          <h3 class="project-card-title">ROS Robot — Mobile Perception Platform</h3>
+          <p class="project-card-desc">Integrated an RPLiDAR A1 and Intel RealSense into a working ROS 2 sensing stack publishing live scan and point-cloud data.</p>
+          <div class="project-card-tags"><span class="tag">ROS 2 Iron</span><span class="tag">RPLiDAR A1</span><span class="tag">RealSense</span></div>
+          <span class="project-card-link">Read Technical Breakdown →</span>
         </div>
-        <div class="ac-content"><div class="ac-type">Controls</div><h3 class="ac-title">Balancing Robot</h3><p class="ac-desc">Two-wheeled inverted-pendulum robot with a Kalman-filtered PID control stack designed and wired; balance tuning left unfinished.</p><div class="ac-tags"><span class="tag">PID</span><span class="tag">Kalman Filter</span><span class="tag">ROS 2</span></div></div>
       </a>
 
-      <div class="archive-card" data-category="medical">
-        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><ellipse cx="150" cy="100" rx="60" ry="40" stroke="#C9983A" stroke-width="1" opacity="0.4"/><circle cx="150" cy="100" r="12" stroke="#C9983A" stroke-width="0.8" opacity="0.3"/></svg></div>
-        <div class="ac-content"><div class="ac-type">Medical</div><h3 class="ac-title">Wearable ECG Mk2</h3><p class="ac-desc">Second-generation wearable ECG form factor with improved electrode contact.</p><div class="ac-tags"><span class="tag">ECG</span><span class="tag">Wearable</span><span class="tag">3D Print</span></div></div>
-      </div>
-
-      <div class="archive-card" data-category="iot">
-        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><rect x="80" y="50" width="140" height="100" rx="8" stroke="#C9983A" stroke-width="1" opacity="0.4"/><circle cx="150" cy="100" r="25" stroke="#C9983A" stroke-width="0.8" opacity="0.3"/></svg></div>
-        <div class="ac-content"><div class="ac-type">IoT</div><h3 class="ac-title">Farm Camera System</h3><p class="ac-desc">Remote monitoring camera system with weatherproof enclosure and wireless data link.</p><div class="ac-tags"><span class="tag">ESP32</span><span class="tag">Camera</span><span class="tag">IoT</span></div></div>
-      </div>
-
-      <div class="archive-card" data-category="pcb medical">
-        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><rect x="60" y="60" width="180" height="80" rx="4" stroke="#C9983A" stroke-width="1" opacity="0.4"/><rect x="75" y="75" width="60" height="35" rx="2" stroke="#C9983A" stroke-width="0.6" fill="#C9983A" fill-opacity="0.03"/></svg></div>
-        <div class="ac-content"><div class="ac-type">PCB Design</div><h3 class="ac-title">ECG Dev Kit PCB</h3><p class="ac-desc">Development board with OLED, microSD, and modular headers for ECG firmware iteration.</p><div class="ac-tags"><span class="tag">KiCad</span><span class="tag">ESP32</span><span class="tag">OLED</span></div></div>
-      </div>
-
-      <div class="archive-card" data-category="medical pcb">
-        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><ellipse cx="150" cy="90" rx="45" ry="35" stroke="#C9983A" stroke-width="1" opacity="0.4"/><line x1="150" y1="125" x2="150" y2="155" stroke="#C9983A" stroke-width="0.8" opacity="0.3"/><line x1="130" y1="155" x2="170" y2="155" stroke="#C9983A" stroke-width="1" opacity="0.4"/></svg></div>
-        <div class="ac-content"><div class="ac-type">Wearable</div><h3 class="ac-title">ECG Puck</h3><p class="ac-desc">Compact puck-form-factor wearable ECG device with minimal footprint.</p><div class="ac-tags"><span class="tag">ECG</span><span class="tag">Compact</span><span class="tag">PCB</span></div></div>
-      </div>
-
-      <div class="archive-card" data-category="pcb">
-        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><rect x="70" y="60" width="160" height="80" rx="6" stroke="#C9983A" stroke-width="1" opacity="0.4"/><rect x="85" y="75" width="30" height="22" rx="2" stroke="#C9983A" stroke-width="0.6" opacity="0.3"/><rect x="125" y="75" width="30" height="22" rx="2" stroke="#C9983A" stroke-width="0.6" opacity="0.3"/><rect x="165" y="75" width="30" height="22" rx="2" stroke="#C9983A" stroke-width="0.6" opacity="0.3"/><rect x="85" y="105" width="30" height="22" rx="2" stroke="#C9983A" stroke-width="0.6" opacity="0.3"/></svg></div>
-        <div class="ac-content"><div class="ac-type">Input Device</div><h3 class="ac-title">Macropad</h3><p class="ac-desc">Custom mechanical macropad with programmable keys and custom PCB.</p><div class="ac-tags"><span class="tag">PCB</span><span class="tag">Firmware</span><span class="tag">CAD</span></div></div>
-      </div>
-
-      <div class="archive-card" data-category="iot">
-        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><circle cx="150" cy="85" r="40" stroke="#C9983A" stroke-width="1" opacity="0.4"/><line x1="150" y1="125" x2="150" y2="155" stroke="#C9983A" stroke-width="0.8" opacity="0.3"/><circle cx="150" cy="85" r="12" stroke="#C9983A" stroke-width="0.6" fill="#C9983A" fill-opacity="0.04"/></svg></div>
-        <div class="ac-content"><div class="ac-type">Environmental</div><h3 class="ac-title">Particulate Sensor</h3><p class="ac-desc">Air quality measurement device with particulate matter sensing and data logging.</p><div class="ac-tags"><span class="tag">Sensor</span><span class="tag">Arduino</span><span class="tag">CAD</span></div></div>
-      </div>
-
-      <div class="archive-card" data-category="uav">
-        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><path d="M100 70 L200 70 L200 130 L100 130 Z" stroke="#C9983A" stroke-width="1" opacity="0.4"/><path d="M90 60 L190 60 L200 70" stroke="#C9983A" stroke-width="0.7" opacity="0.3"/><line x1="90" y1="60" x2="90" y2="120" stroke="#C9983A" stroke-width="0.7" opacity="0.3"/></svg></div>
-        <div class="ac-content"><div class="ac-type">UAV</div><h3 class="ac-title">Deployable Drone</h3><p class="ac-desc">Folding-arm drone design for rapid deployment from a compact enclosure.</p><div class="ac-tags"><span class="tag">CAD</span><span class="tag">Mechanical</span><span class="tag">UAV</span></div></div>
-      </div>
-
-      <a href="foc-control-rig.html" class="archive-card" data-category="controls">
-        <div class="ac-visual" style="background: #fff;">
-          <img src="FOC%20Control%20Rig/images/foc-rig-cad-render.png" alt="FOC Control Rig" style="width:100%; height:100%; object-fit:contain; display:block;" />
+      <a href="balancing-robot.html" class="project-card card archive-card" data-category="controls">
+        <div class="project-card-img-wrap"><img class="project-card-img" src="Balancing%20Robot/images/balancingrobot-carlbot-front.jpg" alt="Balancing Robot, Carl Bot V1" /></div>
+        <div class="project-card-body">
+          <div class="project-card-eyebrow">Personal Project</div>
+          <h3 class="project-card-title">Balancing Robot — Two Control Generations</h3>
+          <p class="project-card-desc">Two-wheeled inverted-pendulum robot with a Kalman-filtered PID control stack designed and wired across two hardware generations.</p>
+          <div class="project-card-tags"><span class="tag">Teensy</span><span class="tag">Kalman Filter</span><span class="tag">PID</span></div>
+          <span class="project-card-link">Read Technical Breakdown →</span>
         </div>
-        <div class="ac-content"><div class="ac-type">Motor Control</div><h3 class="ac-title">FOC Control Rig</h3><p class="ac-desc">Field oriented control test bench built around an ODrive S1 and Eagle Power brushless motor.</p><div class="ac-tags"><span class="tag">FOC</span><span class="tag">ODrive</span><span class="tag">BLDC</span></div></div>
       </a>
 
-      <div class="archive-card" data-category="pcb">
-        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><rect x="60" y="55" width="180" height="90" rx="16" stroke="#C9983A" stroke-width="1" opacity="0.4"/><rect x="80" y="70" width="70" height="45" rx="4" stroke="#C9983A" stroke-width="0.6" opacity="0.3"/><circle cx="200" cy="85" r="8" stroke="#C9983A" stroke-width="0.5" opacity="0.3"/><circle cx="200" cy="110" r="8" stroke="#C9983A" stroke-width="0.5" opacity="0.3"/></svg></div>
-        <div class="ac-content"><div class="ac-type">Game Dev</div><h3 class="ac-title">Handheld Console</h3><p class="ac-desc">Custom handheld gaming console with screen, buttons, and game firmware.</p><div class="ac-tags"><span class="tag">PCB</span><span class="tag">Firmware</span><span class="tag">CAD</span></div></div>
-      </div>
+      <a href="foc-control-rig.html" class="project-card card archive-card" data-category="controls">
+        <div class="project-card-img-wrap" style="background:#fff;"><img class="project-card-img" style="object-fit:contain;" src="FOC%20Control%20Rig/Images/foc-rig-cad-render.png" alt="Field Oriented Control test bench CAD render" /></div>
+        <div class="project-card-body">
+          <div class="project-card-eyebrow">Personal Project</div>
+          <h3 class="project-card-title">Field Oriented Control Test Bench</h3>
+          <p class="project-card-desc">Built a closed-loop BLDC test bench around an ODrive S1 controller to characterize torque and velocity control hands-on.</p>
+          <div class="project-card-tags"><span class="tag">FOC</span><span class="tag">ODrive S1</span><span class="tag">STM32</span></div>
+          <span class="project-card-link">Read Technical Breakdown →</span>
+        </div>
+      </a>
 
-      <div class="archive-card" data-category="medical">
-        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><circle cx="150" cy="100" r="35" stroke="#C9983A" stroke-width="1" opacity="0.4"/><circle cx="150" cy="100" r="14" stroke="#C9983A" stroke-width="0.6" opacity="0.3"/><rect x="135" y="50" width="30" height="16" rx="3" stroke="#C9983A" stroke-width="0.7" opacity="0.3"/></svg></div>
-        <div class="ac-content"><div class="ac-type">Wearable</div><h3 class="ac-title">Flex Sensor Ring</h3><p class="ac-desc">Wearable flex sensor ring for gesture detection and hand tracking.</p><div class="ac-tags"><span class="tag">Flex Sensor</span><span class="tag">Wearable</span><span class="tag">Arduino</span></div></div>
-      </div>
+      <a href="subaru-internship.html" class="project-card card archive-card" data-category="manufacturing">
+        <div class="project-card-img-wrap"><img class="project-card-img" src="SubaruInternship/images/bugbox-node-cad-render.jpg" alt="Subaru Technical Training Internship node enclosure CAD render" /></div>
+        <div class="project-card-body">
+          <div class="project-card-eyebrow">Subaru of America</div>
+          <h3 class="project-card-title">Subaru Technical Training Internship</h3>
+          <p class="project-card-desc">Year-long internship scaling a bench prototype into a 14-node wireless training network, plus a ToF-sensing autonomous demo vehicle.</p>
+          <div class="project-card-tags"><span class="tag">ESP32-S3</span><span class="tag">ESP-NOW</span><span class="tag">SolidWorks</span></div>
+          <span class="project-card-link">Read Technical Breakdown →</span>
+        </div>
+      </a>
 
-      <div class="archive-card" data-category="medical pcb">
-        <div class="ac-visual"><svg viewBox="0 0 300 200" fill="none"><ellipse cx="150" cy="85" rx="55" ry="30" stroke="#C9983A" stroke-width="1" opacity="0.4"/><line x1="150" y1="115" x2="150" y2="150" stroke="#C9983A" stroke-width="1" opacity="0.3"/><polyline points="135,142 150,155 165,142" stroke="#C9983A" stroke-width="0.8" fill="none" opacity="0.3"/></svg></div>
-        <div class="ac-content"><div class="ac-type">Medical</div><h3 class="ac-title">ECG Device Mk3</h3><p class="ac-desc">Third-generation ECG wearable with refined form factor and improved signal quality.</p><div class="ac-tags"><span class="tag">ECG</span><span class="tag">PCB</span><span class="tag">CAD</span></div></div>
-      </div>
     </div>
 
-    <footer><div class="footer-text">© 2026 Chase Quijano</div><div class="footer-text">Rowan University · Engineering Entrepreneurship</div></footer>
+    <footer>
+      <div class="footer-top">
+        <div class="footer-name">Chase Quijano</div>
+        <div class="footer-links">
+          <a href="mailto:chase@example.com">Email</a>
+          <a href="http://www.linkedin.com/in/chase-quijano-8a4b031ab" target="_blank">LinkedIn</a>
+          <a href="#" target="_blank">GitHub</a>
+          <a href="../resume.html">Resume (PDF)</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-text">© 2026 Chase Quijano</div>
+        <div class="footer-text">Rowan University · Engineering Entrepreneurship</div>
+      </div>
+    </footer>
   </div>
 
   <script>
