@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom Digital Scale - Chase Quijano</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <!-- PRIVATE PREVIEW AUTH - remove this line for public launch -->
+  <script src="/auth.js"></script>
+  <style>
+    .spec-table-wrap { overflow-x: auto; margin: 1.25rem 0; border: 1px solid var(--border); border-radius: 8px; }
+    table.spec-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; min-width: 480px; }
+    table.spec-table th, table.spec-table td { padding: 0.6rem 0.9rem; text-align: left; border-bottom: 1px solid var(--border); color: var(--text-secondary); white-space: nowrap; }
+    table.spec-table th { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); background: var(--bg-elevated); font-weight: 600; }
+    table.spec-table tr:last-child td { border-bottom: none; }
+    table.spec-table td.hl { color: var(--text); font-weight: 600; }
+    table.spec-table td.win { color: var(--gold-bright); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="grid-bg"></div>
+  <div class="content">
+    <nav id="nav">
+      <a href="../../" class="nav-name">Chase Quijano</a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="../../projects/" class="active">Projects</a>
+        <a href="../../#skills">Skills</a>
+        <a href="../../#about">About</a>
+        <a href="../../#contact">Contact</a>
+        <a href="../../resume.html" class="nav-resume">Resume</a>
+      </div>
+    </nav>
+
+    <div class="project-hero">
+      <a href="index.html" class="project-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12,19 5,12 12,5"/></svg>All Projects</a>
+      <div class="project-hero-number">003 · Precision Instrumentation</div>
+      <h1 class="project-hero-title">Custom Digital Scale</h1>
+      <div class="project-hero-subtitle">Manufacturing & Measurement Techniques · Rowan University · December 2024</div>
+      <p class="project-hero-desc">Engineered a complete mass-measurement instrument around a self-designed cantilever load cell - machined from 6010 aluminum billet, validated by SolidWorks static stress simulation before a single cut was made, and instrumented with a bonded strain-gauge Wheatstone bridge feeding an HX711 24-bit ADC. The project spans the full precision-mechanism stack a surgical device demands: FEA-driven structural design, manual and CNC machining to tolerance, strain-gauge bonding and signal conditioning, and closed-loop calibration against a known standard to hit a quantified accuracy spec.</p>
+      <div class="project-hero-tags">
+        <span class="tag">SolidWorks FEA</span><span class="tag">CNC Milling</span><span class="tag">Manual Lathe</span><span class="tag">Strain Gauge</span><span class="tag">Wheatstone Bridge</span><span class="tag">HX711 ADC</span><span class="tag">Arduino</span><span class="tag">GD&amp;T</span><span class="tag">Fusion 360</span><span class="tag">3D Printing (ABS)</span>
+      </div>
+      <div class="project-hero-metrics">
+        <div><div class="phm-value">±1%</div><div class="phm-label">Measurement Accuracy</div></div>
+        <div><div class="phm-value">0–3 kg</div><div class="phm-label">Operating Range</div></div>
+        <div><div class="phm-value">3.84</div><div class="phm-label">Min. FEA Safety Factor</div></div>
+        <div><div class="phm-value">IP31</div><div class="phm-label">Enclosure Rating</div></div>
+      </div>
+    </div>
+
+    <div class="project-section">
+      <div class="ps-label">Architecture</div>
+      <h2 class="ps-title">System Architecture &amp; Technical Stack</h2>
+      <div class="ps-content">
+        <div class="ps-text">
+          <ul>
+            <li><strong>Load cell:</strong> Custom cantilever-beam load cell machined from 6010 aluminum billet on a manual Bridgeport mill - facing, edge-finding, DRO-located hole drilling, hand-threading, and final pocket/exterior milling with a ¼″ end mill, all referenced off a custom fixturing jig.</li>
+            <li><strong>Structural validation:</strong> SolidWorks static stress simulation run on candidate beam geometries and thicknesses prior to machining, used to confirm adequate load-path stiffness across 0–3 kg and to locate the peak-strain region for gauge placement.</li>
+            <li><strong>Sensing element:</strong> Foil strain gauges bonded top and bottom of the beam flexure in a Wheatstone bridge configuration, positioned at the FEA-identified peak-stress site to maximize signal-to-noise on the bridge output.</li>
+            <li><strong>Signal conditioning:</strong> HX711 24-bit ADC amplifying the millivolt-scale bridge differential and delivering a digital reading to the microcontroller.</li>
+            <li><strong>Control &amp; firmware:</strong> Arduino-based firmware handling ADC polling with sample averaging, tare offset storage, unit conversion (g/kg/lb/oz), and interrupt-driven (FALLING-edge) button handling for tare and unit-swap so the UI never blocks on a read cycle.</li>
+            <li><strong>Enclosure fabrication:</strong> Fusion 360-modeled clamshell shroud, 3D printed in ABS on a heated-chamber printer (10% grid infill), assembled with brass heat-set inserts throughout - no adhesive in the load path or enclosure joints - achieving an IP31 ingress rating.</li>
+          </ul>
+        </div>
+        <div class="ps-visual" style="padding: 0; overflow: hidden;">
+          <img src="../Digital%20Scale/images/digitalscale-fig7-fea-stress.jpg" alt="SolidWorks static stress simulation on the machined load cell beam showing EPSX strain distribution" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
+      </div>
+      <div class="ps-content" style="margin-top: 2rem;">
+        <div class="ps-text">
+          <h4>Simulated Sensor Results (Pre-Machining)</h4>
+          <div class="spec-table-wrap">
+            <table class="spec-table">
+              <thead><tr><th>Location</th><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Top strain gauge site</td><td>Average normal strain (EPSX)</td><td class="hl">+4.443 × 10⁻⁴</td></tr>
+                <tr><td>Bottom strain gauge site</td><td>Average normal strain (EPSX)</td><td class="hl">−4.487 × 10⁻⁴</td></tr>
+                <tr><td>Full beam, 0–3 kg load</td><td>Minimum factor of safety</td><td class="win">3.84</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="ps-visual" style="padding: 0; overflow: hidden; background:#0A0A0C;">
+          <img src="../Digital%20Scale/images/digitalscale-fig8-sensor-table.png" alt="SolidWorks simulation sensor table listing top and bottom strain gauge EPSX values and minimum factor of safety" style="width:100%; height:auto; object-fit:contain; display:block;" />
+        </div>
+      </div>
+    </div>
+
+    <div class="project-section">
+      <div class="ps-label">Iteration</div>
+      <h2 class="ps-title">Engineering Challenges &amp; Iteration</h2>
+      <div class="ps-content ps-full">
+        <div class="ps-text">
+          <p>The load cell was the highest-risk component in the build because its geometry had to be committed to metal before any electrical validation was possible. Rather than machining first and instrumenting second, the beam thickness and pocket geometry were iterated entirely in SolidWorks - running static stress simulations across candidate cross-sections until the model showed the full 0–3 kg range supported with a minimum factor of safety of 3.84 (alert threshold set at 3) and clean, symmetric EPSX strain concentration at the flexure. That simulation output doubled as the machining spec and the gauge-placement map: the top and bottom faces of the same peak-stress region identified in FEA were where the strain gauges were later bonded, so the physical sensor placement matched the location the model predicted would produce the largest, most linear bridge signal.</p>
+          <p>Machining the beam to that spec on a manual Bridgeport carried its own tolerance risk - milling the center pocket with a ¼″ end mill at the wrong feed rate could thin the flexure past its design cross-section and invalidate the FEA margin entirely, so feed rate and pass depth were planned conservatively and verified in practice passes before cutting the final part. Two supporting components - a spacer block and a load tray mount - required a multi-machine workflow: the spacer was milled entirely on the Bridgeport with flatness confirmed by dial indicator, while the load tray mount was first turned to diameter on a manual lathe, then transferred via a custom jig back to the mill for side-face milling to tolerance. After machining, strain gauge installation required degreasing the bonding surfaces, applying CA-glue accelerant, and placing the gauges precisely at the simulated peak-strain sites before wiring them into the HX711 bridge amplifier - misalignment here directly degrades bridge balance and reading linearity, so gauge placement was done under magnification against the FEA strain map rather than by eye alone.</p>
+          <p>On the firmware side, closed-loop calibration against a 200 g standardized reference weight was used to derive the grams-per-ADC-count calibration factor and confirm the tare routine's multi-sample averaging held a stable zero baseline - both necessary to keep readings inside the ±1% accuracy specification across the full operating range rather than only at a single calibration point.</p>
+        </div>
+        <div class="ps-visual figure-grid" style="padding: 0; background: transparent; gap: 2rem;">
+          <figure>
+            <img src="../Digital%20Scale/images/digitalscale-fig9-technical-drawing.jpg" alt="Load cell technical drawing with GD&T dimensions for machining" style="width:100%; height:280px; object-fit:cover;" />
+            <figcaption>Load cell technical drawing used to drive the Bridgeport machining sequence</figcaption>
+          </figure>
+          <figure>
+            <img src="../Digital%20Scale/images/digitalscale-fig10-bridgeport-mill.jpg" alt="Milling the load cell stock on a manual Bridgeport mill" style="width:100%; height:280px; object-fit:cover;" />
+            <figcaption>Center pocket and exterior profile milled on a manual Bridgeport with a ¼″ end mill</figcaption>
+          </figure>
+          <figure>
+            <img src="../Digital%20Scale/images/digitalscale-fig12-manual-lathe.jpg" alt="Turning the load tray mount stock on a manual lathe" style="width:100%; height:280px; object-fit:cover;" />
+            <figcaption>Load tray mount turned to diameter on a manual lathe before mill transfer</figcaption>
+          </figure>
+          <figure>
+            <img src="../Digital%20Scale/images/digitalscale-fig13-mill-transfer-jig.jpg" alt="Load tray mount transferred to a custom jig on the mill for side-face milling" style="width:100%; height:280px; object-fit:cover;" />
+            <figcaption>Custom transfer jig holding the lathe-turned mount for side-face milling to tolerance</figcaption>
+          </figure>
+          <figure>
+            <img src="../Digital%20Scale/images/digitalscale-fig11-dial-indicator.jpg" alt="Verifying spacer block flatness with a dial indicator gauge" style="width:100%; height:280px; object-fit:cover;" />
+            <figcaption>Spacer block flatness verified with a dial indicator after Bridgeport milling</figcaption>
+          </figure>
+          <figure>
+            <img src="../Digital%20Scale/images/digitalscale-fig14-strain-gauge-install.jpg" alt="Strain gauge bonded to the machined aluminum load cell at the FEA-identified peak-stress site" style="width:100%; height:280px; object-fit:cover;" />
+            <figcaption>Foil strain gauge bonded at the FEA-identified peak-stress region, prior to bridge wiring</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-section">
+      <div class="ps-label">Validation</div>
+      <h2 class="ps-title">Quantitative Results &amp; Validation</h2>
+      <div class="ps-content ps-full">
+        <div class="ps-text">
+          <p>Functional testing against a 200 g calibration standard confirmed the assembled instrument held ±1% measurement accuracy across the full 0–3 kg operating range, with the tare routine's sample-averaging producing a repeatable zero baseline across repeated container swaps and no observed drift between unit conversions (g/kg/lb/oz computed from the same calibrated ADC reading). The load-bearing structure carried a minimum FEA-predicted factor of safety of 3.84 against the full-range load, well above the 3.0 design threshold, and the machined part matched that predicted strain distribution closely enough that no beam geometry rework was needed after gauge installation. The 3D-printed ABS clamshell enclosure - assembled entirely with brass heat-set inserts and no adhesive - met the IP31 ingress protection target while remaining fully serviceable for battery access and internal component replacement.</p>
+        </div>
+        <div class="ps-visual" style="padding: 0; overflow: hidden; min-height: auto;">
+          <img src="../Digital%20Scale/images/digitalscale-fig25-final-product.jpg" alt="Completed digital scale prototype powered on, weighing a calibration standard, with tray removed" style="width:100%; height:auto; object-fit:contain; display:block; background:#0A0A0C;" />
+        </div>
+      </div>
+    </div>
+
+    <div class="project-nav">
+      <a href="berta-medical.html">
+        ← Previous
+        <span class="project-nav-title">Berta Medical</span>
+      </a>
+      <a href="exoskeleton.html" class="next">
+        Next Project →
+        <span class="project-nav-title">Fall-Prevention Exoskeleton</span>
+      </a>
+    </div>
+
+    <footer><div class="footer-text">© 2026 Chase Quijano</div><div class="footer-text">Rowan University · Engineering Entrepreneurship</div></footer>
+  </div>
+  <script>window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 50));</script>
+</body>
+</html>

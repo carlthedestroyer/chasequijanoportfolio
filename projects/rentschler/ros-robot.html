@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROS Robot - Chase Quijano</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <!-- PRIVATE PREVIEW AUTH - remove this line for public launch -->
+  <script src="/auth.js"></script>
+</head>
+<body>
+  <div class="grid-bg"></div>
+  <div class="content">
+
+    <nav id="nav">
+      <a href="../../" class="nav-name">Chase Quijano</a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="../../projects/" class="active">Projects</a>
+        <a href="../../#skills">Skills</a>
+        <a href="../../#about">About</a>
+        <a href="../../#contact">Contact</a>
+        <a href="../../resume.html" class="nav-resume">Resume</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="project-hero">
+      <a href="index.html" class="project-back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12,19 5,12 12,5"/></svg>
+        All Projects
+      </a>
+
+      <div class="project-hero-number">004 · Autonomous Robotics</div>
+      <h1 class="project-hero-title">ROS Robot - Mobile Perception Platform on ROS 2 Iron</h1>
+      <div class="project-hero-subtitle">Personal Project · Rowan University</div>
+
+      <p class="project-hero-desc">Engineered a mobile robot platform running ROS 2 Iron on an onboard Linux mini PC, integrating an RPLiDAR A1 2D scanning unit and an Intel RealSense depth camera into a working sensing stack that publishes live scan and point-cloud data. Built as a testbed for autonomous ground navigation: the perception pipeline is validated and operating in real time, while the downstream SLAM/path-planning loop that would close the autonomy loop was not completed before the project was set aside.</p>
+
+      <div class="project-hero-tags">
+        <span class="tag">ROS 2 Iron</span>
+        <span class="tag">RPLiDAR A1</span>
+        <span class="tag">Intel RealSense</span>
+        <span class="tag">Teensy</span>
+        <span class="tag">Point Cloud Perception</span>
+      </div>
+
+      <div class="project-hero-metrics">
+        <div><div class="phm-value">ROS 2</div><div class="phm-label">Iron, on Linux Mini PC</div></div>
+        <div><div class="phm-value">A1</div><div class="phm-label">RPLiDAR 2D Scanning</div></div>
+        <div><div class="phm-value">22.2V</div><div class="phm-label">6000mAh LiPo Power</div></div>
+        <div><div class="phm-value">10mm</div><div class="phm-label">Fans, Custom Cooling</div></div>
+      </div>
+    </div>
+
+    <!-- ARCHITECTURE -->
+    <div class="project-section">
+      <div class="ps-label">Architecture</div>
+      <h2 class="ps-title">Perception and Compute Stack</h2>
+      <div class="ps-content">
+        <div class="ps-text">
+          <ul>
+            <li>ROS 2 Iron middleware running on a Linux-based mini PC, serving as the central compute and message-passing layer for the sensor nodes</li>
+            <li>RPLiDAR A1 publishing a 360-degree 2D planar scan into ROS 2 for localization and obstacle detection</li>
+            <li>Intel RealSense depth camera publishing a full RGB point cloud, extending perception into 3D and covering obstacles outside the LiDAR's scan plane</li>
+            <li>Teensy microcontroller performing low-level drive-motor control, commanding the motors through a stepper driver breakout board</li>
+            <li>22.2V 6000mAh LiPo battery with a step-down voltage regulator supplying separate power rails for the mini PC and the drive electronics</li>
+            <li>Custom chassis with a dedicated 10mm-fan cooling loop to manage thermal load on the onboard compute during sustained sensing operation</li>
+          </ul>
+        </div>
+        <div class="ps-visual figure-grid" style="padding: 0; background: transparent;">
+          <figure>
+            <img src="../ROS%20Robot/images/rosrobot-rplidar-mapping.png" alt="RPLiDAR A1 mapping screenshot showing a polar plot of a room scan" style="width:100%; height:220px; object-fit:contain; background:#000;" />
+            <figcaption>RPLiDAR A1 2D scan, polar plot of a room, published live into ROS 2</figcaption>
+          </figure>
+          <figure>
+            <img src="../ROS%20Robot/images/rosrobot-pointcloud-mapping.png" alt="Intel RealSense point cloud mapping screenshot showing a colored 3D reconstruction of a living room" style="width:100%; height:220px; object-fit:contain; background:#000;" />
+            <figcaption>Intel RealSense RGB point cloud, 3D reconstruction of the test environment</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="ps-content ps-full" style="margin-top: 2rem;">
+        <div class="ps-text">
+          <h4>Physical Realization</h4>
+          <p>The sensing stack described above is carried by a custom chassis: the RPLiDAR A1 and Intel RealSense are top-mounted for a clear field of view, with the mini PC, Teensy, stepper drivers, and battery packaged in the base structure below.</p>
+        </div>
+        <div class="ps-visual figure-grid" style="padding: 0; background: transparent;">
+          <figure>
+            <img src="../ROS%20Robot/images/rosrobot-front.jpg" alt="ROS Robot front view showing RPLiDAR, Intel RealSense camera, and drive wheels" style="width:100%; height:240px; object-fit:cover;" />
+            <figcaption>Front view - RPLiDAR, RealSense, and drive wheels</figcaption>
+          </figure>
+          <figure>
+            <img src="../ROS%20Robot/images/rosrobot-top-front.jpg" alt="ROS Robot top-front view showing RPLiDAR mount, Intel RealSense camera, and wiring" style="width:100%; height:240px; object-fit:cover;" />
+            <figcaption>Top-front - sensor mounting and wiring routing to the compute bay</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <!-- ITERATION -->
+    <div class="project-section">
+      <div class="ps-label">Iteration</div>
+      <h2 class="ps-title">A Validated Sensing Stack, an Unbuilt Navigation Loop</h2>
+      <div class="ps-content">
+        <div class="ps-text">
+          <p>Integrating two independent sensing modalities - the RPLiDAR's 2D planar scan and the RealSense's 3D RGB point cloud - into a single coherent ROS 2 pipeline required getting both drivers publishing cleanly and concurrently on the mini PC without resource contention, alongside wiring the power and thermal management (22.2V LiPo, step-down regulator, custom fan cooling) needed to sustain that compute load inside a chassis with limited volume. That integration work is complete and validated: the scan and point-cloud captures on this page are live sensor output from the assembled robot, not simulated data.</p>
+          <p>What was not built is the layer that would consume this sensor data - SLAM or an occupancy map fused from both sensors, and a closed-loop path-planning stack driving the Teensy-controlled motors off that map. That is a deliberate, scoped stopping point rather than an unexplained gap: the sensing stack was brought to a working, characterized state before the project was set aside, and the navigation stack is the clearly identified next phase to build on top of it, not a restart from bring-up.</p>
+        </div>
+        <div class="ps-visual" style="padding: 0; overflow: hidden;">
+          <figure style="width: 100%;">
+            <img src="../ROS%20Robot/images/rosrobot-internal-wiring.jpg" alt="ROS Robot internal wiring, top view with cover removed, showing stepper drivers, Teensy, and voltage regulator" style="width:100%; height:100%; object-fit:cover; display:block; border: none;" />
+            <figcaption style="padding: 0.75rem 1rem;">Internal wiring with the top cover removed - dual stepper drivers, Teensy, and step-down voltage regulator</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="ps-content" style="margin-top: 2rem;">
+        <div class="ps-text">
+          <p>The animated capture below is the RPLiDAR A1 sweeping a room in real time, with the white line marking the current scan angle and red points marking detected surfaces - the deterministic sensing loop this project was scoped to deliver, running live on the assembled hardware.</p>
+        </div>
+        <div class="ps-visual" style="padding: 0; overflow: hidden;">
+          <figure style="width: 100%;">
+            <img src="../ROS%20Robot/images/rosrobot-8k-loop.gif" alt="Animated RPLiDAR A1 scan visualization, sweeping a room and plotting detected surfaces as red points" style="width:100%; height:100%; object-fit:contain; display:block; background:#000; border: none;" />
+            <figcaption style="padding: 0.75rem 1rem;">Live RPLiDAR A1 scan loop, sweeping and re-plotting the environment in real time</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <!-- VALIDATION -->
+    <div class="project-section">
+      <div class="ps-label">Validation</div>
+      <h2 class="ps-title">Live Sensor Output, Navigation Not Yet Closed-Loop</h2>
+      <div class="ps-content ps-full">
+        <div class="ps-text">
+          <p>Validation on this project is scoped to the sensing/perception pipeline: the RPLiDAR A1 and Intel RealSense were both characterized publishing continuously into ROS 2, and the 360-degree scan and RGB point-cloud captures shown throughout this page are live sensor output from the assembled robot, not simulated. No autonomous navigation or path-following performance data exists for this platform, because that control loop was not built - the sensing stack is validated and ready to serve as the input layer for a navigation stack, but the robot does not yet act on what it senses.</p>
+        </div>
+        <div class="ps-visual" style="padding: 0; overflow: hidden;">
+          <figure style="width: 100%;">
+            <img src="../ROS%20Robot/images/rosrobot-demo.gif" alt="Animated demo clip of the fully assembled ROS Robot" style="width:100%; max-width:480px; height:auto; object-fit:contain; display:block; margin: 0 auto; border: none;" />
+            <figcaption style="padding: 0.75rem 1rem; text-align:center;">Fully assembled hardware - sensing stack complete, navigation loop not implemented</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAV -->
+    <div class="project-nav">
+      <a href="foc-control-rig.html">
+        ← Previous
+        <span class="project-nav-title">FOC Control Rig</span>
+      </a>
+      <a href="soft-robotics.html" class="next">
+        Next Project →
+        <span class="project-nav-title">Modular Soft Robotics Substrates</span>
+      </a>
+    </div>
+
+    <footer>
+      <div class="footer-text">© 2026 Chase Quijano</div>
+      <div class="footer-text">Rowan University · Engineering Entrepreneurship</div>
+    </footer>
+  </div>
+
+  <script>
+    const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 50));
+    document.querySelectorAll('.nav-links a[href^="../../#"]').forEach(a => a.addEventListener('click', () => document.querySelector('.nav-links')?.classList.remove('open')));
+  </script>
+</body>
+</html>

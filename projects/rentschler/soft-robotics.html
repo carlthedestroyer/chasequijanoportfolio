@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modular Flex PCB for Soft Robotics - Chase Quijano</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <!-- PRIVATE PREVIEW AUTH - remove this line for public launch -->
+  <script src="/auth.js"></script>
+  <style>
+    .spec-table-wrap { overflow-x: auto; margin: 1.25rem 0; border: 1px solid var(--border); border-radius: 8px; }
+    table.spec-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; min-width: 480px; }
+    table.spec-table th, table.spec-table td { padding: 0.6rem 0.9rem; text-align: left; border-bottom: 1px solid var(--border); color: var(--text-secondary); white-space: nowrap; }
+    table.spec-table th { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); background: var(--bg-elevated); font-weight: 600; }
+    table.spec-table tr:last-child td { border-bottom: none; }
+    table.spec-table td.hl { color: var(--text); font-weight: 600; }
+    table.spec-table td.win { color: var(--gold-bright); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="grid-bg"></div>
+  <div class="content">
+
+    <nav id="nav">
+      <a href="../../" class="nav-name">Chase Quijano</a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="../../projects/" class="active">Projects</a>
+        <a href="../../#skills">Skills</a>
+        <a href="../../#about">About</a>
+        <a href="../../#contact">Contact</a>
+        <a href="../../resume.html" class="nav-resume">Resume</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="project-hero">
+      <a href="index.html" class="project-back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12,19 5,12 12,5"/></svg>
+        All Projects
+      </a>
+
+      <div class="project-hero-number">004 · Research</div>
+      <h1 class="project-hero-title">Modular Flexible PCB for Self-Reconfigurable Soft Robotics</h1>
+      <div class="project-hero-subtitle">Undergraduate Research Assistant · Rowan Robotics Lab (PI: Dr. Mitja Trkov) · 2025</div>
+
+      <p class="project-hero-desc">Engineered the flexible mainboard electronics for a self-reconfiguring soft robot module: a two-layer KiCad flex PCB, fit to a 96&times;28mm footprint, that drives pneumatic actuation, reads a resistive bend sensor, and carries power and I2C communication to neighboring modules across the platform. Designed under PI Dr. Mitja Trkov in the Rowan Robotics Lab, working alongside graduate researcher Joshua Knospler to integrate the boards into the physical multi-module system; the electronics contribution is cited in a forthcoming 2025 co-authored publication, with the underlying research now under evaluation for patenting.</p>
+
+      <div class="project-hero-tags">
+        <span class="tag">Flex PCB</span>
+        <span class="tag">KiCad 9</span>
+        <span class="tag">DRV8833</span>
+        <span class="tag">CD74HC4067</span>
+        <span class="tag">Seeeduino XIAO</span>
+        <span class="tag">I2C</span>
+        <span class="tag">FPC Connector</span>
+        <span class="tag">SMD Reflow</span>
+        <span class="tag">Pneumatics</span>
+      </div>
+
+      <div class="project-hero-metrics">
+        <div><div class="phm-value">2</div><div class="phm-label">Full Board Revisions</div></div>
+        <div><div class="phm-value">96×28mm</div><div class="phm-label">Module PCB Footprint</div></div>
+        <div><div class="phm-value">2025</div><div class="phm-label">Co-Authored Publication (Forthcoming)</div></div>
+        <div><div class="phm-value">Patent-Track</div><div class="phm-label">Research Status</div></div>
+      </div>
+    </div>
+
+    <!-- ARCHITECTURE -->
+    <div class="project-section">
+      <div class="ps-label">Architecture</div>
+      <h2 class="ps-title">Mainboard Electronics Stack</h2>
+      <div class="ps-content">
+        <div class="ps-text">
+          <ul>
+            <li>Routed a two-layer flexible PCB in KiCad 9, sized to the 96&times;28mm module envelope and specified to hold roughly 1&deg; of continuous flexion during normal operation without trace failure</li>
+            <li>Integrated 2&times; DRV8833PW dual H-bridge drivers for bidirectional pneumatic actuator control, sized to the actuator current draw</li>
+            <li>Added a CD74HC4067M 16-channel analog multiplexer to read multiple module I/O lines back through a single ADC pin, conserving microcontroller pin count on the flex substrate</li>
+            <li>Integrated a resistive bend sensor in a voltage-divider configuration with a 4.7k&Omega; pull-down, read on an analog input, for positional/flexion sensing on the module</li>
+            <li>Implemented inter-module power and I2C communication through PAC (Power/Actuator/Comms) connector pads carrying SCL, SDA, VCC, GND, and actuator outputs between adjacent modules</li>
+            <li>Rev B (V2) decoupled the microcontroller from the mainboard: a compact 11-pin FPC connector (FH35C-11S, 0.35mm pitch) links to a separate Seeeduino XIAO daughterboard, so an MCU or firmware change no longer forces a mainboard re-fabrication</li>
+            <li>Hand-assembled every board using SMD reflow (solder paste, hot plate + heat gun, no reflow oven), with microscope inspection for joint integrity and trace-bridging before integration</li>
+          </ul>
+        </div>
+        <div class="ps-visual figure-grid" style="padding: 0; background: transparent;">
+          <figure>
+            <img src="../Soft%20Robotics%20Research/images/pcb-render-v2-front.png" alt="MRSR Mainboard Rev B (V2) KiCad 3D render, front side, showing SMD DRV8833 drivers and the 11-pin FPC connector" style="width:100%; height:220px; object-fit:contain; background:#fff;" />
+            <figcaption>Rev B mainboard, front &mdash; dual DRV8833 actuator drivers, CD74HC4067 mux, and 11-pin FPC connector (FH35C-11S) to the Seeeduino XIAO daughterboard</figcaption>
+          </figure>
+          <figure>
+            <img src="../Soft%20Robotics%20Research/images/schematic-v2.png" alt="KiCad schematic for MRSR Mainboard Rev B, showing SMD AO3400A MOSFETs, DRV8833 drivers, and FPC connector to the secondary microcontroller board" style="width:100%; height:220px; object-fit:contain; background:#fff;" />
+            <figcaption>Rev B schematic &mdash; PAC connector I2C/power bus, bend-sensor divider, and FPC handoff to the secondary MCU board</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="ps-content" style="margin-top: 2rem;">
+        <div class="ps-text">
+          <h4>Mechanical Envelope</h4>
+          <p>The mainboard footprint was constrained by the soft robotic module housing itself: 96&times;28mm, two copper layers to stay within the lab's research budget rather than justify a four-layer flex stackup, with mounting holes and a connector notch fixed by the module's mechanical design.</p>
+        </div>
+        <div class="ps-visual" style="padding: 0.5rem;">
+          <img src="../Soft%20Robotics%20Research/images/mechanical-dimensions.png" alt="Module PCB mechanical dimension drawing, 96mm by 28mm outline with mounting holes and connector notch" style="width:100%; border-radius:4px;" />
+        </div>
+      </div>
+    </div>
+
+    <!-- ITERATION -->
+    <div class="project-section">
+      <div class="ps-label">Iteration</div>
+      <h2 class="ps-title">Rev A &rarr; Rev B: From Bodged First Article to SMD/FPC Design</h2>
+      <div class="ps-content">
+        <div class="ps-text">
+          <p>Rev A came back from fabrication with 2&ndash;3 incorrect traces, which had to be corrected with hand-soldered wire jumpers before the boards were usable &mdash; a direct, first-hand lesson in the cost of skipping a second design review before sending a flex board out. The microcontroller interface on Rev A was also implemented as multiple discrete pads directly on the mainboard, coupling the MCU footprint to the mainboard's own fabrication cycle.</p>
+          <p>Rev B corrected the routing errors and iterated on both the actuator drive stage and the MCU interface: through-hole 2N2222 transistors driving the pneumatic solenoid valves were replaced with SMD AO3400A MOSFETs to cut footprint and simplify reflow, and the MCU pads were replaced with the 11-pin FPC connector to a separate Seeeduino XIAO board &mdash; a modularity change that means a bad microcontroller or firmware revision no longer requires re-fabricating the whole mainboard. Every board, Rev A and Rev B, was hand-assembled and reflow-soldered on a flexible polyimide substrate rather than rigid FR4, which demands tighter thermal control at the hot plate/heat gun stage to avoid delaminating the flex laminate, and each board was checked under a microscope for solder joint integrity and trace bridging before it went into a module.</p>
+        </div>
+        <div class="ps-visual figure-grid" style="padding: 0; background: transparent;">
+          <figure>
+            <img src="../Soft%20Robotics%20Research/images/fabricated-boards-photo.png" alt="Freshly reflowed MRSR mainboards on the bench next to hand-written build notes for hinges, PAC components, and PCB boards" style="width:100%; height:240px; object-fit:cover;" />
+            <figcaption>Freshly reflowed Rev B boards, hot-plate/heat-gun assembled, next to the build checklist</figcaption>
+          </figure>
+          <figure>
+            <img src="../Soft%20Robotics%20Research/images/rev2-board-closeup-photo.png" alt="Close-up of a hand-assembled MRSR Mainboard Rev B with visible SMD reflow soldering on the flexible substrate" style="width:100%; height:240px; object-fit:cover;" />
+            <figcaption>Rev B mainboard close-up &mdash; SMD reflow joints on the flexible polyimide substrate, post-microscope inspection</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="ps-content" style="margin-top: 2rem;">
+        <div class="ps-text">
+          <h4>Module Integration</h4>
+          <p>Working with graduate researcher Joshua Knospler, matched the mainboard's form factor to the module's mechanical design and assisted in module assembly, including wiring the PAC connector harnesses that carry power, I2C, and actuator lines between adjacent modules.</p>
+        </div>
+        <div class="ps-visual figure-grid" style="padding: 0; background: transparent;">
+          <figure>
+            <img src="../Soft%20Robotics%20Research/images/pac-connectors-photo.png" alt="PAC connector wiring harnesses being assembled by hand for the soft robotic modules" style="width:100%; height:240px; object-fit:cover;" />
+            <figcaption>PAC connector harness assembly &mdash; power, I2C, and actuator lines between adjacent modules</figcaption>
+          </figure>
+          <figure>
+            <img src="../Soft%20Robotics%20Research/images/assembled-module-photo1.png" alt="MRSR Mainboard integrated into its 3D-printed module housing with motors and wiring connected" style="width:100%; height:240px; object-fit:cover;" />
+            <figcaption>Rev B mainboard integrated into a printed module housing, motors and PAC harness connected</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <!-- VALIDATION -->
+    <div class="project-section">
+      <div class="ps-label">Validation</div>
+      <h2 class="ps-title">Electrical Validation, Publication &amp; IP Status</h2>
+      <div class="ps-content ps-full">
+        <div class="ps-text">
+          <p>Initial electrical validation confirmed continuity and power integrity across the assembled Rev B boards, and modules successfully powered their actuators under load with stable performance, including a pneumatic inflation test of an assembled module. Full system-level validation and long-term flexion-cycle reliability testing were planned as the next research phase and had not been completed as of this writing.</p>
+          <div class="spec-table-wrap">
+            <table class="spec-table">
+              <thead><tr><th>Item</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Board revisions</td><td class="hl">2 (Rev A &rarr; Rev B)</td></tr>
+                <tr><td>Module PCB footprint</td><td class="hl">96 &times; 28mm, two-layer flex</td></tr>
+                <tr><td>Continuity / power-integrity check</td><td class="win">Confirmed on assembled Rev B boards</td></tr>
+                <tr><td>Actuator drive under load</td><td class="win">Stable, including a module pneumatic inflation test</td></tr>
+                <tr><td>Long-term flexion-cycle testing</td><td>Planned for the next research phase, not yet completed</td></tr>
+                <tr><td>Publication status</td><td class="hl">Cited in a forthcoming 2025 co-authored publication</td></tr>
+                <tr><td>IP status</td><td class="hl">Underlying research under evaluation for patenting</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top: 1rem;">This electronics contribution is part of a forthcoming 2025 publication on which I am a co-author, extending prior work from the Rowan Robotics Lab (PI: Dr. Mitja Trkov) on self-reconfigurable modular soft robots. I am not directly involved in the patent evaluation process itself; the PCB design work forms part of the technical foundation supporting that direction.</p>
+        </div>
+      </div>
+      <div class="ps-content ps-full" style="margin-top: 2rem;">
+        <div class="ps-visual" style="padding: 0.5rem;">
+          <img src="../Soft%20Robotics%20Research/images/multi-module-assembly-photo.png" alt="Multiple soft robotic modules with Rev B mainboards installed, assembled together on the bench" style="width:100%; border-radius:4px;" />
+        </div>
+      </div>
+    </div>
+
+    <!-- NAV -->
+    <div class="project-nav">
+      <a href="ros-robot.html">
+        ← Previous
+        <span class="project-nav-title">ROS Robot</span>
+      </a>
+      <a href="subaru-internship.html" class="next">
+        Next Project →
+        <span class="project-nav-title">Subaru Internship</span>
+      </a>
+    </div>
+
+    <footer>
+      <div class="footer-text">© 2026 Chase Quijano</div>
+      <div class="footer-text">Rowan University · Engineering Entrepreneurship</div>
+    </footer>
+  </div>
+
+  <script>
+    const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 50));
+    document.querySelectorAll('.nav-links a[href^="../../#"]').forEach(a => a.addEventListener('click', () => document.querySelector('.nav-links')?.classList.remove('open')));
+  </script>
+</body>
+</html>

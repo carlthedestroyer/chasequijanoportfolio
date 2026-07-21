@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Balancing Robot - Chase Quijano</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <!-- PRIVATE PREVIEW AUTH - remove this line for public launch -->
+  <script src="/auth.js"></script>
+  <style>
+    .spec-table-wrap { overflow-x: auto; margin: 1.25rem 0; border: 1px solid var(--border); border-radius: 8px; }
+    table.spec-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; min-width: 480px; }
+    table.spec-table th, table.spec-table td { padding: 0.6rem 0.9rem; text-align: left; border-bottom: 1px solid var(--border); color: var(--text-secondary); white-space: nowrap; }
+    table.spec-table th { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); background: var(--bg-elevated); font-weight: 600; }
+    table.spec-table tr:last-child td { border-bottom: none; }
+    table.spec-table td.hl { color: var(--text); font-weight: 600; }
+    table.spec-table td.win { color: var(--gold-bright); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="grid-bg"></div>
+  <div class="content">
+
+    <nav id="nav">
+      <a href="../../" class="nav-name">Chase Quijano</a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="../../projects/" class="active">Projects</a>
+        <a href="../../#skills">Skills</a>
+        <a href="../../#about">About</a>
+        <a href="../../#contact">Contact</a>
+        <a href="../../resume.html" class="nav-resume">Resume</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="project-hero">
+      <a href="index.html" class="project-back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12,19 5,12 12,5"/></svg>
+        All Projects
+      </a>
+
+      <div class="project-hero-number">002 · Controls & Robotics</div>
+      <h1 class="project-hero-title">Balancing Robot - Two Generations of Control System Design</h1>
+      <div class="project-hero-subtitle">Personal Project · Rowan University</div>
+
+      <p class="project-hero-desc">Two-wheeled inverted-pendulum robot engineered as a closed-loop dynamic stability testbed: a Kalman-filtered IMU sensor-fusion stack estimates tilt angle and angular velocity in real time, feeding a PID controller that commands two NEMA 17 stepper motors through DRV8825 drivers to correct balance. The sensing and control architecture was fully designed, wired, and characterized across two hardware generations; final balance-loop gain tuning was not completed before the platform was set aside for a ROS 2 / depth-perception redesign.</p>
+
+      <div class="project-hero-tags">
+        <span class="tag">Teensy</span>
+        <span class="tag">MPU6050</span>
+        <span class="tag">Kalman Filter</span>
+        <span class="tag">PID</span>
+        <span class="tag">NEMA 17</span>
+        <span class="tag">DRV8825</span>
+        <span class="tag">ROS 2</span>
+        <span class="tag">Intel RealSense</span>
+      </div>
+
+      <div class="project-hero-metrics">
+        <div><div class="phm-value">2</div><div class="phm-label">Robot Generations</div></div>
+        <div><div class="phm-value">PID</div><div class="phm-label">Balance Control Loop</div></div>
+        <div><div class="phm-value">2</div><div class="phm-label">NEMA 17 Stepper Motors</div></div>
+        <div><div class="phm-value">In Dev</div><div class="phm-label">ROS 2 + RealSense Upgrade</div></div>
+      </div>
+    </div>
+
+    <!-- ARCHITECTURE -->
+    <div class="project-section">
+      <div class="ps-label">Architecture</div>
+      <h2 class="ps-title">Sensor Fusion and Motor Control Stack</h2>
+      <div class="ps-content">
+        <div class="ps-text">
+          <ul>
+            <li>Teensy microcontroller runs the real-time control loop for both hardware generations - orientation sensing, filtering, and PID computation all execute on-board</li>
+            <li>MPU6050 IMU (onboard I2C interface) supplies raw gyroscope and accelerometer measurements for orientation estimation</li>
+            <li>Kalman filter fuses the gyro and accelerometer channels into a clean tilt-angle and angular-velocity estimate; a complementary filter was used alongside it as a reference during sensor-fusion tuning</li>
+            <li>PID controller computes motor command from the error between estimated tilt angle and upright setpoint</li>
+            <li>Two NEMA 17 stepper motors, driven through DRV8825 stepper drivers, provide the actuation for balance correction</li>
+            <li>V1 ("Carl Bot") chassis: aluminum-extrusion frame with a 3D-printed enclosure; V2 chassis: CAD-redesigned modular enclosure built around a mini PC, ROS 2, and an Intel RealSense depth camera</li>
+          </ul>
+        </div>
+        <div class="ps-visual figure-grid" style="padding: 0; background: transparent;">
+          <figure>
+            <img src="../Balancing%20Robot/images/balancingrobot-control-system-diagram.png" alt="Closed-loop control system block diagram: reference input, Teensy controller, motor/wheel system, and MPU6050 feedback sensor" style="width:100%; height:220px; object-fit:contain; background:#fff;" />
+            <figcaption>Closed-loop block diagram - reference, controller (Teensy), plant, and IMU feedback path</figcaption>
+          </figure>
+          <figure>
+            <img src="../Balancing%20Robot/images/balancingrobot-pid-diagram.png" alt="PID control loop block diagram showing proportional, integral, and derivative terms summed into the motor command" style="width:100%; height:220px; object-fit:contain; background:#fff;" />
+            <figcaption>PID loop structure driving the DRV8825 / NEMA 17 actuation stage from tilt-angle error</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="ps-content" style="margin-top: 2rem;">
+        <div class="ps-text">
+          <h4>Physical Realization</h4>
+          <p>Carl Bot (V1) is the physical build that carries the sensing and control stack described above: Teensy, MPU6050, and DRV8825 drivers wired on an aluminum-extrusion frame with a 3D-printed enclosure. The rear-panel view shows the wiring, power switch, and voltage regulation for the stepper drivers.</p>
+        </div>
+        <div class="ps-visual figure-grid" style="padding: 0; background: transparent;">
+          <figure>
+            <img src="../Balancing%20Robot/images/balancingrobot-carlbot-front.jpg" alt="Carl Bot front view showing LiPo battery and stepper driver placement" style="width:100%; height:240px; object-fit:cover;" />
+            <figcaption>Carl Bot (V1), front - battery and driver placement</figcaption>
+          </figure>
+          <figure>
+            <img src="../Balancing%20Robot/images/balancingrobot-carlbot-back.jpg" alt="Carl Bot rear view showing wiring harness, rocker switch, and voltage regulator" style="width:100%; height:240px; object-fit:cover;" />
+            <figcaption>Carl Bot (V1), rear - wiring harness and voltage regulation</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <!-- ITERATION -->
+    <div class="project-section">
+      <div class="ps-label">Iteration</div>
+      <h2 class="ps-title">Two Hardware Generations, One Unfinished Control Loop</h2>
+      <div class="ps-content">
+        <div class="ps-text">
+          <p>Raw MPU6050 output was too noisy to use directly for angle estimation, so the Kalman filter was the load-bearing element of the sensing stack. A complementary filter combining accelerometer tilt with integrated gyro rate was kept as a parallel reference during tuning, since it gives an independent, computationally simple cross-check on what the Kalman filter should be converging to. That sensor-fusion layer was validated and produced clean tilt and angular-velocity estimates on Carl Bot.</p>
+          <p>What was not completed is the balance-loop tuning itself: the PID gains driving the DRV8825/NEMA 17 stage were wired and integrated with the Kalman-filtered estimate, but never brought to a state where the robot held itself upright under closed-loop control. Development moved to a second-generation chassis - reusing the identical Teensy/MPU6050/Kalman/PID architecture - before that tuning pass was finished, so neither generation has driven under its own balance control.</p>
+        </div>
+        <div class="ps-visual" style="padding: 0; overflow: hidden;">
+          <figure style="width: 100%;">
+            <img src="../Balancing%20Robot/images/balancingrobot-complementary-filter.jpg" alt="Complementary filter block diagram fusing accelerometer tilt estimate with integrated gyro rate into a combined angle estimate" style="width:100%; height:auto; object-fit:contain; display:block; background:#fff; border: none;" />
+            <figcaption style="padding: 0.75rem 1rem;">Complementary filter reference used alongside the Kalman filter to cross-check tilt-angle convergence during sensor-fusion tuning</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="ps-content" style="margin-top: 2rem;">
+        <div class="ps-text">
+          <h4>Mechanical and Electronics-Bay Changes, V1 → V2</h4>
+          <p>The V2 redesign kept the control architecture fixed and changed the platform around it: a CAD-modeled modular enclosure replaced the extrusion-frame build to make room for a mini PC running Linux/ROS 2, an Intel RealSense depth camera for point-cloud mapping, and a dedicated dual-fan cooling loop to manage heat from the onboard computer during extended operation. None of that perception hardware has yet been integrated with the balance controller - it is installed and mechanically complete, not closed-loop with the PID stack.</p>
+        </div>
+        <div class="ps-visual figure-grid" style="padding: 0; background: transparent;">
+          <figure>
+            <img src="../Balancing%20Robot/images/balancingrobot-v2-cutaway-pc.png" alt="V2 balancing robot cutaway CAD render showing the mini PC compartment, RealSense camera, and dual cooling fans" style="width:100%; height:240px; object-fit:contain; background:#fff;" />
+            <figcaption>V2 cutaway - mini PC compartment, RealSense camera, and dual cooling fans added for thermal management</figcaption>
+          </figure>
+          <figure>
+            <img src="../Balancing%20Robot/images/balancingrobot-v2-electronics-bay.png" alt="V2 electronics bay detail showing RealSense camera, dual cooling fans, and full wheeled assembly" style="width:100%; height:240px; object-fit:contain; background:#fff;" />
+            <figcaption>V2 electronics bay - camera, fan pair, and full assembly on the drive wheels</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <!-- VALIDATION -->
+    <div class="project-section">
+      <div class="ps-label">Validation</div>
+      <h2 class="ps-title">What Was Verified vs. What Remains Open</h2>
+      <div class="ps-content ps-full">
+        <div class="ps-text">
+          <p>Validation on this project stopped at the subsystem level: the Kalman-filtered tilt/angular-velocity estimate was checked against the complementary-filter reference and produced a clean signal from raw MPU6050 data, and the PID-to-driver wiring path (Teensy → DRV8825 → NEMA 17) was confirmed electrically functional. Closed-loop dynamic balance - the actual inverted-pendulum stabilization the architecture was designed to achieve - was not reached on either generation; that gain-tuning pass is the specific, well-defined next step, not a redesign.</p>
+          <div class="spec-table-wrap">
+            <table class="spec-table">
+              <thead><tr><th>Subsystem</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Kalman-filtered tilt / angular-velocity estimate</td><td class="win">Validated - clean estimate from raw MPU6050 data</td></tr>
+                <tr><td>Complementary filter cross-check</td><td class="win">Validated - used as tuning reference for the Kalman estimate</td></tr>
+                <tr><td>PID → DRV8825 → NEMA 17 signal path</td><td class="hl">Wired and integrated, gains not fully tuned</td></tr>
+                <tr><td>Closed-loop dynamic balance</td><td>Not achieved - tuning left incomplete on both generations</td></tr>
+                <tr><td>V2 mini PC / ROS 2 / RealSense integration</td><td class="hl">Mechanically installed, not yet coupled to balance controller</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAV -->
+    <div class="project-nav">
+      <a href="same-rowan-chapter.html">
+        ← Previous
+        <span class="project-nav-title">SAME Rowan Chapter</span>
+      </a>
+      <a href="berta-medical.html" class="next">
+        Next Project →
+        <span class="project-nav-title">Berta Medical</span>
+      </a>
+    </div>
+
+    <footer>
+      <div class="footer-text">© 2026 Chase Quijano</div>
+      <div class="footer-text">Rowan University · Engineering Entrepreneurship</div>
+    </footer>
+  </div>
+
+  <script>
+    const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 50));
+    document.querySelectorAll('.nav-links a[href^="../../#"]').forEach(a => a.addEventListener('click', () => document.querySelector('.nav-links')?.classList.remove('open')));
+  </script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research & Engineering Portfolio - Chase Quijano</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <!-- PRIVATE PREVIEW AUTH - remove this line for public launch -->
+  <script src="/auth.js"></script>
+</head>
+<body>
+  <div class="grid-bg"></div>
+  <div class="content">
+    <nav id="nav">
+      <a href="../../" class="nav-name">Chase Quijano</a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="../../projects/">Projects</a>
+        <a href="../../#skills">Skills</a>
+        <a href="../../#about">About</a>
+        <a href="../../#contact">Contact</a>
+        <a href="../../resume.html" class="nav-resume">Resume</a>
+      </div>
+    </nav>
+
+    <div class="archive-hero">
+      <div class="section-label">Research &amp; Engineering Portfolio</div>
+      <h1 class="archive-hero-title">Hardware Design &amp; Validation</h1>
+      <p class="archive-hero-desc">Eleven projects in mechatronics, wearable/biomedical instrumentation, and soft robotics, each written to the same structure: system architecture, engineering failures and the hardware iterations that resolved them, and the quantitative data used to validate the result.</p>
+    </div>
+
+    <div class="archive-grid">
+
+      <a href="berta-medical.html" class="archive-card">
+        <div class="ac-visual">
+          <img src="../Berta%20Medical/images/bertamedical-fig1-final-wearable.jpg" alt="Berta Medical wearable ECG, final assembled device" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
+        <div class="ac-content">
+          <div class="ac-type">Wearable Biomedical Instrumentation</div>
+          <h3 class="ac-title">Berta Medical - Wearable ECG Platform</h3>
+          <p class="ac-desc">Micro-voltage analog front-end and custom SMD PCB stack for continuous cardiac signal acquisition, across three hardware revisions.</p>
+          <div class="ac-tags"><span class="tag">AD8232</span><span class="tag">KiCad</span><span class="tag">ESP32</span><span class="tag">Analog Front-End</span></div>
+        </div>
+      </a>
+
+      <a href="exoskeleton.html" class="archive-card">
+        <div class="ac-visual">
+          <img src="../Exoskeleton%20Research/Control%20System%20+%20Test%20Bench/testbench2.jpg" alt="Fall-prevention exoskeleton pneumatic hip mechanism on the force-test bench" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
+        <div class="ac-content">
+          <div class="ac-type">Wearable Assistive Robotics · System</div>
+          <h3 class="ac-title">Fall-Prevention Exoskeleton</h3>
+          <p class="ac-desc">Pneumatically-actuated hip exoskeleton: mechanism design, control/relay electronics, and sensing, taken from actuator through instrumented bench validation.</p>
+          <div class="ac-tags"><span class="tag">Pneumatic Actuation</span><span class="tag">Teensy 4.1</span><span class="tag">FEA</span></div>
+        </div>
+      </a>
+
+      <a href="imu-sensing-system.html" class="archive-card">
+        <div class="ac-visual">
+          <img src="../Exoskeleton%20Research/IMU%20System%20V1/IMU%20System%20V1%20layout.png" alt="8-sensor IMU body-orientation array board layout" style="width:100%; height:100%; object-fit:contain; background:#0A0A0C;" />
+        </div>
+        <div class="ac-content">
+          <div class="ac-type">Wearable Assistive Robotics · Sensing</div>
+          <h3 class="ac-title">IMU Sensing System</h3>
+          <p class="ac-desc">Root-caused a silent I2C timing-budget failure with bus measurements, then rebuilt the 8-sensor array on RS-485 for 400Hz sampling with zero packet loss.</p>
+          <div class="ac-tags"><span class="tag">BNO085</span><span class="tag">RS-485</span><span class="tag">Root-Cause Diagnosis</span></div>
+        </div>
+      </a>
+
+      <a href="test-rig-instrumentation.html" class="archive-card">
+        <div class="ac-visual">
+          <img src="../Exoskeleton%20Research/IMU%20System%20V2/image2.jpg" alt="Exoskeleton test-rig instrumentation and load-cell setup" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
+        <div class="ac-content">
+          <div class="ac-type">Wearable Assistive Robotics · Test Engineering</div>
+          <h3 class="ac-title">Test Rig, Instrumentation &amp; Human Trials</h3>
+          <p class="ac-desc">Pneumatic test fixture and load-cell instrumentation behind two structured 96-trial force campaigns, now informing a human-subjects trial protocol.</p>
+          <div class="ac-tags"><span class="tag">FUTEK Load Cell</span><span class="tag">Design of Experiments</span><span class="tag">KiCad</span></div>
+        </div>
+      </a>
+
+      <a href="soft-robotics.html" class="archive-card">
+        <div class="ac-visual">
+          <img src="../Soft%20Robotics%20Research/images/pcb-render-v2-front.png" alt="Modular flex PCB mainboard, revision 2, for self-reconfigurable soft robotics" style="width:100%; height:100%; object-fit:contain; background:#0A0A0C;" />
+        </div>
+        <div class="ac-content">
+          <div class="ac-type">Soft Robotics Research</div>
+          <h3 class="ac-title">Modular Flexible PCB for Self-Reconfigurable Soft Robotics</h3>
+          <p class="ac-desc">Two-layer flex PCB mainboard driving actuation and inter-module I2C for a reconfigurable soft-robot platform; electronics contribution cited in a forthcoming co-authored publication.</p>
+          <div class="ac-tags"><span class="tag">Flex PCB</span><span class="tag">DRV8833</span><span class="tag">I2C</span></div>
+        </div>
+      </a>
+
+      <a href="digital-scale.html" class="archive-card">
+        <div class="ac-visual">
+          <img src="../Digital%20Scale/images/digitalscale-hero-main.png" alt="Custom digital scale with machined load cell" style="width:100%; height:100%; object-fit:contain; display:block;" />
+        </div>
+        <div class="ac-content">
+          <div class="ac-type">Precision Instrumentation</div>
+          <h3 class="ac-title">Custom Digital Scale</h3>
+          <p class="ac-desc">FEA-validated, CNC-machined load cell with a bonded strain-gauge bridge and closed-loop calibration to a quantified accuracy spec.</p>
+          <div class="ac-tags"><span class="tag">FEA</span><span class="tag">Strain Gauge</span><span class="tag">CNC</span></div>
+        </div>
+      </a>
+
+      <a href="foc-control-rig.html" class="archive-card" style="background: #fff;">
+        <div class="ac-visual" style="background:#fff;">
+          <img src="../FOC%20Control%20Rig/Images/foc-rig-cad-render.png" alt="FOC motor control test bench CAD render" style="width:100%; height:100%; object-fit:contain; display:block;" />
+        </div>
+        <div class="ac-content">
+          <div class="ac-type">Motor Control</div>
+          <h3 class="ac-title">Field Oriented Control (FOC) Test Bench</h3>
+          <p class="ac-desc">Closed-loop torque/velocity control testbed pairing a BLDC motor with an ODrive S1 controller, with an STM32 held in reserve for host-free automation.</p>
+          <div class="ac-tags"><span class="tag">FOC</span><span class="tag">ODrive S1</span><span class="tag">BLDC</span></div>
+        </div>
+      </a>
+
+      <a href="ros-robot.html" class="archive-card">
+        <div class="ac-visual">
+          <img src="../ROS%20Robot/images/rosrobot-front.jpg" alt="ROS 2 mobile robot platform with RPLiDAR and RealSense sensing" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
+        <div class="ac-content">
+          <div class="ac-type">Autonomous Robotics</div>
+          <h3 class="ac-title">ROS Robot - Mobile Perception Platform</h3>
+          <p class="ac-desc">ROS 2 Iron platform with a working RPLiDAR + Intel RealSense sensing stack publishing live scan and point-cloud data.</p>
+          <div class="ac-tags"><span class="tag">ROS 2</span><span class="tag">RPLiDAR</span><span class="tag">RealSense</span></div>
+        </div>
+      </a>
+
+      <a href="balancing-robot.html" class="archive-card">
+        <div class="ac-visual">
+          <img src="../Balancing%20Robot/images/balancingrobot-carlbot-front.jpg" alt="Two-wheeled inverted-pendulum balancing robot" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
+        <div class="ac-content">
+          <div class="ac-type">Controls</div>
+          <h3 class="ac-title">Balancing Robot</h3>
+          <p class="ac-desc">Kalman-filtered sensor fusion and a PID control architecture for a two-wheeled inverted-pendulum platform, across two hardware generations.</p>
+          <div class="ac-tags"><span class="tag">Kalman Filter</span><span class="tag">PID</span><span class="tag">Sensor Fusion</span></div>
+        </div>
+      </a>
+
+      <a href="subaru-internship.html" class="archive-card">
+        <div class="ac-visual">
+          <img src="../SubaruInternship/images/bugbox-node-cad-render.jpg" alt="Bug Box wireless training node CAD render" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
+        <div class="ac-content">
+          <div class="ac-type">Embedded Systems · Manufacturing</div>
+          <h3 class="ac-title">Subaru Technical Training Internship</h3>
+          <p class="ac-desc">Scaled a wireless embedded training node from single-unit bench prototype to a deployed 14-node fleet, plus a ToF-instrumented autonomous demo vehicle.</p>
+          <div class="ac-tags"><span class="tag">Embedded Firmware</span><span class="tag">ToF Sensing</span><span class="tag">CAD</span></div>
+        </div>
+      </a>
+
+      <a href="same-rowan-chapter.html" class="archive-card">
+        <div class="ac-visual">
+          <img src="../Society%20of%20Military%20Engineers/IMAGES/sar-drone-render-cover.png" alt="Search-and-rescue UAV render, SAME Rowan grant program" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
+        <div class="ac-content">
+          <div class="ac-type">UAV Systems Engineering</div>
+          <h3 class="ac-title">Search-and-Rescue UAV - SAME Rowan Grant Program</h3>
+          <p class="ac-desc">Authored the funded technical proposal for a 7-ft composite search-and-rescue UAV and directed its power-distribution subframe architecture.</p>
+          <div class="ac-tags"><span class="tag">UAV Systems Design</span><span class="tag">Composite Fabrication</span><span class="tag">Grant Writing</span></div>
+        </div>
+      </a>
+
+    </div>
+
+    <footer><div class="footer-text">© 2026 Chase Quijano</div><div class="footer-text">Rowan University · Engineering Entrepreneurship</div></footer>
+  </div>
+
+  <script>
+    window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 50));
+  </script>
+</body>
+</html>
