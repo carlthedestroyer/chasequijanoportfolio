@@ -61,8 +61,12 @@ gallery:
   - src: "Exoskeleton Research/IMU System V1/schematic-render.png"
     caption: "V1 schematic — I2C multiplexer architecture"
     tall: true
-  - src: "Exoskeleton Research/IMU System V2/image.jpg"
+  - src: "Exoskeleton Research/IMU System V2/image-rotated.jpg"
     caption: "Belt-mounted compute enclosure and IMU pod chain"
+    tall: true
+  - src: "Exoskeleton Research/IMU System V2/IMU System V3 p1.png"
+    caption: "IMU System V2 mainboard, top-down PCB view"
+    tall: true
 
 challenges: |
   This is the core story of this document.

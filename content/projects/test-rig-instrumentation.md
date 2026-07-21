@@ -58,6 +58,10 @@ gallery:
   - src: "Exoskeleton Research/Relay Board V1/schematic-render.png"
     caption: "Relay Board V1 schematic — one switched, flyback-protected channel per pneumatic solenoid valve, driven off the control board's output header"
     tall: true
+  - src: "Exoskeleton Research/Exoskeleton Worn Biomechanics Lab tests/IMG_2143.jpg"
+    caption: "Full harness and hip-brace fit check in the Rowan biomechanics lab — control electronics and IMU leads routed at the waist, ahead of the first harness-rig sessions"
+  - src: "Exoskeleton Research/Exoskeleton Worn Biomechanics Lab tests/IMG_2148.jpg"
+    caption: "Rear view of the worn hip brace and thigh cuffs, with the overhead safety-tether attachment point at the shoulders"
 
 challenges: |
   The first version of the modular cylinder assembly proved the concept and immediately showed where it needed to improve; a second iteration has since tightened the mounting tolerances and cable routing based on what broke or drifted during the first round of trials. The instrumentation side iterated the same way: the original bench ran on a handful of loose solid-state relay modules, consolidated into Relay Board V1, a dedicated 12-channel flyback-protected board. Control Board V1's dual-ESP32-S3 architecture gave way to Control Board V2, built around dual Teensy 4.1s specifically for the structured hip-abduction protocol, adding the string-potentiometer and HX711 load-cell channels the first board never carried. The Spring 2026 bench rebuild shrank the physical footprint while adding what testing actually needed: a hardware emergency stop, switched power rails, and the pressure transducer integrated directly into Control Board V2.

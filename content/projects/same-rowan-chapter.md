@@ -40,6 +40,10 @@ gallery:
     caption: "Laser-cut balsa wing rib assembly for the proof-of-concept glider, validating the airframe construction sequence proposed for the full-scale composite UAV"
   - src: "Society of Military Engineers/IMAGES/balsa-glider-assembled.jpg"
     caption: "Assembled balsa-and-foam demonstrator with motor and ESC installed, used to test the aerodynamic layout ahead of the composite build"
+  - src: "Society of Military Engineers/IMAGES/officer-board-gear-table.jpg"
+    caption: "Chapter officer board staffing a hands-on demo table — 3D-printed gears and a breadboard circuit demo — at a K-12 STEM Day outreach event"
+  - src: "Society of Military Engineers/IMAGES/stem-day-outreach-tent.jpg"
+    caption: "Chapter tabling at the Rowan Motorsports event, fundraising for the club"
 
 challenges: |
   Writing the proposal meant reconciling the aircraft's technical requirements against a hard $4,640 ceiling before a single part was ordered. Every requirement in the specification — 3.5 kg static load at a 1.5 Factor of Safety, 120-minute endurance, a 400 ft AGL hard-coded geofence under FAA Part 107, 50–60 km line-of-sight command range — had to be traceable to a specific, line-itemed component in the bill of materials, not an aspirational target. That discipline shaped material selection directly: FDM, SLA, and laser-cut prototyping were specified ahead of the final composite layup precisely because they let the team validate a design change in hours rather than committing carbon-fiber material cost to a mistake.

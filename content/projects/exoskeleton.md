@@ -47,6 +47,10 @@ gallery:
     tall: true
   - src: "Exoskeleton Research/IMU System V2/image11.jpg"
     caption: "Assembled IMU System V2 mainboard, showing Teensy 4.1 and RS-485 breakout headers"
+  - src: "Exoskeleton Research/Exoskeleton Worn Biomechanics Lab tests/IMG_2115.jpg"
+    caption: "IMU array and exoskeleton worn together in the Rowan biomechanics lab, tethered to an overhead safety trolley on a rail track — initial worn testing ahead of Fall 2026 human trials, OptiTrack motion-capture cameras visible on the walls"
+  - src: "Exoskeleton Research/Exoskeleton Worn Biomechanics Lab tests/IMG_2153.jpg"
+    caption: "Dynamic hip-flexion movement test with the full system worn and the safety tether attached overhead"
 
 challenges: |
   #### Chassis Redesign — Cuff-and-C-Channel Brace, FEA-Validated
