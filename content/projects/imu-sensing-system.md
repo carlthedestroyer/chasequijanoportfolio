@@ -53,13 +53,33 @@ gallery:
   - src: "Exoskeleton Research/IMU System V2/schematic-render.png"
     caption: "Full schematic, Generation 2 — point-to-point RS-485 architecture"
     tall: true
+  - src: "Exoskeleton Research/IMU System V2/IMG_1918-rotated.jpg"
+    caption: "Generation 2 array worn, front view — RS-485 leads routed from the belt-mounted mainboard down to each leg-segment pod"
+    tall: true
+  - src: "Exoskeleton Research/IMU System V2/IMG_1926-rotated.jpg"
+    caption: "Generation 2 array worn, side view"
+    tall: true
+  - src: "Exoskeleton Research/IMU System V2/IMG_1957.jpeg"
+    caption: "Treadmill walking test with the Generation 2 array worn, in the Rowan biomechanics lab"
+  - src: "Exoskeleton Research/IMU System V2/IMG_1946.jpeg"
+    caption: "OptiTrack Motive:Body software reconstructing a lower-body skeleton in real time from reflective markers, used as ground truth alongside the IMU array during walking trials"
   - src: "Exoskeleton Research/IMU System V1/IMU System V1 layout.png"
     caption: "V1 'Body Position Device' board, KiCad layout"
     tall: true
   - src: "Exoskeleton Research/IMU System V1/IMU Tracking System.png"
     caption: "V1 product render — BNO055 with dual RJ12 breakout jacks"
+    tall: true
   - src: "Exoskeleton Research/IMU System V1/schematic-render.png"
     caption: "V1 schematic — I2C multiplexer architecture"
+    tall: true
+  - src: "Exoskeleton Research/IMU System V1/IMG_1193-fixed.jpg"
+    caption: "RJ12 breakout board, top-down — TCA9548A I2C multiplexer routing all 8 sensor channels onto the shared bus"
+    tall: true
+  - src: "Exoskeleton Research/IMU System V1/IMG_1416-fixed.jpg"
+    caption: "Generation 1 array worn, rear three-quarter view — belt-mounted multiplexer box and leg-segment breakouts"
+    tall: true
+  - src: "Exoskeleton Research/IMU System V1/IMG_1418-fixed.jpg"
+    caption: "Generation 1 array worn, side view"
     tall: true
   - src: "Exoskeleton Research/IMU System V2/image-rotated.jpg"
     caption: "Belt-mounted compute enclosure and IMU pod chain"

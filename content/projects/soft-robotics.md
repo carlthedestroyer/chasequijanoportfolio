@@ -37,6 +37,7 @@ specs:
 gallery:
   - src: "Soft Robotics Research/images/pcb-render-v2-front.png"
     caption: "Rev B mainboard, front — dual DRV8833 actuator drivers, CD74HC4067 mux, 11-pin FPC connector to the Seeeduino XIAO daughterboard"
+    tall: true
   - src: "Soft Robotics Research/images/schematic-v2.png"
     caption: "Rev B schematic — PAC connector I2C/power bus, bend-sensor divider, FPC handoff to the secondary MCU board"
     tall: true

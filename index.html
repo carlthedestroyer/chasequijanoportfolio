@@ -56,10 +56,32 @@
         <p class="section-desc">Technical deep dives into the most representative hardware work — PCB revisions, failure analysis, and validated results.</p>
 
         <div class="project-card-grid">
+          <a href="./projects/soft-robotics.html" class="project-card card">
+            <div class="project-card-img-wrap"><img class="project-card-img" src="projects/Soft%20Robotics%20Research/images/pcb-render-v2-front.png" alt="Modular flex PCB mainboard for soft robotics, Rev B render" /></div>
+            <div class="project-card-body">
+              <div class="project-card-eyebrow">001 · Rowan Robotics Lab</div>
+              <h3 class="project-card-title">Modular Flexible PCB for Soft Robotics</h3>
+              <p class="project-card-desc">Designed the flexible mainboard driving actuation and I2C comms for a self-reconfigurable soft robot, cited in a forthcoming 2025 publication.</p>
+              <div class="project-card-tags"><span class="tag">Flex PCB</span><span class="tag">KiCad 9</span><span class="tag">DRV8833</span></div>
+              <span class="project-card-link">Read Technical Breakdown →</span>
+            </div>
+          </a>
+
+          <a href="./projects/test-rig-instrumentation.html" class="project-card card">
+            <div class="project-card-img-wrap"><img class="project-card-img" src="projects/Exoskeleton%20Research/Control%20System%20+%20Test%20Bench/testbench2.jpg" alt="Exoskeleton test rig and pneumatic force-testing bench" /></div>
+            <div class="project-card-body">
+              <div class="project-card-eyebrow">002 · Engineering Clinic Research</div>
+              <h3 class="project-card-title">Test Rig, Instrumentation &amp; Human Trials</h3>
+              <p class="project-card-desc">Designed the pneumatic test fixture and control/relay electronics behind two 96-trial force campaigns, now heading toward human-subjects trials.</p>
+              <div class="project-card-tags"><span class="tag">KiCad</span><span class="tag">Load Cell</span><span class="tag">DOE</span></div>
+              <span class="project-card-link">Read Technical Breakdown →</span>
+            </div>
+          </a>
+
           <a href="./projects/berta-medical.html" class="project-card card">
             <div class="project-card-img-wrap"><img class="project-card-img" src="projects/Berta%20Medical/images/bertamedical-fig3-wearable-render.png" alt="Berta Medical final wearable PCB, 3D render" /></div>
             <div class="project-card-body">
-              <div class="project-card-eyebrow">001 · Medical Startup</div>
+              <div class="project-card-eyebrow">003 · Medical Startup</div>
               <h3 class="project-card-title">Berta Medical — Wearable ECG Platform</h3>
               <p class="project-card-desc">Co-founded a wearable ECG startup and owned the hardware stack through three PCB revisions, from off-the-shelf modules to an AWS-connected wearable.</p>
               <div class="project-card-tags"><span class="tag">KiCad</span><span class="tag">ESP32</span><span class="tag">AD8232</span><span class="tag">MQTT</span></div>
@@ -67,35 +89,13 @@
             </div>
           </a>
 
-          <a href="./projects/exoskeleton.html" class="project-card card">
-            <div class="project-card-img-wrap"><img class="project-card-img" src="projects/Exoskeleton%20Research/IMU%20System%20V2/image2.jpg" alt="Fall-Prevention Exoskeleton IMU System V2 mainboard" /></div>
+          <a href="./projects/imu-sensing-system.html" class="project-card card">
+            <div class="project-card-img-wrap"><img class="project-card-img" src="projects/Exoskeleton%20Research/IMU%20System%20V2/image11.jpg" alt="IMU Sensing System V2 assembled mainboard" /></div>
             <div class="project-card-body">
-              <div class="project-card-eyebrow">002 · Engineering Clinic Research</div>
-              <h3 class="project-card-title">Fall-Prevention Exoskeleton</h3>
-              <p class="project-card-desc">Rebuilt an 8-sensor IMU array around RS-485 after root-causing an I2C bandwidth failure, cutting latency 55x to a validated 400&nbsp;Hz.</p>
-              <div class="project-card-tags"><span class="tag">KiCad</span><span class="tag">Teensy 4.1</span><span class="tag">RS-485</span></div>
-              <span class="project-card-link">Read Technical Breakdown →</span>
-            </div>
-          </a>
-
-          <a href="./projects/digital-scale.html" class="project-card card">
-            <div class="project-card-img-wrap"><img class="project-card-img" src="projects/Digital%20Scale/images/digitalscale-fig25-final-product.jpg" alt="Custom digital scale, completed prototype" /></div>
-            <div class="project-card-body">
-              <div class="project-card-eyebrow">003 · Manufacturing</div>
-              <h3 class="project-card-title">Custom Digital Scale</h3>
-              <p class="project-card-desc">Machined a custom aluminum load cell validated by FEA before cutting, closing the loop with strain-gauge signal conditioning to ±1% accuracy.</p>
-              <div class="project-card-tags"><span class="tag">SolidWorks FEA</span><span class="tag">CNC Milling</span><span class="tag">HX711</span></div>
-              <span class="project-card-link">Read Technical Breakdown →</span>
-            </div>
-          </a>
-
-          <a href="./projects/soft-robotics.html" class="project-card card">
-            <div class="project-card-img-wrap"><img class="project-card-img" src="projects/Soft%20Robotics%20Research/images/pcb-render-v2-front.png" alt="Modular flex PCB mainboard for soft robotics, Rev B render" /></div>
-            <div class="project-card-body">
-              <div class="project-card-eyebrow">004 · Rowan Robotics Lab</div>
-              <h3 class="project-card-title">Modular Flexible PCB for Soft Robotics</h3>
-              <p class="project-card-desc">Designed the flexible mainboard driving actuation and I2C comms for a self-reconfigurable soft robot, cited in a forthcoming 2025 publication.</p>
-              <div class="project-card-tags"><span class="tag">Flex PCB</span><span class="tag">KiCad 9</span><span class="tag">DRV8833</span></div>
+              <div class="project-card-eyebrow">004 · Engineering Clinic Research</div>
+              <h3 class="project-card-title">IMU Sensing System Array</h3>
+              <p class="project-card-desc">Root-caused an I2C bandwidth failure with real measurements, then rebuilt the 8-sensor body-orientation array around RS-485 for a 55x latency cut.</p>
+              <div class="project-card-tags"><span class="tag">BNO085</span><span class="tag">Teensy 4.1</span><span class="tag">RS-485</span></div>
               <span class="project-card-link">Read Technical Breakdown →</span>
             </div>
           </a>
@@ -111,13 +111,13 @@
             </div>
           </a>
 
-          <a href="./projects/subaru-internship.html" class="project-card card">
-            <div class="project-card-img-wrap"><img class="project-card-img" src="projects/SubaruInternship/images/bugbox-node-cad-render.jpg" alt="Subaru Technical Training Internship node enclosure CAD render" /></div>
+          <a href="./projects/digital-scale.html" class="project-card card">
+            <div class="project-card-img-wrap"><img class="project-card-img" src="projects/Digital%20Scale/images/digitalscale-fig25-final-product.jpg" alt="Custom digital scale, completed prototype" /></div>
             <div class="project-card-body">
-              <div class="project-card-eyebrow">006 · Product Design &amp; Manufacturing</div>
-              <h3 class="project-card-title">Subaru Technical Training Internship</h3>
-              <p class="project-card-desc">Scaled a single bench prototype into a 14-node wireless training network and a ToF-sensing autonomous demo vehicle over a year-long internship.</p>
-              <div class="project-card-tags"><span class="tag">ESP32-S3</span><span class="tag">ESP-NOW</span><span class="tag">SolidWorks</span></div>
+              <div class="project-card-eyebrow">006 · Manufacturing</div>
+              <h3 class="project-card-title">Custom Digital Scale</h3>
+              <p class="project-card-desc">Machined a custom aluminum load cell validated by FEA before cutting, closing the loop with strain-gauge signal conditioning to ±1% accuracy.</p>
+              <div class="project-card-tags"><span class="tag">SolidWorks FEA</span><span class="tag">CNC Milling</span><span class="tag">HX711</span></div>
               <span class="project-card-link">Read Technical Breakdown →</span>
             </div>
           </a>

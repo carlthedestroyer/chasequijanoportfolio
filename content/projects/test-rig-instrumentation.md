@@ -43,11 +43,13 @@ gallery:
     caption: "Redesigned Spring 2026 test bench — hip mechanism, hardware emergency stop, pneumatic valves, gauges, and control electronics"
   - src: "Exoskeleton Research/Control Board V1/Exoskeleton Control Board.png"
     caption: "Control Board V1, full render — dual ESP32-S3 architecture with primary and safety/failsafe secondary microcontrollers"
+    tall: true
   - src: "Exoskeleton Research/Control Board V1/schematic-render.png"
     caption: "Control Board V1 schematic — INA260 current sensing, DS18B20 temp sensing, PWM fan channels, 6 pressure-transducer inputs, 16-channel relay bus"
     tall: true
   - src: "Exoskeleton Research/Control Board V2/Exoskeleton Control Board V3.png"
     caption: "Control Board V2, full render — dual Teensy 4.1 redesign built for the structured hip-abduction protocol"
+    tall: true
   - src: "Exoskeleton Research/Control Board V2/Exoskeleton Control Board V3 p2.png"
     caption: "Control Board V2 detail — HX711 load-cell input, PT5–PT7 pressure-transducer headers, and THERM thermistor channels"
   - src: "Exoskeleton Research/Control Board V2/schematic-render.png"

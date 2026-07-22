@@ -43,6 +43,7 @@ gallery:
   - src: "ROS Robot/images/rosrobot-internal-wiring.jpg"
     caption: "Internal wiring, top cover removed — dual stepper drivers, Teensy, step-down voltage regulator"
   - src: "ROS Robot/images/rosrobot-8k-loop.gif"
+    tall: true
     caption: "Live RPLiDAR A1 scan loop, sweeping and re-plotting a room in real time — white line marks the current scan angle, red points are detected surfaces"
   - src: "ROS Robot/images/rosrobot-demo.gif"
     caption: "Fully assembled hardware — sensing stack complete, navigation loop not implemented"

@@ -41,14 +41,17 @@ gallery:
     caption: "ECG MainBoard MK1 copper routing — analog front-end and power sections laid out on opposite ends of the board"
   - src: "Berta Medical/images/bertamedical-fig3-devkit-render.png"
     caption: "Dev Kit PCB, 3D render — Berta Board 1.0"
+    tall: true
   - src: "Berta Medical/images/bertamedical-fig3-wearable-render.png"
     caption: "Final wearable PCB, 3D render — compact two-board stack"
+    tall: true
   - src: "Berta Medical/images/bertamedical-fig1-prototype-cutaway.jpg"
     caption: "Phase 1 prototype, internal cutaway — electrode ring and off-the-shelf PCB validated before custom board design"
   - src: "Berta Medical/images/bertamedical-fig3-devkit-assembly.jpg"
     caption: "Dev Kit boards during in-house assembly, alongside the Phase 1 prototype enclosure"
   - src: "Berta Medical/images/bertamedical-fig7-ecg-waveform.png"
     caption: "Oscilloscope-captured ECG waveform from the AD8232 front-end — repeatable QRS complex confirming signal-chain integrity"
+    tall: true
   - src: "Berta Medical/images/bertamedical-fig7-final-wearable-assembled.jpg"
     caption: "Final wearable, fully assembled with electrode leads — configuration used for bench validation and the Rowan New Venture Competition demo"
   - src: "Berta Medical/images/bertamedical-fig6-doctor-portal.png"

@@ -39,6 +39,7 @@ specs:
 gallery:
   - src: "SubaruInternship/images/bugbox-node-cad-render.jpg"
     caption: "Production node enclosure, CAD render — charging port, debug port, and power switch consolidated on one face for field service without disassembly"
+    tall: true
   - src: "SubaruInternship/images/tof-sensor-diagram.jpg"
     caption: "Time-of-Flight sensing principle used to size sensor placement and update rate on the autonomous vehicle chassis"
     tall: true
