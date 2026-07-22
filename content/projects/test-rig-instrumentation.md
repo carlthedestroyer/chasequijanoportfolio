@@ -39,7 +39,7 @@ gallery:
     caption: "Hip brace mounted on the force-testing stand with the FUTEK load cell inline"
   - src: "Exoskeleton Research/Exoskeleton Bench Testing/benchtest2.jpg"
     caption: "Hip mechanism and pneumatic cylinder mounted on the TMC optical test table"
-  - src: "Exoskeleton Research/Control System + Test Bench/testbench2.jpg"
+  - src: "Exoskeleton Research/Control System %2B Test Bench/testbench2.jpg"
     caption: "Redesigned Spring 2026 test bench — hip mechanism, hardware emergency stop, pneumatic valves, gauges, and control electronics"
   - src: "Exoskeleton Research/Control Board V1/Exoskeleton Control Board.png"
     caption: "Control Board V1, full render — dual ESP32-S3 architecture with primary and safety/failsafe secondary microcontrollers"
