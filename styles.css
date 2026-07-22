@@ -167,8 +167,9 @@ section { padding: 6rem 2.5rem; }
    ═══════════════════════════════════════ */
 .project-card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem; }
 .project-card { display: block; text-decoration: none; color: inherit; }
-.project-card-img-wrap { height: 210px; overflow: hidden; border-radius: 8px 8px 0 0; border: 1px solid var(--border); border-bottom: none; background: var(--bg-elevated); }
-.project-card-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.project-card-img-wrap { position: relative; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; border-radius: 8px 8px 0 0; border: 1px solid var(--border); border-bottom: none; background: var(--bg-elevated); display: flex; align-items: center; justify-content: center; padding: 0.5rem; }
+.project-card-img { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform 0.2s ease; }
+.project-card:hover .project-card-img { transform: scale(1.03); }
 .project-card-body { border: 1px solid var(--border); border-top: none; border-radius: 0 0 8px 8px; padding: 1.5rem; transition: border-color 0.15s ease; }
 .project-card:hover .project-card-img-wrap,
 .project-card:hover .project-card-body { border-color: var(--border-hover); }
@@ -231,8 +232,8 @@ section { padding: 6rem 2.5rem; }
 .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 0 2.5rem 3rem; max-width: 1200px; margin: 0 auto; }
 .gallery-grid.gallery-full { grid-template-columns: 1fr; }
 .gallery-figure { margin: 0; }
-.gallery-figure img { width: 100%; height: 280px; object-fit: cover; border: 1px solid var(--border); border-radius: 8px; display: block; background: var(--bg-elevated); }
-.gallery-figure.gallery-tall img { height: auto; object-fit: contain; background: var(--bg-elevated); }
+.gallery-figure img { width: 100%; aspect-ratio: 16 / 10; object-fit: contain; border: 1px solid var(--border); border-radius: 8px; display: block; background: var(--bg-elevated); padding: 0.5rem; box-sizing: border-box; }
+.gallery-figure.gallery-tall img { height: auto; aspect-ratio: auto; object-fit: contain; background: var(--bg-elevated); }
 .gallery-figure figcaption { margin-top: 0.65rem; font-family: var(--mono); font-size: 0.74rem; color: var(--text-muted); line-height: 1.5; }
 
 .pd-section { padding: 3rem 2.5rem; max-width: 1200px; margin: 0 auto; border-top: 1px solid var(--border); }
