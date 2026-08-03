@@ -35,6 +35,16 @@ specs:
   - label: "Program"
     value: "Rowan University, Jan 2024 – Present"
 
+deepDives:
+  - slug: "imu-sensing-system"
+    title: "IMU Sensing System"
+    desc: "Root-caused a real-world I2C failure (18.34ms measured vs. 2.34ms modeled) via clock-stretching analysis, then rebuilt the 8-sensor array on RS-485 — validated at a sustained 400Hz with 0.0% packet loss."
+    image: "Exoskeleton Research/overleafportfoliopdf/images/mainboard_nodes.jpg"
+  - slug: "test-rig-instrumentation"
+    title: "Test Rig, Instrumentation & Human Trials"
+    desc: "Designed the force-testing bench and modular pneumatic cylinder assembly behind a 96-trial hip-abduction load-cell campaign, now heading toward human-subjects trials this fall."
+    image: "Exoskeleton Research/overleafportfoliopdf/images/testbench_actual.jpg"
+
 gallery:
   - src: "Exoskeleton Research/overleafportfoliopdf/images/worn_system.jpg"
     caption: "IMU System V2 worn for data acquisition: each sensor at its designated anatomical location on custom adjustable straps."
@@ -50,7 +60,7 @@ challenges: |
 
   The platform splits into two chains that meet on a shared, instrumented bench: an 8-node RS-485/UART sensing array streaming to a Raspberry Pi for real-time gait-detection, and a pneumatic actuation chain — a dedicated control board driving the hip cylinders — that the Pi triggers when it flags a fall-risk motion. I own the sensing, test-bench, force-characterization, and pneumatic-hardware subsystems across this split architecture.
 
-  The two subsystems developed in depth on this platform are documented separately: the [IMU Sensing System](imu-sensing-system.html) covers the ground-up rebuild of the wearable sensor array from a failing I2C bus to a validated 400Hz RS-485 architecture, and [Test Rig, Instrumentation & Human Trials](test-rig-instrumentation.html) covers the bench force-testing campaign, the modular pneumatic cylinder mechanism, and the current push toward human-subjects trials.
+  The two subsystems developed in the most depth on this platform — the sensing rebuild and the test-rig/force-testing campaign — are documented in full as separate write-ups below.
 
   #### What's Next: NMES Integration
 

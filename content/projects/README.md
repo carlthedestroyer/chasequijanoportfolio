@@ -47,6 +47,18 @@ specs:                           # Hardware Specs & Technical Stack card (right 
   - label: "Communication"
     value: "RS-485, UART/SLIP framing"
 
+deepDives:                       # optional — card grid linking to detailed sub-project pages
+                                  # (e.g. a hub project like "exoskeleton" linking out to
+                                  # "imu-sensing-system" / "test-rig-instrumentation"). Renders
+                                  # right after the executive summary, using the same card styling
+                                  # as the archive/homepage grids, so it reads as unmissable rather
+                                  # than a buried inline link. Only add this on hub pages — sub-pages
+                                  # don't need it.
+  - slug: "imu-sensing-system"   # <slug>.html must exist as a real project page
+    title: "IMU Sensing System"
+    desc: "One or two sentences with concrete numbers — this card is often the only thing a skimming reader sees of that sub-project."
+    image: "relative/path/to/image.jpg"   # same path convention as gallery[].src
+
 gallery:                         # Visual Gallery Grid — 2 columns, ~6-10 images
   - src: "relative/path/to/image.jpg"   # resolved relative to projects/<slug>.html
     caption: "Technical caption shown under the image"

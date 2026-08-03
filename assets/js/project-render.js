@@ -77,6 +77,27 @@
       '</div>';
   }
 
+  function renderDeepDives(deepDives, mount) {
+    if (!deepDives || !deepDives.length) { mount.innerHTML = ''; mount.style.display = 'none'; return; }
+    mount.innerHTML =
+      '<div class="pd-section-label">Deep Dives</div>' +
+      '<h2 class="pd-section-title">Detailed Write-Ups on This Program</h2>' +
+      '<div class="project-card-grid">' +
+      deepDives.map(function (d) {
+        return (
+          '<a href="' + escapeHtml(d.slug) + '.html" class="project-card card">' +
+            '<div class="project-card-img-wrap"><img class="project-card-img" src="' + escapeHtml(d.image) + '" alt="' + escapeHtml(d.title) + '" loading="lazy" /></div>' +
+            '<div class="project-card-body">' +
+              '<h3 class="project-card-title">' + escapeHtml(d.title) + '</h3>' +
+              '<p class="project-card-desc">' + escapeHtml(d.desc) + '</p>' +
+              '<span class="project-card-link">Read Technical Breakdown →</span>' +
+            '</div>' +
+          '</a>'
+        );
+      }).join('') +
+      '</div>';
+  }
+
   function renderGallery(images, mount) {
     if (!images || !images.length) { mount.innerHTML = ''; mount.style.display = 'none'; return; }
     mount.className = 'gallery-grid' + (images.length === 1 ? ' gallery-full' : '');
@@ -151,6 +172,7 @@
   async function renderProject(slug) {
     var headerMount = document.getElementById('pd-header');
     var splitMount = document.getElementById('pd-split');
+    var deepDivesMount = document.getElementById('pd-deepdives');
     var galleryMount = document.getElementById('pd-gallery');
     var challengesMount = document.getElementById('pd-challenges');
     var resultsMount = document.getElementById('pd-results');
@@ -167,6 +189,7 @@
 
     if (headerMount) renderHeader(data, headerMount);
     if (splitMount) renderSplit(data, splitMount);
+    if (deepDivesMount) renderDeepDives(data.deepDives, deepDivesMount);
     if (galleryMount) renderGallery(data.gallery, galleryMount);
     if (challengesMount) renderChallenges(data, challengesMount);
     if (resultsMount) renderResults(data, resultsMount);
