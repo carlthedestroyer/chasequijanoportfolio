@@ -8,6 +8,7 @@ domainTags:
   - ESP8266
   - Arduino Uno
   - ESP-NOW Mesh
+  - Web Dashboard UI
   - Time-of-Flight Sensing
   - DRV8322
   - SolidWorks Flow Simulation
@@ -29,6 +30,8 @@ specs:
     value: "Logic-level MOSFET, GPIO-gated via 220Ω resistor"
   - label: "Wireless"
     value: "ESP-NOW mesh, AP-host node"
+  - label: "Node Control UI"
+    value: "Browser-based dashboard — per-node MOSFET toggle, discovery, all-on/off, 2s auto-refresh"
   - label: "Vehicle Sensing"
     value: "3x Time-of-Flight (front/left/right), Arduino Uno"
   - label: "Vehicle Actuation"
@@ -50,6 +53,9 @@ gallery:
   - src: "SubaruInternship/images/xtool-ventilation-cfd.jpg"
     caption: "SolidWorks Flow Simulation of the Xtool laser-cutter ventilation duct, airflow trajectories colored by pressure"
     tall: true
+  - src: "SubaruInternship/images/xtool-ventilation-cfd-animated.gif"
+    caption: "Animated SolidWorks Flow Simulation of the same ventilation duct, showing airflow trajectories moving through the geometry over time"
+    tall: true
   - src: "SubaruInternship/images/bugbox-nodes-labeled.jpg"
     caption: "Completed 14-node fleet, individually labeled and wired to a shared power strip for bench testing prior to deployment"
   - src: "SubaruInternship/images/autonomous-car-truck-electronics.jpg"
@@ -60,6 +66,9 @@ gallery:
 challenges: |
   #### Scaling One Bench Unit to Fourteen Field Nodes
   Moving from one validated bench prototype to fourteen identical, independently deployed nodes surfaced manufacturability and reliability constraints that don't show up at the single-unit stage. Each node is built from a 23-line bill of materials assembled in roughly twenty sequenced steps, documented in a step-by-step build guide so any teammate could reproduce a node without ambiguity. Serviceability was treated as a first-class constraint at fleet scale: four M3 heat-set inserts, pressed in with a soldering iron, let the top plate be removed and re-fastened in the field without stripping plastic threads, and the switching MOSFET's heat sink is both epoxied and mechanically fastened for thermal margin under repeated switching cycles rather than relying on epoxy alone. Strain relief (a rubber grommet on the switched leads) and heat-shrunk brass spade connectors on the battery leads address failure modes that are tolerable on a single bench unit but compound across fourteen field-deployed nodes. Every node is verified with a power-on smoke test — confirming the ESP32's status LED before final assembly — as an inline quality gate rather than a post-hoc check.
+
+  #### Remote Node-Control Dashboard
+  Fourteen field-deployed nodes are only as useful as the ability to see and control them without walking the floor. I built a lightweight, mobile-sized browser dashboard on top of the ESP-NOW mesh: each node renders as a status card (online/offline/pending) with uptime, a MOSFET power toggle, and fleet-wide "All On" / "All Off" / "Discover" actions, polling the mesh host every two seconds so the UI reflects real node state rather than a stale snapshot. A pending state animates while a toggle command is in flight, so an operator can tell a command was received versus dropped on a mesh with fourteen independent radios. [Open the live dashboard preview](SubaruInternship/bugbox-dashboard.html) (simulated node data, same interface as the deployed version).
 
   #### Sensor Placement and Shop Ventilation
   The Time-of-Flight sensor placement on the autonomous vehicle went through a similar validate-then-commit process: the sensing principle (timing a photon's round trip to a target) was worked out explicitly before deciding where to mount each of the three sensors and how fast to poll them, since front/left/right coverage and update rate directly determine how reliably the chassis derives distance and tire speed. Separately, the shop's Xtool laser cutter had a ventilation problem worth solving with the same rigor: its stock configuration required a hardware swap to switch between conveyor-belt and flat-bed cutting, which discouraged use of conveyor mode entirely, and its exhaust setup needed reconfiguration between jobs. Rather than fabricate a duct and see if it worked, the ventilation path was simulated in SolidWorks Flow Simulation first, and the resulting compact duct design supports both cutting modes and requires no additional per-job setup.
