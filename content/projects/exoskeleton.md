@@ -69,7 +69,7 @@ challenges: |
 publications:
   badge: "Manuscript in Preparation"
   sectionTitle: "Research Program Publications"
-  note: "I am currently co-authoring a manuscript from this research program, alongside PhD student Vaibhavsingh Varma, with additional publications anticipated as the program advances toward human trials. The papers below are prior published work from the same research program (PI: Dr. Mitja Trkov), included for context."
+  note: "I am currently co-authoring a manuscript from this research program with PhD student Vaibhavsingh Varma and PI Dr. Mitja Trkov, with additional publications anticipated as the program advances toward human trials. The papers below are prior published work from the same research program, included for context."
   items:
     - authors: "V. Varma, S. N. Patel, N. P. Wilson, and M. Trkov"
       title: "Characterization of Hip Abduction Exoskeleton for Assistance During Gait Perturbations"
@@ -102,7 +102,7 @@ results:
       - ["Sensing (8-node IMU array)", "Rebuilt on RS-485 — see IMU Sensing System"]
       - ["Test bench + force testing", "192 total trials across hip abduction and knee extension — see Test Rig & Instrumentation"]
       - ["Pneumatic hardware (cylinder mechanism)", "Modular assembly, now on its second generation"]
-      - ["Publication", "Currently co-authoring a manuscript from this work, alongside PhD student Vaibhavsingh Varma, with additional publications anticipated"]
+      - ["Publication", "Currently co-authoring a manuscript from this work with PhD student Vaibhavsingh Varma and PI Dr. Mitja Trkov, with additional publications anticipated"]
       - ["NMES integration", "Early research and scoping phase"]
 
 nav:
