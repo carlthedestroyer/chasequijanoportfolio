@@ -1,4 +1,4 @@
-number: "003"
+number: "006"
 category: "Manufacturing"
 title: "Custom Digital Scale"
 subtitle: "Manufacturing & Measurement Techniques · Rowan University · December 2024"
@@ -81,8 +81,8 @@ results:
 
 nav:
   prev:
-    slug: "test-rig-instrumentation"
-    title: "Test Rig, Instrumentation & Human Trials"
+    slug: "same-rowan-chapter"
+    title: "Search-and-Rescue UAV — SAME Rowan Grant Program"
   next:
-    slug: "soft-robotics"
-    title: "Modular Flexible PCB for Soft Robotics"
+    slug: "ros-robot"
+    title: "ROS Robot — Mobile Perception Platform"

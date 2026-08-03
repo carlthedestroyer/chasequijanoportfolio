@@ -1,4 +1,4 @@
-number: "011"
+number: "009"
 category: "Controls"
 title: "Field Oriented Control Test Bench"
 subtitle: "Personal Project · Rowan University"
@@ -70,5 +70,5 @@ nav:
     slug: "balancing-robot"
     title: "Balancing Robot — Two Generations of Control System Design"
   next:
-    slug: "subaru-internship"
-    title: "Subaru Technical Training Internship"
+    slug: "soft-robotics"
+    title: "Self-Reconfigurable Soft Robotic Modules"

@@ -1,4 +1,4 @@
-number: "006"
+number: "003"
 category: "Product Design & Manufacturing"
 title: "Subaru Technical Training Internship"
 subtitle: "Product Design & Fabrication Intern · Subaru of America, Technical Training · Year-Long"
@@ -88,8 +88,8 @@ results:
 
 nav:
   prev:
-    slug: "foc-control-rig"
-    title: "Field Oriented Control Test Bench"
+    slug: "exoskeleton"
+    title: "Fall-Prevention Exoskeleton"
   next:
     slug: "berta-medical"
     title: "Berta Medical - Wearable ECG Platform"

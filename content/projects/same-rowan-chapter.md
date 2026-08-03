@@ -83,8 +83,8 @@ results:
 
 nav:
   prev:
-    slug: "soft-robotics"
-    title: "Modular Flexible PCB for Soft Robotics"
+    slug: "berta-medical"
+    title: "Berta Medical - Wearable ECG Platform"
   next:
-    slug: "ros-robot"
-    title: "ROS Robot — Mobile Perception Platform"
+    slug: "digital-scale"
+    title: "Custom Digital Scale"

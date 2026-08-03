@@ -1,4 +1,4 @@
-number: "001"
+number: "004"
 category: "Medical Startup"
 title: "Berta Medical - Wearable ECG Platform"
 subtitle: "Co-Founder & Hardware Lead · Rowan University · 2024"
@@ -90,5 +90,5 @@ nav:
     slug: "subaru-internship"
     title: "Subaru Technical Training Internship"
   next:
-    slug: "exoskeleton"
-    title: "Exoskeleton Control System"
+    slug: "same-rowan-chapter"
+    title: "Search-and-Rescue UAV — SAME Rowan Grant Program"

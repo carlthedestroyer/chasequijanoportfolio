@@ -1,4 +1,4 @@
-number: "009"
+number: "007"
 category: "Autonomous Robotics"
 title: "ROS Robot — Mobile Perception Platform"
 subtitle: "Personal Project · Rowan University"
@@ -68,8 +68,8 @@ results:
 
 nav:
   prev:
-    slug: "same-rowan-chapter"
-    title: "Search-and-Rescue UAV — SAME Rowan Grant Program"
+    slug: "digital-scale"
+    title: "Custom Digital Scale"
   next:
     slug: "balancing-robot"
     title: "Balancing Robot — Two Generations of Control System Design"

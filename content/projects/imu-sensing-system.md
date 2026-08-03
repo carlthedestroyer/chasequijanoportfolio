@@ -1,4 +1,4 @@
-number: "007"
+number: "002A"
 category: "Engineering Clinic Research"
 title: "IMU Sensing System"
 subtitle: "Fall-Prevention Exoskeleton Program (sub-project) · Rowan University · Jan 2024 – Present · PI: Dr. Mitja Trkov"
@@ -107,4 +107,4 @@ nav:
     title: "Fall-Prevention Exoskeleton"
   next:
     slug: "test-rig-instrumentation"
-    title: "Test Rig, Instrumentation & Human Trials"
+    title: "Test Rig, Instrumentation & Human Trials Program"

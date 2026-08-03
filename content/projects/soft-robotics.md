@@ -1,4 +1,4 @@
-number: "004"
+number: "001"
 category: "Rowan Robotics Lab"
 title: "Self-Reconfigurable Soft Robotic Modules"
 subtitle: "Undergraduate Student Researcher · Rowan University (PI: Dr. Mitja Trkov) · May 2024 – Present"
@@ -108,8 +108,8 @@ results:
 
 nav:
   prev:
-    slug: "digital-scale"
-    title: "Custom Digital Scale"
+    slug: "foc-control-rig"
+    title: "Field Oriented Control Test Bench"
   next:
-    slug: "same-rowan-chapter"
-    title: "Search-and-Rescue UAV — SAME Rowan Chapter"
+    slug: "exoskeleton"
+    title: "Fall-Prevention Exoskeleton"

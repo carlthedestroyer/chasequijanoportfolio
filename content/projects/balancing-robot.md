@@ -1,4 +1,4 @@
-number: "010"
+number: "008"
 category: "Controls"
 title: "Balancing Robot — Two Generations of Control System Design"
 subtitle: "Personal Project · Rowan University"

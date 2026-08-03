@@ -74,12 +74,13 @@ results:
       - ["Sensing (8-node IMU array)", "Rebuilt on RS-485 — see IMU Sensing System"]
       - ["Test bench + force testing", "192 total trials across hip abduction and knee extension — see Test Rig & Instrumentation"]
       - ["Pneumatic hardware (cylinder mechanism)", "Modular assembly, now on its second generation"]
+      - ["Publication", "Will be a co-author on an upcoming publication from this work, alongside PhD student Vaibhavsingh Varma"]
       - ["NMES integration", "Early research and scoping phase"]
 
 nav:
   prev:
-    slug: "berta-medical"
-    title: "Berta Medical - Wearable ECG Platform"
+    slug: "soft-robotics"
+    title: "Self-Reconfigurable Soft Robotic Modules"
   next:
-    slug: "imu-sensing-system"
-    title: "IMU Sensing System"
+    slug: "subaru-internship"
+    title: "Subaru Technical Training Internship"
