@@ -1,78 +1,80 @@
 number: "002"
 category: "Engineering Clinic Research"
 title: "Fall-Prevention Exoskeleton"
-subtitle: "Undergraduate Engineering Clinic · Rowan University · Fall 2025 – Spring 2026 · PI: Dr. Mitja Trkov"
+subtitle: "Undergraduate Student Researcher · Rowan University (PI: Dr. Mitja Trkov) · Jan 2024 – Present"
 
 domainTags:
-  - KiCad
   - Teensy 4.1
   - BNO085
-  - RS-485
-  - ESP32
+  - RS-485/UART
   - Raspberry Pi 4
   - Pneumatic Actuation
-  - FEA
+  - Bowden Cable
+  - String Potentiometer
+  - Load Cell
 
 summary: |
-  A pneumatically-actuated, hip-level exoskeleton engineered to sense a fall-risk motion and deliver corrective assistive force to the hip joint before a fall occurs. Falls are a leading cause of injury for older adults and people with gait or balance impairments; this Engineering Clinic project set out to build a wearable, hip-level exoskeleton that senses a fall-risk motion in real time and pneumatically assists the hip joint, actuating abduction/adduction and flexion through Bowden-cable-driven pneumatic cylinders. The two-semester program spans mechanism design, embedded orientation sensing, custom control/relay electronics, and a structured bench force-testing campaign now advancing toward human-subjects trials.
+  Falls are a leading cause of injury for the elderly and people with limited mobility. The Fall-Prevention Exoskeleton is a pneumatically actuated, wearable device that detects perturbations in the wearer's gait in real time and corrects them before a slip or fall occurs, an assistive layer of safety for those who struggle with walking, supporting confidence and independence. Over the most recent semester the team completed a major hip-to-knee chassis redesign, a ground-up rebuild of the sensing system and test bench, and an instrumented pneumatic bench-test campaign. My ownership covers the sensing, test-bench, force-characterization, and pneumatic-hardware subsystems.
 
-  This work is conducted under PI Dr. Mitja Trkov as part of the Rowan University Engineering Clinic program, in collaboration with PhD student Vaibhav Vanshwarma, who is co-developing the human-subjects trial procedure. I own the electrical, embedded, and test-engineering side across both semesters, working alongside teammates leading the mechanical design.
+  - Engineered a wearable 8-node motion-capture system: built over a full-duplex RS-485/UART transceiver matrix using shielded flexible cables to eliminate signal noise during human trials.
+  - Routed custom Teensy-based mainboards: aggregated high-frequency BNO085 IMU data streams (quaternion, gyroscopic, and accelerometer data at up to 400Hz per node) to a central Raspberry Pi gateway for real-time predictive gait detection.
+  - Executed exoskeleton bench testing: ran 192 total trials using string potentiometers, pressure transducers, and a single load cell across hip abduction and knee extension setups within a hardware-in-the-loop (HIL) pneumatic test matrix.
+  - Researching NMES integration: currently in the research phase for a neuromuscular electrical stimulation system to assist in motor control, scoping the low-level electronics and multi-channel current-regulation architecture it will require.
 
 specs:
   - label: "Sensing Chain"
-    value: "8x BNO085 IMU (RS-485) → Teensy 4.1 → Raspberry Pi 4"
+    value: "8x BNO085 IMU (RS-485/UART) → Teensy-based mainboard → Raspberry Pi 4"
   - label: "Actuation Chain"
-    value: "ESP32 Control Board → Relay Board V1 → AirTac solenoid valves → hip cylinders"
-  - label: "Microcontrollers"
-    value: "Teensy 4.1, ESP32-S3, Raspberry Pi 4"
+    value: "Gait-detection trigger → dedicated control board → pneumatic hip cylinders"
   - label: "Actuation"
-    value: "Pneumatic, Bowden-cable driven, 2 DOF (ab/adduction + flexion)"
-  - label: "Power"
-    value: "Switched 22.2V/5V rail architecture"
-  - label: "Chassis"
-    value: "Cuff-based brace, aluminum C-channels, FEA-validated"
-  - label: "Communication"
-    value: "RS-485/UART (SLIP), USB serial, I2C (Gen 1 bus)"
+    value: "Pneumatic, Bowden-cable driven — hip abduction and knee extension"
+  - label: "Bench Testing"
+    value: "192 total trials — string potentiometers, pressure transducers, single load cell (HIL matrix)"
+  - label: "Current R&D"
+    value: "NMES integration — scoping multi-channel current-regulation electronics"
+  - label: "Program"
+    value: "Rowan University, Jan 2024 – Present"
 
 gallery:
-  - src: "Exoskeleton Research/Exoskeleton Bench Testing/benchtest1.jpg"
-    caption: "Hip brace and pneumatic actuator mounted to the force-testing rig, FUTEK load cell inline"
-  - src: "Exoskeleton Research/Exoskeleton Bench Testing/benchtest3.jpg"
-    caption: "Redesigned cuff-based thigh brace on the force-testing stand with FUTEK load cell"
-  - src: "Exoskeleton Research/Control Board V2/Exoskeleton Control Board V3.png"
-    caption: "Control Board V2 render — dual Teensy 4.1, with load cell, pressure transducer, and thermistor headers"
-    tall: true
-  - src: "Exoskeleton Research/Relay Board V1/RelayMainBoard1.png"
-    caption: "Relay Board V1 — dedicated 12-channel, flyback-protected relay board render"
-    tall: true
-  - src: "Exoskeleton Research/IMU System V2/image11.jpg"
-    caption: "Assembled IMU System V2 mainboard, showing Teensy 4.1 and RS-485 breakout headers"
-  - src: "Exoskeleton Research/Exoskeleton Worn Biomechanics Lab tests/IMG_2115.jpg"
-    caption: "IMU array and exoskeleton worn together in the Rowan biomechanics lab, tethered to an overhead safety trolley on a rail track — initial worn testing ahead of Fall 2026 human trials, OptiTrack motion-capture cameras visible on the walls"
-  - src: "Exoskeleton Research/Exoskeleton Worn Biomechanics Lab tests/IMG_2153.jpg"
-    caption: "Dynamic hip-flexion movement test with the full system worn and the safety tether attached overhead"
+  - src: "Exoskeleton Research/overleafportfoliopdf/images/worn_system.jpg"
+    caption: "IMU System V2 worn for data acquisition: each sensor at its designated anatomical location on custom adjustable straps."
+  - src: "Exoskeleton Research/overleafportfoliopdf/images/torque_plot.jpg"
+    caption: "Hip abduction load-cell results: supply pressure (PSI) against applied torque (N·m) across the 96-trial matrix."
+  - src: "Exoskeleton Research/overleafportfoliopdf/images/backpack_cad.jpg"
+    caption: "CAD model progress on the exoskeleton backpack design: solenoids, custom relay and control boards, battery, and laser-cut paneling in one enclosure."
+  - src: "Exoskeleton Research/overleafportfoliopdf/images/control_v2_render.jpg"
+    caption: "Control Board V2 render: primary and secondary microcontrollers, with temperature monitoring across multiple systems plus pressure and voltage monitoring serving as a safety function, and LED status indication."
 
 challenges: |
-  #### Chassis Redesign — Cuff-and-C-Channel Brace, FEA-Validated
-  The original thigh brace used a plastic jointed thigh link that couldn't transmit actuation force reliably — it flexed under load instead of driving the hip joint. In Spring 2026 the team replaced it with a cuff-based brace and a system of aluminum C-channels, verified against the redesign with FEA before fabrication. This resolved the force-transmission deficiencies that had limited every earlier iteration. The hip mechanism actuates two degrees of freedom, abduction/adduction and flexion, through Bowden-cable-linked pneumatic cylinders driven by the modular cylinder assembly and instrumentation covered in the Test Rig document.
+  #### System Architecture: Independent Sensing and Actuation
 
-  #### Split Architecture De-Risked a Ground-Up Sensing Rebuild
-  The platform's split architecture — independent sensing and actuation chains meeting on a shared, instrumented bench — meant a hard failure in one subsystem never blocked the other. That separation is what let the sensing chain go through a ground-up rebuild in the middle of the project without touching the actuation side at all: the first-generation I2C-based IMU array silently missed its own 100 Hz timing budget by a wide margin under real load, a failure that was root-caused with bench measurements rather than assumed, formally proposed as a redesign, and rebuilt around RS-485 to hit a sustained 400 Hz with zero packet loss — full detail in the IMU Sensing System document.
+  The platform splits into two chains that meet on a shared, instrumented bench: an 8-node RS-485/UART sensing array streaming to a Raspberry Pi for real-time gait-detection, and a pneumatic actuation chain — a dedicated control board driving the hip cylinders — that the Pi triggers when it flags a fall-risk motion. I own the sensing, test-bench, force-characterization, and pneumatic-hardware subsystems across this split architecture.
 
-  The mechanical and instrumentation sides iterated the same way. The chassis moved from a plastic thigh link that flexed under load to an FEA-validated cuff-and-C-channel brace. The bench electronics moved from loose solid-state relay modules to a dedicated 12-channel flyback-protected relay board, and from a dual-ESP32-S3 control board (Control Board V1) to a dual-Teensy-4.1 control board (Control Board V2) purpose-built for the structured hip-abduction protocol, adding string-potentiometer and load-cell channels the first board didn't carry. Both redesigns, and the two 96-trial force campaigns that validated them, are covered in the Test Rig & Instrumentation document.
+  The two subsystems developed in depth on this platform are documented separately: the [IMU Sensing System](imu-sensing-system.html) covers the ground-up rebuild of the wearable sensor array from a failing I2C bus to a validated 400Hz RS-485 architecture, and [Test Rig, Instrumentation & Human Trials](test-rig-instrumentation.html) covers the bench force-testing campaign, the modular pneumatic cylinder mechanism, and the current push toward human-subjects trials.
+
+  #### What's Next: NMES Integration
+
+  Beyond the current sensing/actuation loop, I'm in the research phase for integrating neuromuscular electrical stimulation (NMES) to actively assist motor control, scoping the low-level electronics and multi-channel current-regulation architecture that subsystem will require.
 
 results:
   narrative: |
-    Across two Engineering Clinic semesters the program validated its sensing chain, chassis, and control electronics through direct bench measurement. The rebuilt RS-485 sensing chain was confirmed running at a sustained 400 Hz across all 8 body-segment sensors with zero packet loss, and its EMI immunity was verified with the array running adjacent to the same solenoid-driven pneumatic actuators that had corrupted the original I2C bus. Two structured 96-trial force campaigns — hip abduction and knee extension, each spanning six pressures and four actuation delays — were logged against a FUTEK inline load cell, and the redesigned chassis was FEA-validated before fabrication to resolve the original plastic thigh link's force-transmission failure. Six custom PCBs were designed and built across the program, spanning both control-electronics and IMU-sensing generations. Fall 2025 (Sarah Smith, Chase Quijano, Reuben Cuevas, Eric Carty) built the V1 mechanism and Gen-1 IMU array and identified the sampling-rate shortfall; Spring 2026 (Chase Quijano, Eric Carty, Preston Haddon), in collaboration with PhD student Vaibhav Vanshwarma on human-trials protocol development, executed the chassis redesign, the IMU System V2 rebuild, the test-rig instrumentation redesign, and the two 96-trial test campaigns.
+    Across the sensing, test-bench, and pneumatic-hardware subsystems, the rebuilt RS-485 sensing chain was confirmed running at a sustained 400Hz across all 8 body-segment sensors, and a hardware-in-the-loop pneumatic bench campaign logged 192 total trials across hip abduction and knee extension setups using string potentiometers, pressure transducers, and a load cell. Full detail and validation numbers for each subsystem live on their dedicated pages, linked above.
   metrics:
+    - value: "192"
+      label: "Total Bench Trials (Hip Abduction + Knee Extension)"
+    - value: "8"
+      label: "Wearable IMU Nodes"
     - value: "400 Hz"
-      label: "IMU Sensing, Zero Packet Loss"
-    - value: "2×96"
-      label: "Trial Force Campaigns"
-    - value: "6"
-      label: "Custom PCBs Designed"
-    - value: "2"
-      label: "Clinic Semesters"
+      label: "Peak Per-Node IMU Rate"
+    - value: "2024"
+      label: "Program Start (Jan 2024 – Present)"
+  table:
+    headers: ["Subsystem", "Status"]
+    rows:
+      - ["Sensing (8-node IMU array)", "Rebuilt on RS-485 — see IMU Sensing System"]
+      - ["Test bench + force testing", "192 total trials across hip abduction and knee extension — see Test Rig & Instrumentation"]
+      - ["Pneumatic hardware (cylinder mechanism)", "Modular assembly, now on its second generation"]
+      - ["NMES integration", "Early research and scoping phase"]
 
 nav:
   prev:

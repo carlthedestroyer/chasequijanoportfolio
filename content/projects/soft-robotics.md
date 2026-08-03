@@ -1,88 +1,110 @@
 number: "004"
 category: "Rowan Robotics Lab"
-title: "Modular Flexible PCB for Soft Robotics"
-subtitle: "Undergraduate Research Assistant · Rowan Robotics Lab (PI: Dr. Mitja Trkov) · 2025"
+title: "Self-Reconfigurable Soft Robotic Modules"
+subtitle: "Undergraduate Student Researcher · Rowan University (PI: Dr. Mitja Trkov) · May 2024 – Present"
 
 domainTags:
   - Flex PCB
-  - KiCad 9
+  - KiCad
   - DRV8833
-  - CD74HC4067
-  - Seeeduino XIAO
-  - I2C
+  - I2C Multiplexing
   - FPC Connector
   - SMD Reflow
+  - Solenoid Drivers
+  - Module Docking
 
 summary: |
-  Engineered the flexible mainboard electronics for a self-reconfiguring soft robot module: a two-layer KiCad flex PCB, fit to a 96x28mm footprint, that drives pneumatic actuation, reads a resistive bend sensor, and carries power and I2C communication to neighboring modules across the platform. Designed under PI Dr. Mitja Trkov in the Rowan Robotics Lab, working alongside graduate researcher Joshua Knospler to integrate the boards into the physical multi-module system.
+  Self-reconfigurable soft robotic modules require compact, reliable, and modular electronics to drive actuators, interface with sensors, and communicate between units. The challenge is designing PCBs that integrate seamlessly with soft robotic hardware under strict space and reliability constraints, including the ability to maintain flexion during operation. I own the module electronics: the custom flexible mainboards, the docking and addressing architecture, and the on-board actuation drivers, now in their fourth design iteration.
 
-  This is a contribution to a larger research effort, not a solo project — the electronics contribution is cited in a forthcoming 2025 co-authored publication, with the underlying research now under evaluation for patenting.
+  - Iterated four generations of custom flexible PCBs, engineered to withstand extreme mechanical strain and high-angle bending without trace de-lamination.
+  - Integrated dynamic I2C multiplexing and structural addressing onto individual docking faces, enabling interlocking actuator modules to autonomously discover and map neighboring orientation nodes.
+  - Embedded localized motor drivers and transistor-driven solenoid arrays on-board, managing autonomous module interlocking and soft-actuator inflation cycles, supporting one forthcoming co-authorship.
 
 specs:
-  - label: "PCB"
-    value: "2-layer flex, KiCad 9, 96×28mm"
+  - label: "PCB Outline"
+    value: "96 × 28mm, two-layer flexible PCB"
+  - label: "Flexion Tolerance"
+    value: "~1° sustained flexion without trace failure"
   - label: "Actuator Drivers"
-    value: "2x DRV8833PW dual H-bridge"
-  - label: "I/O Expansion"
-    value: "CD74HC4067M 16-ch analog mux"
-  - label: "Sensing"
-    value: "Resistive bend sensor, voltage-divider, 4.7kΩ pull-down"
+    value: "DRV8833 motor drivers (reliability, availability, current capacity matched to actuators)"
+  - label: "On-Board Actuation"
+    value: "Transistor-driven solenoid arrays for interlocking + inflation cycles"
   - label: "Inter-Module Comms"
-    value: "PAC connector — I2C, power, actuator lines"
-  - label: "MCU Interface (Rev B)"
-    value: "11-pin FPC (FH35C-11S) → Seeeduino XIAO"
+    value: "Dynamic I2C multiplexing, structural addressing per docking face"
+  - label: "MCU Interface (V4)"
+    value: "11-pin FPC connector to secondary microcontroller board"
   - label: "Assembly"
-    value: "Hand SMD reflow, microscope-inspected"
+    value: "Hand SMD reflow (hot plate + heat gun), microscope-inspected"
 
 gallery:
-  - src: "Soft Robotics Research/images/pcb-render-v2-front.png"
-    caption: "Rev B mainboard, front — dual DRV8833 actuator drivers, CD74HC4067 mux, 11-pin FPC connector to the Seeeduino XIAO daughterboard"
+  - src: "Soft Robotics Research/soft_robotics_portfolio_section_overleaf/images/layout_v1.jpg"
+    caption: "Mainboard V1 layout: first-generation two-layer design with through-hole transistors and discrete interface pads. This revision required jumper-wire fixes after fabrication."
     tall: true
-  - src: "Soft Robotics Research/images/schematic-v2.png"
-    caption: "Rev B schematic — PAC connector I2C/power bus, bend-sensor divider, FPC handoff to the secondary MCU board"
+  - src: "Soft Robotics Research/soft_robotics_portfolio_section_overleaf/images/layout_v4.jpg"
+    caption: "Mainboard V4 layout: the latest iteration, fully SMD with FPC interconnects, consolidated routing, and placement driven by the module's mechanical and flexion constraints."
     tall: true
-  - src: "Soft Robotics Research/images/mechanical-dimensions.png"
-    caption: "Module PCB mechanical dimension drawing — 96x28mm outline with mounting holes and connector notch"
-    tall: true
-  - src: "Soft Robotics Research/images/fabricated-boards-photo.png"
-    caption: "Freshly reflowed Rev B boards, hot-plate/heat-gun assembled, next to the build checklist"
-  - src: "Soft Robotics Research/images/rev2-board-closeup-photo.png"
-    caption: "Rev B mainboard close-up — SMD reflow joints on the flexible polyimide substrate, post-microscope inspection"
-  - src: "Soft Robotics Research/images/pac-connectors-photo.png"
-    caption: "PAC connector harness assembly — power, I2C, and actuator lines between adjacent modules"
-  - src: "Soft Robotics Research/images/assembled-module-photo1.png"
-    caption: "Rev B mainboard integrated into a printed module housing, motors and PAC harness connected"
-  - src: "Soft Robotics Research/images/multi-module-assembly-photo.png"
-    caption: "Multiple soft robotic modules with Rev B mainboards installed, assembled together on the bench"
+  - src: "Soft Robotics Research/soft_robotics_portfolio_section_overleaf/images/board_lineage.jpg"
+    caption: "The mainboard lineage laid out: early flexible generations with hand-bodged fixes alongside the clean later revisions and their secondary microcontroller boards."
+  - src: "Soft Robotics Research/soft_robotics_portfolio_section_overleaf/images/board_panel.jpg"
+    caption: "A production run of the latest mainboard revision, hand-assembled and ready for module integration."
+  - src: "Soft Robotics Research/soft_robotics_portfolio_section_overleaf/images/module_assembled.jpg"
+    caption: "Assembled module with the latest mainboard installed: docking faces, PAC connectors, and actuation wiring integrated around the flexible board."
+  - src: "Soft Robotics Research/soft_robotics_portfolio_section_overleaf/images/two_modules.jpg"
+    caption: "Two modules interlocked and powered over USB during intermodule communication bring-up."
+  - src: "Soft Robotics Research/soft_robotics_portfolio_section_overleaf/images/inflation_test.jpg"
+    caption: "Module inflation test: the soft actuator pressurized with the docking hardware attached."
+  - src: "Soft Robotics Research/soft_robotics_portfolio_section_overleaf/images/four_modules.jpg"
+    caption: "Four modules with the latest mainboard revision installed, top-down view."
 
 challenges: |
-  Rev A came back from fabrication with 2–3 incorrect traces, which had to be corrected with hand-soldered wire jumpers before the boards were usable — a direct, first-hand lesson in the cost of skipping a second design review before sending a flex board out. The microcontroller interface on Rev A was also implemented as multiple discrete pads directly on the mainboard, coupling the MCU footprint to the mainboard's own fabrication cycle.
+  #### Four Mainboard Generations
 
-  Rev B corrected the routing errors and iterated on both the actuator drive stage and the MCU interface: through-hole 2N2222 transistors driving the pneumatic solenoid valves were replaced with SMD AO3400A MOSFETs to cut footprint and simplify reflow, and the MCU pads were replaced with an 11-pin FPC connector to a separate Seeeduino XIAO board — a modularity change that means a bad microcontroller or firmware revision no longer requires re-fabricating the whole mainboard. Every board, Rev A and Rev B, was hand-assembled and reflow-soldered on a flexible polyimide substrate rather than rigid FR4, which demands tighter thermal control at the hot plate/heat gun stage to avoid delaminating the flex laminate, and each board was checked under a microscope for solder joint integrity and trace bridging before it went into a module.
+  The mainboard is now on its fourth iteration, and the progression is the clearest record of my growth as an electronics designer. The first board shipped with a few incorrect traces that had to be bridged with jumper wires, and used through-hole transistors that fought the space constraints. Each generation after that folded in the lessons of the last: verifying every net through design review before fabrication, moving fully to SMD to shrink the footprint and simplify assembly, replacing discrete microcontroller interface pads with a compact 11-pin FPC connector to a secondary microcontroller board, and consolidating the routing for reliability under repeated flexion. Comparing the V1 and V4 layouts shows how much the design matured: cleaner net organization, deliberate component placement, and a board designed to be manufactured and serviced, not just to work once.
 
-  Working with graduate researcher Joshua Knospler on module integration, the mainboard's form factor was matched to the module's mechanical design, and I assisted in module assembly, including wiring the PAC connector harnesses that carry power, I2C, and actuator lines between adjacent modules.
-challengesTitle: "Failure Modes, Root Causes, and Design Iteration"
+  #### Autonomous Docking and On-Board Actuation
+
+  Each docking face carries its own addressing hardware: dynamic I2C multiplexing and structural addressing let a module identify which neighbor is attached to which face and in what orientation, so a chain of interlocked modules can autonomously discover and map its own topology. The mainboard also embeds the actuation layer locally, with motor drivers and transistor-driven solenoid arrays managing the interlocking mechanisms and soft-actuator inflation cycles without external drive electronics.
+
+  #### Assembly, Testing, and Validation
+
+  All boards are hand-assembled in the lab using SMT techniques (hot plate and heat gun with solder paste) and inspected under a microscope for solder joint integrity and trace bridging. Electrical validation confirmed continuity and power integrity, and assembled modules have successfully powered their actuators under load with stable performance, including soft-actuator inflation testing. Extended flexion-cycle reliability testing is planned in the upcoming research phase.
+
+  #### Collaboration and Research Impact
+
+  I work alongside graduate researcher Joshua Knospler to keep the PCB form factor matched to the module mechanical design, and I assist in module assembly and hardware refinements. The PCB systems described here extend the group's published soft-robotics foundations by enabling more compact, manufacturable, and modular electronics integration within the modules. This contribution is included in a forthcoming publication on which I am a co-author, and the research is currently being evaluated for potential patenting and commercialization.
+
+  **Selected publications from this research group:**
+  1. J. Knospler, W. Xue, and M. Trkov, "Reconfigurable modular soft robots with modulating stiffness and versatile task capabilities," *Smart Materials and Structures*, vol. 33, no. 6, 2024.
+  2. J. Knospler, N. Pagliocca, W. Xue, and M. Trkov, "TendrilBot: Modular Soft Robot with Versatile Radial Grasping and Locomotion Capabilities," *Sensors and Actuators A: Physical*, 2024.
+  3. J. Knospler, W. Xue, and M. Trkov, "MagBot: Reconfigurable Modular Soft Pneumatic Actuators with Tunable Magnetic Connection Mechanism," *IEEE AIM*, 2024.
+  4. J. Knospler, W. Xue, and M. Trkov, "A Shared Electrical-Pneumatic and Reversible Locking Intermodule Connector for Modular Robots," *IEEE AIM*, 2024.
+  5. J. Knospler, N. Pagliocca, W. Xue, and M. Trkov, "Realizing Modular Self-reconfiguring Soft Robots through Inter-module Communication and Model Checking," *IEEE RoboSoft*, 2025.
+challengesTitle: "From a Bodged V1 to a Production-Ready V4"
 
 results:
   narrative: |
-    Initial electrical validation confirmed continuity and power integrity across the assembled Rev B boards, and modules successfully powered their actuators under load with stable performance, including a pneumatic inflation test of an assembled module. Full system-level validation and long-term flexion-cycle reliability testing were planned as the next research phase and had not been completed as of this writing.
+    Electrical validation confirmed continuity and power integrity across the assembled boards, and assembled modules have successfully powered their actuators under load with stable performance, including soft-actuator inflation testing. Extended flexion-cycle reliability testing is planned for the upcoming research phase.
+
+    The electronics contribution is included in a forthcoming co-authored publication, and the underlying research is currently under evaluation for patenting and commercialization.
   metrics:
-    - value: "2"
-      label: "Board Revisions (Rev A → Rev B)"
+    - value: "4"
+      label: "Mainboard Generations (V1 → V4)"
     - value: "96×28mm"
       label: "Module PCB Footprint"
-    - value: "2025"
-      label: "Co-Authored Publication"
+    - value: "~1°"
+      label: "Sustained Flexion Tolerance"
+    - value: "1"
+      label: "Forthcoming Co-Authorship"
   table:
     headers: ["Item", "Status"]
     rows:
-      - ["Board revisions", "2 (Rev A -> Rev B)"]
-      - ["Module PCB footprint", "96 x 28mm, two-layer flex"]
-      - ["Continuity / power-integrity check", "Confirmed on assembled Rev B boards"]
+      - ["Mainboard generations", "4 (V1 → V4) — through-hole/jumper-fixed to fully SMD + FPC"]
+      - ["Module PCB footprint", "96 × 28mm, two-layer flex"]
+      - ["Flexion tolerance", "~1° sustained without trace failure"]
+      - ["Continuity / power-integrity check", "Confirmed on assembled boards"]
       - ["Actuator drive under load", "Stable, including a module pneumatic inflation test"]
-      - ["Long-term flexion-cycle testing", "Planned for next research phase, not yet completed"]
-      - ["Publication status", "Cited in a forthcoming 2025 co-authored publication"]
-      - ["IP status", "Underlying research under evaluation for patenting"]
+      - ["Flexion-cycle reliability testing", "Planned for the upcoming research phase"]
+      - ["Publication / IP status", "Cited in a forthcoming co-authored publication; underlying research under evaluation for patenting"]
 
 nav:
   prev:
@@ -90,4 +112,4 @@ nav:
     title: "Custom Digital Scale"
   next:
     slug: "same-rowan-chapter"
-    title: "Search-and-Rescue UAV — SAME Rowan Grant Program"
+    title: "Search-and-Rescue UAV — SAME Rowan Chapter"

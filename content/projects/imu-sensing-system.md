@@ -1,7 +1,7 @@
 number: "007"
 category: "Engineering Clinic Research"
 title: "IMU Sensing System"
-subtitle: "Fall-Prevention Exoskeleton Program (sub-project) · Rowan University · Fall 2025 – Spring 2026 · PI: Dr. Mitja Trkov"
+subtitle: "Fall-Prevention Exoskeleton Program (sub-project) · Rowan University · Jan 2024 – Present · PI: Dr. Mitja Trkov"
 
 domainTags:
   - BNO085
@@ -9,145 +9,97 @@ domainTags:
   - RS-485
   - UART
   - I2C
-  - SLIP Framing
-  - KiCad
   - EMI Hardening
 
 summary: |
-  A fall-prevention exoskeleton is only as good as its ability to sense a fall-risk motion before it becomes a fall. That means reading orientation from 8 points on the body — both thighs, both calves, both ankles, and upper/lower back — fast and reliably enough to eventually drive a real-time control loop. The sensor itself was never the hard part; getting 8 of them talking over a shared bus, on a mobile platform, next to solenoids and motor drivers throwing off electrical noise, was.
+  An eight-sensor system built on BNO085 inertial measurement units placed at the thighs, calves, ankles, lower back, and upper back, fully contained in custom 3D-printed enclosures with adjustable straps for wearability. The system is built on a custom PCB with 16 full-duplex RS-485 transceivers (TI SN65HVD) and a Teensy 4.1, selected for its 600MHz clock and eight independent hardware UART channels, exactly matching the sensor count for simultaneous acquisition from all IMUs. Custom shielded Cat6 twisted-pair cables, length-adjustable and modular on both ends, provide EMI resistance directly adjacent to pneumatic solenoid valves and switching regulators.
 
-  I designed, built, and debugged this system twice: once as the original I2C-based array, and again as a ground-up RS-485 rebuild after the first version's real-world performance didn't match its spec sheet.
+  The Teensy 4.1 owns all sensor communication and streams normalized quaternion data over serial to a Raspberry Pi running the gait-detection algorithm; when the algorithm flags abnormal gait indicative of a potential fall, it issues a serial command to a dedicated control board that actuates the pneumatic cylinders to assist the user. This separation of concerns dedicates the Pi to gait analysis, leaves headroom for algorithm growth, and isolates data acquisition from processing.
 
 specs:
   - label: "IMU"
-    value: "8x BNO085, Hillcrest SH-2 fusion engine"
+    value: "8x BNO085, placed at thighs, calves, ankles, lower back, and upper back"
   - label: "Host MCU"
-    value: "Teensy 4.1"
-  - label: "Link"
-    value: "Point-to-point RS-485, SN65HVD1476D transceivers"
-  - label: "Framing"
-    value: "SLIP over UART"
-  - label: "Max Rate"
-    value: "400 Hz per channel"
-  - label: "Host Handoff"
-    value: "USB serial → Raspberry Pi 4"
+    value: "Teensy 4.1 — 600MHz clock, 8 independent hardware UART channels"
+  - label: "Transceivers"
+    value: "16x full-duplex RS-485 (TI SN65HVD)"
   - label: "Cabling"
-    value: "Shielded 22 AWG, 3-conductor"
+    value: "Custom shielded Cat6 twisted-pair, length-adjustable, modular both ends"
+  - label: "Measured Frame Latency"
+    value: "0.33ms @ 921,600bps UART (vs. 18.34ms on the prior I2C system)"
+  - label: "Sustained Rate"
+    value: "400Hz sustained, all 8 sensors, 0.0% packet loss (10-min trial)"
+  - label: "Host Handoff"
+    value: "Serial (quaternion data) → Raspberry Pi → control board (pneumatic actuation)"
 
 gallery:
-  - src: "Exoskeleton Research/IMU System V2/image11.jpg"
-    caption: "Assembled IMU System V2 Mainboard on the workbench — Teensy 4.1 and six RS-485 breakout headers populated"
-  - src: "Exoskeleton Research/Rowan University Mail - Technical Proposal for Second Iteration of IMU System_files/unnamed_002_x5Ef.png"
-    caption: "V1 wiring diagram from the engineering proposal — shared I2C bus through a multiplexer, sequential reads"
-    tall: true
-  - src: "Exoskeleton Research/Rowan University Mail - Technical Proposal for Second Iteration of IMU System_files/unnamed_003_x5Ef.png"
-    caption: "V2 wiring diagram from the engineering proposal — point-to-point RS-485 into a dedicated Teensy 4.1, parallel reads"
-    tall: true
-  - src: "Exoskeleton Research/IMU System V2/image2.jpg"
-    caption: "Mainboard and shielded RS-485 breakout chain"
-  - src: "Exoskeleton Research/IMU System V2/image4.jpg"
-    caption: "Individual IMU pod, direction-marked for calibration"
-  - src: "Exoskeleton Research/IMU System V2/IMU System V2 Layout.png"
-    caption: "KiCad layout — Teensy 4.1 with RT/RC/RA/LA/LC/LT body-segment breakouts"
-    tall: true
-  - src: "Exoskeleton Research/IMU System V2/schematic-render.png"
-    caption: "Full schematic, Generation 2 — point-to-point RS-485 architecture"
-    tall: true
-  - src: "Exoskeleton Research/IMU System V2/IMG_1918-rotated.jpg"
-    caption: "Generation 2 array worn, front view — RS-485 leads routed from the belt-mounted mainboard down to each leg-segment pod"
-    tall: true
-  - src: "Exoskeleton Research/IMU System V2/IMG_1926-rotated.jpg"
-    caption: "Generation 2 array worn, side view"
-    tall: true
-  - src: "Exoskeleton Research/IMU System V2/IMG_1957.jpeg"
-    caption: "Treadmill walking test with the Generation 2 array worn, in the Rowan biomechanics lab"
-  - src: "Exoskeleton Research/IMU System V2/IMG_1946.jpeg"
-    caption: "OptiTrack Motive:Body software reconstructing a lower-body skeleton in real time from reflective markers, used as ground truth alongside the IMU array during walking trials"
-  - src: "Exoskeleton Research/IMU System V1/IMU System V1 layout.png"
-    caption: "V1 'Body Position Device' board, KiCad layout"
-    tall: true
-  - src: "Exoskeleton Research/IMU System V1/IMU Tracking System.png"
-    caption: "V1 product render — BNO055 with dual RJ12 breakout jacks"
-    tall: true
-  - src: "Exoskeleton Research/IMU System V1/schematic-render.png"
-    caption: "V1 schematic — I2C multiplexer architecture"
-    tall: true
-  - src: "Exoskeleton Research/IMU System V1/IMG_1193-fixed.jpg"
-    caption: "RJ12 breakout board, top-down — TCA9548A I2C multiplexer routing all 8 sensor channels onto the shared bus"
-    tall: true
-  - src: "Exoskeleton Research/IMU System V1/IMG_1416-fixed.jpg"
-    caption: "Generation 1 array worn, rear three-quarter view — belt-mounted multiplexer box and leg-segment breakouts"
-    tall: true
-  - src: "Exoskeleton Research/IMU System V1/IMG_1418-fixed.jpg"
-    caption: "Generation 1 array worn, side view"
-    tall: true
-  - src: "Exoskeleton Research/IMU System V2/image-rotated.jpg"
-    caption: "Belt-mounted compute enclosure and IMU pod chain"
-    tall: true
-  - src: "Exoskeleton Research/IMU System V2/IMU System V3 p1.png"
-    caption: "IMU System V2 mainboard, top-down PCB view"
-    tall: true
+  - src: "Exoskeleton Research/overleafportfoliopdf/images/v1_pcb.jpg"
+    caption: "IMU System V1, the original I2C architecture: fully assembled custom multiplexer PCB."
+  - src: "Exoskeleton Research/overleafportfoliopdf/images/v1_nodes.jpg"
+    caption: "IMU System V1: the eight body-segment sensor nodes on their straps."
+  - src: "Exoskeleton Research/overleafportfoliopdf/images/v1_worn_corner.jpg"
+    caption: "Worn testing of the first-generation I2C array."
+  - src: "Exoskeleton Research/overleafportfoliopdf/images/v1_worn_side.jpg"
+    caption: "First-generation array worn, side view."
+  - src: "Exoskeleton Research/overleafportfoliopdf/images/v1_hub.jpg"
+    caption: "Belt-mounted acquisition hub with per-segment channels, V1 architecture."
+  - src: "Exoskeleton Research/overleafportfoliopdf/images/worn_system.jpg"
+    caption: "IMU System V2 worn for data acquisition: each sensor at its designated anatomical location on custom adjustable straps."
+  - src: "Exoskeleton Research/overleafportfoliopdf/images/mainboard_nodes.jpg"
+    caption: "Custom Teensy 4.1 mainboard and BNO085 sensor nodes: simultaneous logging at up to 400Hz per node over the full-duplex RS-485 matrix."
+  - src: "Exoskeleton Research/overleafportfoliopdf/images/enclosures.jpg"
+    caption: "Assembled 8-node array: compact, low-profile modular housings keep hardware light, secure, and unobtrusive during human movement testing."
+  - src: "Exoskeleton Research/overleafportfoliopdf/images/treadmill.jpg"
+    caption: "Treadmill walking trial with the IMU system worn, validated simultaneously against an OptiTrack optical motion-capture system, with reflective markers tracked alongside the IMU array."
+  - src: "Exoskeleton Research/overleafportfoliopdf/images/optitrack.jpg"
+    caption: "OptiTrack Motive software reconstructing the reflective-marker skeleton in real time during the walking trials, serving as optical ground truth alongside the IMU data."
 
 challenges: |
-  This is the core story of this document.
+  #### The I2C Bottleneck
 
-  #### The First-Generation Bottleneck
+  The previous I2C-based iteration had three fundamental limitations: no differential signaling (EMI susceptibility), cable lengths beyond rated specification, and multiplexer latency compounded by 1–3ms of sensor-fusion clock stretching per IMU. Modeled end to end, a frame took 2.34ms of transfer plus 8 × 2ms of clock stretching = 18.34ms, exceeding the 10ms window required for 100Hz sampling.
 
-  The first-generation system used 8 BNO055 IMUs, one at each body segment, wired over RJ12 into a custom PCB — the "Body Position Device" — which multiplexed all 8 sensors onto a single I2C bus read by a Raspberry Pi 4. A smaller satellite breakout carried the two back-mounted sensors onto the same bus.
-
-  It worked on the bench in isolation, but the deployed environment exposed three weaknesses at once: I2C has no noise immunity, and the bus ran close to solenoids, relays, and motor drivers throwing off EMI; I2C's cable-length ceiling meant every RJ12 jack needed a 100-ohm series damping resistor just to keep signal reflections on the long leg-length cable runs from corrupting reads; and multiplexing 8 sensors onto one address meant every read was sequential, never simultaneous.
-
-  #### Quantifying the Failure
-
-  The theoretical model for the I2C bus looked fine on paper: 306 bits per sensor at 100 Hz across 8 sensors on a 400 kHz bus penciled out to 2.34 ms of latency and 61% bus utilization — comfortably inside the 10 ms window a 100 Hz control loop needs. It didn't hold up on the bench. The gap traced to clock stretching: the BNO055 holds the clock line low for 1–3 ms while it runs its onboard sensor-fusion algorithm, a stall the naive bandwidth model doesn't account for at all. Measured against real clock stretching, one full 8-sensor frame took 18.34 ms — nearly double the available window — confirmed in bench testing before writing anything up.
-
-  | Metric | I2C, theoretical | I2C, measured | UART, standard speed |
+  | Parameter | I2C (actual) | UART (921,600bps) | UART (6MHz max) |
   |---|---|---|---|
-  | Bus logic | Sequential | Sequential + stalls | Parallel |
-  | Bus utilization | 61% | 183.4% | 3.3% |
-  | Total latency | 2.34 ms | 18.34 ms | 0.33 ms |
-  | Bandwidth capacity | 427 Hz | 54 Hz | 19,607 Hz |
+  | Frame latency | 18.34ms | 0.33ms | 0.051ms |
+  | Bus utilization at 100Hz | 183.4% | 3.3% | 0.51% |
 
-  The measured bus utilization of 183% says everything — the system was structurally incapable of hitting its 100 Hz target, not just running a little slow.
+  #### Rebuilding Around RS-485
 
-  #### Writing the Case Before Touching a Soldering Iron
+  I documented this failure analysis, then rebuilt the system around UART over RS-485: industrial-grade noise immunity, cable ratings beyond 100m, and point-to-point channels on which all eight sensors transmit simultaneously. The IMU System V2 mainboard pairs a Teensy 4.1 with 16 full-duplex RS-485 transceivers (TI SN65HVD) and custom shielded Cat6 twisted-pair cabling, chosen specifically for EMI resistance directly adjacent to the pneumatic solenoid valves and switching regulators on the same platform.
 
-  Once the failure mode was quantified, I wrote a formal technical proposal to our faculty advisor, Dr. Mitja Trkov, recommending a move to a UART + RS-485 architecture built around the BNO085 IMU and a Teensy 4.1 acting as a dedicated intermediary between the sensors and the Raspberry Pi. RS-485's differential signaling rejects the EMI from nearby solenoids and power systems, its cable-length rating (100+ m) removes any concern for the runs down the leg, and point-to-point wiring to the Teensy eliminates the multiplexer entirely — all 8 sensors read in parallel instead of waiting in line.
+  #### Validation: 10-Minute Sustained Trial
 
-  | | BNO055 (V1) | BNO085 (V2) |
-  |---|---|---|
-  | Primary protocol | I2C | SPI/UART (reliable transfer over long cable runs) |
-  | Fusion engine | Bosch BSX Lite | Hillcrest SH-2 (tuned for high-noise environments) |
-  | Max output rate | 100 Hz | 400 Hz (higher resolution for gait analysis) |
-  | Latency | High/variable | Low/fixed (essential for real-time detection) |
-  | Simultaneity | Sequential (mux) | Parallel (all 8 sensors report at once) |
+  A 10-minute sustained trial logging all eight IMUs simultaneously validated the system:
 
-  The proposal costed out two implementation paths: hand-wiring the new components onto an existing unpopulated board ($288, 10–18 days) versus a second PCB iteration ($318, 15–25 days, at the cost of a short JLCPCB turnaround). The PCB path was chosen for the tighter, more field-reliable result.
+  | Metric | Result |
+  |---|---|
+  | Sampling rate | 400Hz sustained (ref.: Delsys 120Hz, Xsens 240Hz) |
+  | Packet interval | < 2.5ms consistent |
+  | Packet loss | 0.0% |
+  | Mean orientation error | 0.003% (unit-quaternion magnitude deviation) |
 
-  > I propose moving to a UART + RS-485 architecture using BNO085 IMUs and a Teensy 4.1 as the intermediary. This allows parallel sampling, real time latency, and immunity to electromagnetic interference.
-  >
-  > — Proposal to Dr. Mitja Trkov, December 8, 2025
-
-  #### Built & Validated
-
-  The IMU System V2 Mainboard was designed around the Teensy 4.1: eight RJ45 channels — six leg-segment breakouts on the main board plus two more on a satellite board for the back-mounted sensors — each with its own SN65HVD1476D RS-485 transceiver and CDSOT23-SM712 ESD protection diode, wired over shielded 22 AWG 3-conductor cable to a remote BNO085 breakout at the limb segment. The board also breaks out a direct header for a Raspberry Pi 4B.
-
-  The result matched the model from the proposal: a sustained 400 Hz sampling rate across all 8 sensors with zero packet loss, replacing the 54 Hz real-world ceiling of the original I2C system — an outcome traceable to a specific, measured cause rather than a general sense that "it should be better now."
+  The result was cross-validated on a treadmill walking trial against an OptiTrack optical motion-capture system, with the reflective-marker skeleton reconstructed in real time by OptiTrack Motive serving as ground truth alongside the IMU array.
 
 results:
   narrative: |
-    I2C bus latency was measured under real load, isolating BNO055 clock-stretching — not bandwidth — as the actual root cause of the 100 Hz shortfall. That failure mode was quantified and cross-checked against a rebuilt theoretical model before any hardware was ordered for the redesign. On the rebuilt system, RS-485/UART frame integrity was verified across the full 8-sensor chain at a sustained 400 Hz with zero packet loss, with EMI immunity confirmed while the sensor array ran adjacent to the same solenoid-driven pneumatic actuators that caused problems in V1.
-
-    Net result: a measured 54 Hz real-world ceiling on Generation 1 was replaced by a validated, sustained 400 Hz on Generation 2 — a 55x latency reduction traced to one root cause, not a general hardware refresh.
+    The rebuilt RS-485/UART sensing chain was validated at a sustained 400Hz across all 8 body-segment sensors with 0.0% packet loss and a mean orientation error of 0.003%, over a 10-minute continuous trial. Measured frame latency dropped from 18.34ms on the original I2C architecture to 0.33ms on the rebuilt UART system at standard 921,600bps — roughly a 55x reduction — with the new architecture also cross-validated against OptiTrack optical ground truth during treadmill walking trials.
   metrics:
     - value: "400 Hz"
-      label: "Sustained, Zero Packet Loss"
-    - value: "55x"
-      label: "Latency Reduction vs Gen 1"
-    - value: "8"
-      label: "Body-Segment IMUs"
-    - value: "54 Hz"
-      label: "Gen 1 Real-World Ceiling"
+      label: "Sustained, All 8 Sensors"
+    - value: "0.0%"
+      label: "Packet Loss"
+    - value: "0.003%"
+      label: "Mean Orientation Error"
+    - value: "~55x"
+      label: "Frame Latency Reduction vs. I2C"
+  table:
+    headers: ["Metric", "Result"]
+    rows:
+      - ["Sampling rate", "400 Hz sustained (ref.: Delsys 120 Hz, Xsens 240 Hz)"]
+      - ["Packet interval", "< 2.5 ms consistent"]
+      - ["Packet loss", "0.0%"]
+      - ["Mean orientation error", "0.003% (unit-quaternion magnitude deviation)"]
 
 nav:
   prev:
