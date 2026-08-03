@@ -54,6 +54,8 @@ gallery:
     caption: "Completed 14-node fleet, individually labeled and wired to a shared power strip for bench testing prior to deployment"
   - src: "SubaruInternship/images/autonomous-car-truck-electronics.jpg"
     caption: "Arduino Uno, DRV8322 driver, and ToF sensor wiring integrated into the vehicle's electronics stack"
+  - src: "SubaruInternship/images/subaruinternshipgroupinternphoto.jpg"
+    caption: "The Subaru of America intern cohort, in front of the company's heritage timeline wall"
 
 challenges: |
   #### Scaling One Bench Unit to Fourteen Field Nodes
