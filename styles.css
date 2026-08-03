@@ -113,6 +113,7 @@ section { padding: 6rem 2.5rem; }
   color: var(--text-secondary); border-radius: 999px;
   display: inline-block; border: 1px solid var(--border);
 }
+.tag-accent { background: var(--navy-dim); color: var(--navy); border-color: var(--navy); font-weight: 600; }
 
 
 /* ═══════════════════════════════════════

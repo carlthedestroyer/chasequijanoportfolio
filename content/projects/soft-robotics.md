@@ -71,15 +71,29 @@ challenges: |
 
   #### Collaboration and Research Impact
 
-  I work alongside graduate researcher Joshua Knospler to keep the PCB form factor matched to the module mechanical design, and I assist in module assembly and hardware refinements. The PCB systems described here extend the group's published soft-robotics foundations by enabling more compact, manufacturable, and modular electronics integration within the modules. This contribution is included in a forthcoming publication on which I am a co-author, and the research is currently being evaluated for potential patenting and commercialization.
-
-  **Selected publications from this research group:**
-  1. J. Knospler, W. Xue, and M. Trkov, "Reconfigurable modular soft robots with modulating stiffness and versatile task capabilities," *Smart Materials and Structures*, vol. 33, no. 6, 2024.
-  2. J. Knospler, N. Pagliocca, W. Xue, and M. Trkov, "TendrilBot: Modular Soft Robot with Versatile Radial Grasping and Locomotion Capabilities," *Sensors and Actuators A: Physical*, 2024.
-  3. J. Knospler, W. Xue, and M. Trkov, "MagBot: Reconfigurable Modular Soft Pneumatic Actuators with Tunable Magnetic Connection Mechanism," *IEEE AIM*, 2024.
-  4. J. Knospler, W. Xue, and M. Trkov, "A Shared Electrical-Pneumatic and Reversible Locking Intermodule Connector for Modular Robots," *IEEE AIM*, 2024.
-  5. J. Knospler, N. Pagliocca, W. Xue, and M. Trkov, "Realizing Modular Self-reconfiguring Soft Robots through Inter-module Communication and Model Checking," *IEEE RoboSoft*, 2025.
+  I work alongside graduate researcher Joshua Knospler to keep the PCB form factor matched to the module mechanical design, and I assist in module assembly and hardware refinements. The PCB systems described here extend the group's published soft-robotics foundations by enabling more compact, manufacturable, and modular electronics integration within the modules. This contribution is included in a forthcoming publication on which I am a co-author, and the research is currently being evaluated for potential patenting and commercialization. The lab's prior published work is listed in full under Publications, below.
 challengesTitle: "From a Bodged V1 to a Production-Ready V4"
+
+publications:
+  badge: "1 Forthcoming Co-Authorship"
+  sectionTitle: "Research Group Publications"
+  note: "My contribution to the module electronics is cited in a forthcoming publication on which I am a co-author, and the underlying research is currently under evaluation for patenting. The papers below are prior published work from the same research group (PI: Dr. Mitja Trkov), included for context."
+  items:
+    - authors: "J. Knospler, W. Xue, and M. Trkov"
+      title: "Reconfigurable modular soft robots with modulating stiffness and versatile task capabilities"
+      venue: "Smart Materials and Structures, vol. 33, no. 6, 2024"
+    - authors: "J. Knospler, N. Pagliocca, W. Xue, and M. Trkov"
+      title: "TendrilBot: Modular Soft Robot with Versatile Radial Grasping and Locomotion Capabilities"
+      venue: "Sensors and Actuators A: Physical, 2024"
+    - authors: "J. Knospler, W. Xue, and M. Trkov"
+      title: "MagBot: Reconfigurable Modular Soft Pneumatic Actuators with Tunable Magnetic Connection Mechanism"
+      venue: "IEEE AIM, 2024"
+    - authors: "J. Knospler, W. Xue, and M. Trkov"
+      title: "A Shared Electrical-Pneumatic and Reversible Locking Intermodule Connector for Modular Robots"
+      venue: "IEEE AIM, 2024"
+    - authors: "J. Knospler, N. Pagliocca, W. Xue, and M. Trkov"
+      title: "Realizing Modular Self-reconfiguring Soft Robots through Inter-module Communication and Model Checking"
+      venue: "IEEE RoboSoft, 2025"
 
 results:
   narrative: |

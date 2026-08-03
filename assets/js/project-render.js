@@ -49,6 +49,9 @@
     var pdfBtn = data.pdfHref
       ? '<a href="' + escapeHtml(data.pdfHref) + '" class="btn btn-secondary" download>Download 1-Page PDF Summary</a>'
       : '';
+    var pubBadge = (data.publications && data.publications.badge)
+      ? '<span class="tag tag-accent">' + escapeHtml(data.publications.badge) + '</span>'
+      : '';
     mount.innerHTML =
       '<a href="../projects/" class="project-back">' +
         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12,19 5,12 12,5"/></svg>' +
@@ -57,7 +60,7 @@
       '<div class="project-hero-number">' + escapeHtml(data.number) + ' · ' + escapeHtml(data.category) + '</div>' +
       '<h1 class="project-hero-title">' + escapeHtml(data.title) + '</h1>' +
       '<div class="project-hero-subtitle">' + escapeHtml(data.subtitle) + '</div>' +
-      '<div class="project-hero-tags">' + tagsHtml(data.domainTags) + '</div>' +
+      '<div class="project-hero-tags">' + tagsHtml(data.domainTags) + pubBadge + '</div>' +
       (pdfBtn ? '<div class="pd-actions">' + pdfBtn + '</div>' : '');
   }
 
@@ -151,6 +154,21 @@
       '</div>';
   }
 
+  function renderPublications(data, mount) {
+    var pubs = data.publications;
+    if (!pubs || !pubs.items || !pubs.items.length) { mount.style.display = 'none'; return; }
+    var itemsHtml = pubs.items.map(function (p) {
+      return '<li>' + escapeHtml(p.authors) + ', "' + escapeHtml(p.title) + '," <em>' + escapeHtml(p.venue) + '</em>.</li>';
+    }).join('');
+    mount.innerHTML =
+      '<div class="pd-section-label">Publications</div>' +
+      '<h2 class="pd-section-title">' + escapeHtml(pubs.sectionTitle || 'Research Group Publications') + '</h2>' +
+      '<div class="pd-section-body">' +
+        (pubs.note ? '<p>' + escapeHtml(pubs.note) + '</p>' : '') +
+        '<ol class="publications-list">' + itemsHtml + '</ol>' +
+      '</div>';
+  }
+
   function renderNav(nav, mount) {
     if (!nav) { mount.innerHTML = ''; return; }
     var html = '';
@@ -176,6 +194,7 @@
     var galleryMount = document.getElementById('pd-gallery');
     var challengesMount = document.getElementById('pd-challenges');
     var resultsMount = document.getElementById('pd-results');
+    var publicationsMount = document.getElementById('pd-publications');
     var navMount = document.getElementById('project-nav');
 
     var res = await fetch('../content/projects/' + slug + '.md');
@@ -193,6 +212,7 @@
     if (galleryMount) renderGallery(data.gallery, galleryMount);
     if (challengesMount) renderChallenges(data, challengesMount);
     if (resultsMount) renderResults(data, resultsMount);
+    if (publicationsMount) renderPublications(data, publicationsMount);
     if (navMount) renderNav(data.nav, navMount);
   }
 

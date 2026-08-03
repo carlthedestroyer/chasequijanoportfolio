@@ -66,6 +66,24 @@ challenges: |
 
   Beyond the current sensing/actuation loop, I'm in the research phase for integrating neuromuscular electrical stimulation (NMES) to actively assist motor control, scoping the low-level electronics and multi-channel current-regulation architecture that subsystem will require.
 
+publications:
+  badge: "Manuscript in Preparation"
+  sectionTitle: "Research Program Publications"
+  note: "I am currently co-authoring a manuscript from this research program, alongside PhD student Vaibhavsingh Varma, with additional publications anticipated as the program advances toward human trials. The papers below are prior published work from the same research program (PI: Dr. Mitja Trkov), included for context."
+  items:
+    - authors: "V. Varma, S. N. Patel, N. P. Wilson, and M. Trkov"
+      title: "Characterization of Hip Abduction Exoskeleton for Assistance During Gait Perturbations"
+      venue: "IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM), 2024. doi:10.1109/AIM55361.2024.10637061"
+    - authors: "V. Varma and M. Trkov"
+      title: "Intersegmental coordination in human slip perturbation responses"
+      venue: "Journal of Biomechanics, vol. 168, art. 112097, 2024. doi:10.1016/j.jbiomech.2024.112097"
+    - authors: "V. Varma and M. Trkov"
+      title: "Investigation of intersegmental coordination patterns in human walking"
+      venue: "Gait & Posture, vol. 112, pp. 88-94, 2024. doi:10.1016/j.gaitpost.2024.05.010"
+    - authors: "V. Varma, Z. Roberts, F. Mallick, and M. Trkov"
+      title: "Estimating Human-Exoskeleton Interaction Forces Using an Instrumented Thigh Brace and OpenSim"
+      venue: "IFAC-PapersOnLine, vol. 59, no. 30, pp. 353-358, 2025. doi:10.1016/j.ifacol.2025.12.262"
+
 results:
   narrative: |
     Across the sensing, test-bench, and pneumatic-hardware subsystems, the rebuilt RS-485 sensing chain was confirmed running at a sustained 400Hz across all 8 body-segment sensors, and a hardware-in-the-loop pneumatic bench campaign logged 192 total trials across hip abduction and knee extension setups using string potentiometers, pressure transducers, and a load cell. Full detail and validation numbers for each subsystem live on their dedicated pages, linked above.
@@ -84,7 +102,7 @@ results:
       - ["Sensing (8-node IMU array)", "Rebuilt on RS-485 — see IMU Sensing System"]
       - ["Test bench + force testing", "192 total trials across hip abduction and knee extension — see Test Rig & Instrumentation"]
       - ["Pneumatic hardware (cylinder mechanism)", "Modular assembly, now on its second generation"]
-      - ["Publication", "Will be a co-author on an upcoming publication from this work, alongside PhD student Vaibhavsingh Varma"]
+      - ["Publication", "Currently co-authoring a manuscript from this work, alongside PhD student Vaibhavsingh Varma, with additional publications anticipated"]
       - ["NMES integration", "Early research and scoping phase"]
 
 nav:

@@ -59,6 +59,27 @@ deepDives:                       # optional — card grid linking to detailed su
     desc: "One or two sentences with concrete numbers — this card is often the only thing a skimming reader sees of that sub-project."
     image: "relative/path/to/image.jpg"   # same path convention as gallery[].src
 
+publications:                    # optional — front-loads a research/publication signal
+                                  # instead of leaving it buried in prose. A short badge
+                                  # renders as a pill next to domainTags (right under the
+                                  # title — the first thing a reader sees), and the full
+                                  # citation list renders in its own section near the end
+                                  # of the page (after Results, before nav), matching where
+                                  # citations conventionally belong.
+                                  #
+                                  # IMPORTANT: `badge` must describe YOUR OWN authorship status
+                                  # only (e.g. "1 Forthcoming Co-Authorship") — never the count
+                                  # of `items`, which are the research group's PRIOR published
+                                  # work included for context, not papers you co-authored.
+                                  # Conflating the two overstates your authorship record.
+  badge: "1 Forthcoming Co-Authorship"
+  sectionTitle: "Research Group Publications"   # optional, defaults to this
+  note: "One or two sentences distinguishing your own contribution/authorship status from the group's prior work listed below."
+  items:
+    - authors: "A. Author, B. Author, and C. Author"
+      title: "Paper Title"
+      venue: "Journal or Conference Name, vol. X, no. Y, 2024"
+
 gallery:                         # Visual Gallery Grid — 2 columns, ~6-10 images
   - src: "relative/path/to/image.jpg"   # resolved relative to projects/<slug>.html
     caption: "Technical caption shown under the image"
