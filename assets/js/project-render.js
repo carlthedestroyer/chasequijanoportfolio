@@ -74,10 +74,11 @@
       '<div class="pd-demo-frame">' +
         '<video class="pd-demo-video" src="' + escapeHtml(demo.src) + '"' +
         (demo.poster ? ' poster="' + escapeHtml(demo.poster) + '"' : '') +
+        (demo.caption ? ' aria-describedby="pd-demo-caption-text"' : '') +
         ' controls muted loop playsinline preload="metadata"' +
         ' onerror="this.parentElement.classList.add(\'media-missing\')"></video>' +
       '</div>' +
-      (demo.caption ? '<div class="pd-demo-caption">' + escapeHtml(demo.caption) + '</div>' : '');
+      (demo.caption ? '<div class="pd-demo-caption" id="pd-demo-caption-text">' + escapeHtml(demo.caption) + '</div>' : '');
   }
 
   function renderModel3d(model, mount) {
@@ -87,11 +88,13 @@
       '<div class="pd-model-frame">' +
         '<model-viewer src="' + escapeHtml(model.src) + '"' +
         (model.poster ? ' poster="' + escapeHtml(model.poster) + '"' : '') +
-        ' camera-controls auto-rotate shadow-intensity="1" alt="' + escapeHtml(model.caption || '3D model') + '">' +
+        (model.caption ? ' aria-describedby="pd-model-caption-text"' : '') +
+        ' camera-controls auto-rotate shadow-intensity="1" loading="lazy" reveal="auto"' +
+        ' alt="' + escapeHtml(model.caption || '3D model') + '">' +
           '<div slot="error" class="pd-model-error">3D model — coming soon</div>' +
         '</model-viewer>' +
       '</div>' +
-      (model.caption ? '<div class="pd-demo-caption">' + escapeHtml(model.caption) + '</div>' : '');
+      (model.caption ? '<div class="pd-demo-caption" id="pd-model-caption-text">' + escapeHtml(model.caption) + '</div>' : '');
   }
 
   function renderSplit(data, mount) {
