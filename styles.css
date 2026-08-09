@@ -237,6 +237,41 @@ section { padding: 6rem 2.5rem; }
 .gallery-figure.gallery-tall img { height: auto; aspect-ratio: auto; object-fit: contain; background: var(--bg-elevated); }
 .gallery-figure figcaption { margin-top: 0.65rem; font-family: var(--mono); font-size: 0.74rem; color: var(--text-muted); line-height: 1.5; }
 
+/* Missing-media placeholder: any gallery <img> whose src 404s (e.g. an asset not supplied
+   yet) gets this class via onerror in project-render.js, so it reads as an intentional
+   "coming soon" tile instead of a broken-image icon. */
+.gallery-figure.media-missing { position: relative; }
+.gallery-figure.media-missing img { display: none; }
+.gallery-figure.media-missing::before {
+  content: '— coming soon —';
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  aspect-ratio: 16 / 10; border: 1px dashed var(--border-hover); border-radius: 8px;
+  background: var(--bg-elevated); font-family: var(--mono); font-size: 0.72rem;
+  color: var(--text-muted); letter-spacing: 0.04em; padding: 0.5rem; box-sizing: border-box;
+}
+.gallery-figure.gallery-tall.media-missing::before { aspect-ratio: auto; min-height: 280px; }
+
+.pd-demo { padding: 0 2.5rem 3rem; max-width: 1200px; margin: 0 auto; }
+.pd-demo-label { font-family: var(--mono); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); margin-bottom: 0.9rem; }
+.pd-demo-frame { position: relative; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: #000; aspect-ratio: 16 / 9; }
+.pd-demo-video { width: 100%; height: 100%; object-fit: contain; display: block; background: #000; }
+.pd-demo-caption { margin-top: 0.65rem; font-family: var(--mono); font-size: 0.74rem; color: var(--text-muted); line-height: 1.5; }
+
+.pd-demo-frame.media-missing { background: var(--bg-elevated); border: 1px dashed var(--border-hover); }
+.pd-demo-frame.media-missing video { display: none; }
+.pd-demo-frame.media-missing::before {
+  content: '▶  Demo clip — coming soon';
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.02em; color: var(--text-muted);
+}
+
+.pd-model-frame { position: relative; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--bg-elevated); aspect-ratio: 16 / 9; }
+.pd-model-frame model-viewer { width: 100%; height: 100%; display: block; }
+.pd-model-error {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 0.78rem; color: var(--text-muted);
+}
+
 .pd-section { padding: 3rem 2.5rem; max-width: 1200px; margin: 0 auto; border-top: 1px solid var(--border); }
 .pd-section-label { font-family: var(--mono); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); margin-bottom: 0.75rem; }
 .pd-section-title { font-family: var(--heading); font-size: 1.4rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 1.25rem; color: var(--text); }
@@ -361,7 +396,7 @@ footer { padding: 3rem 2.5rem 2.5rem; border-top: 1px solid var(--border); max-w
   .nav-links.open { display: flex; }
   .nav-toggle { display: block; }
   section, .pd-section, .resume-section { padding-left: 1.25rem; padding-right: 1.25rem; }
-  .pd-header, .pd-split, .gallery-grid, .archive-hero, .resume-hero { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .pd-header, .pd-split, .pd-demo, .gallery-grid, .archive-hero, .resume-hero { padding-left: 1.25rem; padding-right: 1.25rem; }
   .project-nav, .filter-bar, .archive-grid { padding-left: 1.25rem; padding-right: 1.25rem; }
   .hero { padding: 6rem 1.25rem 3rem; }
   .skills-grid { grid-template-columns: 1fr; }

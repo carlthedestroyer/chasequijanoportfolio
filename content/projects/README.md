@@ -33,6 +33,9 @@ category: "Medical Startup"
 title: "Project Title"
 subtitle: "Role · Org · Year"
 pdfHref: "path/to/summary.pdf"   # optional — omit to hide the "Download PDF" button
+repoHref: "https://github.com/you/repo"   # optional — omit to hide the "View Code" button.
+                                  # Only add once a real URL exists — a placeholder/dead link
+                                  # is worse than no button, since it reads as unfinished.
 
 domainTags: [Tag One, Tag Two]   # shown as pills under the title
 
@@ -85,6 +88,31 @@ gallery:                         # Visual Gallery Grid — 2 columns, ~6-10 imag
     caption: "Technical caption shown under the image"
     tall: true                   # optional — use for schematics/diagrams (object-fit: contain,
                                   # auto height) instead of the default fixed-height photo crop
+
+                                  # Any gallery image whose src 404s (e.g. a placeholder path for
+                                  # an asset that hasn't been supplied yet) renders as a clean
+                                  # dashed-border "coming soon" tile instead of a broken-image
+                                  # icon — see the `media-missing` handling in project-render.js.
+                                  # This means it's safe to write the gallery entry (real path,
+                                  # real caption) before the actual file exists.
+
+demoVideo:                       # optional — short (10-15s), muted, looping proof-it-works clip.
+                                  # Renders as its own block right after the executive summary/specs,
+                                  # before the gallery — the "does this actually work" moment.
+  src: "relative/path/to/demo.mp4"
+  poster: "relative/path/to/still-frame.jpg"   # optional — shown before playback; fine to point
+                                  # at an existing gallery photo as a placeholder poster
+  caption: "One sentence on what's happening in the clip."
+                                  # Same missing-media handling as gallery images: a 404'd src
+                                  # renders a "demo clip coming soon" placeholder, not a broken player.
+
+model3d:                         # optional — embedded, drag-to-rotate 3D model via <model-viewer>.
+                                  # Use sparingly: 1-2 per project at most, only where the mechanical
+                                  # CAD *is* the story (a machined part, an enclosure). A model on
+                                  # every project reads as a web-dev flex, not an engineering one.
+  src: "relative/path/to/model.glb"   # export GLB from SolidWorks/Fusion 360
+  poster: "relative/path/to/still-frame.jpg"   # optional
+  caption: "One sentence on what the model shows."
 
 challenges: |                    # Engineering Challenges & Iterations — markdown
   #### Optional subheading

@@ -2,6 +2,7 @@ number: "002B"
 category: "Engineering Clinic Research"
 title: "Test Rig, Instrumentation & Human Trials Program"
 subtitle: "Fall-Prevention Exoskeleton Program (sub-project) · Rowan University · Jan 2024 – Present · PI: Dr. Mitja Trkov"
+# repoHref: "https://github.com/you/exoskeleton-daq"   # TODO: add once a repo URL exists
 
 domainTags:
   - Pneumatic Actuation
@@ -29,6 +30,11 @@ specs:
     value: "Relay Board V1 (12-channel), Control Board V2 — ~1/3 the size of the prior generation"
   - label: "Human Trials Target"
     value: "This fall semester, goal of 20 subjects (projected)"
+
+demoVideo:
+  src: "Exoskeleton Research/overleafportfoliopdf/videos/testrig-demo.mp4"
+  poster: "Exoskeleton Research/overleafportfoliopdf/images/testbench_actual.jpg"
+  caption: "A hip-abduction load-cell trial running live on Test Bench V2 — pressure, actuation delay, and torque output logged in real time."
 
 gallery:
   - src: "Exoskeleton Research/overleafportfoliopdf/images/testbench_v1.jpg"
@@ -59,8 +65,19 @@ gallery:
     tall: true
   - src: "Exoskeleton Research/overleafportfoliopdf/images/relay_v1_render.jpg"
     caption: "Relay Board V1 render: 12-channel, flyback-protected relay board of my design for the backpack control system, with switched 15V/5V distribution and a dedicated control-board header."
+  - src: "Exoskeleton Research/overleafportfoliopdf/images/relay-v1-schematic.jpg"
+    caption: "Relay Board V1 schematic — 12-channel, flyback-protected relay switching with 15V/5V distribution"
+    tall: true
   - src: "Exoskeleton Research/overleafportfoliopdf/images/control_v2_render.jpg"
     caption: "Control Board V2 render: primary and secondary microcontrollers, with temperature monitoring across multiple systems plus pressure and voltage monitoring serving as a safety function, and LED status indication."
+  - src: "Exoskeleton Research/overleafportfoliopdf/images/control-v2-schematic.jpg"
+    caption: "Control Board V2 schematic — primary/secondary microcontroller pairing with temperature, pressure, and voltage safety monitoring"
+    tall: true
+
+model3d:
+  src: "Exoskeleton Research/overleafportfoliopdf/models/backpack-enclosure.glb"
+  poster: "Exoskeleton Research/overleafportfoliopdf/images/backpack_cad.jpg"
+  caption: "All-in-one backpack enclosure CAD — solenoids, control boards, battery, and laser-cut paneling in one housing. Drag to rotate."
 
 challenges: |
   #### Test Bench V2
@@ -122,5 +139,5 @@ nav:
     slug: "imu-sensing-system"
     title: "IMU Sensing System"
   next:
-    slug: "exoskeleton"
-    title: "Fall-Prevention Exoskeleton"
+    slug: "subaru-internship"
+    title: "Subaru Technical Training Internship"

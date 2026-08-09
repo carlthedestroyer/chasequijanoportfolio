@@ -2,7 +2,6 @@ number: "008"
 category: "Controls"
 title: "Balancing Robot — Two Generations of Control System Design"
 subtitle: "Personal Project · Rowan University"
-# repoHref: "https://github.com/you/balancing-robot"   # TODO: add once a repo URL exists
 
 domainTags:
   - Teensy
@@ -34,11 +33,6 @@ specs:
     value: "Aluminum extrusion frame, 3D-printed enclosure"
   - label: "V2 Compute"
     value: "Mini PC, ROS 2, Intel RealSense depth camera"
-
-demoVideo:
-  src: "Balancing Robot/videos/demo.mp4"
-  poster: "Balancing Robot/images/balancingrobot-carlbot-front.jpg"
-  caption: "Kalman-filtered tilt estimate and PID motor command logged live while Carl Bot is manually tilted and released."
 
 gallery:
   - src: "Balancing Robot/images/balancingrobot-control-system-diagram.png"

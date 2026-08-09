@@ -2,6 +2,7 @@ number: "005"
 category: "Grant-Funded UAV Program"
 title: "Search-and-Rescue UAV — SAME Rowan Grant Program"
 subtitle: "Proposal Author & Power-Distribution Subframe Lead · SAME Philadelphia Post-Funded UAV Program · Sep 2025 – Present"
+# repoHref: "https://github.com/you/sar-uav"   # TODO: add once a repo URL exists (flight-controller params, stability-analysis scripts)
 
 domainTags:
   - UAV Systems Design
@@ -32,9 +33,17 @@ specs:
   - label: "Proof-of-Concept"
     value: "Balsa-and-foam flying-wing demonstrator"
 
+demoVideo:
+  src: "Society of Military Engineers/videos/demo.mp4"
+  poster: "Society of Military Engineers/IMAGES/balsa-glider-assembled.jpg"
+  caption: "The balsa-and-foam proof-of-concept demonstrator in a test flight, validating the aerodynamic layout ahead of the composite build."
+
 gallery:
   - src: "Society of Military Engineers/IMAGES/sar-drone-render-cover.png"
     caption: "CAD render from the funded proposal — 7-ft wingspan, carbon-fiber unibody fuselage, V-tail ruddervator empennage on a carbon-rod boom"
+    tall: true
+  - src: "Society of Military Engineers/IMAGES/power-distribution-diagram.jpg"
+    caption: "Power-distribution subframe single-line diagram — 72-cell 6S Molicel P42A pack, 100A smart BMS, thermal telemetry, and payload-rail isolation"
     tall: true
   - src: "Society of Military Engineers/IMAGES/balsa-wing-rib-assembly.jpg"
     caption: "Laser-cut balsa wing rib assembly for the proof-of-concept glider, validating the airframe construction sequence proposed for the full-scale composite UAV"

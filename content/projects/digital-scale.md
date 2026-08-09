@@ -2,6 +2,7 @@ number: "006"
 category: "Manufacturing"
 title: "Custom Digital Scale"
 subtitle: "Manufacturing & Measurement Techniques · Rowan University · December 2024"
+# repoHref: "https://github.com/you/digital-scale-firmware"   # TODO: add once a repo URL exists
 
 domainTags:
   - SolidWorks FEA
@@ -34,6 +35,11 @@ specs:
   - label: "Accuracy"
     value: "±1%, 0–3 kg range"
 
+demoVideo:
+  src: "Digital Scale/videos/demo.mp4"
+  poster: "Digital Scale/images/digitalscale-fig25-final-product.jpg"
+  caption: "Powering on, taring, and weighing a calibration standard, then swapping units live (g/kg/lb/oz)."
+
 gallery:
   - src: "Digital Scale/images/digitalscale-fig7-fea-stress.jpg"
     caption: "SolidWorks static stress simulation on the machined load cell beam, showing EPSX strain distribution across the 0–3 kg range"
@@ -54,8 +60,16 @@ gallery:
     caption: "Spacer block flatness verified with a dial indicator after Bridgeport milling"
   - src: "Digital Scale/images/digitalscale-fig14-strain-gauge-install.jpg"
     caption: "Foil strain gauge bonded at the FEA-identified peak-stress region, prior to bridge wiring"
+  - src: "Digital Scale/images/digitalscale-signal-chain-schematic.jpg"
+    caption: "Signal-chain schematic — strain-gauge Wheatstone bridge → HX711 24-bit ADC → Arduino"
+    tall: true
   - src: "Digital Scale/images/digitalscale-fig25-final-product.jpg"
     caption: "Completed digital scale prototype powered on, weighing a calibration standard, tray removed"
+
+model3d:
+  src: "Digital Scale/models/load-cell-assembly.glb"
+  poster: "Digital Scale/images/digitalscale-fig9-technical-drawing.jpg"
+  caption: "Machined cantilever load cell and tray-mount assembly — drag to rotate."
 
 challenges: |
   The load cell was the highest-risk component in the build because its geometry had to be committed to metal before any electrical validation was possible. Rather than machining first and instrumenting second, the beam thickness and pocket geometry were iterated entirely in SolidWorks — running static stress simulations across candidate cross-sections until the model showed the full 0–3 kg range supported with a minimum factor of safety of 3.84 (alert threshold set at 3) and clean, symmetric EPSX strain concentration at the flexure. That simulation output doubled as the machining spec and the gauge-placement map: the top and bottom faces of the same peak-stress region identified in FEA were where the strain gauges were later bonded.

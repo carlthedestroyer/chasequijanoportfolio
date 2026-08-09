@@ -2,7 +2,6 @@ number: "009"
 category: "Controls"
 title: "Field Oriented Control Test Bench"
 subtitle: "Personal Project · Rowan University"
-# repoHref: "https://github.com/you/foc-control-rig"   # TODO: add once a repo URL exists
 
 domainTags:
   - Field Oriented Control
@@ -30,17 +29,9 @@ specs:
   - label: "Interface"
     value: "USB host link, ODrive web GUI"
 
-demoVideo:
-  src: "FOC Control Rig/videos/demo.mp4"
-  poster: "FOC Control Rig/Images/foc-motor-arm.jpg"
-  caption: "A commanded position move executed live, arm response synced against the ODrive telemetry traces."
-
 gallery:
   - src: "FOC Control Rig/Images/foc-rig-cad-render.png"
     caption: "Full test bench assembly, CAD render — motor/arm, ODrive S1 mid-stack, STM32 at base"
-    tall: true
-  - src: "FOC Control Rig/Images/foc-wiring-diagram.jpg"
-    caption: "System wiring diagram — ODrive S1, STM32, BLDC phase leads, magnetic encoder, and power distribution"
     tall: true
   - src: "FOC Control Rig/Images/foc-motor-arm.jpg"
     caption: "Eagle Power 3018 BLDC motor and arm — the mechanical load driven by the FOC current loop"

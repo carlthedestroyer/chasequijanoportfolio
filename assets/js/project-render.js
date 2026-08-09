@@ -49,6 +49,9 @@
     var pdfBtn = data.pdfHref
       ? '<a href="' + escapeHtml(data.pdfHref) + '" class="btn btn-secondary" download>Download 1-Page PDF Summary</a>'
       : '';
+    var repoBtn = data.repoHref
+      ? '<a href="' + escapeHtml(data.repoHref) + '" class="btn btn-secondary" target="_blank" rel="noopener">View Code on GitHub</a>'
+      : '';
     var pubBadge = (data.publications && data.publications.badge)
       ? '<span class="tag tag-accent">' + escapeHtml(data.publications.badge) + '</span>'
       : '';
@@ -61,7 +64,34 @@
       '<h1 class="project-hero-title">' + escapeHtml(data.title) + '</h1>' +
       '<div class="project-hero-subtitle">' + escapeHtml(data.subtitle) + '</div>' +
       '<div class="project-hero-tags">' + tagsHtml(data.domainTags) + pubBadge + '</div>' +
-      (pdfBtn ? '<div class="pd-actions">' + pdfBtn + '</div>' : '');
+      ((pdfBtn || repoBtn) ? '<div class="pd-actions">' + repoBtn + pdfBtn + '</div>' : '');
+  }
+
+  function renderDemoVideo(demo, mount) {
+    if (!demo || !demo.src) { mount.innerHTML = ''; mount.style.display = 'none'; return; }
+    mount.innerHTML =
+      '<div class="pd-demo-label">Demo</div>' +
+      '<div class="pd-demo-frame">' +
+        '<video class="pd-demo-video" src="' + escapeHtml(demo.src) + '"' +
+        (demo.poster ? ' poster="' + escapeHtml(demo.poster) + '"' : '') +
+        ' controls muted loop playsinline preload="metadata"' +
+        ' onerror="this.parentElement.classList.add(\'media-missing\')"></video>' +
+      '</div>' +
+      (demo.caption ? '<div class="pd-demo-caption">' + escapeHtml(demo.caption) + '</div>' : '');
+  }
+
+  function renderModel3d(model, mount) {
+    if (!model || !model.src) { mount.innerHTML = ''; mount.style.display = 'none'; return; }
+    mount.innerHTML =
+      '<div class="pd-demo-label">3D Model</div>' +
+      '<div class="pd-model-frame">' +
+        '<model-viewer src="' + escapeHtml(model.src) + '"' +
+        (model.poster ? ' poster="' + escapeHtml(model.poster) + '"' : '') +
+        ' camera-controls auto-rotate shadow-intensity="1" alt="' + escapeHtml(model.caption || '3D model') + '">' +
+          '<div slot="error" class="pd-model-error">3D model — coming soon</div>' +
+        '</model-viewer>' +
+      '</div>' +
+      (model.caption ? '<div class="pd-demo-caption">' + escapeHtml(model.caption) + '</div>' : '');
   }
 
   function renderSplit(data, mount) {
@@ -108,7 +138,8 @@
       var figClass = 'gallery-figure' + (img.tall ? ' gallery-tall' : '');
       return (
         '<figure class="' + figClass + '">' +
-          '<img src="' + escapeHtml(img.src) + '" alt="' + escapeHtml(img.alt || img.caption || '') + '" loading="lazy" />' +
+          '<img src="' + escapeHtml(img.src) + '" alt="' + escapeHtml(img.alt || img.caption || '') + '" loading="lazy" ' +
+          'onerror="this.parentElement.classList.add(\'media-missing\')" />' +
           (img.caption ? '<figcaption>' + escapeHtml(img.caption) + '</figcaption>' : '') +
         '</figure>'
       );
@@ -190,8 +221,10 @@
   async function renderProject(slug) {
     var headerMount = document.getElementById('pd-header');
     var splitMount = document.getElementById('pd-split');
+    var demoMount = document.getElementById('pd-demo');
     var deepDivesMount = document.getElementById('pd-deepdives');
     var galleryMount = document.getElementById('pd-gallery');
+    var modelMount = document.getElementById('pd-model');
     var challengesMount = document.getElementById('pd-challenges');
     var resultsMount = document.getElementById('pd-results');
     var publicationsMount = document.getElementById('pd-publications');
@@ -208,8 +241,10 @@
 
     if (headerMount) renderHeader(data, headerMount);
     if (splitMount) renderSplit(data, splitMount);
+    if (demoMount) renderDemoVideo(data.demoVideo, demoMount);
     if (deepDivesMount) renderDeepDives(data.deepDives, deepDivesMount);
     if (galleryMount) renderGallery(data.gallery, galleryMount);
+    if (modelMount) renderModel3d(data.model3d, modelMount);
     if (challengesMount) renderChallenges(data, challengesMount);
     if (resultsMount) renderResults(data, resultsMount);
     if (publicationsMount) renderPublications(data, publicationsMount);

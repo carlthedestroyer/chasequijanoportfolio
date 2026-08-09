@@ -28,8 +28,14 @@
     <!-- TOP SPLIT: Executive Summary + Hardware Specs card -->
     <div class="pd-split" id="pd-split"></div>
 
+    <!-- DEMO CLIP -->
+    <div class="pd-demo" id="pd-demo"></div>
+
     <!-- VISUAL GALLERY -->
     <div class="gallery-grid" id="pd-gallery"></div>
+
+    <!-- 3D MODEL: machined load cell -->
+    <div class="pd-demo" id="pd-model"></div>
 
     <!-- ENGINEERING CHALLENGES & ITERATIONS -->
     <div class="pd-section" id="pd-challenges"></div>
@@ -44,7 +50,7 @@
       <div class="footer-top">
         <div class="footer-name">Chase Quijano</div>
         <div class="footer-links">
-          <a href="mailto:chase@example.com">Email</a>
+          <a href="mailto:chasequijano@gmail.com">Email</a>
           <a href="http://www.linkedin.com/in/chase-quijano-8a4b031ab" target="_blank">LinkedIn</a>
           <a href="#" target="_blank">GitHub</a>
           <a href="../resume.html">Resume (PDF)</a>
@@ -65,6 +71,8 @@
   <!-- Content pipeline: renders this page from content/projects/digital-scale.md -->
   <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
+  <!-- model-viewer: powers the embedded, drag-to-rotate 3D model block (pd-model) -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <script src="../assets/js/project-render.js"></script>
   <script>
     renderProject('digital-scale').catch(function (err) {

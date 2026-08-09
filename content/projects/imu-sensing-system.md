@@ -2,6 +2,7 @@ number: "002A"
 category: "Engineering Clinic Research"
 title: "IMU Sensing System"
 subtitle: "Fall-Prevention Exoskeleton Program (sub-project) · Rowan University · Jan 2024 – Present · PI: Dr. Mitja Trkov"
+# repoHref: "https://github.com/you/exoskeleton-imu-firmware"   # TODO: add once a repo URL exists
 
 domainTags:
   - BNO085
@@ -32,6 +33,11 @@ specs:
   - label: "Host Handoff"
     value: "Serial (quaternion data) → Raspberry Pi → control board (pneumatic actuation)"
 
+demoVideo:
+  src: "Exoskeleton Research/overleafportfoliopdf/videos/imu-demo.mp4"
+  poster: "Exoskeleton Research/overleafportfoliopdf/images/treadmill.jpg"
+  caption: "Treadmill walking trial — the IMU orientation stream compared live against OptiTrack optical ground truth."
+
 gallery:
   - src: "Exoskeleton Research/overleafportfoliopdf/images/v1_pcb.jpg"
     caption: "IMU System V1, the original I2C architecture: fully assembled custom multiplexer PCB."
@@ -47,6 +53,11 @@ gallery:
     caption: "IMU System V2 worn for data acquisition: each sensor at its designated anatomical location on custom adjustable straps."
   - src: "Exoskeleton Research/overleafportfoliopdf/images/mainboard_nodes.jpg"
     caption: "Custom Teensy 4.1 mainboard and BNO085 sensor nodes: simultaneous logging at up to 400Hz per node over the full-duplex RS-485 matrix."
+  - src: "Exoskeleton Research/overleafportfoliopdf/images/imu-mainboard-schematic.jpg"
+    caption: "Mainboard schematic — Teensy 4.1 paired with 16x RS-485 transceivers (TI SN65HVD) wired to eight independent hardware UART channels"
+    tall: true
+  - src: "Exoskeleton Research/overleafportfoliopdf/images/imu-mainboard-pcb-layout.jpg"
+    caption: "Mainboard PCB layout — copper routing for the RS-485 transceiver matrix"
   - src: "Exoskeleton Research/overleafportfoliopdf/images/enclosures.jpg"
     caption: "Assembled 8-node array: compact, low-profile modular housings keep hardware light, secure, and unobtrusive during human movement testing."
   - src: "Exoskeleton Research/overleafportfoliopdf/images/treadmill.jpg"

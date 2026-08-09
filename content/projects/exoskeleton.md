@@ -2,6 +2,7 @@ number: "002"
 category: "Engineering Clinic Research"
 title: "Fall-Prevention Exoskeleton"
 subtitle: "Undergraduate Student Researcher · Rowan University (PI: Dr. Mitja Trkov) · Jan 2024 – Present"
+# repoHref: "https://github.com/you/exoskeleton"   # TODO: add once a repo URL exists
 
 domainTags:
   - Teensy 4.1
@@ -34,6 +35,11 @@ specs:
     value: "NMES integration — scoping multi-channel current-regulation electronics"
   - label: "Program"
     value: "Rowan University, Jan 2024 – Present"
+
+demoVideo:
+  src: "Exoskeleton Research/overleafportfoliopdf/videos/exoskeleton-demo.mp4"
+  poster: "Exoskeleton Research/overleafportfoliopdf/images/worn_system.jpg"
+  caption: "A worn biomechanics trial — IMU sensing and pneumatic actuation running together on the overhead safety tether."
 
 deepDives:
   - slug: "imu-sensing-system"
@@ -110,5 +116,5 @@ nav:
     slug: "soft-robotics"
     title: "Self-Reconfigurable Soft Robotic Modules"
   next:
-    slug: "subaru-internship"
-    title: "Subaru Technical Training Internship"
+    slug: "imu-sensing-system"
+    title: "IMU Sensing System"

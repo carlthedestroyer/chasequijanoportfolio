@@ -2,6 +2,7 @@ number: "007"
 category: "Autonomous Robotics"
 title: "ROS Robot — Mobile Perception Platform"
 subtitle: "Personal Project · Rowan University"
+# repoHref: "https://github.com/you/ros-robot"   # TODO: add once a repo URL exists
 
 domainTags:
   - ROS 2 Iron
@@ -29,6 +30,11 @@ specs:
   - label: "Thermal Management"
     value: "Dedicated 10mm-fan cooling loop"
 
+demoVideo:
+  src: "ROS Robot/videos/demo.mp4"
+  poster: "ROS Robot/images/rosrobot-front.jpg"
+  caption: "RPLiDAR and RealSense streaming live into ROS 2 simultaneously as the platform is carried through a room."
+
 gallery:
   - src: "ROS Robot/images/rosrobot-rplidar-mapping.png"
     caption: "RPLiDAR A1 2D scan — polar plot of a room, published live into ROS 2"
@@ -40,6 +46,9 @@ gallery:
     caption: "Front view — RPLiDAR, RealSense, and drive wheels"
   - src: "ROS Robot/images/rosrobot-top-front.jpg"
     caption: "Top-front view — sensor mounting and wiring routing to the compute bay"
+  - src: "ROS Robot/images/rosrobot-wiring-diagram.jpg"
+    caption: "System wiring diagram — RPLiDAR, RealSense, Teensy, stepper drivers, and the 22.2V LiPo power/thermal path"
+    tall: true
   - src: "ROS Robot/images/rosrobot-internal-wiring.jpg"
     caption: "Internal wiring, top cover removed — dual stepper drivers, Teensy, step-down voltage regulator"
   - src: "ROS Robot/images/rosrobot-8k-loop.gif"

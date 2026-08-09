@@ -2,6 +2,7 @@ number: "001"
 category: "Rowan Robotics Lab"
 title: "Self-Reconfigurable Soft Robotic Modules"
 subtitle: "Undergraduate Student Researcher · Rowan University (PI: Dr. Mitja Trkov) · May 2024 – Present"
+# repoHref: "https://github.com/you/soft-robotics-mainboard"   # TODO: add once a repo URL exists
 
 domainTags:
   - Flex PCB
@@ -36,12 +37,20 @@ specs:
   - label: "Assembly"
     value: "Hand SMD reflow (hot plate + heat gun), microscope-inspected"
 
+demoVideo:
+  src: "Soft Robotics Research/soft_robotics_portfolio_section_overleaf/videos/demo.mp4"
+  poster: "Soft Robotics Research/soft_robotics_portfolio_section_overleaf/images/inflation_test.jpg"
+  caption: "Two modules interlocking and the soft actuator inflating under a commanded pressure cycle."
+
 gallery:
   - src: "Soft Robotics Research/soft_robotics_portfolio_section_overleaf/images/layout_v1.jpg"
     caption: "Mainboard V1 layout: first-generation two-layer design with through-hole transistors and discrete interface pads. This revision required jumper-wire fixes after fabrication."
     tall: true
   - src: "Soft Robotics Research/soft_robotics_portfolio_section_overleaf/images/layout_v4.jpg"
     caption: "Mainboard V4 layout: the latest iteration, fully SMD with FPC interconnects, consolidated routing, and placement driven by the module's mechanical and flexion constraints."
+    tall: true
+  - src: "Soft Robotics Research/soft_robotics_portfolio_section_overleaf/images/schematic_v4.jpg"
+    caption: "Mainboard V4 schematic — fully SMD signal routing with the 11-pin FPC connector to the secondary microcontroller board"
     tall: true
   - src: "Soft Robotics Research/soft_robotics_portfolio_section_overleaf/images/board_lineage.jpg"
     caption: "The mainboard lineage laid out: early flexible generations with hand-bodged fixes alongside the clean later revisions and their secondary microcontroller boards."

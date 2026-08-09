@@ -2,6 +2,7 @@ number: "004"
 category: "Medical Startup"
 title: "Berta Medical - Wearable ECG Platform"
 subtitle: "Co-Founder & Hardware Lead · Rowan University · 2024"
+# repoHref: "https://github.com/you/berta-firmware"   # TODO: add once a repo URL exists
 
 domainTags:
   - KiCad
@@ -33,6 +34,11 @@ specs:
   - label: "Fabrication"
     value: "KiCad, full SMD, 3 revisions, hand-assembled"
 
+demoVideo:
+  src: "Berta Medical/videos/demo.mp4"
+  poster: "Berta Medical/images/bertamedical-fig7-final-wearable-assembled.jpg"
+  caption: "Live ECG waveform streaming from the worn device into the doctor portal during the Rowan New Venture Competition demo."
+
 gallery:
   - src: "Berta Medical/images/bertamedical-fig2-wearable-schematic.png"
     caption: "Final wearable schematic — AD8232 front-end, ESP32-C6, MAX1704x fuel gauge, TP1–TP9 test points via daughterboard connector"
@@ -42,6 +48,11 @@ gallery:
   - src: "Berta Medical/images/bertamedical-fig3-devkit-render.png"
     caption: "Dev Kit PCB, 3D render — Berta Board 1.0"
     tall: true
+  - src: "Berta Medical/images/bertamedical-devkit-schematic.png"
+    caption: "Dev Kit schematic — ESP32-C3, AD8232 front-end, OLED debug display, and microSD logging on a breadboard-friendly layout"
+    tall: true
+  - src: "Berta Medical/images/bertamedical-devkit-pcb-copper-routing.jpg"
+    caption: "Dev Kit PCB copper routing — the layout used to validate WiFi/MQTT firmware before the compact wearable spin"
   - src: "Berta Medical/images/bertamedical-fig3-wearable-render.png"
     caption: "Final wearable PCB, 3D render — compact two-board stack"
     tall: true
