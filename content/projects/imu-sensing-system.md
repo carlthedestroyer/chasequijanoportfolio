@@ -53,10 +53,10 @@ gallery:
     caption: "IMU System V2 worn for data acquisition: each sensor at its designated anatomical location on custom adjustable straps."
   - src: "Exoskeleton Research/overleafportfoliopdf/images/mainboard_nodes.jpg"
     caption: "Custom Teensy 4.1 mainboard and BNO085 sensor nodes: simultaneous logging at up to 400Hz per node over the full-duplex RS-485 matrix."
-  - src: "Exoskeleton Research/overleafportfoliopdf/images/imu-mainboard-schematic.jpg"
+  - src: "Exoskeleton Research/overleafportfoliopdf/images/imu-mainboard-schematic.png"
     caption: "Mainboard schematic — Teensy 4.1 paired with 16x RS-485 transceivers (TI SN65HVD) wired to eight independent hardware UART channels"
     tall: true
-  - src: "Exoskeleton Research/overleafportfoliopdf/images/imu-mainboard-pcb-layout.jpg"
+  - src: "Exoskeleton Research/overleafportfoliopdf/images/imu-mainboard-pcb-layout.png"
     caption: "Mainboard PCB layout — copper routing for the RS-485 transceiver matrix"
   - src: "Exoskeleton Research/overleafportfoliopdf/images/enclosures.jpg"
     caption: "Assembled 8-node array: compact, low-profile modular housings keep hardware light, secure, and unobtrusive during human movement testing."
