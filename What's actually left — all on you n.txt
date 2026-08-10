@@ -1,0 +1,7 @@
+What's actually left — all on you now
+Real media — demo clips (11), schematics/PCB layouts (~10, now including the relay/control board ones you asked about), the 3 candidate 3D models (load cell, backpack enclosure, and the UAV airframe I flagged as worth adding).
+GitHub username/repo URLs so I can turn on the repoHref buttons.
+Third-party quotes — dig through email/Slack/texts for anything specific someone else said about a concrete outcome.
+Domain/hosting decision — once you have a real domain, the og:image/og:url values should move from relative paths to absolute URLs; flag it to me when you know where this is going to live.
+Final proofread + link check once real repo links and media are in.
+Removing the private-preview auth gate — per your instruction, I'm leaving that to you as the last step.
