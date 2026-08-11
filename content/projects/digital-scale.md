@@ -67,7 +67,7 @@ gallery:
     caption: "Completed digital scale prototype powered on, weighing a calibration standard, tray removed"
 
 model3d:
-  src: "Digital Scale/models/load-cell-assembly.glb"
+  src: "Digital Scale/FINAL_SCALE.glb"
   poster: "Digital Scale/images/digitalscale-fig9-technical-drawing.jpg"
   caption: "Machined cantilever load cell and tray-mount assembly — drag to rotate."
 

@@ -46,7 +46,7 @@ gallery:
     caption: "Front view — RPLiDAR, RealSense, and drive wheels"
   - src: "ROS Robot/images/rosrobot-top-front.jpg"
     caption: "Top-front view — sensor mounting and wiring routing to the compute bay"
-  - src: "ROS Robot/images/rosrobot-wiring-diagram.jpg"
+  - src: "ROS Robot/images/rosrobot-internal-wiring.jpg"
     caption: "System wiring diagram — RPLiDAR, RealSense, Teensy, stepper drivers, and the 22.2V LiPo power/thermal path"
     tall: true
   - src: "ROS Robot/images/rosrobot-internal-wiring.jpg"

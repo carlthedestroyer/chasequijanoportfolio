@@ -48,10 +48,10 @@ gallery:
   - src: "Berta Medical/images/bertamedical-fig3-devkit-render.png"
     caption: "Dev Kit PCB, 3D render — Berta Board 1.0"
     tall: true
-  - src: "Berta Medical/images/bertamedical-devkit-schematic.png"
+  - src: "Berta Medical/images/bertamedical-fig2-devkit-schematic.png"
     caption: "Dev Kit schematic — ESP32-C3, AD8232 front-end, OLED debug display, and microSD logging on a breadboard-friendly layout"
     tall: true
-  - src: "Berta Medical/images/bertamedical-devkit-pcb-copper-routing.jpg"
+  - src: "Berta Medical/images/bertamedical-fig1-devkit-pcb.jpg"
     caption: "Dev Kit PCB copper routing — the layout used to validate WiFi/MQTT firmware before the compact wearable spin"
   - src: "Berta Medical/images/bertamedical-fig3-wearable-render.png"
     caption: "Final wearable PCB, 3D render — compact two-board stack"
