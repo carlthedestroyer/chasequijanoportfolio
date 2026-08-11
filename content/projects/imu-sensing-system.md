@@ -33,10 +33,15 @@ specs:
   - label: "Host Handoff"
     value: "Serial (quaternion data) → Raspberry Pi → control board (pneumatic actuation)"
 
-demoVideo:
-  src: "Exoskeleton Research/overleafportfoliopdf/videos/imu-demo.mp4"
-  poster: "Exoskeleton Research/overleafportfoliopdf/images/treadmill.jpg"
-  caption: "Treadmill walking trial — the IMU orientation stream compared live against OptiTrack optical ground truth."
+configVideosLabel: "Demonstrations"
+configVideosTitle: "Demonstrations"
+configVideos:
+  - src: "Exoskeleton Research/overleafportfoliopdf/videos/imu-demo.mp4"
+    poster: "Exoskeleton Research/overleafportfoliopdf/images/treadmill.jpg"
+    caption: "Treadmill walking trial — the IMU orientation stream compared live against OptiTrack optical ground truth."
+  - src: "Exoskeleton Research/overleafportfoliopdf/videos/imu-freeroam-demo.mp4"
+    poster: "Exoskeleton Research/overleafportfoliopdf/images/imu-freeroam-poster.jpg"
+    caption: "Untethered free-roam walking trial — the full 8-node array streaming over RS-485 with no fixed tether or overhead rig."
 
 gallery:
   - src: "Exoskeleton Research/overleafportfoliopdf/images/v1_pcb.jpg"
@@ -60,6 +65,8 @@ gallery:
     caption: "Mainboard PCB layout — copper routing for the RS-485 transceiver matrix"
   - src: "Exoskeleton Research/overleafportfoliopdf/images/enclosures.jpg"
     caption: "Assembled 8-node array: compact, low-profile modular housings keep hardware light, secure, and unobtrusive during human movement testing."
+  - src: "Exoskeleton Research/overleafportfoliopdf/images/imu_system_case.jpg"
+    caption: "The full 8-node array packed in a custom foam-cut hard case with the mainboard and cabling — built for transport between the lab and trial sites."
   - src: "Exoskeleton Research/overleafportfoliopdf/images/treadmill.jpg"
     caption: "Treadmill walking trial with the IMU system worn, validated simultaneously against an OptiTrack optical motion-capture system, with reflective markers tracked alongside the IMU array."
   - src: "Exoskeleton Research/overleafportfoliopdf/images/optitrack.jpg"

@@ -37,10 +37,18 @@ specs:
   - label: "Assembly"
     value: "Hand SMD reflow (hot plate + heat gun), microscope-inspected"
 
-demoVideo:
-  src: "Soft Robotics Research/soft_robotics_portfolio_section_overleaf/videos/demo.mp4"
-  poster: "Soft Robotics Research/soft_robotics_portfolio_section_overleaf/images/inflation_test.jpg"
-  caption: "Two modules interlocking and the soft actuator inflating under a commanded pressure cycle."
+configVideosLabel: "Demonstrations"
+configVideosTitle: "Configuration Demonstrations"
+configVideos:
+  - src: "Soft Robotics Research/soft_robotics_portfolio_section_overleaf/videos/self-reconfiguration-demonstration.mp4"
+    poster: "Soft Robotics Research/soft_robotics_portfolio_section_overleaf/images/self-reconfiguration-demonstration-poster.jpg"
+    caption: "Self-reconfiguration: two module chains docking and re-forming their connection autonomously."
+  - src: "Soft Robotics Research/soft_robotics_portfolio_section_overleaf/videos/quadruped-configuration.mp4"
+    poster: "Soft Robotics Research/soft_robotics_portfolio_section_overleaf/images/quadruped-configuration-poster.jpg"
+    caption: "Quadruped configuration: modules interlocked into a four-limbed gait for locomotion testing."
+  - src: "Soft Robotics Research/soft_robotics_portfolio_section_overleaf/videos/rolling-configuration.mp4"
+    poster: "Soft Robotics Research/soft_robotics_portfolio_section_overleaf/images/rolling-configuration-poster.jpg"
+    caption: "Rolling configuration: modules chained into a closed loop for rolling-mode locomotion."
 
 gallery:
   - src: "Soft Robotics Research/soft_robotics_portfolio_section_overleaf/images/layout_v1.jpg"

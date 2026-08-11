@@ -81,6 +81,29 @@
       (demo.caption ? '<div class="pd-demo-caption" id="pd-demo-caption-text">' + escapeHtml(demo.caption) + '</div>' : '');
   }
 
+  function renderConfigVideos(data, mount) {
+    var videos = data.configVideos;
+    if (!videos || !videos.length) { mount.innerHTML = ''; mount.style.display = 'none'; return; }
+    mount.innerHTML =
+      '<div class="pd-section-label">' + escapeHtml(data.configVideosLabel || 'Demonstrations') + '</div>' +
+      '<h2 class="pd-section-title">' + escapeHtml(data.configVideosTitle || 'Configuration Demonstrations') + '</h2>' +
+      '<div class="config-video-grid">' +
+      videos.map(function (v) {
+        return (
+          '<div class="config-video-card">' +
+            '<div class="config-video-frame">' +
+              '<video src="' + escapeHtml(v.src) + '"' +
+              (v.poster ? ' poster="' + escapeHtml(v.poster) + '"' : '') +
+              ' controls muted loop playsinline preload="metadata"' +
+              ' onerror="this.parentElement.classList.add(\'media-missing\')"></video>' +
+            '</div>' +
+            (v.caption ? '<div class="config-video-caption">' + escapeHtml(v.caption) + '</div>' : '') +
+          '</div>'
+        );
+      }).join('') +
+      '</div>';
+  }
+
   function renderModel3d(model, mount) {
     if (!model || !model.src) { mount.innerHTML = ''; mount.style.display = 'none'; return; }
     mount.innerHTML =
@@ -226,6 +249,7 @@
     var splitMount = document.getElementById('pd-split');
     var demoMount = document.getElementById('pd-demo');
     var deepDivesMount = document.getElementById('pd-deepdives');
+    var configVideosMount = document.getElementById('pd-configvideos');
     var galleryMount = document.getElementById('pd-gallery');
     var modelMount = document.getElementById('pd-model');
     var challengesMount = document.getElementById('pd-challenges');
@@ -246,6 +270,7 @@
     if (splitMount) renderSplit(data, splitMount);
     if (demoMount) renderDemoVideo(data.demoVideo, demoMount);
     if (deepDivesMount) renderDeepDives(data.deepDives, deepDivesMount);
+    if (configVideosMount) renderConfigVideos(data, configVideosMount);
     if (galleryMount) renderGallery(data.gallery, galleryMount);
     if (modelMount) renderModel3d(data.model3d, modelMount);
     if (challengesMount) renderChallenges(data, challengesMount);
