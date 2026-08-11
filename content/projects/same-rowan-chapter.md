@@ -33,11 +33,6 @@ specs:
   - label: "Proof-of-Concept"
     value: "Balsa-and-foam flying-wing demonstrator"
 
-demoVideo:
-  src: "Society of Military Engineers/videos/demo.mp4"
-  poster: "Society of Military Engineers/IMAGES/balsa-glider-assembled.jpg"
-  caption: "The balsa-and-foam proof-of-concept demonstrator in a test flight, validating the aerodynamic layout ahead of the composite build."
-
 gallery:
   - src: "Society of Military Engineers/IMAGES/sar-drone-render-cover.png"
     caption: "CAD render from the funded proposal — 7-ft wingspan, carbon-fiber unibody fuselage, V-tail ruddervator empennage on a carbon-rod boom"

@@ -35,11 +35,6 @@ specs:
   - label: "Accuracy"
     value: "±1%, 0–3 kg range"
 
-demoVideo:
-  src: "Digital Scale/videos/demo.mp4"
-  poster: "Digital Scale/images/digitalscale-fig25-final-product.jpg"
-  caption: "Powering on, taring, and weighing a calibration standard, then swapping units live (g/kg/lb/oz)."
-
 gallery:
   - src: "Digital Scale/images/digitalscale-fig7-fea-stress.jpg"
     caption: "SolidWorks static stress simulation on the machined load cell beam, showing EPSX strain distribution across the 0–3 kg range"

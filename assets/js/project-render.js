@@ -104,6 +104,18 @@
       '</div>';
   }
 
+  function renderLiveDemo(demo, mount) {
+    if (!demo || !demo.src) { mount.innerHTML = ''; mount.style.display = 'none'; return; }
+    mount.innerHTML =
+      '<div class="pd-demo-label">' + escapeHtml(demo.label || 'Interactive Demo') + '</div>' +
+      '<div class="pd-iframe-frame" style="' + (demo.height ? ('height:' + escapeHtml(demo.height) + ';') : '') + '">' +
+        '<iframe src="' + escapeHtml(demo.src) + '" loading="lazy" ' +
+        'title="' + escapeHtml(demo.caption || 'Interactive demo') + '" ' +
+        'onerror="this.parentElement.classList.add(\'media-missing\')"></iframe>' +
+      '</div>' +
+      (demo.caption ? '<div class="pd-demo-caption">' + escapeHtml(demo.caption) + '</div>' : '');
+  }
+
   function renderModel3d(model, mount) {
     if (!model || !model.src) { mount.innerHTML = ''; mount.style.display = 'none'; return; }
     mount.innerHTML =
@@ -250,6 +262,7 @@
     var demoMount = document.getElementById('pd-demo');
     var deepDivesMount = document.getElementById('pd-deepdives');
     var configVideosMount = document.getElementById('pd-configvideos');
+    var liveDemoMount = document.getElementById('pd-livedemo');
     var galleryMount = document.getElementById('pd-gallery');
     var modelMount = document.getElementById('pd-model');
     var challengesMount = document.getElementById('pd-challenges');
@@ -271,6 +284,7 @@
     if (demoMount) renderDemoVideo(data.demoVideo, demoMount);
     if (deepDivesMount) renderDeepDives(data.deepDives, deepDivesMount);
     if (configVideosMount) renderConfigVideos(data, configVideosMount);
+    if (liveDemoMount) renderLiveDemo(data.liveDemo, liveDemoMount);
     if (galleryMount) renderGallery(data.gallery, galleryMount);
     if (modelMount) renderModel3d(data.model3d, modelMount);
     if (challengesMount) renderChallenges(data, challengesMount);

@@ -34,10 +34,11 @@ specs:
   - label: "Fabrication"
     value: "KiCad, full SMD, 3 revisions, hand-assembled"
 
-demoVideo:
-  src: "Berta Medical/videos/demo.mp4"
-  poster: "Berta Medical/images/bertamedical-fig7-final-wearable-assembled.jpg"
-  caption: "Live ECG waveform streaming from the worn device into the doctor portal during the Rowan New Venture Competition demo."
+liveDemo:
+  label: "Interactive Demo"
+  src: "Berta Medical/berta-portal-demo.html"
+  height: "820px"
+  caption: "A faithful, self-contained recreation of the real doctor and patient portals (Next.js + Vercel Postgres + NextAuth in production), rebuilt here with simulated data since the live app isn't publicly hosted. Toggle between views, regenerate the heart-rate trace, and tap a medication card for details."
 
 gallery:
   - src: "Berta Medical/images/bertamedical-fig2-wearable-schematic.png"

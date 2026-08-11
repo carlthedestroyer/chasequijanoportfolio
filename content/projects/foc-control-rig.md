@@ -30,11 +30,6 @@ specs:
   - label: "Interface"
     value: "USB host link, ODrive web GUI"
 
-demoVideo:
-  src: "FOC Control Rig/videos/demo.mp4"
-  poster: "FOC Control Rig/Images/foc-motor-arm.jpg"
-  caption: "A commanded position move executed live, arm response synced against the ODrive telemetry traces."
-
 gallery:
   - src: "FOC Control Rig/Images/foc-rig-cad-render.png"
     caption: "Full test bench assembly, CAD render — motor/arm, ODrive S1 mid-stack, STM32 at base"

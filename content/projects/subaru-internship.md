@@ -37,9 +37,9 @@ specs:
     value: "3x Time-of-Flight (front/left/right), DRV8322 driver, Arduino Uno, RC K-Truck chassis"
 
 demoVideo:
-  src: "SubaruInternship/videos/bugbox-demo.mp4"
-  poster: "SubaruInternship/images/bugbox-nodes-labeled.jpg"
-  caption: "The node-control dashboard toggling a live Bug Box on/off, and the autonomous vehicle running at the company-wide golf event."
+  src: "SubaruInternship/videos/bugbox-dashboard-demo.mp4"
+  poster: "SubaruInternship/images/bugbox-dashboard-poster.jpg"
+  caption: "The ESP-NOW node-control dashboard: per-node MOSFET toggling with pending-state feedback, and node discovery bringing an offline unit back onto the mesh."
 
 gallery:
   - src: "SubaruInternship/images/bugbox-circuit-schematic.jpg"

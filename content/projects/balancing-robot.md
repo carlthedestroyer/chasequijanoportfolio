@@ -35,11 +35,6 @@ specs:
   - label: "V2 Compute"
     value: "Mini PC, ROS 2, Intel RealSense depth camera"
 
-demoVideo:
-  src: "Balancing Robot/videos/demo.mp4"
-  poster: "Balancing Robot/images/balancingrobot-carlbot-front.jpg"
-  caption: "Kalman-filtered tilt estimate and PID motor command logged live while Carl Bot is manually tilted and released."
-
 gallery:
   - src: "Balancing Robot/images/balancingrobot-control-system-diagram.png"
     caption: "Closed-loop block diagram — reference, controller (Teensy), plant, and IMU feedback path"

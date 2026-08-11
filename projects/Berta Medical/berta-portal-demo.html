@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BERTA Portal · Preview</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg0:#0b0d12;
+    --bg1:#1a1d26;
+    --card:#ffffff;
+    --ink:#111318;
+    --ink2:#5b6270;
+    --line:#e4e6ec;
+    --cyan:#22d3ee;
+    --cyan-dim:rgba(34,211,238,.12);
+    --green:#16a34a;
+    --green-bg:rgba(22,163,74,.12);
+    --red:#dc2626;
+    --red-bg:rgba(220,38,38,.1);
+    --amber:#d97706;
+    --amber-bg:rgba(217,119,6,.12);
+    --purple:#7c3aed;
+    --font:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;
+  }
+  html,body{background:var(--bg0);color:#fff;font-family:var(--font);min-height:100vh}
+  body{
+    background:
+      radial-gradient(1200px 600px at 15% -10%, rgba(34,211,238,.08), transparent 60%),
+      linear-gradient(180deg, var(--bg1), var(--bg0) 55%);
+    padding-bottom:48px;
+  }
+
+  .preview-banner{
+    text-align:center;padding:8px;background:var(--cyan-dim);
+    border-bottom:1px solid rgba(34,211,238,.25);
+    font-size:.72rem;letter-spacing:.4px;color:var(--cyan);
+  }
+
+  header{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 28px;background:rgba(0,0,0,.25);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    position:sticky;top:0;z-index:20;backdrop-filter:blur(10px);
+  }
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{width:26px;height:26px;filter:brightness(0) invert(1)}
+  .brand h1{font-size:1.3rem;letter-spacing:5px;font-weight:700}
+
+  .view-toggle{
+    display:flex;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+    border-radius:999px;padding:4px;gap:2px;
+  }
+  .view-toggle button{
+    border:none;background:transparent;color:rgba(255,255,255,.55);
+    font-family:inherit;font-size:.78rem;font-weight:600;letter-spacing:.5px;
+    padding:8px 18px;border-radius:999px;cursor:pointer;transition:all .2s ease;
+  }
+  .view-toggle button.active{background:var(--cyan);color:#04252b;box-shadow:0 2px 10px rgba(34,211,238,.35)}
+  .view-toggle button:not(.active):hover{color:#fff}
+
+  .who{display:flex;align-items:center;gap:10px;font-size:.85rem;color:rgba(255,255,255,.75)}
+  .who .avatar{
+    width:34px;height:34px;border-radius:50%;background:var(--cyan-dim);
+    display:flex;align-items:center;justify-content:center;color:var(--cyan);font-weight:700;font-size:.8rem;
+    border:1px solid rgba(34,211,238,.4);
+  }
+
+  main{max-width:1280px;margin:0 auto;padding:28px}
+
+  .view{display:none;animation:fadeIn .35s ease}
+  .view.active{display:block}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  .grid-doctor{display:grid;grid-template-columns:1fr 1.6fr 1fr;gap:20px}
+  .grid-patient{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:20px}
+  @media (max-width:1100px){ .grid-doctor,.grid-patient{grid-template-columns:1fr 1fr} }
+  @media (max-width:680px){ .grid-doctor,.grid-patient{grid-template-columns:1fr} }
+
+  .col{display:flex;flex-direction:column;gap:16px}
+
+  .panel{
+    border:1px solid rgba(255,255,255,.12);border-radius:16px;
+    background:rgba(255,255,255,.03);padding:18px;
+  }
+  .panel-title{font-size:.68rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:10px;font-weight:600}
+
+  .id-block{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;padding:10px 0 16px}
+  .id-block .ring{
+    width:72px;height:72px;border-radius:50%;border:2px solid var(--cyan);
+    display:flex;align-items:center;justify-content:center;color:var(--cyan);font-size:1.6rem;margin-bottom:4px;
+  }
+  .id-block .eyebrow{font-size:.7rem;color:rgba(255,255,255,.5);letter-spacing:.5px}
+  .id-block .name{font-size:1.35rem;font-weight:700}
+  .id-block .role{font-size:.85rem;color:var(--cyan)}
+
+  .divider{height:1px;background:rgba(255,255,255,.1);margin:12px 0}
+
+  .patient-chip{
+    display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);
+    border-radius:12px;padding:10px 12px;
+  }
+  .patient-chip .dot{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:.8rem;color:rgba(255,255,255,.6)}
+  .patient-chip .meta div{font-size:.72rem;color:rgba(255,255,255,.55);line-height:1.5}
+  .patient-chip .meta .name{font-size:.92rem;color:#fff;font-weight:600}
+
+  .appt-list{max-height:260px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding-right:4px}
+  .appt{display:flex;align-items:center;gap:10px;padding:8px;border-radius:10px;transition:background .15s ease;cursor:default}
+  .appt:hover{background:rgba(255,255,255,.05)}
+  .appt .dot{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:.68rem;color:rgba(255,255,255,.6);flex-shrink:0}
+  .appt .name{font-size:.82rem;font-weight:600}
+  .appt .time{font-size:.68rem;color:rgba(255,255,255,.5)}
+  .appt.easter .name{color:var(--cyan)}
+
+  /* White content cards (mirrors the real app's white analytics panels) */
+  .card{background:var(--card);color:var(--ink);border-radius:18px;padding:20px 22px;box-shadow:0 20px 40px rgba(0,0,0,.35)}
+  .card h2{font-size:1.35rem;font-weight:700;margin-bottom:4px}
+  .card .hr{height:2px;background:var(--line);margin:10px 0 16px;border-radius:2px}
+
+  .status-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+  .status-pill{background:#f4f5f8;border-radius:12px;padding:10px 14px;font-size:.82rem;flex:1;min-width:150px}
+  .status-pill b{font-weight:700}
+  .status-pill .ok{color:var(--green);font-weight:700}
+  .status-row .hr-chip{display:flex;align-items:center;gap:10px}
+  .status-row .hr-chip .num{font-size:1.4rem;font-weight:700}
+  .status-row .hr-chip svg{flex-shrink:0}
+
+  .chart-block{background:#fafafb;border:1px solid var(--line);border-radius:12px;padding:12px 14px 8px;margin-bottom:14px}
+  .chart-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
+  .chart-head h3{font-size:.85rem;font-weight:700;color:var(--ink)}
+  .get-data-btn{
+    background:#1d4ed8;color:#fff;border:none;border-radius:8px;padding:6px 14px;
+    font-size:.72rem;font-weight:700;letter-spacing:.3px;cursor:pointer;transition:background .15s ease;
+  }
+  .get-data-btn:hover{background:#1e40af}
+  .get-data-btn:active{transform:scale(.97)}
+  svg.chart{width:100%;height:auto;display:block}
+  .chart-line{fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .axis-label{font-size:9px;fill:#9099a8;font-family:var(--font)}
+  .grid-line{stroke:#eceef2;stroke-width:1}
+
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px}
+  .stat-card{border:1px solid var(--line);border-radius:14px;padding:16px 10px;text-align:center}
+  .stat-card .icon{font-size:1.6rem;margin-bottom:4px}
+  .stat-card .val{font-size:1.5rem;font-weight:700}
+  .stat-card .val span{font-size:.65rem;font-weight:400;color:var(--ink2)}
+  .stat-card .lbl{font-size:.72rem;color:var(--ink2);margin-top:2px}
+  .stat-card .trend{font-size:.68rem;margin-top:6px;display:flex;align-items:center;justify-content:center;gap:4px}
+  .trend.up{color:#16a34a}
+  .trend.down{color:#dc2626}
+
+  .ai-box{border:1px solid var(--line);border-radius:12px;padding:14px}
+  .ai-box h3{font-size:1rem;font-weight:700;margin-bottom:8px}
+  .ai-box p{background:#f4f5f8;border-radius:10px;padding:12px;font-size:.82rem;line-height:1.55;color:#333}
+
+  .doctor-row{display:flex;align-items:center;gap:12px;background:#f4f5f8;border-radius:12px;padding:10px 12px;transition:transform .15s ease}
+  .doctor-row:hover{transform:translateX(2px)}
+  .doctor-row .av{width:44px;height:44px;border-radius:50%;background:#e2e5ec;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#555;flex-shrink:0}
+  .doctor-row .name{font-weight:700;font-size:.95rem}
+  .doctor-row .role{font-size:.72rem;color:#5b5fc7}
+  .doctor-row .avail{font-size:.68rem;color:var(--green);font-weight:700}
+
+  .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:4px}
+  .vit-pill{background:#eef4ff;color:#2563eb;font-weight:700;border-radius:10px;padding:10px;text-align:center;flex:1;min-width:80px}
+
+  .med-card{background:#f4f5f8;border-radius:12px;padding:12px;cursor:pointer;transition:background .15s ease}
+  .med-card:hover{background:#ececf3}
+  .med-card .name{font-weight:700;font-size:.95rem}
+  .med-card .warn{color:#dc2626;font-size:.72rem;margin-top:2px}
+  .med-card .refill{font-size:.7rem;color:#555;margin-top:2px}
+  .med-card .tap{font-size:.68rem;font-weight:700;margin-top:4px;color:#1d4ed8}
+  .med-detail{max-height:0;overflow:hidden;transition:max-height .25s ease}
+  .med-card.open .med-detail{max-height:80px;margin-top:8px}
+  .med-detail p{font-size:.72rem;color:#444;line-height:1.5;border-top:1px dashed #ccc;padding-top:6px}
+
+  .device-card{border:1px solid var(--line);border-radius:14px;padding:14px;position:relative}
+  .device-card .dname{font-size:1.3rem;font-weight:700;margin-bottom:8px}
+  .device-status{display:flex;gap:6px;flex-wrap:wrap}
+  .badge{font-size:.65rem;font-weight:700;border-radius:999px;padding:4px 10px}
+  .badge.green{background:var(--green-bg);color:var(--green)}
+  .badge.amber{background:var(--amber-bg);color:var(--amber)}
+  .badge.red{background:var(--red-bg);color:var(--red)}
+  .pulse{animation:pulse 1.6s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.55}}
+
+  .appt-note{background:#7c3aed;color:#fff;border-radius:10px;padding:8px 10px;font-size:.78rem;font-weight:600;display:inline-block;margin-top:4px}
+  .notes p{font-size:.78rem;color:#333;font-weight:600;margin-top:4px}
+
+  .footer-note{max-width:1280px;margin:24px auto 0;padding:0 28px;font-size:.68rem;color:rgba(255,255,255,.35);text-align:center}
+</style>
+</head>
+<body>
+
+<div class="preview-banner">PREVIEW MODE · Interactive front-end recreation with simulated data — no live patient records</div>
+
+<header>
+  <div class="brand">
+    <img src="images/bertamedical-logo.png" alt="Berta logo">
+    <h1>BERTA</h1>
+  </div>
+  <div class="view-toggle" id="viewToggle">
+    <button data-view="doctor" class="active">Doctor View</button>
+    <button data-view="patient">Patient View</button>
+  </div>
+  <div class="who" id="whoBar">
+    <div class="avatar">JT</div>
+    <span>James Taylor · Cardiologist</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ DOCTOR VIEW ============ -->
+  <section class="view active" id="view-doctor">
+    <div class="grid-doctor">
+
+      <div class="col">
+        <div class="panel">
+          <div class="id-block">
+            <div class="ring">⚕</div>
+            <div class="eyebrow">Logged in as</div>
+            <div class="name">James Taylor</div>
+            <div class="role">Cardiologist</div>
+          </div>
+          <div class="divider"></div>
+          <div class="patient-chip">
+            <div class="dot">JD</div>
+            <div class="meta">
+              <div class="name">John Doe</div>
+              <div>Age 27 · Sex M</div>
+              <div>johndoe@gmail.com</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title">My Appointments</div>
+          <div class="appt-list">
+            <div class="appt"><div class="dot">JD</div><div><div class="name">John Doe</div><div class="time">12:30 – 1:30 PM</div></div></div>
+            <div class="appt"><div class="dot">JH</div><div><div class="name">Jason Hart</div><div class="time">12:30 – 1:30 PM</div></div></div>
+            <div class="appt"><div class="dot">ET</div><div><div class="name">Emily Tan</div><div class="time">12:30 – 1:30 PM</div></div></div>
+            <div class="appt"><div class="dot">CH</div><div><div class="name">Chris Hunt</div><div class="time">12:30 – 1:30 PM</div></div></div>
+            <div class="appt"><div class="dot">ML</div><div><div class="name">Michael Li</div><div class="time">12:30 – 1:30 PM</div></div></div>
+            <div class="appt easter"><div class="dot">CQ</div><div><div class="name">Chase Quijano</div><div class="time">12:30 – 1:30 PM</div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card">
+          <h2>Patient Analytics</h2>
+          <div class="hr"></div>
+
+          <div class="status-row">
+            <div class="status-pill">Sinus Rhythm: <b class="ok">NORMAL</b><br><span style="color:var(--ink2);font-size:.75rem">John's heart rhythm appears normal.</span></div>
+            <div class="status-pill hr-chip">❤️ <div><div style="font-size:.7rem;color:var(--ink2)">Average</div><div class="num">85 <span style="font-size:.65rem;font-weight:400">bpm</span></div></div></div>
+            <div class="status-pill">ECG<br><span style="font-size:.72rem;color:var(--ink2)">Model: SN28081280740998409812</span></div>
+          </div>
+
+          <div class="chart-block">
+            <div class="chart-head"><h3>Heart Rate — 6H</h3><button class="get-data-btn" onclick="regen('hr6')">Get Data</button></div>
+            <svg class="chart" id="hr6" viewBox="0 0 640 140" preserveAspectRatio="none"></svg>
+          </div>
+          <div class="chart-block">
+            <div class="chart-head"><h3>Heart Rate — 24H</h3><button class="get-data-btn" onclick="regen('hr24')">Get Data</button></div>
+            <svg class="chart" id="hr24" viewBox="0 0 640 140" preserveAspectRatio="none"></svg>
+          </div>
+
+          <div class="stat-row">
+            <div class="stat-card"><div class="icon">❤️</div><div class="val">67 <span>bpm</span></div><div class="lbl">avg. resting heart rate</div><div class="trend down">▾ 2 bpm since last week</div></div>
+            <div class="stat-card"><div class="icon">⚡</div><div class="val">360</div><div class="lbl">total active minutes</div><div class="trend up">▴ 138 min since last week</div></div>
+            <div class="stat-card"><div class="icon">🔥</div><div class="val">3,122</div><div class="lbl">avg. daily calorie burn</div><div class="trend up">▴ 284 cal over last week</div></div>
+          </div>
+
+          <div class="ai-box">
+            <h3>AI Analytics</h3>
+            <p>Based on the provided heart rate data and patient medical history, readings appear to be within a normal range (75–90 bpm). There are outliers in the data, but this can be expected in standard heart rate variation. If the patient reports symptoms inconsistent with this data, recommend an in-person follow-up.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card">
+          <h2>Data</h2>
+          <div class="hr"></div>
+          <div class="chart-block">
+            <div class="chart-head"><h3>HRV vs Age — Males</h3></div>
+            <svg class="chart" id="hrvAge" viewBox="0 0 300 220" preserveAspectRatio="none"></svg>
+          </div>
+          <div class="chart-block">
+            <div class="chart-head"><h3>HRV — 20 min trial</h3></div>
+            <svg class="chart" id="hrvTime" viewBox="0 0 300 200" preserveAspectRatio="none"></svg>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ PATIENT VIEW ============ -->
+  <section class="view" id="view-patient">
+    <div class="grid-patient">
+
+      <div class="card">
+        <h2>My Analytics</h2>
+        <div class="hr"></div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div class="stat-card"><div class="icon">❤️</div><div class="val">67 <span>bpm</span></div><div class="lbl">avg. resting heart rate</div><div class="trend down">▾ 2 bpm since last week</div></div>
+          <div class="stat-card"><div class="icon">⚡</div><div class="val">360</div><div class="lbl">total active minutes</div><div class="trend up">▴ 138 min since last week</div></div>
+          <div class="stat-card"><div class="icon">🔥</div><div class="val">3,122</div><div class="lbl">avg. daily calorie burn</div><div class="trend up">▴ 284 cal over last week</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Doctors</h2>
+        <div class="hr"></div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div class="doctor-row"><div class="av">⚕</div><div><div class="name">Dr. Zhang</div><div class="role">Chief Software Officer</div><div class="avail">Available</div></div></div>
+          <div class="doctor-row"><div class="av">⚕</div><div><div class="name">Dr. Quijano</div><div class="role">Chief Executive Officer</div><div class="avail">Available</div></div></div>
+          <div class="doctor-row"><div class="av">⚕</div><div><div class="name">Dr. Sajjad</div><div class="role">Chief Business Officer</div><div class="avail">Available</div></div></div>
+          <div class="doctor-row"><div class="av">⚕</div><div><div class="name">Luke</div><div class="role">AWS / Cloud Administrator</div><div class="avail">Available</div></div></div>
+        </div>
+      </div>
+
+      <div class="col" style="gap:20px">
+        <div class="card">
+          <h2>My Vitamins</h2>
+          <div class="hr"></div>
+          <div class="pill-row">
+            <div class="vit-pill">B12</div>
+            <div class="vit-pill">Omega 3</div>
+            <div class="vit-pill">D12</div>
+            <div class="vit-pill">C2</div>
+          </div>
+        </div>
+        <div class="card">
+          <h2>My Medications</h2>
+          <div class="hr"></div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div class="med-card" onclick="this.classList.toggle('open')">
+              <div class="name">Bivalirudin</div>
+              <div class="warn">Intravenous use only</div>
+              <div class="refill">Refill by: <b>4/26</b></div>
+              <div class="tap">Tap for drug information</div>
+              <div class="med-detail"><p>Direct thrombin inhibitor used during procedures to prevent clot formation. Administered under clinical supervision only.</p></div>
+            </div>
+            <div class="med-card" onclick="this.classList.toggle('open')">
+              <div class="name">Ibuprofen</div>
+              <div class="warn">1 pill every 4–6 hours</div>
+              <div class="refill">Refill by: <b>5/11</b></div>
+              <div class="tap">Tap for drug information</div>
+              <div class="med-detail"><p>NSAID for pain and inflammation. Take with food; avoid exceeding 6 doses in 24 hours.</p></div>
+            </div>
+            <div class="med-card" onclick="this.classList.toggle('open')">
+              <div class="name">Lisinopril</div>
+              <div class="warn">1 pill every 24 hours</div>
+              <div class="refill">Refill by: <b>2/05</b></div>
+              <div class="tap">Tap for drug information</div>
+              <div class="med-detail"><p>ACE inhibitor for blood pressure management. Take at the same time daily; monitor for dizziness.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col" style="gap:20px">
+        <div class="card">
+          <h2>My Devices</h2>
+          <div class="hr"></div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div class="device-card">
+              <div class="dname">ECG</div>
+              <div class="device-status">
+                <span class="badge green pulse">Connected</span>
+                <span class="badge amber pulse">Logging</span>
+              </div>
+            </div>
+            <div class="device-card">
+              <div class="dname">ECG Puck</div>
+              <div class="device-status">
+                <span class="badge red">Disconnected</span>
+                <span class="badge amber" style="opacity:.7">Inactive</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <h2>My Doctor</h2>
+          <div class="hr"></div>
+          <div class="doctor-row" style="margin-bottom:10px"><div class="av">⚕</div><div><div class="name">Dr. Sajjad II</div><div class="role" style="color:var(--ink2)">Chief Cardiologist</div><div class="avail">Available</div></div></div>
+          <div style="margin-bottom:8px"><b>Appointment</b><br><span style="font-size:.78rem;color:var(--ink2)">Scheduled for:</span><br><span class="appt-note">Next available slot · 5:30 PM EST</span></div>
+          <div class="notes">
+            <span style="font-size:.78rem;color:var(--ink2)">Doctor's Notes:</span>
+            <p>— Take cholesterol medication twice a day with water.</p>
+            <p>— Consume less saturated fats and avoid red meat.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<div class="footer-note">This is a static, self-contained recreation of the real BERTA Next.js application (Vercel Postgres + NextAuth), rebuilt for this portfolio preview with simulated data — no live backend connection.</div>
+
+<script>
+// ---- view toggle ----
+document.getElementById('viewToggle').addEventListener('click', (e) => {
+  const btn = e.target.closest('button');
+  if (!btn) return;
+  document.querySelectorAll('.view-toggle button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const view = btn.dataset.view;
+  document.getElementById('view-doctor').classList.toggle('active', view === 'doctor');
+  document.getElementById('view-patient').classList.toggle('active', view === 'patient');
+  const who = document.getElementById('whoBar');
+  who.innerHTML = view === 'doctor'
+    ? '<div class="avatar">JT</div><span>James Taylor · Cardiologist</span>'
+    : '<div class="avatar">JS</div><span>Joe Smith · Patient</span>';
+});
+
+// ---- synthetic heart-rate line chart (mirrors the real app's random-walk generator) ----
+function genHeartRate(points) {
+  const data = [];
+  for (let i = 0; i < points; i++) {
+    let v;
+    if (Math.random() < 0.03) v = Math.random() * 60 + 60; // rare arrhythmia-like blip
+    else v = Math.random() * 15 + 78;
+    data.push(v);
+  }
+  return data;
+}
+function drawLine(svgId, data, opts) {
+  const svg = document.getElementById(svgId);
+  const w = svg.viewBox.baseVal.width, h = svg.viewBox.baseVal.height;
+  const pad = 18;
+  const min = opts.min, max = opts.max;
+  const stepX = (w - pad * 2) / (data.length - 1);
+  const pts = data.map((v, i) => {
+    const x = pad + i * stepX;
+    const y = h - pad - ((v - min) / (max - min)) * (h - pad * 2);
+    return [x, y];
+  });
+  let d = 'M ' + pts.map(p => p.join(',')).join(' L ');
+  let gridlines = '';
+  for (let g = 1; g < 4; g++) {
+    const y = pad + g * (h - pad * 2) / 4;
+    gridlines += `<line class="grid-line" x1="${pad}" y1="${y}" x2="${w-pad}" y2="${y}"/>`;
+  }
+  svg.innerHTML = gridlines + `<path class="chart-line" d="${d}" stroke="${opts.color}"/>`;
+  if (opts.avgLine) {
+    const avg = data.reduce((a,b)=>a+b,0)/data.length;
+    const y = h - pad - ((avg - min) / (max - min)) * (h - pad * 2);
+    svg.innerHTML += `<line x1="${pad}" y1="${y}" x2="${w-pad}" y2="${y}" stroke="${opts.avgColor}" stroke-width="2"/>`;
+  }
+}
+function regen(id) {
+  const n = id === 'hr6' ? 36 : 48;
+  drawLine(id, genHeartRate(n), { min: 55, max: 130, color: '#1d3ea3' });
+}
+
+// ---- HRV vs Age scatter (real dataset from the source component) ----
+const hrvAgeData = [
+  [54,76],[33,57],[20,62],[24,58],[59,36],[61,49],[28,43],[36,41],[46,54],[87,73],
+  [66,99],[37,42],[21,85],[43,58],[52,17],[64,33],[49,26.4],[70,100],[108,63],[43,58]
+];
+function drawScatter() {
+  const svg = document.getElementById('hrvAge');
+  const w = 300, h = 220, pad = 30;
+  const maxAge = 110, maxHrv = 100;
+  let dots = '';
+  hrvAgeData.forEach(([age,hrv]) => {
+    const x = pad + (age/maxAge) * (w - pad*2);
+    const y = h - pad - (hrv/maxHrv) * (h - pad*2);
+    dots += `<circle cx="${x}" cy="${y}" r="3.5" fill="#0d9488" opacity="0.85"/>`;
+  });
+  let axis = `<line class="grid-line" x1="${pad}" y1="${h-pad}" x2="${w-pad}" y2="${h-pad}"/><line class="grid-line" x1="${pad}" y1="${pad}" x2="${pad}" y2="${h-pad}"/>`;
+  axis += `<text class="axis-label" x="${w/2}" y="${h-6}" text-anchor="middle">Age</text>`;
+  axis += `<text class="axis-label" x="10" y="${h/2}" text-anchor="middle" transform="rotate(-90 10 ${h/2})">HRV</text>`;
+  svg.innerHTML = axis + dots;
+}
+
+// ---- HRV over time (real dataset) ----
+const hrvTimeData = [
+  [0,100],[0,0],[0,25],[1,28.1],[4,22.9],[2,25.5],[6,32.3],[8,25.7],[3,44.2],[7,25.8],
+  [5,20.6],[9,25.4],[10,24.1],[12,20.9],[11,25.5],[13,20.3],[15,25.7],[14,34.2],[17,35.8],[16,35.6],[19,25.4],[20,34.1]
+].sort((a,b)=>a[0]-b[0]);
+function drawHrvTime() {
+  const svg = document.getElementById('hrvTime');
+  const w = 300, h = 200, pad = 30;
+  const maxX = 20, maxY = 100;
+  const pts = hrvTimeData.map(([x,y]) => [pad + (x/maxX)*(w-pad*2), h - pad - (y/maxY)*(h-pad*2)]);
+  const d = 'M ' + pts.map(p=>p.join(',')).join(' L ');
+  const avg = hrvTimeData.reduce((s,[,y])=>s+y,0) / hrvTimeData.length;
+  const avgY = h - pad - (avg/maxY)*(h-pad*2);
+  let axis = `<line class="grid-line" x1="${pad}" y1="${h-pad}" x2="${w-pad}" y2="${h-pad}"/><line class="grid-line" x1="${pad}" y1="${pad}" x2="${pad}" y2="${h-pad}"/>`;
+  axis += `<text class="axis-label" x="${w/2}" y="${h-6}" text-anchor="middle">Time (min)</text>`;
+  svg.innerHTML = axis + `<path class="chart-line" d="${d}" stroke="#f59e0b"/>` + `<line x1="${pad}" y1="${avgY}" x2="${w-pad}" y2="${avgY}" stroke="#dc2626" stroke-width="2"/>`;
+}
+
+regen('hr6');
+regen('hr24');
+drawScatter();
+drawHrvTime();
+</script>
+</body>
+</html>

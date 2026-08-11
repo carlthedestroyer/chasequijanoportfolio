@@ -279,6 +279,16 @@ section { padding: 6rem 2.5rem; }
   font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.02em; color: var(--text-muted);
 }
 
+.pd-iframe-frame { position: relative; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: #0b0d12; height: 800px; }
+.pd-iframe-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+.pd-iframe-frame.media-missing { background: var(--bg-elevated); border: 1px dashed var(--border-hover); }
+.pd-iframe-frame.media-missing iframe { display: none; }
+.pd-iframe-frame.media-missing::before {
+  content: '▶  Interactive demo — coming soon';
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.02em; color: var(--text-muted);
+}
+
 .pd-model-frame { position: relative; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--bg-elevated); aspect-ratio: 16 / 9; }
 .pd-model-frame model-viewer { width: 100%; height: 100%; display: block; }
 .pd-model-error {
@@ -413,6 +423,7 @@ footer { padding: 3rem 2.5rem 2.5rem; border-top: 1px solid var(--border); max-w
   section, .pd-section, .resume-section { padding-left: 1.25rem; padding-right: 1.25rem; }
   .pd-header, .pd-split, .pd-demo, .pd-configvideos, .gallery-grid, .archive-hero, .resume-hero { padding-left: 1.25rem; padding-right: 1.25rem; }
   .config-video-grid { grid-template-columns: 1fr; }
+  .pd-iframe-frame { height: 560px; }
   .project-nav, .filter-bar, .archive-grid { padding-left: 1.25rem; padding-right: 1.25rem; }
   .hero { padding: 6rem 1.25rem 3rem; }
   .skills-grid { grid-template-columns: 1fr; }

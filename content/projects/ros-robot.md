@@ -30,11 +30,6 @@ specs:
   - label: "Thermal Management"
     value: "Dedicated 10mm-fan cooling loop"
 
-demoVideo:
-  src: "ROS Robot/videos/demo.mp4"
-  poster: "ROS Robot/images/rosrobot-front.jpg"
-  caption: "RPLiDAR and RealSense streaming live into ROS 2 simultaneously as the platform is carried through a room."
-
 gallery:
   - src: "ROS Robot/images/rosrobot-rplidar-mapping.png"
     caption: "RPLiDAR A1 2D scan — polar plot of a room, published live into ROS 2"
