@@ -28,23 +28,23 @@ specs:
   - label: "Actuation Chain"
     value: "Gait-detection trigger → dedicated control board → pneumatic hip cylinders"
   - label: "Actuation"
-    value: "Pneumatic, Bowden-cable driven — hip abduction and knee extension"
+    value: "Pneumatic, Bowden-cable driven: hip abduction and knee extension"
   - label: "Bench Testing"
-    value: "192 total trials — string potentiometers, pressure transducers, single load cell (HIL matrix)"
+    value: "192 total trials: string potentiometers, pressure transducers, single load cell (HIL matrix)"
   - label: "Current R&D"
-    value: "NMES integration — scoping multi-channel current-regulation electronics"
+    value: "NMES integration: scoping multi-channel current-regulation electronics"
   - label: "Program"
     value: "Rowan University, Jan 2024 – Present"
 
 demoVideo:
   src: "Exoskeleton Research/overleafportfoliopdf/videos/exoskeleton-demo.mp4"
   poster: "Exoskeleton Research/overleafportfoliopdf/images/worn_system.jpg"
-  caption: "A worn biomechanics trial — IMU sensing and pneumatic actuation running together on the overhead safety tether."
+  caption: "A worn biomechanics trial: IMU sensing and pneumatic actuation running together on the overhead safety tether."
 
 deepDives:
   - slug: "imu-sensing-system"
     title: "IMU Sensing System"
-    desc: "Root-caused a real-world I2C failure (18.34ms measured vs. 2.34ms modeled) via clock-stretching analysis, then rebuilt the 8-sensor array on RS-485 — validated at a sustained 400Hz with 0.0% packet loss."
+    desc: "Root-caused a real-world I2C failure (18.34ms measured vs. 2.34ms modeled) via clock-stretching analysis, then rebuilt the 8-sensor array on RS-485, validated at a sustained 400Hz with 0.0% packet loss."
     image: "Exoskeleton Research/overleafportfoliopdf/images/mainboard_nodes.jpg"
   - slug: "test-rig-instrumentation"
     title: "Test Rig, Instrumentation & Human Trials"
@@ -64,9 +64,9 @@ gallery:
 challenges: |
   #### System Architecture: Independent Sensing and Actuation
 
-  The platform splits into two chains that meet on a shared, instrumented bench: an 8-node RS-485/UART sensing array streaming to a Raspberry Pi for real-time gait-detection, and a pneumatic actuation chain — a dedicated control board driving the hip cylinders — that the Pi triggers when it flags a fall-risk motion. I own the sensing, test-bench, force-characterization, and pneumatic-hardware subsystems across this split architecture.
+  The platform splits into two chains that meet on a shared, instrumented bench: an 8-node RS-485/UART sensing array streaming to a Raspberry Pi for real-time gait-detection, and a pneumatic actuation chain (a dedicated control board driving the hip cylinders) that the Pi triggers when it flags a fall-risk motion. I own the sensing, test-bench, force-characterization, and pneumatic-hardware subsystems across this split architecture.
 
-  The two subsystems developed in the most depth on this platform — the sensing rebuild and the test-rig/force-testing campaign — are documented in full as separate write-ups below.
+  The two subsystems developed in the most depth on this platform (the sensing rebuild and the test-rig/force-testing campaign) are documented in full as separate write-ups below.
 
   #### What's Next: NMES Integration
 
@@ -105,8 +105,8 @@ results:
   table:
     headers: ["Subsystem", "Status"]
     rows:
-      - ["Sensing (8-node IMU array)", "Rebuilt on RS-485 — see IMU Sensing System"]
-      - ["Test bench + force testing", "192 total trials across hip abduction and knee extension — see Test Rig & Instrumentation"]
+      - ["Sensing (8-node IMU array)", "Rebuilt on RS-485; see IMU Sensing System"]
+      - ["Test bench + force testing", "192 total trials across hip abduction and knee extension; see Test Rig & Instrumentation"]
       - ["Pneumatic hardware (cylinder mechanism)", "Modular assembly, now on its second generation"]
       - ["Publication", "Currently co-authoring a manuscript from this work with PhD student Vaibhavsingh Varma and PI Dr. Mitja Trkov, with additional publications anticipated"]
       - ["NMES integration", "Early research and scoping phase"]

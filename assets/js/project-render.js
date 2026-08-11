@@ -124,7 +124,9 @@
         '<model-viewer src="' + escapeHtml(model.src) + '"' +
         (model.poster ? ' poster="' + escapeHtml(model.poster) + '"' : '') +
         (model.caption ? ' aria-describedby="pd-model-caption-text"' : '') +
-        ' camera-controls auto-rotate shadow-intensity="1" loading="lazy" reveal="auto"' +
+        ' camera-controls auto-rotate shadow-intensity="0.8" shadow-softness="0.75"' +
+        ' exposure="0.85" tone-mapping="neutral" environment-image="neutral"' +
+        ' loading="lazy" reveal="auto"' +
         ' alt="' + escapeHtml(model.caption || '3D model') + '">' +
           '<div slot="error" class="pd-model-error">3D model — coming soon</div>' +
         '</model-viewer>' +

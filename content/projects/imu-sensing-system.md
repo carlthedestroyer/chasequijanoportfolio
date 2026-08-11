@@ -21,7 +21,7 @@ specs:
   - label: "IMU"
     value: "8x BNO085, placed at thighs, calves, ankles, lower back, and upper back"
   - label: "Host MCU"
-    value: "Teensy 4.1 — 600MHz clock, 8 independent hardware UART channels"
+    value: "Teensy 4.1: 600MHz clock, 8 independent hardware UART channels"
   - label: "Transceivers"
     value: "16x full-duplex RS-485 (TI SN65HVD)"
   - label: "Cabling"
@@ -38,10 +38,10 @@ configVideosTitle: "Demonstrations"
 configVideos:
   - src: "Exoskeleton Research/overleafportfoliopdf/videos/imu-demo.mp4"
     poster: "Exoskeleton Research/overleafportfoliopdf/images/treadmill.jpg"
-    caption: "Treadmill walking trial — the IMU orientation stream compared live against OptiTrack optical ground truth."
+    caption: "Treadmill walking trial: the IMU orientation stream compared live against OptiTrack optical ground truth."
   - src: "Exoskeleton Research/overleafportfoliopdf/videos/imu-freeroam-demo.mp4"
     poster: "Exoskeleton Research/overleafportfoliopdf/images/imu-freeroam-poster.jpg"
-    caption: "Untethered free-roam walking trial — the full 8-node array streaming over RS-485 with no fixed tether or overhead rig."
+    caption: "Untethered free-roam walking trial: the full 8-node array streaming over RS-485 with no fixed tether or overhead rig."
 
 gallery:
   - src: "Exoskeleton Research/overleafportfoliopdf/images/v1_pcb.jpg"
@@ -59,14 +59,14 @@ gallery:
   - src: "Exoskeleton Research/overleafportfoliopdf/images/mainboard_nodes.jpg"
     caption: "Custom Teensy 4.1 mainboard and BNO085 sensor nodes: simultaneous logging at up to 400Hz per node over the full-duplex RS-485 matrix."
   - src: "Exoskeleton Research/overleafportfoliopdf/images/imu-mainboard-schematic.png"
-    caption: "Mainboard schematic — Teensy 4.1 paired with 16x RS-485 transceivers (TI SN65HVD) wired to eight independent hardware UART channels"
+    caption: "Mainboard schematic: Teensy 4.1 paired with 16x RS-485 transceivers (TI SN65HVD) wired to eight independent hardware UART channels"
     tall: true
   - src: "Exoskeleton Research/overleafportfoliopdf/images/imu-mainboard-pcb-layout.png"
-    caption: "Mainboard PCB layout — copper routing for the RS-485 transceiver matrix"
+    caption: "Mainboard PCB layout: copper routing for the RS-485 transceiver matrix"
   - src: "Exoskeleton Research/overleafportfoliopdf/images/enclosures.jpg"
     caption: "Assembled 8-node array: compact, low-profile modular housings keep hardware light, secure, and unobtrusive during human movement testing."
   - src: "Exoskeleton Research/overleafportfoliopdf/images/imu_system_case.jpg"
-    caption: "The full 8-node array packed in a custom foam-cut hard case with the mainboard and cabling — built for transport between the lab and trial sites."
+    caption: "The full 8-node array packed in a custom foam-cut hard case with the mainboard and cabling, built for transport between the lab and trial sites."
   - src: "Exoskeleton Research/overleafportfoliopdf/images/treadmill.jpg"
     caption: "Treadmill walking trial with the IMU system worn, validated simultaneously against an OptiTrack optical motion-capture system, with reflective markers tracked alongside the IMU array."
   - src: "Exoskeleton Research/overleafportfoliopdf/images/optitrack.jpg"
@@ -101,7 +101,7 @@ challenges: |
 
 results:
   narrative: |
-    The rebuilt RS-485/UART sensing chain was validated at a sustained 400Hz across all 8 body-segment sensors with 0.0% packet loss and a mean orientation error of 0.003%, over a 10-minute continuous trial. Measured frame latency dropped from 18.34ms on the original I2C architecture to 0.33ms on the rebuilt UART system at standard 921,600bps — roughly a 55x reduction — with the new architecture also cross-validated against OptiTrack optical ground truth during treadmill walking trials.
+    The rebuilt RS-485/UART sensing chain was validated at a sustained 400Hz across all 8 body-segment sensors with 0.0% packet loss and a mean orientation error of 0.003%, over a 10-minute continuous trial. Measured frame latency dropped from 18.34ms on the original I2C architecture to 0.33ms on the rebuilt UART system at standard 921,600bps (roughly a 55x reduction), with the new architecture also cross-validated against OptiTrack optical ground truth during treadmill walking trials.
   metrics:
     - value: "400 Hz"
       label: "Sustained, All 8 Sensors"

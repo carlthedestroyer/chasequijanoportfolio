@@ -58,7 +58,7 @@ gallery:
     caption: "Mainboard V4 layout: the latest iteration, fully SMD with FPC interconnects, consolidated routing, and placement driven by the module's mechanical and flexion constraints."
     tall: true
   - src: "Soft Robotics Research/soft_robotics_portfolio_section_overleaf/images/schematic_v4.jpg"
-    caption: "Mainboard V4 schematic — fully SMD signal routing with the 11-pin FPC connector to the secondary microcontroller board"
+    caption: "Mainboard V4 schematic: fully SMD signal routing with the 11-pin FPC connector to the secondary microcontroller board"
     tall: true
   - src: "Soft Robotics Research/soft_robotics_portfolio_section_overleaf/images/board_lineage.jpg"
     caption: "The mainboard lineage laid out: early flexible generations with hand-bodged fixes alongside the clean later revisions and their secondary microcontroller boards."
@@ -129,7 +129,7 @@ results:
   table:
     headers: ["Item", "Status"]
     rows:
-      - ["Mainboard generations", "4 (V1 → V4) — through-hole/jumper-fixed to fully SMD + FPC"]
+      - ["Mainboard generations", "4 (V1 → V4): through-hole/jumper-fixed to fully SMD + FPC"]
       - ["Module PCB footprint", "96 × 28mm, two-layer flex"]
       - ["Flexion tolerance", "~1° sustained without trace failure"]
       - ["Continuity / power-integrity check", "Confirmed on assembled boards"]
